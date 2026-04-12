@@ -6,6 +6,7 @@ from typing import Any
 
 from ..config import load_kairos_config, load_paths
 from ..events import Event, EventBus, EVENT_KAIROS
+from .brain import run_brain_predictions
 from ..logging_utils import append_jsonl, get_logger
 from ..models import choose_model
 from ..state import OttoState, now_iso, read_json, write_json
@@ -73,6 +74,8 @@ def run_kairos_once() -> dict[str, Any]:
         "next_actions": next_actions,
     }
     append_jsonl(state.kairos, record)
+
+    pred_result = run_brain_predictions()
     write_json(state.handoff_latest, {
         **(read_json(state.handoff_latest, default={}) or {}),
         "updated_at": now_iso(),

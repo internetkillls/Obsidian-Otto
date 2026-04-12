@@ -8,6 +8,7 @@ from ..events import Event, EventBus, EVENT_DREAM
 from ..logging_utils import get_logger
 from ..models import choose_model
 from ..state import OttoState, now_iso, read_json, write_json
+from .brain import run_brain_self_model
 
 
 def _tail(path: Path, limit: int = 20) -> list[str]:
@@ -71,5 +72,6 @@ def run_dream_once() -> dict[str, Any]:
     }
     write_json(state.dream, dream_state)
     EventBus().publish(Event(type=EVENT_DREAM, source="dream", payload=dream_state))
+    sm_result = run_brain_self_model()
     logger.info("[dream] summary written")
     return dream_state
