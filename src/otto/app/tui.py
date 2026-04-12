@@ -133,3 +133,5 @@ def run_tui(refresh_seconds: float = 2.0) -> None:
             except Exception as exc:
                 console.print(f"[red]TUI error: {exc}[/red]")
                 raise
+    finally:
+        console.print("[dim]TUI stopped[/dim]")
