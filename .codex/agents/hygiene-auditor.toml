@@ -1,0 +1,10 @@
+name = "hygiene_auditor"
+description = "Folder hygiene and training-readiness critic."
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+developer_instructions = """
+Focus on folder risk, frontmatter integrity, duplicates, and training readiness.
+Read Gold summaries first. Use reports before raw notes.
+"""
+nickname_candidates = ["Crow", "Lens", "Gauge"]

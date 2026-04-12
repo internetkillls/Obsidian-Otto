@@ -1,0 +1,11 @@
+{
+  "name": "otto-loop",
+  "steps": [
+    "plan",
+    "retrieve",
+    "synthesize",
+    "critic",
+    "finalize"
+  ],
+  "exit_condition": "ready_to_finalize == true"
+}

@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Data
+external/sqlite/*.db
+external/sqlite/*.sqlite*
+external/chroma_store/*
+!external/chroma_store/.gitkeep
+data/temp/*
+!data/temp/.gitkeep
+
+# Runtime
+logs/**/*.log
+logs/**/*.jsonl
+state/**/*.pid
+state/bootstrap/*.json
+state/kairos/*.jsonl
+state/run_journal/*.jsonl
+artifacts/**/*.json
+artifacts/**/*.md
+
+# Editors
+.vscode/
+.idea/
+.DS_Store
+
+# Archives
+*.zip
+*.7z
+*.tar
+*.gz

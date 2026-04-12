@@ -1,0 +1,4 @@
+Set by initial.bat via .env:
+- OTTO_VAULT_PATH=<absolute path>
+
+This file exists to reinforce that the vault lives outside source code.

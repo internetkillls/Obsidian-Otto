@@ -1,0 +1,5 @@
+{
+  "name": "otto-dag",
+  "mode": "parallel",
+  "nodes": ["research_a", "research_b", "merge", "critic", "finalize"]
+}

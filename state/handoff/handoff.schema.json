@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "goal": {"type": "string"},
+    "status": {"type": "string"},
+    "updated_at": {"type": "string"},
+    "artifacts": {"type": "array"},
+    "next_actions": {"type": "array"}
+  },
+  "required": ["goal", "status", "updated_at"]
+}

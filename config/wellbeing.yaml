@@ -1,0 +1,18 @@
+wellbeing:
+  enabled: false
+  local_only: true
+  use_raw_text_sentiment: false
+  journal_folders:
+    - Journal
+    - Daily Notes
+  frontmatter_keys:
+    mood: mood
+    energy: energy
+    stress: stress
+    strength: strength
+    weakness: weakness
+    opportunity: opportunity
+    threat: threat
+  note: >
+    Wellbeing and SWOT parsing is opt-in. This repo prefers explicit frontmatter signals
+    over free-text emotional inference.

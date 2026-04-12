@@ -1,0 +1,65 @@
+aliases:
+  gpt-5.1-mini-tier: gpt-5.1-codex-mini
+  gpt-5.3-high-tier: gpt-5.3-codex
+  stable-default: gpt-5.4
+  stable-mini: gpt-5.4-mini
+  stable-nano: gpt-5.4-nano
+
+tasks:
+  first_query_router:
+    model: gpt-5.4-nano
+    effort: none
+    reason: Cheapest high-throughput classifier/router.
+  first_query_handler:
+    model: gpt-5.4-mini
+    effort: low
+    reason: Strong low-cost default for responsive retrieval and agent flows.
+  memory_fast:
+    model: gpt-5.4-mini
+    effort: low
+    reason: Best stable low-cost path for initial note/reminder retrieval.
+  memory_deep:
+    model: gpt-5.4
+    effort: medium
+    reason: Stable default for multi-step synthesis across SQL, vector, and handoff state.
+  code_light:
+    model: gpt-5.4-mini
+    effort: low
+    reason: Cheap stable coding helper for light changes and wrappers.
+  code_heavy_deep:
+    model: gpt-5.4
+    effort: medium
+    reason: Stable default for deeper implementation and repo-wide coding work.
+  code_heavy_fallback:
+    model: gpt-5.3-codex
+    effort: high
+    reason: Optional legacy dedicated coding specialist if you explicitly want Codex-tuned behavior.
+  critic_verify:
+    model: gpt-5.4-mini
+    effort: medium
+    reason: Cheap second-pass verification and issue spotting.
+  kairos_daily:
+    model: gpt-5.4
+    effort: medium
+    reason: Daily strategy needs broad synthesis, not just code editing.
+  dream_consolidation:
+    model: gpt-5.4
+    effort: medium
+    reason: Consolidation benefits from stronger summarization and contradiction handling.
+  creative_persona:
+    model: gpt-5.4
+    effort: medium
+    reason: Good balance for reflective, planning, and creative support.
+  rare_xdeep:
+    model: gpt-5.4-pro
+    effort: high
+    reason: Reserve for rare, high-stakes long-form planning only.
+
+training:
+  export_only_from_gold: true
+  ft_base_selection_policy: choose-currently-supported-small-sft-model-at-job-time
+  note: >
+    Fine-tuning is for secondary specialized models only. Codex/GPT-5 coding models remain
+    the main inference controllers and are not the fine-tuning target. Do not hardcode
+    fine-tuning model snapshots in this repo; choose the current supported SFT base when
+    creating the job.

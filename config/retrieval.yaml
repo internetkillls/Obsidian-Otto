@@ -1,0 +1,21 @@
+retrieval:
+  preferred_order:
+    - gold_summary
+    - silver_sql
+    - chroma_vector
+    - bronze_raw
+  fast:
+    max_note_hits: 8
+    max_folder_hits: 4
+    max_state_hits: 8
+    use_chroma_first: false
+  deep:
+    max_note_hits: 20
+    max_folder_hits: 8
+    allow_scoped_refresh: true
+    allow_full_refresh: false
+
+vector:
+  chunk_size: 900
+  chunk_overlap: 120
+  collection_name: otto_gold

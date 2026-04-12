@@ -1,0 +1,11 @@
+{
+  "goal": "Maintain a stable Obsidian-Otto retrieval core",
+  "status": "ready",
+  "updated_at": "2026-04-01T00:00:00+07:00",
+  "artifacts": [
+    "artifacts/summaries/gold_summary.json"
+  ],
+  "next_actions": [
+    "repair metadata in the top risky folder"
+  ]
+}
