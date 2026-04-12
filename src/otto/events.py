@@ -1,0 +1,50 @@
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from typing import Any, Callable
+from uuid import uuid4
+
+from .config import load_paths
+from .logging_utils import append_jsonl
+from .state import now_iso
+
+
+@dataclass
+class Event:
+    type: str
+    source: str
+    payload: dict[str, Any]
+    id: str = field(default_factory=lambda: uuid4().hex)
+    ts: str = field(default_factory=now_iso)
+
+
+class EventBus:
+    def __init__(self, paths: Any | None = None) -> None:
+        self._handlers: dict[str, list[Callable[[Event], None]]] = {}
+        self._paths = paths
+
+    def subscribe(self, event_type: str, handler: Callable[[Event], None]) -> None:
+        self._handlers.setdefault(event_type, []).append(handler)
+
+    def publish(self, event: Event) -> None:
+        if self._paths is None:
+            self._paths = load_paths()
+        append_jsonl(self._paths.state_root / "run_journal" / "events.jsonl", event.__dict__)
+        append_jsonl(self._paths.logs_root / "app" / "events.jsonl", event.__dict__)
+        for handler in self._handlers.get(event.type, []):
+            handler(event)
+
+
+EVENT_PIPELINE_BRONZE = "pipeline.bronze.built"
+EVENT_PIPELINE_SILVER = "pipeline.silver.built"
+EVENT_PIPELINE_GOLD = "pipeline.gold.built"
+EVENT_CACHE_RAW_READY = "cache.raw.ready"
+EVENT_CACHE_SQL_READY = "cache.sql.ready"
+EVENT_CACHE_VECTOR_READY = "cache.vector.ready"
+EVENT_DATASET_GOLD_READY = "dataset.gold.ready"
+EVENT_TRAINING_REVIEW_REQUIRED = "training.review.required"
+EVENT_RETRIEVAL_FAST = "retrieval.fast"
+EVENT_RETRIEVAL_DEEP = "retrieval.deep"
+EVENT_RETRIEVAL_MISS = "retrieval.miss"
+EVENT_KAIROS = "kairos.heartbeat"
+EVENT_DREAM = "dream.run"
