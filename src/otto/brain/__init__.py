@@ -3,6 +3,7 @@ from __future__ import annotations
 from .memory_layer import MemoryTier, WriteBoundary, TierEntry, MemoryLayer
 from .self_model import OttoSelfModel, SirAgathonProfile
 from .predictive_scaffold import PredictiveScaffold, Prediction
+from .ritual_engine import RitualEngine, RitualPhase, RitualResult
 
 __all__ = [
     "MemoryTier",
@@ -13,4 +14,7 @@ __all__ = [
     "SirAgathonProfile",
     "PredictiveScaffold",
     "Prediction",
+    "RitualEngine",
+    "RitualPhase",
+    "RitualResult",
 ]
