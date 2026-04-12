@@ -1,0 +1,18 @@
+brain:
+  memory_tiers:
+    facts_path: "Otto-Realm/Memory-Tiers/01-Facts"
+    interpretations_path: "Otto-Realm/Memory-Tiers/02-Interpretations"
+    speculations_path: "Otto-Realm/Memory-Tiers/03-Speculations"
+  brain_notes_path: "Otto-Realm/Brain"
+  predictions_path: "Otto-Realm/Predictions"
+  rituals_path: "Otto-Realm/Rituals"
+  max_facts: 100
+  max_interpretations: 50
+  max_speculations: 30
+  write_boundary:
+    allow_new_notes: true
+    allow_link_to_action: true
+    allow_link_to_project: true
+    allow_future_ref_links: true
+    disallow_rewrite_vault_past: true
+    disallow_rewrite_vault_without_concent: true
