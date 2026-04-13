@@ -8,7 +8,9 @@
 
 **Architecture:** Two-phase deployment: (1) extend existing docker-compose with a runnable read-only Obsidian MCP container, (2) keep CLI MCP deferred until backend selection, then resume migration. OpenClaw connects to MCP containers via stdio. Otto retains control-plane responsibilities.
 
-**Tech Stack:** Docker, docker-compose, Node.js MCP SDK (@modelcontextprotocol/server-obsidian), Python MCP SDK (mcp[cli]), .env for container secrets.
+**Active MCP Services:**
+- `obsidian-mcp` — read-only, file-based vault access (read, search, list). Active.
+- `obsidian-cli-mcp` — **deferred**. Requires real external CLI-capable backend before resuming.
 
 ---
 
@@ -17,11 +19,12 @@
 | # | Task | File Changes |
 |---|---|---|
 | 1 | Update docs/migration-plan.md — MCP-native phases | `docs/migration-plan.md` |
-| 2 | Setup Docker + docker-compose — MCP containers | `docker-compose.yml`, `packages/obsidian-mcp/`, `packages/obsidian-cli-mcp/` |
-| 3 | Deploy Obsidian MCP | `launch-mcp.bat` |
-| 4 | Deploy Obsidian CLI MCP | verification + docker-compose |
+| 2 | Setup Docker + docker-compose — obsidian-mcp | `docker-compose.yml`, `packages/obsidian-mcp/` |
+| 3 | Deploy obsidian-mcp (foreground stdio) | `launch-mcp.bat` |
+| 4 | Verify obsidian-mcp stdio connection | verification — Docker Desktop required |
 | 5 | Flag Otto temporary bridges | `config/migration-bridges.yaml` (new), `docs/migration-plan.md` |
 | 6 | Audit routing complexity | `docs/routing-audit.md` (new), `config/routing.yaml` comments |
+| 7 | obsidian-cli-mcp deferred note | `docs/cli-mcp-deferred.md` (new) |
 
 ---
 
@@ -29,27 +32,22 @@
 
 ```
 C:\Users\joshu\Obsidian-Otto\
-├── docker-compose.yml                          # Modify: add obsidian-mcp + obsidian-cli-mcp services
+├── docker-compose.yml                          # Modify: obsidian-mcp service (active), obsidian-cli-mcp commented/deferred
 ├── packages/
-│   ├── obsidian-mcp/                          # Create: Obsidian MCP server (Node.js)
-│   │   ├── Dockerfile
-│   │   ├── package.json
-│   │   ├── tsconfig.json
-│   │   └── src/
-│   │       └── index.ts                       # Wraps @modelcontextprotocol/server-obsidian
-│   └── obsidian-cli-mcp/                      # Create: Obsidian CLI MCP server (Python)
+│   └── obsidian-mcp/                          # Create: Obsidian MCP server (Node.js), read-only
 │       ├── Dockerfile
-│       ├── pyproject.toml
+│       ├── package.json
+│       ├── tsconfig.json
 │       └── src/
-│           ├── __init__.py
-│           └── server.py                      # Wraps vault CLI as MCP tools
-├── launch-mcp.bat                             # Modify: replace placeholder with real MCP startup
+│           └── index.ts                       # File-based vault ops (read, search, list). No write until rw mount is decided.
+├── launch-mcp.bat                             # Modify: runs obsidian-mcp only (obsidian-cli-mcp deferred)
 ├── config/
-│   ├── docker.yaml                            # Modify: enabled: true, new MCP services
+│   ├── docker.yaml                            # Modify: obsidian-mcp active, cli deferred
 │   └── migration-bridges.yaml                 # Create: temporary bridge inventory
 └── docs/
     ├── migration-plan.md                      # Modify: MCP-native migration phases
-    └── routing-audit.md                       # Create: routing complexity audit
+    ├── routing-audit.md                       # Create: routing complexity audit
+    └── cli-mcp-deferred.md                    # Create: obsidian-cli-mcp deferred note
 ```
 
 ---
