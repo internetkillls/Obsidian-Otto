@@ -14,7 +14,7 @@ bridges:
     location: "NOT FOUND — no subprocess vault CLI calls in Otto source"
     description: Planned subprocess call to vault CLI commands — not yet implemented
     status: DEPRECATED
-    migrate_to: "obsidian-scripts-mcp (packages/obsidian-scripts-mcp) — wraps Otto Python scripts, not a standalone obsidian binary"
+    migrate_to: "future obsidian-cli-mcp backed by a real external CLI-capable backend"
     owner: mcp-fabric
     notes: "Current vault access uses Python path.rglob() in obsidian_scan.py, not CLI subprocess"
 

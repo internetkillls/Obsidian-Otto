@@ -2,8 +2,8 @@
 setlocal
 
 REM Otto MCP Fabric Launcher
-REM - obsidian-mcp:       foreground stdio (OpenClaw connects via pipe)
-REM - obsidian-scripts-mcp: background detached (runs Otto script tools)
+REM - obsidian-mcp: foreground stdio (OpenClaw connects via pipe)
+REM - obsidian-cli-mcp: deferred until a real external CLI backend exists
 
 REM Check Docker is running
 docker info >nul 2>&1
@@ -31,17 +31,9 @@ if not defined OBSIDIAN_VAULT_PATH (
 
 REM Build containers
 echo [OTTO] Building MCP containers...
-docker compose -f docker-compose.yml build obsidian-mcp obsidian-scripts-mcp
+docker compose -f docker-compose.yml build obsidian-mcp
 if errorlevel 1 (
     echo [ERROR] MCP container build failed.
-    exit /b 1
-)
-
-REM Start obsidian-scripts-mcp in background
-echo [OTTO] Starting obsidian-scripts-mcp (background)...
-docker compose -f docker-compose.yml up -d obsidian-scripts-mcp
-if errorlevel 1 (
-    echo [ERROR] obsidian-scripts-mcp start failed.
     exit /b 1
 )
 

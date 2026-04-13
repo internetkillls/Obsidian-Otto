@@ -37,10 +37,8 @@ services:
       - ./:/app
     profiles: ["worker"]
 
-  # MCP servers run in foreground stdio mode (stdin_open + tty, NOT detached).
-  # OpenClaw connects via launch-mcp.bat (recommended) or docker compose run --rm.
-  # Vault path: OBSIDIAN_VAULT_PATH is the IN-CONTAINER mount (/vault).
-  # OBSIDIAN_VAULT_HOST is the host path; compose mounts host->container.
+  # MCP servers run in foreground stdio mode.
+  # OpenClaw connects via launch-mcp.bat or docker compose run --rm obsidian-mcp.
   obsidian-mcp:
     build:
       context: ./packages/obsidian-mcp
@@ -53,22 +51,5 @@ services:
     stdin_open: true
     tty: true
     profiles: ["mcp"]
-    # NOTE: obsidian_write_note requires read-write mount.
-    # Use profile "mcp-rw" or override volumes manually for write access.
 
-  obsidian-scripts-mcp:
-    build:
-      context: ./packages/obsidian-scripts-mcp
-      dockerfile: Dockerfile
-    container_name: ob-otto-obsidian-scripts-mcp
-    working_dir: /otto
-    environment:
-      OTTO_REPO_PATH: /otto
-      OTTO_SCRIPTS_PATH: /otto/scripts/manage
-      PYTHONPATH: /otto/src
-    # Mount Otto repo (.) to /otto so scripts/manage/*.py are accessible
-    volumes:
-      - .:/otto:ro
-    stdin_open: true
-    tty: true
-    profiles: ["mcp"]
+  # Obsidian CLI MCP remains deferred until a real external CLI-capable backend exists.

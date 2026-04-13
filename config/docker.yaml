@@ -7,13 +7,12 @@ docker:
     - chromadb
     - otto-indexer
     - obsidian-mcp
-    - obsidian-scripts-mcp
   mcp:
     obsidian:
       vault_path_env: OBSIDIAN_VAULT_PATH
-    scripts:
-      repo_path_env: OTTO_REPO_PATH
-      scripts_path_env: OTTO_SCRIPTS_PATH
+    cli:
+      status: deferred
+      note: real external CLI backend required
     profiles:
       - mcp
     connection: stdio

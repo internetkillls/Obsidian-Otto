@@ -1,7 +1,7 @@
 # Migration Plan: Otto → MCP-Native Architecture
 
 ## Status
-**MCP Fabric deployment planned** — Obsidian MCP + Obsidian CLI MCP containers defined, build/deploy pending Docker Desktop. See Phase 1a checklist.
+**MCP Fabric deployment planned** — Obsidian read-only MCP is scaffolded; Obsidian CLI MCP remains deferred until a real external CLI-capable backend is selected.
 
 ## Phase 0: Pre-MCP (complete)
 
@@ -16,17 +16,17 @@
 ## Phase 1: MCP Fabric Deployment (current)
 
 ### 1a. Docker Infrastructure
-- [ ] docker-compose.yml extended — obsidian-mcp + obsidian-cli-mcp services
+- [ ] docker-compose.yml extended — obsidian-mcp service added
 - [ ] packages/obsidian-mcp/ built
-- [ ] packages/obsidian-cli-mcp/ built
+- [ ] real obsidian-cli-mcp backend selected before container work resumes
 - [ ] config/docker.yaml updated — `enabled: true`
 - [ ] .env added MCP env vars (OBSIDIAN_VAULT_PATH etc.)
 - [ ] launch-mcp.bat replaced placeholder with real startup logic
 
 ### 1b. MCP Server Verification
 - [ ] Obsidian MCP container starts and responds to stdio ping
-- [ ] Obsidian CLI MCP container starts and responds to stdio ping
-- [ ] OpenClaw connects to both MCP servers successfully
+- [ ] OpenClaw connects to Obsidian MCP successfully
+- [ ] Obsidian CLI MCP verification resumes after backend selection
 
 ### 1c. Migration Bridge Flagging
 - [ ] config/migration-bridges.yaml created — lists all temporary bridges
@@ -41,9 +41,9 @@
 - [ ] Otto pipeline Bronze scan still uses internal path (non-user-facing, unchanged)
 
 ### 2b. Vault CLI Migration
+- [ ] Select a real external CLI-capable backend for Obsidian CLI MCP
 - [ ] OpenClaw configured for Obsidian CLI MCP routing — vault commands → Obsidian CLI MCP
-- [ ] Otto subprocess vault command calls → replaced with MCP calls
-- [ ] Remove subprocess vault calls from Otto
+- [ ] Otto subprocess vault command calls → replaced with MCP calls when they exist
 
 ## Phase 3: Cleanup and Audit
 

@@ -1,10 +1,12 @@
 # MCP-Native Deployment Plan
 
 > **For agentic workers:** Execute inline in this session, task-by-task with checkpoints. No subagents unless explicitly requested. Steps use checkbox (`- [ ]`) syntax for tracking.
+>
+> **Superseding note:** `obsidian-cli-mcp` steps below are deferred. Do not revive `obsidian-scripts-mcp`. Current active target is a read-only `obsidian-mcp` service only, until a real external CLI-capable backend is selected.
 
-**Goal:** Deploy MCP Fabric (Obsidian MCP + Obsidian Scripts MCP containers), update migration docs, flag Otto temporary bridges, audit routing complexity.
+**Goal:** Deploy read-only Obsidian MCP first, keep Obsidian CLI MCP deferred until a real external CLI-capable backend is selected, update migration docs, flag Otto temporary bridges, audit routing complexity.
 
-**Architecture:** Two-phase deployment: (1) extend existing docker-compose with MCP containers + packages/ directory for MCP servers, (2) runtime flagging of temporary bridges + routing audit. OpenClaw connects to MCP containers via stdio. Otto retains control-plane responsibilities.
+**Architecture:** Two-phase deployment: (1) extend existing docker-compose with a runnable read-only Obsidian MCP container, (2) keep CLI MCP deferred until backend selection, then resume migration. OpenClaw connects to MCP containers via stdio. Otto retains control-plane responsibilities.
 
 **Tech Stack:** Docker, docker-compose, Node.js MCP SDK (@modelcontextprotocol/server-obsidian), Python MCP SDK (mcp[cli]), .env for container secrets.
 

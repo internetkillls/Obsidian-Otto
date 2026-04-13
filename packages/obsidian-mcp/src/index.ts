@@ -2,7 +2,7 @@
 /**
  * Otto Obsidian MCP Server.
  *
- * Implements Obsidian file operations (read, write, search) as MCP tools.
+ * Implements read-only Obsidian file operations as MCP tools.
  * Connects via stdio to OpenClaw.
  *
  * Env:
@@ -52,24 +52,6 @@ SERVER.setRequestHandler(ListToolsRequestSchema, async () => ({
       },
     },
     {
-      name: "obsidian_write_note",
-      description: "Write or overwrite an Obsidian note. Creates parent directories if needed.",
-      inputSchema: {
-        type: "object",
-        properties: {
-          relativePath: {
-            type: "string",
-            description: "Relative path from the vault root",
-          },
-          content: {
-            type: "string",
-            description: "Full note content to write",
-          },
-        },
-        required: ["relativePath", "content"],
-      },
-    },
-    {
       name: "obsidian_search_notes",
       description: "Full-text search across all Obsidian notes in the vault",
       inputSchema: {
@@ -116,18 +98,6 @@ function readNote(relativePath: string): string {
     throw new Error(`Note not found: ${relativePath}`);
   }
   return fs.readFileSync(fullPath, "utf-8");
-}
-
-function writeNote(relativePath: string, content: string): void {
-  const fullPath = path.join(VAULT_PATH, relativePath);
-  if (!fullPath.startsWith(VAULT_PATH)) {
-    throw new Error("Path traversal denied");
-  }
-  const dir = path.dirname(fullPath);
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true });
-  }
-  fs.writeFileSync(fullPath, content, "utf-8");
 }
 
 function searchNotes(query: string, limit: number = 10): string {
@@ -189,9 +159,6 @@ SERVER.setRequestHandler(CallToolRequestSchema, async (request) => {
 
     if (name === "obsidian_read_note") {
       result = readNote(args.relativePath as string);
-    } else if (name === "obsidian_write_note") {
-      writeNote(args.relativePath as string, args.content as string);
-      result = `Note written: ${args.relativePath}`;
     } else if (name === "obsidian_search_notes") {
       result = searchNotes(args.query as string, (args.limit as number) ?? 10);
     } else if (name === "obsidian_list_notes") {

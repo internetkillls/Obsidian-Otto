@@ -50,7 +50,7 @@ Determine which branches can be simplified to thin policy/guardrail after MCP is
 
 | Branch | Current Behavior | Post-MCP Behavior | Keep? |
 |---|---|---|---|
-| obsidian-cli intent execution | Codex/Claude CLI executes obsidian-cli-expert-system skill → vault CLI subprocess | MCP tool contract via obsidian-cli-mcp | **Update** — change execution path, keep intent/triggers |
+| obsidian-cli intent execution | Codex/Claude CLI executes obsidian-cli-expert-system skill → vault CLI subprocess | MCP tool contract via obsidian-cli-mcp after real backend selection | **Deferred** — keep intent, postpone backend migration |
 | vault-read intent (none currently) | Currently reads via Bronze scan → Silver SQLite | MCP tool contract for direct vault reads | **ADD** — new backend entry in routing.yaml when user-facing vault read migrates |
 | vault-write intent (none currently) | No direct vault write path | MCP tool contract for direct vault writes | **ADD** — new backend entry when Phase 2a migrates |
 | tool_contract template (kernelization) | Currently Codex/Claude CLI tool calls | MCP tool calls via obsidian-mcp | **Update** — tool commitment template for MCP |
@@ -75,7 +75,8 @@ These survive MCP migration as policy/guardrail, not execution:
 
 ## Action Items
 
-- [ ] Post-MCP Phase 1b: Add `obsidian-mcp` and `obsidian-cli-mcp` as new backends in routing.yaml
+- [ ] Post-MCP Phase 1b: Add `obsidian-mcp` backend in routing.yaml
+- [ ] Post-MCP CLI decision: add `obsidian-cli-mcp` backend only after real backend selection
 - [ ] Post-MCP Phase 1b: Update `obsidian-cli` intent — change skill execution from CLI to MCP tool contract
 - [ ] Post-MCP Phase 2a: Add vault-read/vault-write intents with MCP backend routing
 - [ ] Post-MCP Phase 2b: Remove vault-cli subprocess logic from obsidian-cli-expert-system skill
@@ -86,7 +87,7 @@ These survive MCP migration as policy/guardrail, not execution:
 
 | File | Change |
 |---|---|
-| `config/routing.yaml` | ADD: mcp-obsidian and mcp-obsidian-cli backends. UPDATE: obsidian-cli intent execution |
+| `config/routing.yaml` | ADD: mcp-obsidian backend now. ADD: mcp-obsidian-cli later after backend selection |
 | `config/personas.yaml` | Keep unchanged — persona inference is control plane |
 | `config/kernelization.yaml` | Keep unchanged — kernelization is policy layer |
 | `config/migration-bridges.yaml` | Mark BRIDGE-004, 005, 006, 007 as DONE as phases complete |
