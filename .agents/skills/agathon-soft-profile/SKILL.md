@@ -1,6 +1,35 @@
 ---
 name: agathon-soft-profile
-description: Build and apply a grounded soft profile for Sir Agathon from vetted notes, especially around fatigue, confusion, focus collapse, recovery patterns, and work style. Use when: (1) the user asks Otto to understand them more deeply, (2) Otto needs to tailor tone, pacing, or task framing to Sir Agathon, (3) dreaming, heartbeat, or reflective summaries should track recurring friction and recovery signals, (4) updating Otto's working assumptions about Sir Agathon from the main Josh Obsidian vault.
+description: >-
+  Build and apply a grounded soft profile for Sir Agathon from vetted notes, especially around fatigue, confusion, focus collapse, recovery patterns, and work style. Use when: (1) the user asks Otto to understand them more deeply, (2) Otto needs to tailor tone, pacing, or task framing to Sir Agathon, (3) dreaming, heartbeat, or reflective summaries should track recurring friction and recovery signals, (4) updating Otto's working assumptions about Sir Agathon from the main Josh Obsidian vault.
+triggers:
+  keywords:
+    - "understand me"
+    - "soft profile"
+    - "how i work"
+    - "friction"
+    - "recovery"
+    - "fatigue"
+    - "monetizable"
+    - "wellbeing"
+    - "SWOT"
+  suppress_if: [memory-recall-fast, hygiene-check, operational-handoff]
+priority: 8
+kernel_required: true
+kernel_config:
+  scope_check: true
+  amnesiac_guard: true
+  tool_commitment: false
+  output_schema: profile_delta
+model_hint: standard
+escalate_to: null
+memory_anchor:
+  - "C:\\Users\\joshu\\Josh Obsidian\\Otto-Realm\\Profile Snapshot.md"
+  - "artifacts/summaries/gold_summary.json"
+constraints:
+  - no-false-confidence
+  - cite-specifics
+checkpoint_required: true
 ---
 
 # Agathon Soft Profile

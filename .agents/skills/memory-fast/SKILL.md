@@ -1,6 +1,29 @@
 ---
 name: memory-fast
 description: First-pass retrieval for notes, reminders, SWOT signals, and recent state. Use this before any deep scan or reindex.
+triggers:
+  keywords:
+    - "remember"
+    - "find"
+    - "where is"
+    - "did i note"
+    - "show me"
+    - "recall"
+    - "remind"
+  suppress_if: [deep-profile, dream-consolidate, thought-partnership]
+priority: 6
+kernel_required: false
+kernel_config:
+  scope_check: false
+  amnesiac_guard: true
+  tool_commitment: false
+  output_schema: compact
+model_hint: fast
+escalate_to: memory-deep
+memory_anchor:
+  - "state/handoff/latest.json"
+constraints: []
+checkpoint_required: true
 ---
 
 # Memory Fast
