@@ -67,12 +67,7 @@
         "lightContext": true,
         "isolatedSession": true,
         "timeoutSeconds": 120,
-        "includeSystemPromptSection": false,
-        "use_routing_inference": true,
-        "skill_target": "otto-realm-maintainer",
-        "retrieval_depth": "deep",
-        "apply_kernelization": true,
-        "telemetry_config": "config/heartbeat_telemetry.yaml"
+        "includeSystemPromptSection": false
       },
       "compaction": {
         "mode": "safeguard"
@@ -91,6 +86,22 @@
   },
   "models": {
     "providers": {
+      "huggingface": {
+        "api": "openai-completions",
+        "apiKey": "${HF_TOKEN}",
+        "baseUrl": "https://api-inference.huggingface.co/framework/openai",
+        "models": [
+          {
+            "id": "Qwen/Qwen2.5-72B-Instruct",
+            "name": "Qwen 72B",
+            "contextWindow": 32768,
+            "maxTokens": 4096,
+            "input": ["text"],
+            "cost": { "cacheRead": 0, "cacheWrite": 0, "input": 0, "output": 0 },
+            "reasoning": true
+          }
+        ]
+      },
       "ollama": {
         "api": "ollama",
         "apiKey": "ollama-local",
@@ -156,19 +167,6 @@
             "enabled": true
           }
         }
-      },
-      "skill-routing": {
-        "enabled": true,
-        "config": "config/routing.yaml",
-        "persona_config": "config/personas.yaml",
-        "kernelization_config": "config/kernelization.yaml",
-        "heartbeat_telemetry_config": "config/heartbeat_telemetry.yaml",
-        "confidence_threshold": 40,
-        "log_routing_decisions": true,
-        "log_path": "state/run_journal/routing_log.jsonl",
-        "novel_queries_path": "state/run_journal/novel_queries.jsonl",
-        "checkpoint_path_template": "state/run_journal/checkpoints/{timestamp}_{id}.json",
-        "handoff_path": "state/handoff/latest.json"
       }
     }
   }

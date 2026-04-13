@@ -1,0 +1,22 @@
+{
+  "ts": "2026-04-13T15:07:22+07:00",
+  "canonical_source": "C:\\Users\\joshu\\Obsidian-Otto\\.openclaw\\openclaw.json",
+  "live_config_path": "C:\\Users\\joshu\\.openclaw\\openclaw.json",
+  "openclaw_config_sync": true,
+  "managed_hashes_match": true,
+  "anthropic_ready": true,
+  "hf_fallback_ready": true,
+  "huggingface_provider_present": true,
+  "expected_hf_model_present": true,
+  "cli_validation": {
+    "ok": true,
+    "exit_code": 0,
+    "stdout": "~\\.openclaw\\openclaw.json",
+    "stderr": "",
+    "command": [
+      "C:\\Users\\joshu\\AppData\\Roaming\\npm\\openclaw.CMD",
+      "config",
+      "file"
+    ]
+  }
+}

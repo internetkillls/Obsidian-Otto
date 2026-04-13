@@ -2,16 +2,25 @@
   "goal": "Maintain a stable Obsidian-Otto retrieval core",
   "last_pipeline_scope": ".",
   "status": "ready",
-  "updated_at": "2026-04-12T23:06:00+07:00",
+  "updated_at": "2026-04-13T15:25:25+07:00",
   "artifacts": [
-    "artifacts/reports/bronze_summary.json",
-    "artifacts/reports/silver_summary.json",
     "artifacts/summaries/gold_summary.json",
-    "artifacts/reports/gold_summary.md"
+    "artifacts/reports/kairos_daily_strategy.md",
+    "artifacts/reports/dream_summary.md",
+    "state/openclaw/sync_status.json",
+    "state/openclaw/fallback_events.jsonl",
+    "../Josh Obsidian/state/scarcity_preflight.json",
+    "../Josh Obsidian/state/scarcity_index.json"
   ],
   "next_actions": [
-    "fix frontmatter in reports",
-    "rerun scoped pipeline for folders above risk score 10",
-    "export training candidates only after Gold is reviewed"
+    "Keep .openclaw/openclaw.json as canonical and sync it to C:\\Users\\joshu\\.openclaw\\openclaw.json before OpenClaw/Claude runs",
+    "Monitor state\\openclaw\\sync_status.json and state\\openclaw\\fallback_events.jsonl for config drift and Anthropic 529 fallback events",
+    "Josh scarcity preflight is blocked: add normalized scarcity frontmatter in Josh Obsidian and rerun audit_frontmatter --check-scarcity-field until ok=true",
+    "After scarcity preflight passes, run scan_scarcity, gen_base_views, canvas_companion, and audit_delta in Josh Obsidian",
+    "Repair metadata in reports",
+    "Repair metadata in tests\\.tmp\\case_rotation\\10-Personal",
+    "Repair metadata in 01-Inbox\\Typst\\typst\\docs\\reference\\library",
+    "Prefer fast retrieval first; escalate only when evidence is weak",
+    "Keep training export gated behind reviewed Gold"
   ]
 }

@@ -4,7 +4,8 @@
 
 - Vault: `C:\Users\joshu\Josh Obsidian`
 - Otto repo: `C:\Users\joshu\Obsidian-Otto`
-- OpenClaw config: `C:\Users\joshu\.openclaw\openclaw.json`
+- OpenClaw canonical config: `C:\Users\joshu\Obsidian-Otto\.openclaw\openclaw.json`
+- OpenClaw live config: `C:\Users\joshu\.openclaw\openclaw.json`
 
 ## Channels
 

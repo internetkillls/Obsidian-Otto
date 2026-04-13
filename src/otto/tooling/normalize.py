@@ -11,6 +11,14 @@ from ..logging_utils import get_logger
 from ..state import write_json
 
 
+def _table_exists(conn: sqlite3.Connection, name: str) -> bool:
+    row = conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type IN ('table', 'view') AND name = ? LIMIT 1",
+        (name,),
+    ).fetchone()
+    return row is not None
+
+
 def _atomic_schema_build(conn: sqlite3.Connection) -> None:
     """Atomically rebuild schema: creates temp tables, migrates data, replaces originals.
 
@@ -51,18 +59,21 @@ def _atomic_schema_build(conn: sqlite3.Connection) -> None:
     );
     """)
 
-    conn.execute("""
-        INSERT OR IGNORE INTO notes_new
-            SELECT * FROM notes WHERE 0;
-    """)
-    conn.execute("""
-        INSERT OR IGNORE INTO attachments_new
-            SELECT * FROM attachments WHERE 0;
-    """)
-    conn.execute("""
-        INSERT OR IGNORE INTO folder_risk_new
-            SELECT * FROM folder_risk WHERE 0;
-    """)
+    if _table_exists(conn, "notes"):
+        conn.execute("""
+            INSERT OR IGNORE INTO notes_new
+                SELECT * FROM notes WHERE 0;
+        """)
+    if _table_exists(conn, "attachments"):
+        conn.execute("""
+            INSERT OR IGNORE INTO attachments_new
+                SELECT * FROM attachments WHERE 0;
+        """)
+    if _table_exists(conn, "folder_risk"):
+        conn.execute("""
+            INSERT OR IGNORE INTO folder_risk_new
+                SELECT * FROM folder_risk WHERE 0;
+        """)
 
     conn.execute("DROP TABLE IF EXISTS notes")
     conn.execute("DROP TABLE IF EXISTS attachments")

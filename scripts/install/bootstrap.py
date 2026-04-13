@@ -10,6 +10,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from otto.config import save_local_bootstrap_summary, write_env  # noqa: E402
+from otto.openclaw_support import sync_openclaw_config  # noqa: E402
 from otto.pipeline import run_pipeline  # noqa: E402
 
 
@@ -58,12 +59,15 @@ def main(argv: list[str] | None = None) -> int:
         "OTTO_SQLITE_PATH": "external/sqlite/otto_silver.db",
         "OTTO_CHROMA_PATH": "external/chroma_store",
     })
+    sync_result = sync_openclaw_config()
 
     result = run_pipeline(scope=None, full=True)
     summary = {
         "vault_path": vault,
         "docker_enabled": docker_enabled,
         "env_file": str(env_path),
+        "openclaw_config_sync": sync_result["openclaw_config_sync"],
+        "hf_fallback_ready": sync_result["hf_fallback_ready"],
         "training_ready": result["checkpoint"]["training_ready"],
         "gold_top_folders": result["checkpoint"]["gold_top_folders"],
     }

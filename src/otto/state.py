@@ -62,5 +62,6 @@ class OttoState:
             self.paths.state_root / "kairos",
             self.paths.state_root / "dream",
             self.paths.state_root / "bootstrap",
+            self.paths.state_root / "openclaw",
         ]:
             path.mkdir(parents=True, exist_ok=True)

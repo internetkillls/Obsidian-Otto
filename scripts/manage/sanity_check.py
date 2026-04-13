@@ -14,6 +14,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from otto.app.status import build_status  # noqa: E402
+from otto.openclaw_support import decide_openclaw_fallback  # noqa: E402
 from otto.orchestration.dream import run_dream_once  # noqa: E402
 from otto.orchestration.kairos import run_kairos_once  # noqa: E402
 from otto.pipeline import run_pipeline  # noqa: E402
@@ -52,6 +53,7 @@ def run_checks(include_pipeline: bool = True) -> dict:
     promised = {p: (REPO_ROOT / p).exists() for p in PROMISED}
     status = build_status()
     retrieval = retrieve("policy", mode="fast")
+    fallback_probe = decide_openclaw_fallback(529, emit_event=False)
 
     pipeline_checkpoint = {}
     if include_pipeline:
@@ -75,12 +77,19 @@ def run_checks(include_pipeline: bool = True) -> dict:
             "active_tasks": status.get("active_tasks"),
             "docker_status": status.get("docker", {}).get("status"),
             "top_folder_count": len(status.get("top_folders", [])),
+            "openclaw_config_sync": status.get("openclaw_config_sync"),
+            "anthropic_ready": status.get("anthropic_ready"),
+            "hf_fallback_ready": status.get("hf_fallback_ready"),
         },
         "retrieval_summary": {
             "enough_evidence": retrieval.get("enough_evidence"),
             "needs_deepening": retrieval.get("needs_deepening"),
             "note_hits": len(retrieval.get("note_hits", [])),
             "folder_hits": len(retrieval.get("folder_hits", [])),
+        },
+        "openclaw_summary": {
+            "fallback_probe": fallback_probe,
+            "health": status.get("openclaw", {}),
         },
         "kairos_summary": kairos_summary,
         "dream_summary": dream_summary,
@@ -100,6 +109,9 @@ def write_reports(report: dict) -> None:
         f"- docker_status: {report['status_summary']['docker_status']}",
         f"- top_folder_count: {report['status_summary']['top_folder_count']}",
         f"- retrieval_note_hits: {report['retrieval_summary']['note_hits']}",
+        f"- openclaw_config_sync: {report['status_summary']['openclaw_config_sync']}",
+        f"- anthropic_ready: {report['status_summary']['anthropic_ready']}",
+        f"- hf_fallback_ready: {report['status_summary']['hf_fallback_ready']}",
         "",
         "## Missing promised files",
     ]

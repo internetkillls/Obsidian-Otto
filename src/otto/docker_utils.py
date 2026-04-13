@@ -11,9 +11,11 @@ def docker_available() -> bool:
     return shutil.which("docker") is not None
 
 
-def docker_compose_status() -> dict[str, Any]:
+def docker_compose_status(*, probe: bool = True) -> dict[str, Any]:
     if not docker_available():
         return {"available": False, "status": "docker-not-found", "services": []}
+    if not probe:
+        return {"available": True, "status": "not-probed", "services": []}
     cfg = load_docker_config()
     compose_file = repo_root() / str(cfg.get("compose_file", "docker-compose.yml"))
     if not compose_file.exists():
@@ -23,9 +25,11 @@ def docker_compose_status() -> dict[str, Any]:
     for cmd in (["docker", "compose", "-f", str(compose_file), "ps", "--format", "json"],
                 ["docker-compose", "-f", str(compose_file), "ps", "--format", "json"]):
         try:
-            result = subprocess.run(cmd, capture_output=True, text=True, check=False)
+            result = subprocess.run(cmd, capture_output=True, text=True, check=False, timeout=5)
         except FileNotFoundError:
             continue
+        except subprocess.TimeoutExpired:
+            return {"available": True, "status": "timeout", "services": []}
         if result.returncode != 0:
             continue
         services: list[dict[str, Any]] = []

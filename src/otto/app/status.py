@@ -7,6 +7,7 @@ from typing import Any
 from ..config import load_paths
 from ..docker_utils import docker_compose_status
 from ..models import model_matrix
+from ..openclaw_support import build_openclaw_health
 from ..state import OttoState, read_json
 
 
@@ -25,6 +26,7 @@ def build_status() -> dict[str, Any]:
     gold = read_json(paths.artifacts_root / "summaries" / "gold_summary.json", default={}) or {}
     checkpoint = read_json(state.checkpoints, default={}) or {}
     handoff = read_json(state.handoff_latest, default={}) or {}
+    openclaw = build_openclaw_health()
 
     tasks_dir = paths.repo_root / "tasks" / "active"
     active_tasks = [p.name for p in sorted(tasks_dir.glob("*.md"))]
@@ -38,7 +40,11 @@ def build_status() -> dict[str, Any]:
         "checkpoint": checkpoint,
         "handoff": handoff,
         "active_tasks": active_tasks,
-        "docker": docker_compose_status(),
+        "docker": docker_compose_status(probe=False),
+        "openclaw": openclaw,
+        "openclaw_config_sync": openclaw.get("openclaw_config_sync"),
+        "anthropic_ready": openclaw.get("anthropic_ready"),
+        "hf_fallback_ready": openclaw.get("hf_fallback_ready"),
         "recent_logs": _tail(paths.logs_root / "app" / "otto.log", limit=12),
         "recent_events": _tail(paths.state_root / "run_journal" / "events.jsonl", limit=12),
         "model_matrix": model_matrix(),

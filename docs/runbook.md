@@ -36,6 +36,11 @@ kairos.bat
 dream.bat
 ```
 
+### sync OpenClaw live config
+```bat
+sync-openclaw.bat
+```
+
 ### clean Docker
 ```bat
 docker-clean.bat

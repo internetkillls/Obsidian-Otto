@@ -47,6 +47,7 @@ This section is intentionally kept aligned with the actual shipped files.
 ### Isi utamanya
 
 - `initial.bat` for bootstrap install + pilih vault + first pipeline
+- `sync-openclaw.bat` to deploy canonical OpenClaw config into the live OpenClaw profile
 - `tui.bat` for live TUI dengan Rich
 - `status.bat`, `reindex.bat`, `kairos.bat`, `dream.bat`, `start.bat`, `stop.bat`, `docker-clean.bat`
 - `AGENTS.md`, `.codex/`, `.agents/skills/`
@@ -77,6 +78,7 @@ This section is intentionally kept aligned with the actual shipped files.
 - `reindex.bat` rerun Bronze → Silver → Gold
 - `start.bat` start background runtime loop
 - `stop.bat` stop background runtime loop
+- `sync-openclaw.bat` sync canonical `.openclaw/openclaw.json` into `C:\Users\joshu\.openclaw\openclaw.json`
 - `kairos.bat` one-shot heartbeat strategy pass
 - `dream.bat` one-shot memory consolidation
 - `docker-clean.bat` stop optional local Docker services cleanly
