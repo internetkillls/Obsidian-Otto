@@ -77,6 +77,14 @@ checkpoint_required: true
 
 ## 3. Intent Registry
 
+**Model tier mapping per intent:**
+- `fast` = gpt-5.4-mini (openai-codex backend)
+- `standard` = gpt-5.4 (openai-codex backend) — for routine single-skill tasks
+- `sonnet` = claude-sonnet-4-6 (claude-cli backend) — for complex synthesis, long-context, multi-step orchestration
+- `premium` = claude-opus-4-6 (claude-cli backend) — for ambiguous scope, multimodal, high-fidelity recovery
+
+**Routing rule:** Prefer `standard` (gpt-5.4) as default heavy-lift. Escalate to `sonnet` (claude-sonnet) when task is complex synthesis or requires deep context. Reserve `premium` (opus) for explicit request or 2× failure recovery.
+
 ### 3.1 Defined Intents (12)
 
 ```yaml
@@ -248,9 +256,16 @@ fallback:
 
 ### 5.1 Tier Definitions
 
+**Backend mapping (from openclaw.json):**
+- `openai-codex/gpt-5.4-mini` → Codex CodexMini backend
+- `openai-codex/gpt-5.4` → Codex full backend
+- `claude-cli/claude-opus-4-6` → Claude CLI with `--allow-dangerously-skip-permission --bypassPermissions`
+- `claude-cli/claude-sonnet-4-6` → Claude CLI with `--allow-dangerously-skip-permission --bypassPermissions`
+
 ```yaml
 tiers:
   - id: fast
+    backend: openai-codex
     model: gpt-5.4-mini
     token_limit: 32k
     best_for: [memory-fast, hygiene-check, routing-classification]
@@ -260,17 +275,28 @@ tiers:
     output_schema: compact
 
   - id: standard
+    backend: openai-codex
     model: gpt-5.4
     token_limit: 64k
     best_for: [agathon-soft-profile, dream-consolidation, thought-partnership,
                scholarly-research, typst-document, visual-precedent, operational]
-    kernel_required: false  # Opus-class natively handles scope + tools
+    kernel_required: false  # Sonnet-class natively handles scope + tools
 
   - id: premium
-    model: opus
+    backend: claude-cli
+    model: claude-opus-4-6
+    cli_command: "claude -p --output-format stream-json --permission-mode bypassPermissions --allow-dangerously-skip-permissions"
     token_limit: 200k
     best_for: [any — use when: (a) Opus explicitly requested, (b) premium flag set,
                (c) downstream tool failure requires high-fidelity recovery]
+    kernel_required: false
+
+  - id: sonnet
+    backend: claude-cli
+    model: claude-sonnet-4-6
+    cli_command: "claude -p --output-format stream-json --permission-mode bypassPermissions --allow-dangerously-skip-permissions"
+    token_limit: 200k
+    best_for: [deep synthesis, long-context reasoning, complex multi-step orchestration]
     kernel_required: false
     constraints: [use_tools_aggressively, verify_scope_before_act]
 ```
@@ -279,7 +305,7 @@ tiers:
 
 ```yaml
 escalation:
-  from_fast_to_standard:
+  fast → standard (gpt-5.4):
     triggers:
       - intent has kernel_required: true
       - query contains: [multi-file, multiple, compare, synthesize, analyze deeply]
@@ -287,22 +313,44 @@ escalation:
       - time_window: [06:00-11:59, 12:00-17:59] + RTW/SDZ signal detected
       - confidence < 60 from LLM router
 
-  from_standard_to_premium:
+  standard → sonnet (claude-sonnet):
+    triggers:
+      - intent is thought-partnership or scholarly-research
+      - query requires deep synthesis across multiple contexts
+      - conversation context_length > 10 turns
+      - intent requires claude-sonnet explicitly (long-context reasoning)
+      - 1× execution failure on standard tier with "context too complex" error
+
+  standard → premium (claude-opus):
     triggers:
       - intent requires opus explicitly
       - query: multimodal + ambiguous scope
       - 2× consecutive execution failure on standard tier
       - downstream tool failure with "insufficient context" error
 
-  from_premium_fallback_to_standard:
+  sonnet → premium (claude-opus):
+    triggers:
+      - intent explicitly requests premium
+      - 2× consecutive failure on sonnet tier
+      - very high complexity + multimodal
+
+  premium → sonnet (claude-sonnet) fallback:
     triggers:
       - opus unavailable (rate limit / downtime)
       - opus exceeds budget threshold
     mitigation:
       - apply_full_kernelization: true
-      - chunk_task: true
+      - chunk_task: true (max 3 chunks)
       - tool_commitment: enforced
       - output_schema: premium_compatible  # so output shape matches Opus output
+
+  sonnet → standard (gpt-5.4) fallback:
+    triggers:
+      - sonnet unavailable
+    mitigation:
+      - apply_full_kernelization: true
+      - chunk_task: true
+      - output_schema: compact
 ```
 
 ### 5.3 Chunking Strategy (Delta Collapse)
@@ -343,7 +391,7 @@ personas:
         has_schedule_keyword: +10
       suppress_if_intent: [deep-profile, hygiene-check, dream-consolidate,
                            scholarly-research, visual-precedent, thought-partnership]
-      escalate_to_model: gpt-5.4
+      escalate_to_model: standard
       escalate_to_persona: archivist-owl
 
   - id: archivist-owl
@@ -358,7 +406,7 @@ personas:
         has_memory_signal: +30
         query_has_source_keyword: +20
       suppress_if_intent: [deep-profile, thought-partnership, swot-analysis]
-      escalate_to_model: gpt-5.4
+      escalate_to_model: standard
       escalate_to_skill: memory-deep
 
   - id: strategist-fox
@@ -378,7 +426,7 @@ personas:
         has_SDZ_signal: +25
         has_IB_signal: +20
       suppress_if_intent: [hygiene-check, memory-recall-fast]
-      escalate_to_model: gpt-5.4
+      escalate_to_model: standard
       escalate_to_skill: josh-thought-partner
 
   - id: builder-beaver
@@ -394,7 +442,7 @@ personas:
         has_visual_signal: +30
         has_obsidian_cli_signal: +35
       suppress_if_intent: [deep-profile, dream-consolidate]
-      escalate_to_model: gpt-5.4
+      escalate_to_model: standard
 
   - id: auditor-crow
     species: Auditor Crow
@@ -408,7 +456,7 @@ personas:
         has_audit_signal: +40
         has_risk_signal: +30
       suppress_if_intent: [deep-profile, dream-consolidate, thought-partnership]
-      escalate_to_model: gpt-5.4-mini
+      escalate_to_model: standard-mini
 
   - id: dreamer-moth
     species: Dreamer Moth
@@ -422,7 +470,7 @@ personas:
         has_reflection_signal: +40
         has_evening_window: +20  # 18:00-23:59
       suppress_if_intent: [memory-recall-fast, hygiene-check, operational-handoff]
-      escalate_to_model: gpt-5.4
+      escalate_to_model: standard
 
   - id: sentinel-whale
     species: Sentinel Whale
@@ -437,7 +485,7 @@ personas:
         has_recovery_signal: +35
         has_SENXoR_signal: +30
       suppress_if_intent: [hygiene-check, operational-handoff, obsidian-cli]
-      escalate_to_model: gpt-5.4
+      escalate_to_model: standard
       escalate_to_skill: agathon-soft-profile
 ```
 
@@ -736,9 +784,15 @@ handoff_composer:
 | `config/kernelization.yaml` | **CREATE** | Kernel component definitions, application matrix, schema definitions |
 | `config/heartbeat_telemetry.yaml` | **CREATE** | Telemetry aggregation rules, Otto-Realm sync triggers, heartbeat update logic |
 | `AGENTS.md` | **UPDATE** | Add routing inference section, checkpoint/handoff protocol |
-| `openclaw.json` | **UPDATE** | Add `skill-routing` plugin, routing-aware heartbeat config |
+| `openclaw.json` | **UPDATE** | Add `skill-routing` plugin, routing-aware heartbeat config, 4-tier model dispatch with claude-cli backends |
 | `state/run_journal/routing_log.jsonl` | **AUTO** | Created on first routing event |
 | `docs/superpowers/specs/2026-04-13-otto-routing-inference-design.md` | **CREATE** | This document |
+
+**Note on claude-cli backend (from openclaw.json):**
+- Sonnet: `claude-cli/claude-sonnet-4-6` with `--allow-dangerously-skip-permission --bypassPermissions`
+- Opus: `claude-cli/claude-opus-4-6` with `--allow-dangerously-skip-permission --bypassPermissions`
+- CLI path: `C:\Users\joshu\.local\bin\claude.exe`
+- Already configured in openclaw.json `cliBackends.claude-cli` — routing layer just needs to call the right model ID
 
 ### Skill SKILL.md Updates (6 Otto skills)
 
@@ -768,3 +822,4 @@ checkpoint_required: true
 - [x] Novel intent → skillification loop is defined (3× repeat threshold)
 - [x] All 11 skills have routing metadata
 - [x] Humaneness requirements addressed: scope guard, amnesiac guard, multimodal tool guard, telemetry feedback
+- [x] claude-cli backend for Sonnet/Opus noted with correct CLI flags (2026-04-13 update)
