@@ -1,0 +1,82 @@
+# Otto → MCP Migration Bridge Inventory
+# Each entry = migration candidate. Status: TEMP (temporary bridge) | DONE (migrated) | DEPRECATED | RETAIN
+#
+# Scan date: 2026-04-13
+# Sources: grep -rn "subprocess|vault.*cli|obsidian.*write|obsidian.*read|openclaw" src/otto/ --include="*.py" -i
+# + config/routing.yaml, config/personas.yaml review
+
+version: "1.0"
+date: "2026-04-13"
+
+bridges:
+  - id: BRIDGE-001
+    name: vault-cli-subprocess
+    location: "NOT FOUND — no subprocess vault CLI calls in Otto source"
+    description: Planned subprocess call to vault CLI commands — not yet implemented
+    status: DEPRECATED
+    migrate_to: "obsidian-cli-mcp (packages/obsidian-cli-mcp)"
+    owner: mcp-fabric
+    notes: "Current vault access uses Python path.rglob() in obsidian_scan.py, not CLI subprocess"
+
+  - id: BRIDGE-002
+    name: obsidian-vault-direct-read-bronze
+    location: "src/otto/tooling/obsidian_scan.py (scan_vault function)"
+    description: Bronze scan directly reads vault via Python filesystem APIs (path.rglob, path.read_text)
+    status: RETAIN
+    migrate_to: "N/A — internal pipeline operation, not user-facing"
+    owner: otto-pipeline
+    notes: "Bronze scan is internal pipeline ingest per Migration Matrix. RETAIN."
+
+  - id: BRIDGE-003
+    name: obsidian-note-direct-read-retrieval
+    location: "src/otto/retrieval/memory.py"
+    description: Retrieval layer reads from Silver SQLite, not direct vault. Not a direct vault bridge.
+    status: RETAIN
+    migrate_to: "N/A — retrieval policy stays Otto-controlled (Gold->Silver->vector->Bronze)"
+    owner: otto-retrieval
+    notes: "Silver SQLite is curated Otto data, not raw vault. RETAIN per Migration Matrix."
+
+  - id: BRIDGE-004
+    name: openclaw-cli-subprocess-validation
+    location: "src/otto/openclaw_support.py (run_openclaw_cli_validation)"
+    description: Otto subprocess-calls 'openclaw config file' CLI for config validation
+    status: TEMP
+    migrate_to: "OpenClaw direct MCP connection — Otto receives state/pipeline events only"
+    owner: openclaw
+    notes: "BRIDGE-006 is the architectural bridge. This subprocess is a side-effect of that."
+
+  - id: BRIDGE-005
+    name: openclaw-config-sync
+    location: "src/otto/openclaw_support.py (sync_openclaw_config, build_openclaw_health)"
+    description: Otto manages OpenClaw config sync and fallback decision logic
+    status: TEMP
+    migrate_to: "OpenClaw owns its own config; Otto listens for state/pipeline events"
+    owner: openclaw
+    notes: "OpenClaw should self-manage config. Otto should not need sync logic once MCP is live."
+
+  - id: BRIDGE-006
+    name: openclaw-otto-mcp-bridge
+    location: "src/otto/openclaw_support.py, src/otto/cli.py (openclaw-health, openclaw-sync, openclaw-fallback)"
+    description: OpenClaw-to-Otto bridge — Otto acts as intermediary for config sync and fallback
+    status: TEMP
+    migrate_to: "OpenClaw connects directly to MCP Fabric; Otto receives state/pipeline events only"
+    owner: openclaw
+    notes: "Core architecture change — OpenClaw no longer proxies through Otto for MCP. See MCP-native design spec."
+
+  - id: BRIDGE-007
+    name: routing-yaml-prompt-branches
+    location: "config/routing.yaml, config/personas.yaml"
+    description: Routing policy specifies intent-to-backend mapping. Tool execution currently via Codex CLI.
+    status: TEMP
+    migrate_to: "MCP tool contract via OpenClaw routing (Phase 2)"
+    owner: openclaw
+    notes: "routing.yaml backends map to Codex/Claude CLI, not MCP yet. MCP integration adds new backend entries."
+
+retention_rules:
+  - "Bronze scan + Bronze manifest — RETAIN (pipeline ingest internal, not user-facing)"
+  - "Silver SQLite — RETAIN (Otto curated data, controlled retrieval)"
+  - "Gold summary — RETAIN (Otto governance boundary)"
+  - "state/handoff — RETAIN (Otto continuity)"
+  - "KAIROS/Dream/heartbeat — RETAIN (Otto telemetry)"
+  - "routing policy/guardrail — RETAIN as thin policy layer (policy, not execution)"
+  - "retrieval policy — RETAIN (control logic, not execution)"

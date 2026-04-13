@@ -1,5 +1,6 @@
 # Otto-Obsidian Skill & Agentic Routing Inference
 # Generated from: docs/superpowers/specs/2026-04-13-otto-routing-inference-design.md
+# MIGRATION: when MCP is live — backends map to MCP tool contract (see config/migration-bridges.yaml BRIDGE-007)
 
 version: "1.0"
 last_updated: "2026-04-13"

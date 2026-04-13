@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+# MIGRATION: migrate to MCP — see config/migration-bridges.yaml BRIDGE-004, BRIDGE-005, BRIDGE-006
+# OpenClaw should own its config; Otto should receive state/pipeline events only after MCP is live.
+
 import hashlib
 import json
 import os
