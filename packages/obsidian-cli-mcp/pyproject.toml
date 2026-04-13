@@ -1,0 +1,12 @@
+[project]
+name = "otto-obsidian-cli-mcp"
+version = "0.1.0"
+description = "Obsidian CLI MCP server for Otto — wraps vault CLI tools as MCP tools"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+otto-obsidian-cli-mcp = "obsidian_cli_mcp.server:main"

@@ -36,3 +36,26 @@ services:
     volumes:
       - ./:/app
     profiles: ["worker"]
+
+  obsidian-mcp:
+    build:
+      context: ./packages/obsidian-mcp
+      dockerfile: Dockerfile
+    container_name: ob-otto-obsidian-mcp
+    environment:
+      OBSIDIAN_VAULT_PATH: ${OBSIDIAN_VAULT_PATH:-/vault}
+    volumes:
+      - ${OBSIDIAN_VAULT_HOST:-.}/vault:/vault:ro
+    profiles: ["mcp"]
+
+  obsidian-cli-mcp:
+    build:
+      context: ./packages/obsidian-cli-mcp
+      dockerfile: Dockerfile
+    container_name: ob-otto-obsidian-cli-mcp
+    environment:
+      OBSIDIAN_VAULT_PATH: ${OBSIDIAN_VAULT_PATH:-/vault}
+      OBSIDIAN_CLI_PATH: ${OBSIDIAN_CLI_PATH:-}
+    volumes:
+      - ${OBSIDIAN_VAULT_HOST:-.}/vault:/vault:ro
+    profiles: ["mcp"]
