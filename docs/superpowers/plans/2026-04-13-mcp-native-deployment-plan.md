@@ -2,7 +2,7 @@
 
 > **For agentic workers:** Execute inline in this session, task-by-task with checkpoints. No subagents unless explicitly requested. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Deploy MCP Fabric (Obsidian MCP + Obsidian CLI MCP containers), update migration docs, flag Otto temporary bridges, audit routing complexity.
+**Goal:** Deploy MCP Fabric (Obsidian MCP + Obsidian Scripts MCP containers), update migration docs, flag Otto temporary bridges, audit routing complexity.
 
 **Architecture:** Two-phase deployment: (1) extend existing docker-compose with MCP containers + packages/ directory for MCP servers, (2) runtime flagging of temporary bridges + routing audit. OpenClaw connects to MCP containers via stdio. Otto retains control-plane responsibilities.
 

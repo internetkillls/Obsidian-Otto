@@ -38,31 +38,37 @@ services:
     profiles: ["worker"]
 
   # MCP servers run in foreground stdio mode (stdin_open + tty, NOT detached).
-  # OpenClaw connects via: docker compose run --rm obsidian-mcp
-  # or via the host directly using launch-mcp.bat (recommended for stdio).
+  # OpenClaw connects via launch-mcp.bat (recommended) or docker compose run --rm.
+  # Vault path: OBSIDIAN_VAULT_PATH is the IN-CONTAINER mount (/vault).
+  # OBSIDIAN_VAULT_HOST is the host path; compose mounts host->container.
   obsidian-mcp:
     build:
       context: ./packages/obsidian-mcp
       dockerfile: Dockerfile
     container_name: ob-otto-obsidian-mcp
     environment:
-      OBSIDIAN_VAULT_PATH: ${OBSIDIAN_VAULT_HOST:-/vault}
+      OBSIDIAN_VAULT_PATH: ${OBSIDIAN_VAULT_PATH:-/vault}
     volumes:
       - ${OBSIDIAN_VAULT_HOST:-.}:${OBSIDIAN_VAULT_PATH:-/vault}:ro
     stdin_open: true
     tty: true
     profiles: ["mcp"]
+    # NOTE: obsidian_write_note requires read-write mount.
+    # Use profile "mcp-rw" or override volumes manually for write access.
 
-  obsidian-cli-mcp:
+  obsidian-scripts-mcp:
     build:
-      context: ./packages/obsidian-cli-mcp
+      context: ./packages/obsidian-scripts-mcp
       dockerfile: Dockerfile
-    container_name: ob-otto-obsidian-cli-mcp
+    container_name: ob-otto-obsidian-scripts-mcp
+    working_dir: /otto
     environment:
-      OBSIDIAN_VAULT_PATH: ${OBSIDIAN_VAULT_HOST:-/vault}
-      OBSIDIAN_CLI_PATH: ${OBSIDIAN_CLI_PATH:-}
+      OTTO_REPO_PATH: /otto
+      OTTO_SCRIPTS_PATH: /otto/scripts/manage
+      PYTHONPATH: /otto/src
+    # Mount Otto repo (.) to /otto so scripts/manage/*.py are accessible
     volumes:
-      - ${OBSIDIAN_VAULT_HOST:-.}:${OBSIDIAN_VAULT_PATH:-/vault}:ro
+      - .:/otto:ro
     stdin_open: true
     tty: true
     profiles: ["mcp"]
