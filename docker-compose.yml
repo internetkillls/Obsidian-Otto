@@ -37,15 +37,20 @@ services:
       - ./:/app
     profiles: ["worker"]
 
+  # MCP servers run in foreground stdio mode (stdin_open + tty, NOT detached).
+  # OpenClaw connects via: docker compose run --rm obsidian-mcp
+  # or via the host directly using launch-mcp.bat (recommended for stdio).
   obsidian-mcp:
     build:
       context: ./packages/obsidian-mcp
       dockerfile: Dockerfile
     container_name: ob-otto-obsidian-mcp
     environment:
-      OBSIDIAN_VAULT_PATH: ${OBSIDIAN_VAULT_PATH:-/vault}
+      OBSIDIAN_VAULT_PATH: ${OBSIDIAN_VAULT_HOST:-/vault}
     volumes:
-      - ${OBSIDIAN_VAULT_HOST:-.}/vault:/vault:ro
+      - ${OBSIDIAN_VAULT_HOST:-.}:${OBSIDIAN_VAULT_PATH:-/vault}:ro
+    stdin_open: true
+    tty: true
     profiles: ["mcp"]
 
   obsidian-cli-mcp:
@@ -54,8 +59,10 @@ services:
       dockerfile: Dockerfile
     container_name: ob-otto-obsidian-cli-mcp
     environment:
-      OBSIDIAN_VAULT_PATH: ${OBSIDIAN_VAULT_PATH:-/vault}
+      OBSIDIAN_VAULT_PATH: ${OBSIDIAN_VAULT_HOST:-/vault}
       OBSIDIAN_CLI_PATH: ${OBSIDIAN_CLI_PATH:-}
     volumes:
-      - ${OBSIDIAN_VAULT_HOST:-.}/vault:/vault:ro
+      - ${OBSIDIAN_VAULT_HOST:-.}:${OBSIDIAN_VAULT_PATH:-/vault}:ro
+    stdin_open: true
+    tty: true
     profiles: ["mcp"]

@@ -5,12 +5,13 @@ Wraps Obsidian vault CLI operations as MCP tools.
 Connects via stdio to OpenClaw.
 
 Env:
-    OBSIDIAN_VAULT_PATH: Path to the Obsidian vault
-    OBSIDIAN_CLI_PATH:  Path to obsidian-cli binary (optional, searches PATH)
+    OBSIDIAN_VAULT_PATH: Path to the Obsidian vault (inside container or host)
+    OBSIDIAN_CLI_PATH:   Path to obsidian CLI binary (optional, searches PATH)
 """
 
 from __future__ import annotations
 
+import asyncio
 import os
 import shutil
 import subprocess
@@ -97,4 +98,4 @@ async def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

@@ -4,6 +4,8 @@
 
 Split execution (MCP Fabric) from control plane (Obsidian-Otto). OpenClaw becomes the gateway and broker that orchestrates both sides. Build toward MCP-native execution while preserving Otto's curated state, pipeline, and retrieval core.
 
+**Status:** MCP Fabric planned — containers defined but not yet deployed. Docker Desktop required to proceed.
+
 See `docs/superpowers/specs/2026-04-13-otto-mcp-native-architecture-design.md` for the full approved design.
 
 ## High-level shape

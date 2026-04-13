@@ -1,7 +1,7 @@
 # Migration Plan: Otto → MCP-Native Architecture
 
 ## Status
-**MCP Fabric deployment in progress** — Obsidian MCP + Obsidian CLI MCP containers planned, deployment underway.
+**MCP Fabric deployment planned** — Obsidian MCP + Obsidian CLI MCP containers defined, build/deploy pending Docker Desktop. See Phase 1a checklist.
 
 ## Phase 0: Pre-MCP (complete)
 

@@ -1,5 +1,5 @@
 docker:
-  enabled: true
+  enabled: false
   compose_file: docker-compose.yml
   services:
     - postgres
