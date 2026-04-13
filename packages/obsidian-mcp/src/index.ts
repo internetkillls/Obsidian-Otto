@@ -30,10 +30,29 @@ if (!fs.existsSync(VAULT_PATH)) {
   process.exit(1);
 }
 
+const RESOLVED_VAULT_PATH: string = VAULT_PATH;
+
 const SERVER = new Server(
   { name: "otto-obsidian-mcp", version: "0.1.0" },
   { capabilities: { tools: {} } }
 );
+
+type ToolArgs = Record<string, unknown>;
+
+function requireString(value: unknown, field: string): string {
+  if (typeof value !== "string" || value.length === 0) {
+    throw new Error(`${field} is required`);
+  }
+  return value;
+}
+
+function optionalString(value: unknown): string | undefined {
+  return typeof value === "string" && value.length > 0 ? value : undefined;
+}
+
+function optionalNumber(value: unknown, fallback: number): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
+}
 
 SERVER.setRequestHandler(ListToolsRequestSchema, async () => ({
   tools: [
@@ -90,8 +109,8 @@ SERVER.setRequestHandler(ListToolsRequestSchema, async () => ({
 }));
 
 function readNote(relativePath: string): string {
-  const fullPath = path.join(VAULT_PATH, relativePath);
-  if (!fullPath.startsWith(VAULT_PATH)) {
+  const fullPath = path.join(RESOLVED_VAULT_PATH, relativePath);
+  if (!fullPath.startsWith(RESOLVED_VAULT_PATH)) {
     throw new Error("Path traversal denied");
   }
   if (!fs.existsSync(fullPath)) {
@@ -114,20 +133,20 @@ function searchNotes(query: string, limit: number = 10): string {
       } else if (entry.isFile() && entry.name.endsWith(".md")) {
         const content = fs.readFileSync(full, "utf-8");
         if (content.toLowerCase().includes(q)) {
-          const rel = path.relative(VAULT_PATH, full);
+          const rel = path.relative(RESOLVED_VAULT_PATH, full);
           results.push(`## [[${rel}]]\n${content.slice(0, 500)}...\n`);
         }
       }
     }
   }
 
-  walk(VAULT_PATH);
+  walk(RESOLVED_VAULT_PATH);
   return results.length ? results.join("\n---\n") : "No matches found.";
 }
 
 function listNotes(subdirectory?: string, limit: number = 50): string {
-  const root = subdirectory ? path.join(VAULT_PATH, subdirectory) : VAULT_PATH;
-  if (!root.startsWith(VAULT_PATH)) {
+  const root = subdirectory ? path.join(RESOLVED_VAULT_PATH, subdirectory) : RESOLVED_VAULT_PATH;
+  if (!root.startsWith(RESOLVED_VAULT_PATH)) {
     throw new Error("Path traversal denied");
   }
   if (!fs.existsSync(root)) {
@@ -143,7 +162,7 @@ function listNotes(subdirectory?: string, limit: number = 50): string {
       if (entry.isDirectory()) {
         walk(full);
       } else if (entry.isFile() && entry.name.endsWith(".md")) {
-        notes.push(path.relative(VAULT_PATH, full));
+        notes.push(path.relative(RESOLVED_VAULT_PATH, full));
       }
     }
   }
@@ -153,16 +172,23 @@ function listNotes(subdirectory?: string, limit: number = 50): string {
 
 SERVER.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request.params;
+  const toolArgs: ToolArgs = args ?? {};
 
   try {
     let result: string;
 
     if (name === "obsidian_read_note") {
-      result = readNote(args.relativePath as string);
+      result = readNote(requireString(toolArgs.relativePath, "relativePath"));
     } else if (name === "obsidian_search_notes") {
-      result = searchNotes(args.query as string, (args.limit as number) ?? 10);
+      result = searchNotes(
+        requireString(toolArgs.query, "query"),
+        optionalNumber(toolArgs.limit, 10)
+      );
     } else if (name === "obsidian_list_notes") {
-      result = listNotes(args.subdirectory as string | undefined, (args.limit as number) ?? 50);
+      result = listNotes(
+        optionalString(toolArgs.subdirectory),
+        optionalNumber(toolArgs.limit, 50)
+      );
     } else {
       throw new Error(`Unknown tool: ${name}`);
     }
