@@ -2,7 +2,7 @@
   "goal": "Maintain a stable Obsidian-Otto retrieval core",
   "last_pipeline_scope": ".",
   "status": "ready",
-  "updated_at": "2026-04-12T19:55:39+07:00",
+  "updated_at": "2026-04-12T23:06:00+07:00",
   "artifacts": [
     "artifacts/reports/bronze_summary.json",
     "artifacts/reports/silver_summary.json",
@@ -10,8 +10,8 @@
     "artifacts/reports/gold_summary.md"
   ],
   "next_actions": [
-    "fix frontmatter in the top risky folder",
-    "rerun scoped pipeline for any folder above risk score 10",
+    "fix frontmatter in reports",
+    "rerun scoped pipeline for folders above risk score 10",
     "export training candidates only after Gold is reviewed"
   ]
 }

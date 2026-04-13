@@ -310,7 +310,7 @@ escalation:
       - intent has kernel_required: true
       - query contains: [multi-file, multiple, compare, synthesize, analyze deeply]
       - conversation context_length > 5 turns
-      - time_window: [06:00-11:59, 12:00-17:59] + RTW/SDZ signal detected
+      - time_window: ["06:00-11:59", "12:00-17:59"] + RTW/SDZ signal detected
       - confidence < 60 from LLM router
 
   standard → sonnet (claude-sonnet):
@@ -468,7 +468,7 @@ personas:
       trigger_modifiers:
         has_dream_signal: +60
         has_reflection_signal: +40
-        has_evening_window: +20  # 18:00-23:59
+        is_evening_window: +20  # 18:00-23:59
       suppress_if_intent: [memory-recall-fast, hygiene-check, operational-handoff]
       escalate_to_model: standard
 

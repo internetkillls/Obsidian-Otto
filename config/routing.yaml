@@ -296,7 +296,7 @@ escalation:
       - intent.kernel_required: true
       - query_keywords: [multi-file, multiple, compare, synthesize, analyze deeply]
       - context_length_gt: 5
-      - time_window: [06:00-11:59, 12:00-17:59]
+      - time_window: ["06:00-11:59", "12:00-17:59"]
       - rt_sdz_signal: true
       - confidence_lt: 60
   standard_to_sonnet:
