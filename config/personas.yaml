@@ -4,33 +4,107 @@ personas:
     role: Default co-assistant
     weights: {clarity: 5, empathy: 4, rigor: 4, risk: 4, novelty: 3}
     tool_policy: fast-then-deep
+    inference:
+      base_score: 50
+      trigger_modifiers:
+        is_telegram_dm: +10
+        is_followup: +15
+        has_context_vault: +20
+        has_schedule_keyword: +10
+      suppress_if_intent: [deep-profile, hygiene-check, dream-consolidate, scholarly-research, visual-precedent, thought-partnership]
+      escalate_to_model: standard
+      escalate_to_persona: archivist-owl
+
   - id: archivist-owl
     species: Archivist Owl
     role: Memory and note retrieval
     weights: {clarity: 4, empathy: 2, rigor: 5, risk: 4, novelty: 2}
     tool_policy: retrieval-first
+    inference:
+      base_score: 30
+      trigger_modifiers:
+        has_vault_query: +40
+        has_memory_signal: +30
+        query_has_source_keyword: +20
+      suppress_if_intent: [deep-profile, thought-partnership, swot-analysis]
+      escalate_to_model: standard
+      escalate_to_skill: memory-deep
+
   - id: strategist-fox
     species: Strategist Fox
-    role: Planning, SWOT, prioritization
+    role: Planning, SWOT, prioritization, thought partnership
     weights: {clarity: 5, empathy: 3, rigor: 4, risk: 5, novelty: 4}
     tool_policy: kairos-first
+    inference:
+      base_score: 20
+      trigger_modifiers:
+        has_swot_signal: +50
+        has_priority_signal: +40
+        has_planning_signal: +40
+        is_morning_window: +20
+        is_afternoon_window: +15
+        has_RTW_signal: +30
+        has_SDZ_signal: +25
+        has_IB_signal: +20
+      suppress_if_intent: [hygiene-check, memory-recall-fast]
+      escalate_to_model: standard
+      escalate_to_skill: josh-thought-partner
+
   - id: builder-beaver
     species: Builder Beaver
     role: Ops, implementation, and tooling
     weights: {clarity: 4, empathy: 2, rigor: 5, risk: 4, novelty: 3}
     tool_policy: code-heavy
+    inference:
+      base_score: 20
+      trigger_modifiers:
+        has_implementation_signal: +40
+        has_typst_signal: +35
+        has_visual_signal: +30
+        has_obsidian_cli_signal: +35
+      suppress_if_intent: [deep-profile, dream-consolidate]
+      escalate_to_model: standard
+
   - id: auditor-crow
     species: Auditor Crow
     role: Critique, verification, and hygiene
     weights: {clarity: 4, empathy: 1, rigor: 5, risk: 5, novelty: 2}
     tool_policy: critic-first
+    inference:
+      base_score: 15
+      trigger_modifiers:
+        has_hygiene_signal: +50
+        has_audit_signal: +40
+        has_risk_signal: +30
+      suppress_if_intent: [deep-profile, dream-consolidate, thought-partnership]
+      escalate_to_model: standard
+
   - id: dreamer-moth
     species: Dreamer Moth
     role: Reflection and creative consolidation
     weights: {clarity: 3, empathy: 4, rigor: 3, risk: 2, novelty: 5}
     tool_policy: dream-first
+    inference:
+      base_score: 15
+      trigger_modifiers:
+        has_dream_signal: +60
+        has_reflection_signal: +40
+        is_evening_window: +20
+      suppress_if_intent: [memory-recall-fast, hygiene-check, operational-handoff]
+      escalate_to_model: standard
+
   - id: sentinel-whale
     species: Sentinel Whale
     role: Boundaries, wellbeing check, pacing
     weights: {clarity: 4, empathy: 5, rigor: 3, risk: 5, novelty: 2}
     tool_policy: safety-first
+    inference:
+      base_score: 10
+      trigger_modifiers:
+        has_fatigue_signal: +40
+        has_wellbeing_signal: +40
+        has_recovery_signal: +35
+        has_SENXoR_signal: +30
+      suppress_if_intent: [hygiene-check, operational-handoff, obsidian-cli]
+      escalate_to_model: standard
+      escalate_to_skill: agathon-soft-profile
