@@ -8,6 +8,8 @@ last_updated: "2026-04-13"
 backends:
   openai-codex:
     type: codex
+    cli_path: "codex"
+    cli_args: []
     models:
       gpt-5.4-mini: "openai-codex/gpt-5.4-mini"
       gpt-5.4: "openai-codex/gpt-5.4"
