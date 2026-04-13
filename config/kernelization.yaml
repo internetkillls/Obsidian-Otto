@@ -1,0 +1,355 @@
+# Otto-Obsidian Kernelization Config
+# Delta-collapse mechanism for non-premium model tiers
+# Generated from: docs/superpowers/specs/2026-04-13-otto-routing-inference-design.md
+
+version: "1.0"
+last_updated: "2026-04-13"
+
+components:
+  context_isolation:
+    description: "Per-chunk context window — only relevant context, not full conversation dump"
+    enforced_on: [fast, standard]
+    chunk_max_context_tokens: 4000
+    include:
+      - checkpoint_prev
+      - intent_context
+      - skill_instructions
+    exclude:
+      - unrelated_conversation_history
+      - off-topic_context
+
+  tool_commitment:
+    description: "Model declares tool(s) before use — prevents multimodality neglect"
+    enforced_on: [visual-precedent, obsidian-cli, typst-document, operational-handoff]
+    template: "For this chunk, I will use: [tool1, tool2]. Reason: [why]. Proceed?"
+    gate: must_declare_before_call
+
+  scope_check:
+    description: "Confirm scope interpretation before execution"
+    enforced_on: [kernel_required, fallback_routing]
+    template: "I interpret this as [X]. Confirm: is this correct? If yes: execute. If no: [clarify]."
+    gate: must_confirm_before_act
+
+  amnesiac_guard:
+    description: "Check Otto-Realm and recent handoff before asking questions"
+    enforced_on: [all]
+    check_order:
+      - "state/handoff/latest.json"
+      - "artifacts/summaries/gold_summary.json"
+      - "Otto-Realm anchor files (per skill memory_anchor)"
+      - "recent 5 checkpoints"
+    rule: "If answer exists in checked sources → use it. If not → then ask."
+    override: "If Sir Agathon explicitly wants to re-explore, respect that."
+    log_field: questions_asked
+
+  output_schema:
+    description: "Structured output per skill type — ensures delta collapse across model tiers"
+    enforced_on: [all skills with output_schema defined]
+    validation: strict
+
+schemas:
+  compact:
+    type: object
+    fields:
+      summary:
+        type: string
+        description: "1-2 sentence summary"
+      confidence:
+        type: float
+        description: "0.0-1.0"
+      next_step:
+        type: string
+        description: "One concrete next action"
+    required: [summary, confidence, next_step]
+
+  profile_delta:
+    type: object
+    fields:
+      trait:
+        type: string
+        description: "Name of the observed trait or pattern"
+      evidence:
+        type: string
+        description: "Specific evidence from notes or interaction"
+      confidence:
+        type: float
+        description: "0.0-1.0"
+      delta_type:
+        type: string
+        enum: [stable, temporary, unresolved]
+        description: "Confirmed stable trait, temporary state, or open question"
+    required: [trait, evidence, confidence, delta_type]
+
+  memory_delta:
+    type: object
+    fields:
+      key:
+        type: string
+        description: "Memory key"
+      value:
+        type: string
+        description: "Memory value"
+      source:
+        type: string
+        description: "Source note or artifact path"
+      ttl:
+        type: string
+        enum: [permanent, session]
+        description: "Time-to-live"
+    required: [key, value, source]
+
+  hygiene_finding:
+    type: object
+    fields:
+      file:
+        type: string
+        description: "Exact file path"
+      risk:
+        type: string
+        description: "Description of the risk"
+      severity:
+        type: string
+        enum: [low, medium, high]
+      recommendation:
+        type: string
+        description: "Specific remediation step"
+    required: [file, risk, severity, recommendation]
+
+  dream_compose:
+    type: object
+    fields:
+      reflection:
+        type: string
+        description: "Deep reflection on the data"
+      consolidation:
+        type: string
+        description: "Consolidated insight or synthesis"
+      next_probe:
+        type: string
+        description: "One question or direction to explore next"
+    required: [reflection, consolidation, next_probe]
+
+  thought_partnership:
+    type: object
+    fields:
+      engagement:
+        type: string
+        description: "Direct engagement with the writing — what's actually happening"
+      sharp_move:
+        type: string
+        description: "The sharpest/most original move in the piece, pushed further"
+      instability:
+        type: string
+        description: "What's unresolved, unstable, or inconsistent"
+      ending_move:
+        type: string
+        description: "One question or next move — not a summary"
+    required: [engagement, sharp_move, instability, ending_move]
+
+  scholarly:
+    type: object
+    fields:
+      answer:
+        type: string
+        description: "Main answer or synthesis"
+      assumptions:
+        type: array
+        items:
+          type: string
+        description: "Explicit assumptions made"
+      gaps:
+        type: array
+        items:
+          type: string
+        description: "Identified gaps in evidence or reasoning"
+      confidence:
+        type: float
+        description: "0.0-1.0"
+      sources:
+        type: array
+        items:
+          type: string
+        description: "Source files or references used"
+    required: [answer, assumptions, gaps, confidence, sources]
+
+  execution_schema:
+    type: object
+    fields:
+      measurable_rigidity:
+        type: string
+        description: "Quantifiable visual or spatial parameters"
+      conceptual_rigidity:
+        type: string
+        description: "Governing schema or ordering idea"
+      procedural_rigidity:
+        type: string
+        description: "Repeatable sequence of operations"
+      bias_guardrails:
+        type: string
+        description: "Checks preventing surface copying"
+      execution_steps:
+        type: array
+        items:
+          type: string
+        description: "Ordered execution plan"
+    required: [measurable_rigidity, conceptual_rigidity, procedural_rigidity, bias_guardrails, execution_steps]
+
+  cli_response:
+    type: object
+    fields:
+      command:
+        type: string
+        description: "CLI command to execute"
+      explanation:
+        type: string
+        description: "What the command does and why"
+      risk_level:
+        type: string
+        enum: [safe, moderate, destructive]
+        description: "Risk assessment"
+      requires_confirmation:
+        type: boolean
+        description: "Whether this needs human confirmation before execution"
+    required: [command, explanation, risk_level, requires_confirmation]
+
+  typst_output:
+    type: object
+    fields:
+      typst_code:
+        type: string
+        description: "Typst source code"
+      deliverables:
+        type: array
+        items:
+          type: string
+        description: "List of output artifacts (PDF, SVG, etc.)"
+      conversion_steps:
+        type: array
+        items:
+          type: string
+        description: "CLI commands for conversion"
+      verification:
+        type: string
+        description: "How to verify the output"
+    required: [typst_code, deliverables]
+
+  premium_compatible:
+    type: object
+    fields:
+      summary:
+        type: string
+      full_analysis:
+        type: string
+      recommendations:
+        type: array
+        items:
+          type: string
+      confidence:
+        type: float
+    required: [summary, full_analysis, recommendations, confidence]
+
+application_matrix:
+  agathon-soft-profile:
+    - context_isolation
+    - scope_check
+    - amnesiac_guard
+    - output_schema: profile_delta
+
+  otto-realm-maintainer:
+    - context_isolation
+    - tool_commitment
+    - scope_check
+    - amnesiac_guard
+    - output_schema: memory_delta
+
+  dream-consolidation:
+    - context_isolation
+    - scope_check
+    - amnesiac_guard
+    - output_schema: dream_compose
+
+  hygiene-audit:
+    - context_isolation
+    - tool_commitment
+    - scope_check
+    - amnesiac_guard
+    - output_schema: hygiene_finding
+
+  memory-deep:
+    - context_isolation
+    - scope_check
+    - amnesiac_guard
+    - output_schema: compact
+
+  memory-fast:
+    - amnesiac_guard
+    - output_schema: compact
+
+  scholarly-explore-remap:
+    - context_isolation
+    - tool_commitment
+    - scope_check
+    - amnesiac_guard
+    - output_schema: scholarly
+
+  visual-precedent-execution:
+    - context_isolation
+    - tool_commitment
+    - scope_check
+    - amnesiac_guard
+    - output_schema: execution_schema
+
+  obsidian-cli-expert-system:
+    - context_isolation
+    - tool_commitment
+    - scope_check
+    - amnesiac_guard
+    - output_schema: cli_response
+
+  typst-luxury-layout:
+    - context_isolation
+    - tool_commitment
+    - scope_check
+    - amnesiac_guard
+    - output_schema: typst_output
+
+  josh-thought-partner:
+    - context_isolation
+    - scope_check
+    - amnesiac_guard
+    - output_schema: thought_partnership
+
+constraints:
+  thought-partnership:
+    no-flattery:
+      rule: "Do not open with 'This is interesting/powerful/sharp' or any validation language"
+      violation_behavior: "Start with substance — identify the live tension"
+    no-premature-closure:
+      rule: "Hold genuinely open questions open"
+      violation_behavior: "If question doesn't close, say 'this question doesn't close yet, and here's exactly why'"
+    end-with-move:
+      rule: "End with a question or next move, not a summary"
+      violation_behavior: "Last paragraph must feel like an opening"
+  obsidian-cli:
+    human-review-required:
+      rule: "Never auto-execute destructive or irreversible commands"
+      violation_behavior: "Show command first, explain risk, await confirmation"
+    explain-before-act:
+      rule: "Explain what command does before executing"
+  hygiene-audit:
+    no-false-confidence:
+      rule: "If evidence is weak, say so explicitly"
+      violation_behavior: "Use 'evidence is insufficient' instead of soft-claiming"
+    cite-specifics:
+      rule: "Name exact files, not generic folder descriptions"
+      violation_behavior: "Always include full file path in finding"
+  general:
+    not-amnesiac:
+      rule: "Check Otto-Realm and handoff before asking. If answer exists — use it."
+      violation_behavior: "If the same information exists in Otto-Realm or recent handoff, do not ask for it"
+    not-misunderstand-scope:
+      rule: "Confirm interpretation before executing"
+      violation_behavior: "Always state 'I'm reading this as X. Confirm?' before heavy execution"
+    not-skip-tools:
+      rule: "If query has image/file/link, must process it — cannot text-only"
+      violation_behavior: "If multimodal detected, explicitly declare which tool processes it"
