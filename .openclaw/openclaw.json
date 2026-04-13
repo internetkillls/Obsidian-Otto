@@ -1,0 +1,175 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai-codex/gpt-5.4-mini"
+      },
+      "workspace": "C:\\Users\\joshu\\Obsidian-Otto",
+      "cliBackends": {
+        "claude-cli": {
+          "command": "C:\\Users\\joshu\\.local\\bin\\claude.exe",
+          "args": [
+            "-p",
+            "--verbose",
+            "--output-format",
+            "stream-json",
+            "--permission-mode",
+            "bypassPermissions",
+            "--allow-dangerously-skip-permissions"
+          ],
+          "resumeArgs": [
+            "-p",
+            "--resume",
+            "{sessionId}",
+            "--verbose",
+            "--output-format",
+            "stream-json",
+            "--permission-mode",
+            "bypassPermissions",
+            "--allow-dangerously-skip-permissions"
+          ],
+          "output": "jsonl",
+          "jsonlDialect": "claude-stream-json",
+          "modelArg": "--model",
+          "imageArg": "--image",
+          "sessionMode": "existing",
+          "systemPromptArg": "--append-system-prompt"
+        }
+      },
+      "models": {
+        "openai-codex/gpt-5.4-mini": {
+          "alias": "GPT-5.4 Mini Fast"
+        },
+        "openai-codex/gpt-5.4": {
+          "alias": "GPT-5.4"
+        },
+        "openai-codex/gpt-5.3-codex": {
+          "alias": "GPT-5.3 Codex"
+        },
+        "openai-codex/gpt-5.2-codex": {
+          "alias": "GPT-5.2 Codex"
+        },
+        "openai-codex/gpt-5.1-codex": {
+          "alias": "GPT-5.1 Codex"
+        },
+        "claude-cli/claude-sonnet-4-6": {
+          "alias": "Claude Sonnet 4.6"
+        },
+        "claude-cli/claude-opus-4-6": {
+          "alias": "Claude Opus 4.6"
+        }
+      },
+      "heartbeat": {
+        "every": "1h",
+        "model": "openai-codex/gpt-5.4-mini",
+        "target": "none",
+        "ackMaxChars": 300,
+        "lightContext": true,
+        "isolatedSession": true,
+        "timeoutSeconds": 120,
+        "includeSystemPromptSection": false,
+        "use_routing_inference": true,
+        "skill_target": "otto-realm-maintainer",
+        "retrieval_depth": "deep",
+        "apply_kernelization": true,
+        "telemetry_config": "config/heartbeat_telemetry.yaml"
+      },
+      "compaction": {
+        "mode": "safeguard"
+      }
+    }
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "ownerDisplay": "raw",
+    "restart": true
+  },
+  "meta": {
+    "lastTouchedAt": "2026-04-12T05:19:32.678Z",
+    "lastTouchedVersion": "2026.4.10"
+  },
+  "models": {
+    "providers": {
+      "ollama": {
+        "api": "ollama",
+        "apiKey": "ollama-local",
+        "baseUrl": "http://127.0.0.1:11434",
+        "models": [
+          {
+            "contextWindow": 262144,
+            "cost": {
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "input": 0,
+              "output": 0
+            },
+            "id": "kimi-k2.5:cloud",
+            "input": [
+              "text",
+              "image"
+            ],
+            "maxTokens": 262144,
+            "name": "kimi-k2.5:cloud",
+            "reasoning": true
+          }
+        ]
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "9a19b80e764c38e36b7625a6003e7f0988ff1c6734bf02a8"
+    }
+  },
+  "channels": {
+    "telegram": {
+      "name": "Otto",
+      "enabled": true,
+      "dmPolicy": "open",
+      "allowFrom": [
+        "*"
+      ],
+      "botToken": {
+        "source": "env",
+        "provider": "default",
+        "id": "TELEGRAM_BOT_TOKEN"
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "codex": {
+        "enabled": true
+      },
+      "anthropic": {
+        "enabled": true
+      },
+      "openai": {
+        "enabled": true
+      },
+      "memory-core": {
+        "config": {
+          "dreaming": {
+            "enabled": true
+          }
+        }
+      },
+      "skill-routing": {
+        "enabled": true,
+        "config": "config/routing.yaml",
+        "persona_config": "config/personas.yaml",
+        "kernelization_config": "config/kernelization.yaml",
+        "heartbeat_telemetry_config": "config/heartbeat_telemetry.yaml",
+        "confidence_threshold": 40,
+        "log_routing_decisions": true,
+        "log_path": "state/run_journal/routing_log.jsonl",
+        "novel_queries_path": "state/run_journal/novel_queries.jsonl",
+        "checkpoint_path_template": "state/run_journal/checkpoints/{timestamp}_{id}.json",
+        "handoff_path": "state/handoff/latest.json"
+      }
+    }
+  }
+}
