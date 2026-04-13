@@ -1,0 +1,141 @@
+# Otto-Obsidian Heartbeat Telemetry Config
+# Routing telemetry → heartbeat analysis → inference weight updates
+# Generated from: docs/superpowers/specs/2026-04-13-otto-routing-inference-design.md
+
+version: "1.0"
+last_updated: "2026-04-13"
+
+routing_log:
+  path: "state/run_journal/routing_log.jsonl"
+  schema_version: "1.0"
+  fields:
+    - timestamp
+    - query_hash
+    - query_preview
+    - routing_method
+    - intent
+    - confidence
+    - persona
+    - persona_score
+    - model_tier
+    - kernel_applied
+    - escalation_depth
+    - escalation_reason
+    - skill_used
+    - tool_calls
+    - output_schema_validated
+    - execution_ms
+    - success
+    - failure_reason
+    - model_intended
+    - model_actual
+    - had_to_chunk
+    - kernel_mitigated_delta
+    - scope_correct
+    - tool_used_appropriately
+    - questions_avoided
+    - kernel_applied_correctly
+
+aggregation:
+  time_window: "24h"
+  min_entries_for_analysis: 5
+
+  metrics:
+    - name: top_intents
+      type: frequency
+      top_n: 5
+      field: intent
+
+    - name: avg_confidence_per_intent
+      type: average
+      group_by: intent
+      field: confidence
+
+    - name: escalation_rate
+      type: rate
+      numerator: "escalation_depth > 0"
+      denominator: "total_entries"
+      alert_threshold: 0.6
+
+    - name: kernel_delta_mitigation_effectiveness
+      type: rate
+      numerator: "kernel_mitigated_delta == true"
+      denominator: "model_actual != model_intended"
+      alert_threshold: 0.7
+
+    - name: questions_asked_rate
+      type: average
+      field: questions_avoided
+      invert: true
+      alert_threshold: 3
+
+    - name: tool_appropriateness_rate
+      type: rate
+      numerator: "tool_used_appropriately == true"
+      denominator: "total_entries"
+
+    - name: novel_query_clusters
+      type: cluster
+      group_by: query_hash
+      min_cluster_size: 3
+      output: "draft_intent_proposal"
+
+    - name: execution_success_rate
+      type: rate
+      numerator: "success == true"
+      denominator: "total_entries"
+
+heartbeat_actions:
+  on_aggregation_complete:
+    - skill: otto-realm-maintainer
+      action: analyze_telemetry
+      input:
+        telemetry_summary_path: "state/run_journal/heartbeat_telemetry.md"
+        routing_log_path: "state/run_journal/routing_log.jsonl"
+      rules:
+        - if escalation_rate > 0.6:
+            suggestion: "Update tier escalation thresholds in config/routing.yaml"
+            flag: "escalation-rate-high"
+        - if novel_query_clusters exists:
+            suggestion: "Draft new intent in config/routing.yaml with skill suggestion"
+            flag: "novel-intent-detected"
+        - if questions_asked_rate increasing:
+            suggestion: "Strengthen amnesiac_guard in config/kernelization.yaml"
+            flag: "amnesiac-guard-weak"
+        - if kernel_delta_mitigation_effectiveness < 0.7:
+            suggestion: "Improve chunking strategy in config/routing.yaml escalation config"
+            flag: "kernel-delta-ineffective"
+        - if execution_success_rate < 0.8:
+            suggestion: "Review failed executions for skill routing issues"
+            flag: "execution-failures"
+
+  on_checkpoint_memory_delta:
+    - skill: otto-realm-maintainer
+      action: sync_otto_realm
+      artifacts_to_update:
+        - Profile Snapshot.md: "if intent == deep-profile"
+        - Central Schedule.md: "if schedule alignment detected"
+        - Weekly/YYYY-WXX.md: "if priority or theme changes"
+        - Heartbeats/YYYY-MM-DD.md: "always if significant_delta"
+      rules:
+        - "Write concrete, small updates. No fluffy self-mythology."
+        - "Distinguish stable traits from temporary experiments."
+        - "Max 3 Otto-Realm file writes per heartbeat cycle."
+
+novel_queries_log:
+  path: "state/run_journal/novel_queries.jsonl"
+  schema:
+    - query_hash
+    - first_seen
+    - count
+    - query_preview
+    - suggested_intent
+    - draft_intent_proposed
+    - heartbeat_review_flagged
+    - skillified
+
+skillification:
+  threshold: 3
+  auto_create_draft: true
+  draft_location: "config/routing.yaml.intents.draft"
+  notification: "Log to heartbeat_telemetry.md as 'novel-intent-detected'"
