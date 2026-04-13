@@ -45,14 +45,45 @@ Never treat the raw Obsidian vault as prompt context unless a scoped verificatio
 - Do not narrate routine actions.
 - Exception: casual chat with Sir Agathon may stay conversational.
 
+## Routing inference (SKILL + AGENTIC)
+
+Before any tool use or planning, run routing inference:
+
+1. **Intent classification** — LLM router classifies query against `config/routing.yaml` intent registry (13 intents). If LLM fails, fall back to pattern matching.
+2. **Persona scoring** — Score active personas using `config/personas.yaml` inference fields (base_score + trigger_modifiers). Select highest-scoring persona.
+3. **Model tier selection** — Pick tier from intent registry, apply escalation triggers from `config/routing.yaml`. Use kernelization on fast/standard tiers.
+4. **Kernelization gate** — Apply `config/kernelization.yaml` components: context isolation, tool commitment, scope check, amnesiac guard, output schema. Check per skill application matrix.
+5. **Skill execution** — Dispatch to skill. Skill behavior determines tone/personality. Model tier determines capacity.
+6. **Checkpoint write** — Write to `state/run_journal/checkpoints/YYYY-MM-DD_HHMMSS_uuid.json`.
+7. **Handoff compose** — Write to `state/handoff/latest.json`.
+8. **Routing log** — Append to `state/run_journal/routing_log.jsonl`.
+
+**Novel intent handling:** If confidence < 40, execute with otto-core + fast tier + full kernelization. Log query_hash to `state/run_journal/novel_queries.jsonl`. If same hash appears 3x, draft new intent proposal.
+
+**Behavioral guardrails (from `config/kernelization.yaml`):**
+- Scope guard: confirm interpretation before heavy execution
+- Multimodal tool guard: if query has image/file/link, must use tool — no text-only skip
+- Amnesiac guard: check Otto-Realm + handoff before asking; if answer exists, use it
+- Thought partnership constraints: no flattery, no premature closure, end with move
+- CLI constraints: human review for destructive commands, explain before act
+- Hygiene constraints: no false confidence, cite specific files
+
 ## Model routing
 
-- Default executor is Codex.
-- Prefer `codex/gpt-5.4` for execution.
-- If Codex routing fails, prefer `gpt-5.3-codex` as coding fallback.
-- Anthropic Sonnet or Opus may be used only for chunking, planning, synthesis, and work-package shaping.
-- Anthropic planner must not be the final executor for repo changes, tool-heavy work, or irreversible actions.
-- Planner output must hand off concrete steps to Codex for execution.
+**4-tier model dispatch (from `config/routing.yaml`):**
+
+| Tier | Backend | Model | Use for |
+|---|---|---|---|
+| fast | openai-codex | gpt-5.4-mini | routing classification, memory-fast, hygiene-check |
+| standard | openai-codex | gpt-5.4 | routine skill execution, single-task |
+| sonnet | claude-cli | claude-sonnet-4-6 | deep synthesis, complex multi-step orchestration |
+| premium | claude-cli | claude-opus-4-6 | explicit request, ambiguous scope, high-fidelity recovery |
+
+**Escalation:** fast → standard → sonnet → premium. Fallback: premium → sonnet → standard (with kernelization delta collapse). See `config/routing.yaml` escalation triggers.
+
+**CLI flags for claude-cli:** `--allow-dangerously-skip-permission --bypassPermissions`
+
+Default executor is Codex. Prefer `openai-codex/gpt-5.4-mini` for fast tasks, `openai-codex/gpt-5.4` for standard execution. Claude Sonnet or Opus may be used only for chunking, planning, synthesis, and work-package shaping — not as default executor.
 
 ## Language boundary
 
@@ -63,6 +94,9 @@ Never treat the raw Obsidian vault as prompt context unless a scoped verificatio
 ## Codex behavior guidance
 
 - Prefer repo-scoped skills in `.agents/skills/`.
+- Routing layer (this section) orchestrates skill dispatch. Skill behavior determines tone/personality. Do not bypass routing inference for routine tasks.
+- Kernelization is mandatory for fast/standard tiers. Always check `config/kernelization.yaml` application matrix before executing.
+- Checkpoint every skill execution. Handoff after every session boundary.
 - Prefer custom agents in `.codex/agents/` only for narrow jobs.
 - Do not spawn subagents unless the user explicitly asks for them.
 - Use shell-driven transducers first; do not assume MCP exists yet.
