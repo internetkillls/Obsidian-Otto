@@ -2,49 +2,59 @@
 
 ## Goal
 
-Turn a mixed Obsidian automation workspace into a **stable Codex-native assistant core**.
+Split execution (MCP Fabric) from control plane (Obsidian-Otto). OpenClaw becomes the gateway and broker that orchestrates both sides. Build toward MCP-native execution while preserving Otto's curated state, pipeline, and retrieval core.
+
+See `docs/superpowers/specs/2026-04-13-otto-mcp-native-architecture-design.md` for the full approved design.
 
 ## High-level shape
 
 ```text
 User / Telegram / TUI
-  -> Otto Runtime
-  -> Retrieval controller
-  -> Bronze / Silver / Gold data stack
-  -> KAIROS telemetry
-  -> Dream consolidation
-  -> Codex skills + AGENTS + optional custom agents
+  -> OpenClaw gateway / broker
+     -> MCP Fabric (Docker)
+        -> Obsidian MCP
+        -> Obsidian CLI MCP
+        -> [MCP lain bila perlu]
+     -> Obsidian-Otto
+        -> Bronze / Silver / Gold
+        -> checkpoint / handoff / run_journal
+        -> KAIROS / Dream / heartbeat
+        -> artifacts / reports
 ```
+
+## Plane ownership
+
+| Plane | Owner | Role |
+|---|---|---|
+| Execution | MCP Fabric (Docker) | Tool execution, capability access, Obsidian operations |
+| Gateway/Broker | OpenClaw | Request routing, model selection, MCP orchestration, auth |
+| Control + Curated Data | Obsidian-Otto | State continuity, pipeline, retrieval curation, telemetry, governance |
 
 ## Core loops
 
 ### 1. Retrieval loop
 
-User query  
-→ fast retrieval  
-→ if enough evidence: answer  
-→ else scoped deep refresh  
-→ deep retrieval  
-→ answer
+User query → OpenClaw → Gold summary (fast) → Silver SQLite → optional vector → raw Bronze only if evidence still insufficient
 
 ### 2. Dataset loop
 
-Raw vault  
-→ Bronze scan  
-→ Silver normalization  
-→ Gold curation  
-→ training export candidate
+Raw vault → Bronze scan → Silver normalization → Gold curation → training export candidate (Gold reviewed only)
 
 ### 3. Operational loop
 
-runtime start  
-→ logs  
-→ KAIROS heartbeat  
-→ Dream consolidation  
-→ next batch strategy
+Runtime start → logs → OpenClaw routing → MCP execution (or Otto state retrieval) → KAIROS heartbeat → Dream consolidation → next batch strategy
+
+### 4. MCP migration loop
+
+MCP infra not yet live → Otto holds execution temporarily → temporary bridge flagged as migration candidate → when MCP live, move execution to MCP → audit routing/policy thickness
 
 ## Supporting docs
 
-- `docs/cache-stack-and-events.md`
-- `docs/model-routing.md`
-- `docs/state-model.md`
+- `docs/superpowers/specs/2026-04-13-otto-mcp-native-architecture-design.md` — source of truth for architecture
+- `docs/migration-plan.md` — migration stages to MCP-native
+- `docs/state-model.md` — what checkpoints are, which state files are official
+- `docs/cache-stack-and-events.md` — Bronze/Silver/Gold data flow (not architecture)
+- `docs/model-routing.md` — control policy, not architecture
+- `config/routing.yaml` — routing intent registry
+- `config/personas.yaml` — persona inference fields
+- `config/kernelization.yaml` — kernelization schema
