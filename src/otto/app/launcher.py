@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Sequence
 
-from ..config import load_env_file, load_paths, repo_root
+from ..config import load_docker_config, load_env_file, load_paths, repo_root
 from ..docker_utils import docker_available, docker_daemon_running
 from ..launcher_state import LauncherStateStore, mcp_configured
 from ..state import read_json
@@ -132,10 +132,10 @@ class LauncherApp:
         while True:
             snapshot = self.write_current(current_screen)
             self._render_screen(current_screen, snapshot)
-            choice = input("Select: ").strip()
+            choice = input("Select [1-9]: ").strip()
             action = self._resolve_choice(current_screen, choice)
             if action is None:
-                print("[WARN] Invalid selection.")
+                print("[WARN] Invalid selection. Use 1-9.")
                 time.sleep(1)
                 continue
             if action == "exit":
@@ -151,7 +151,7 @@ class LauncherApp:
             if result.next_screen is not None:
                 current_screen = result.next_screen
             if action not in {"tui", "launch-mcp"}:
-                input("Press Enter to continue...")
+                input("Press Enter to return to launcher...")
 
     def run_action(self, action: str, *, screen: str, interactive: bool, extra_args: Sequence[str] | None = None) -> ActionResult:
         started = time.time()
@@ -197,24 +197,52 @@ class LauncherApp:
 
     def _render_screen(self, screen: str, snapshot: RuntimeSnapshot) -> None:
         os.system("cls" if os.name == "nt" else "clear")
-        print("================================================")
-        print("Obsidian-Otto Control Launcher")
-        print("================================================")
-        print(f"Repo: {self.root}")
+        print("========================================================")
+        print(f"Obsidian-Otto Control Launcher [{screen.upper()}]")
+        print("========================================================")
+        print(f"Repo:    {self.root}")
+        print(f"Vault:   {self.paths.vault_path or '(not configured)'}")
+        print(f"Task:    {self._active_task_summary()}")
         print(f"Runtime: {snapshot.status}" + (f" (PID {snapshot.pid})" if snapshot.pid else ""))
+        print(f"MCP:     {self._mcp_summary()}")
         current = read_json(self.state.current_path, default={}) or {}
         recommendations = current.get("recommended_next_actions") or []
         if recommendations:
             print()
-            print("Next:")
+            print("Recommended next:")
             for item in recommendations:
                 print(f"- {item}")
         print()
 
         menu = self._screen_menu(screen)
+        print("Actions:")
         for key, label in menu:
             print(f"[{key}] {label}")
         print()
+
+    def _active_task_summary(self) -> str:
+        task_dir = self.root / "tasks" / "active"
+        if not task_dir.exists():
+            return "none"
+        names = sorted(path.name for path in task_dir.iterdir() if path.is_file())
+        if not names:
+            return "none"
+        if len(names) == 1:
+            return names[0]
+        return f"{names[0]} (+{len(names) - 1} more)"
+
+    def _mcp_summary(self) -> str:
+        cfg = load_docker_config()
+        services = cfg.get("services") or []
+        if "obsidian-mcp" not in services:
+            return "not declared in docker.yaml"
+        if not cfg.get("enabled", False):
+            return "disabled in docker.yaml"
+        env = load_env_file(self.root / ".env")
+        vault_host = env.get("OBSIDIAN_VAULT_HOST") or str(self.paths.vault_path or "")
+        if not vault_host:
+            return "enabled, but vault host is not configured"
+        return "enabled for obsidian-mcp"
 
     def _screen_menu(self, screen: str) -> list[tuple[str, str]]:
         if screen == "advanced":
@@ -223,22 +251,22 @@ class LauncherApp:
                 ("2", "Run Dream once"),
                 ("3", "Query memory"),
                 ("4", "Sync OpenClaw config"),
-                ("5", "Launch MCP (stdio)"),
+                ("5", "Launch obsidian-mcp"),
                 ("6", "Run Brain CLI"),
-                ("7", "Docker up"),
-                ("8", "Docker clean"),
-                ("9", "Back"),
+                ("7", "Bring up Docker stack"),
+                ("8", "Clean Docker stack"),
+                ("9", "Back to home"),
             ]
         return [
-            ("1", "Initial setup bootstrap"),
-            ("2", "Start background runtime"),
-            ("3", "Stop background runtime"),
-            ("4", "Open TUI"),
-            ("5", "Status report (JSON)"),
-            ("6", "Reindex pipeline"),
+            ("1", "Run initial setup"),
+            ("2", "Start runtime loop"),
+            ("3", "Stop runtime loop"),
+            ("4", "Open live TUI"),
+            ("5", "Show status report"),
+            ("6", "Run reindex pipeline"),
             ("7", "Doctor checks"),
-            ("8", "Advanced"),
-            ("9", "Exit"),
+            ("8", "Open advanced tools"),
+            ("9", "Exit launcher"),
         ]
 
     def _resolve_choice(self, screen: str, choice: str) -> str | None:
