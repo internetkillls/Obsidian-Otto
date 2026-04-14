@@ -69,12 +69,13 @@ def test_launcher_state_store_writes_json():
             docker_cli_is_available=True,
             mcp_is_configured=True,
             recommended_next_actions=["Start the background runtime."],
-            vault_path="C:\\vault",
+            vault_host_path="C:\\vault",
         )
         current = json.loads(current_path.read_text(encoding="utf-8"))
         assert current["screen"] == "home"
         assert current["runtime_status"] == "STOPPED"
         assert current["docker_cli_available"] is True
+        assert current["vault_host_path"] == "C:\\vault"
 
         action_path = store.record_action(
             action="start",

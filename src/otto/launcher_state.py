@@ -102,7 +102,7 @@ class LauncherStateStore:
         docker_cli_is_available: bool | None = None,
         mcp_is_configured: bool | None = None,
         recommended_next_actions: list[str] | None = None,
-        vault_path: str | None = None,
+        vault_host_path: str | None = None,
     ) -> Path:
         if venv_is_ready is None:
             venv_is_ready = venv_ready(self.paths.repo_root)
@@ -118,8 +118,8 @@ class LauncherStateStore:
                 docker_cli_is_available=docker_cli_is_available,
                 mcp_is_configured=mcp_is_configured,
             )
-        if vault_path is None:
-            vault_path = str(self.paths.vault_path) if self.paths.vault_path else None
+        if vault_host_path is None:
+            vault_host_path = str(self.paths.vault_path) if self.paths.vault_path else None
 
         payload: dict[str, Any] = {
             "ts": now_iso(),
@@ -127,7 +127,7 @@ class LauncherStateStore:
             "runtime_status": runtime_status,
             "runtime_pid": runtime_pid,
             "venv_ready": venv_is_ready,
-            "vault_path": vault_path,
+            "vault_host_path": vault_host_path,
             "docker_cli_available": docker_cli_is_available,
             "mcp_configured": mcp_is_configured,
             "recommended_next_actions": recommended_next_actions,
