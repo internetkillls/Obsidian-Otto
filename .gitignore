@@ -19,9 +19,15 @@ logs/**/*.jsonl
 state/**/*.pid
 state/bootstrap/*.json
 state/kairos/*.jsonl
+state/launcher/*.json
 state/run_journal/*.jsonl
 artifacts/**/*.json
 artifacts/**/*.md
+
+# Test scratch
+.pytest_cache/
+.tmp_test/
+.tmp_launcher_tests/
 
 # Editors
 .vscode/

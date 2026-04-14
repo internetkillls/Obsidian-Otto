@@ -1,27 +1,23 @@
 @echo off
-setlocal
+setlocal EnableExtensions
 set "ROOT=%~dp0"
-set "PID_FILE=%ROOT%state\pids\runtime.pid"
-if not exist "%PID_FILE%" (
-  echo No runtime PID file found.
-  exit /b 0
-)
-set /p OTTO_PID=<"%PID_FILE%"
-if "%OTTO_PID%"=="" (
-  echo PID file was empty.
+set "COMMON=%ROOT%scripts\shell\otto_common.bat"
+set "LAUNCHER=%ROOT%scripts\manage\run_launcher.py"
+
+if not exist "%COMMON%" (
+  echo [ERROR] Missing helper: scripts\shell\otto_common.bat
   exit /b 1
 )
-:: Verify the PID is actually a Python process (Otto runtime) before killing
-for /f "tokens=2" %%a in ('tasklist /FI "PID eq %OTTO_PID%" /FO CSV /NH 2^>nul') do (
-    set "PROC_NAME=%%~a"
+if not exist "%LAUNCHER%" (
+  echo [ERROR] Missing launcher script: scripts\manage\run_launcher.py
+  exit /b 1
 )
-if not defined PROC_NAME (
-    echo Process %OTTO_PID% not found — stale PID file removed.
-    del "%PID_FILE%" >nul 2>nul
-    exit /b 0
+call "%COMMON%" :ensure_python_env "%ROOT%" PYTHON_EXE PYTHONPATH_VALUE
+if errorlevel 1 (
+  echo [Otto] Virtual environment missing. Run initial.bat first.
+  exit /b 1
 )
-echo [Otto] Stopping runtime PID %OTTO_PID% ...
-taskkill /PID %OTTO_PID% /T /F 2>nul
-del "%PID_FILE%" >nul 2>nul
-echo [Otto] Stopped.
+set "PYTHONPATH=%PYTHONPATH_VALUE%"
+"%PYTHON_EXE%" "%LAUNCHER%" --once stop
+exit /b %ERRORLEVEL%
 endlocal

@@ -11,6 +11,22 @@ def docker_available() -> bool:
     return shutil.which("docker") is not None
 
 
+def docker_daemon_running() -> bool:
+    if not docker_available():
+        return False
+    try:
+        result = subprocess.run(
+            ["docker", "info"],
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=5,
+        )
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return False
+    return result.returncode == 0
+
+
 def docker_compose_status(*, probe: bool = True) -> dict[str, Any]:
     if not docker_available():
         return {"available": False, "status": "docker-not-found", "services": []}
