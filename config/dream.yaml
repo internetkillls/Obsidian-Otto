@@ -1,0 +1,12 @@
+dream:
+  # Otto-Realm is now .Otto-Realm (hidden folder in vault)
+  vault_areas:
+    brain: ".Otto-Realm/Brain"
+    heartbeats: ".Otto-Realm/Heartbeats"
+    memory_tiers: ".Otto-Realm/Memory-Tiers"
+    rituals: ".Otto-Realm/Rituals"
+    predictions: ".Otto-Realm/Predictions"
+  max_excerpt_chars: 500
+  corpus_dir: "memory/.dreams/session-corpus"
+  manifest_file: "state/dream/vault_ingestion.json"
+  heartbeat_target: ".Otto-Realm"

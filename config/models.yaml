@@ -54,6 +54,10 @@ tasks:
     model: gpt-5.4-pro
     effort: high
     reason: Reserve for rare, high-stakes long-form planning only.
+  gold_scoring:
+    model: gpt-5.4-mini
+    effort: low
+    reason: Claim enrichment via inline LLM synthesis. Flagged for Phase 2 activation.
 
 training:
   export_only_from_gold: true

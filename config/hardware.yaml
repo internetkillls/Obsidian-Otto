@@ -1,0 +1,47 @@
+# Hardware Acceleration Config for Otto-Otto
+# Supports GPU (CUDA), Apple Silicon (MPS), and CPU-only fallback
+# Phase 2: Enables inline LLM synthesis for full-body scoring
+
+hardware:
+  # Primary accelerator
+  device: auto  # auto | cuda | mps | cpu
+
+  # CUDA settings (NVIDIA GPUs)
+  cuda:
+    enabled: true
+    device_id: 0
+    memory_fraction: 0.8  # Reserve 20% for display/system
+    allow_growth: true
+    fallback_to_cpu: true  # Fall back to CPU if CUDA fails
+
+  # Apple Silicon (MPS)
+  mps:
+    enabled: true
+    fallback_to_cpu: true
+
+  # CPU fallback
+  cpu:
+    threads: 4  # Use 4 threads for inference
+    precision: float16  # float32 | float16 | bfloat16
+
+  # Phase 2: Inline LLM for claim enrichment
+  inline_llm:
+    enabled: false  # Set to true once hardware acceleration verified
+    model_task: gold_scoring
+    max_batch_size: 10  # Signals per batch
+    timeout_seconds: 30
+    fallback_to_cpu: true
+
+  # Model precisions
+  precision:
+    default: float16  # float32 | float16 | bfloat16 | int8
+    gold_scoring: float16
+    kairos_daily: float16
+    dream_consolidation: float16
+
+# Phase 2 activation checklist:
+# 1. GPU detected and working
+# 2. CUDA/mps enabled above
+# 3. inline_llm.enabled = true
+# 4. USE_FULL_BODY = True in kairos_gold.py
+# 5. Full body scoring verified via test_phase2_fixes.py

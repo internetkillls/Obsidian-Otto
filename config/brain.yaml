@@ -1,11 +1,12 @@
 brain:
+  # Otto-Realm is now .Otto-Realm (hidden folder in vault)
   memory_tiers:
-    facts_path: "Otto-Realm/Memory-Tiers/01-Facts"
-    interpretations_path: "Otto-Realm/Memory-Tiers/02-Interpretations"
-    speculations_path: "Otto-Realm/Memory-Tiers/03-Speculations"
-  brain_notes_path: "Otto-Realm/Brain"
-  predictions_path: "Otto-Realm/Predictions"
-  rituals_path: "Otto-Realm/Rituals"
+    facts_path: ".Otto-Realm/Memory-Tiers/01-Facts"
+    interpretations_path: ".Otto-Realm/Memory-Tiers/02-Interpretations"
+    speculations_path: ".Otto-Realm/Memory-Tiers/03-Speculations"
+  brain_notes_path: ".Otto-Realm/Brain"
+  predictions_path: ".Otto-Realm/Predictions"
+  rituals_path: ".Otto-Realm/Rituals"
   max_facts: 100
   max_interpretations: 50
   max_speculations: 30
