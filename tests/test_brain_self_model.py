@@ -27,9 +27,14 @@ class TestSirAgathonProfile:
         p.preferred_response_length = "terse"
         p.working_hours = {"start": "09:00", "end": "17:00"}
         p.add_pattern("short_sentences", "Sir Agathon uses short sentences", confidence=0.9)
+        p.cognitive_risks = ["Context switching stays expensive; continuity must be carried by the system."]
+        p.recovery_levers = ["Short, concrete prompts with one next step reduce friction."]
+        p.continuity_commitments = [{"cue": "Portfolio one-pager", "path": "10-Personal/goal.md", "kind": "goal", "confidence": 0.8}]
         md = p.profile_to_markdown()
         assert "# Otto Self-Model" in md
         assert "short_sentences" in md
+        assert "Continuity Commitments" in md
+        assert "Portfolio one-pager" in md
 
 
 class TestOttoSelfModel:
@@ -48,14 +53,81 @@ class TestOttoSelfModel:
         mock_scan = {
             "note_count": 5,
             "notes": [
-                {"path": "10-Personal/goal.md", "tags": ["goal"], "wikilinks": ["30-Projects/app"], "body_excerpt": ""},
-                {"path": "10-Personal/habit.md", "tags": ["habit"], "wikilinks": [], "body_excerpt": ""},
+                {
+                    "path": "10-Personal/goal.md",
+                    "tags": ["goal"],
+                    "wikilinks": ["30-Projects/app"],
+                    "body_excerpt": "Need to finish portfolio one-pager this week for client proposal.",
+                    "frontmatter_text": "type: goal",
+                },
+                {
+                    "path": "30-Projects/service-offer.md",
+                    "tags": ["business"],
+                    "wikilinks": [],
+                    "body_excerpt": "Monetizable opportunity: package service offer for revenue next year.",
+                    "frontmatter_text": "type: project",
+                },
             ]
         }
         result = sm.build_from_scan(mock_scan)
         assert "profile_snapshot" in result
         assert "strengths" in result
         assert "weaknesses" in result
+        assert result["continuity_commitments"]
+        assert result["opportunity_map"]
+        assert result["continuity_prompts"]
+        assert "sm2_hooks" not in result
+
+    def test_build_from_scan_prioritizes_personal_vault_sources_over_narrow_scan(self, tmp_vault, monkeypatch):
+        monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_vault))
+        personal = tmp_vault / "10-Personal" / "commitment.md"
+        personal.parent.mkdir(parents=True, exist_ok=True)
+        personal.write_text(
+            "---\ntags: [goal, personal]\n---\n# Commitment\nSaya perlu follow up portfolio one-pager minggu ini.",
+            encoding="utf-8",
+        )
+
+        monolog = tmp_vault / "!My" / "Backboard" / "reentry.md"
+        monolog.parent.mkdir(parents=True, exist_ok=True)
+        monolog.write_text(
+            "# Re-entry\nI want a small system that remembers my commitments and asks one short question.",
+            encoding="utf-8",
+        )
+
+        archived = tmp_vault / "90-Archive" / "old-opportunity.md"
+        archived.parent.mkdir(parents=True, exist_ok=True)
+        archived.write_text(
+            "# Old Opportunity\nThis old client service package opportunity from 2 years ago may still be monetizable.",
+            encoding="utf-8",
+        )
+
+        noisy = tmp_vault / ".Otto-Realm" / "Reports" / "echo.md"
+        noisy.parent.mkdir(parents=True, exist_ok=True)
+        noisy.write_text(
+            "# Echo\nNeed to follow up the generated report again.",
+            encoding="utf-8",
+        )
+
+        sm = OttoSelfModel(vault_path=tmp_vault)
+        result = sm.build_from_scan({
+            "note_count": 1,
+            "notes": [
+                {
+                    "path": "00-Meta/scarcity/LACK-generated.md",
+                    "tags": ["scarcity"],
+                    "wikilinks": [],
+                    "body_excerpt": "Need to follow up generic scarcity issue.",
+                    "frontmatter_text": "",
+                    "has_frontmatter": False,
+                }
+            ],
+        })
+
+        top_commitment_paths = [item["path"] for item in result["continuity_commitments"][:3]]
+        top_opportunity_paths = [item["path"] for item in result["opportunity_map"][:3]]
+        assert "10-Personal/commitment.md" in top_commitment_paths
+        assert "90-Archive/old-opportunity.md" in top_opportunity_paths
+        assert all(not path.startswith(".Otto-Realm/Reports") for path in top_commitment_paths + top_opportunity_paths)
 
     def test_write_profile_to_vault(self, tmp_vault, monkeypatch):
         monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_vault))
@@ -71,6 +143,15 @@ class TestOttoSelfModel:
         monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_vault))
         sm = OttoSelfModel(vault_path=tmp_vault)
         sm.profile.add_pattern("short_sentences", "Sir Agathon uses short sentences", confidence=0.9)
+        sm.profile.sm2_hooks = [{"question": "Apa status target ini?", "path": "10-Personal/goal.md", "confidence": 0.7}]
         md = sm.profile.profile_to_markdown()
         assert "# Otto Self-Model" in md
         assert "short_sentences" in md
+        assert "Continuity Prompts" in md
+
+    def test_legacy_sm2_property_maps_to_continuity_prompts(self):
+        sm = OttoSelfModel.__new__(OttoSelfModel)
+        sm.profile = SirAgathonProfile()
+        sm.profile.sm2_hooks = [{"question": "Apa status target ini?", "path": "10-Personal/goal.md", "confidence": 0.7}]
+        assert sm.profile.continuity_prompts
+        assert sm.profile.sm2_hooks == sm.profile.continuity_prompts

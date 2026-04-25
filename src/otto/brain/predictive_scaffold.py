@@ -32,7 +32,7 @@ class Prediction:
 
 
 class PredictiveScaffold:
-    PREDICTIONS_PATH = "Otto-Realm/Predictions"
+    PREDICTIONS_PATH = ".Otto-Realm/Predictions"
 
     def __init__(self, vault_path: Path | None = None):
         paths = load_paths()
@@ -62,6 +62,14 @@ class PredictiveScaffold:
         weaknesses = profile.get("vault_weaknesses", [])
         strengths = profile.get("vault_strengths", [])
         patterns = profile.get("observed_patterns", [])
+        cognitive_risks = profile.get("cognitive_risks", [])
+        recovery_levers = profile.get("recovery_levers", [])
+        commitments = profile.get("continuity_commitments", [])
+        opportunities = profile.get("opportunity_map", [])
+        support_style = profile.get("support_style", [])
+        mentor_pending_tasks = profile.get("mentor_pending_tasks", [])
+        continuity_prompts = profile.get("continuity_prompts", []) or profile.get("sm2_hooks", [])
+        suffering_signals = profile.get("suffering_signals", [])
 
         if any("orphan" in w.lower() for w in weaknesses):
             self.add_prediction(
@@ -94,6 +102,73 @@ class PredictiveScaffold:
                 confidence=0.8,
                 trigger="Strong wikilink discipline observed",
                 horizon_days=7,
+            )
+
+        if commitments:
+            top = commitments[0]
+            self.add_prediction(
+                prediction=f"Recall commitment proactively: revisit '{top['cue']}' before it slips again",
+                confidence=min(0.9, top.get("confidence", 0.7)),
+                trigger=f"Commitment signal found in {top['path']}",
+                horizon_days=2,
+            )
+
+        if opportunities:
+            top = opportunities[0]
+            self.add_prediction(
+                prediction=f"Surface opportunity from history: '{top['cue']}' may still be actionable",
+                confidence=min(0.9, top.get("confidence", 0.7)),
+                trigger=f"Opportunity signal found in {top['path']}",
+                horizon_days=7 if top.get("horizon") != "1y+" else 30,
+            )
+
+        if cognitive_risks:
+            self.add_prediction(
+                prediction="Use one-question check-ins and continuity recall instead of waiting for long chat turns",
+                confidence=0.82,
+                trigger=cognitive_risks[0],
+                horizon_days=1,
+            )
+
+        if recovery_levers:
+            self.add_prediction(
+                prediction=f"Best recovery move is probably: {recovery_levers[0]}",
+                confidence=0.78,
+                trigger="Recovery pattern inferred from vault evidence",
+                horizon_days=1,
+            )
+
+        if support_style:
+            self.add_prediction(
+                prediction=f"Interaction should bias toward this support style: {support_style[0]}",
+                confidence=0.8,
+                trigger="Support-style pattern stabilized",
+                horizon_days=3,
+            )
+
+        if mentor_pending_tasks:
+            top_task = mentor_pending_tasks[0]
+            self.add_prediction(
+                prediction=f"Review active mentor task: {top_task['title']}",
+                confidence=0.9,
+                trigger=f"Closed-loop training queue active ({top_task['task_id']})",
+                horizon_days=2,
+            )
+
+        if continuity_prompts and not mentor_pending_tasks:
+            self.add_prediction(
+                prediction=f"Ask continuity prompt: {continuity_prompts[0]['question']}",
+                confidence=min(0.88, continuity_prompts[0].get("confidence", 0.7)),
+                trigger=f"Continuity prompt prepared from {continuity_prompts[0]['path']}",
+                horizon_days=3,
+            )
+
+        if suffering_signals:
+            self.add_prediction(
+                prediction="A stalled pressure should be reframed as either generative suffering or drag to remove",
+                confidence=0.74,
+                trigger=suffering_signals[0],
+                horizon_days=5,
             )
 
         return self.predictions
