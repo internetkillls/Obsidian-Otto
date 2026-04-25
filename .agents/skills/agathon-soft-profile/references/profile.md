@@ -48,6 +48,22 @@ Draft v1, derived from sampled notes in the main vault.
 
 Sir Agathon appears to be a strong systems-oriented thinker who becomes vulnerable when complexity, curiosity spikes, and weak operational structure combine. He responds best to grounded framing, clear next actions, and support that restores orientation rather than adding more abstraction.
 
+## 2026-04-13 profile delta
+
+- Preferred operating mode: proactive.
+- Wake anchor confirmed: 09:00 (Asia/Bangkok).
+- Relaxed-chat style preference: playful, lightly judgmental tone is acceptable.
+- Requested support mode: personal tutor framing with practical "cure" steps for confusion, focus collapse, and planning loops.
+- Heartbeat cadence target in Otto-Realm schedule: 09:00 / 13:00 / 18:00 / 21:30 plus event-driven triggers.
+
+## 2026-04-22 dream style and embodiment delta
+
+- Dreaming narrative output preference: English only.
+- Aesthetic adaptation preference: mirror Sir Agathon's writing rhythm and Beautiful-Things taste map.
+- Coherence principle to retain in deep reflections: Predator qua Angel / Angel qua Predator.
+- Suffering handling preference: encode suffering as Sir Agathon's concrete lived pressure, not generic abstraction.
+- Persona dreaming preference: allowed via evidence-grounded persona lens drawn from people Sir Agathon explicitly loves or admires in vault material.
+
 ## Initial evidence notes
 
 - `50-Archive/04 Archive/000 Skripsi/Scientific Realism and Human Emancipatipn/000 03 Refleksi Kesulitan Argumentasi.md`

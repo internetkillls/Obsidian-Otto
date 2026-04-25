@@ -83,6 +83,19 @@ When MCP tools are available and appropriate:
 - When both CLI and MCP are viable, explain the trade-off.
 - Do not stack multiple destructive MCP operations without review between each.
 
+## Morpheus / OpenClaw contract
+
+- Treat MORPHEUS output as `investigative memory candidates`, not durable memory.
+- Before any command or queue routine that could feed OpenClaw dreaming or promotion, inspect:
+
+  ```bash
+  python -m otto.cli morpheus-bridge
+  ```
+
+- If the bridge reports `ready_for_openclaw_dreaming=false`, keep the task in retrieve/review mode.
+- Prefer markdown-body and semantic retrieval evidence over frontmatter-only hints.
+- Never use raw `memory/.dreams/session-corpus`, heartbeat acknowledgements, or `System (untrusted)` output as canonical vault evidence.
+
 ## Common safe operations
 
 These can proceed without confirmation but should be announced:

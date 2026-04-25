@@ -3,7 +3,7 @@ from __future__ import annotations
 import sqlite3
 from typing import Any
 
-from ..config import load_paths, load_wellbeing
+from ..config import load_paths, load_retrieval_config, load_wellbeing
 from ..logging_utils import get_logger
 from ..state import write_json
 from .vector_store import build_vector_cache
@@ -68,17 +68,33 @@ def build_gold() -> dict[str, Any]:
         ).fetchall()
     ]
 
+    retrieval_cfg = load_retrieval_config()
+    vector_cfg = retrieval_cfg.get("vector", {})
+    excluded_prefixes = [str(item) for item in (vector_cfg.get("exclude_prefixes") or [])]
+    excluded_suffixes = [str(item).replace("\\", "/").lower() for item in (vector_cfg.get("exclude_suffixes") or [])]
+    excluded_titles = {str(item).strip().lower() for item in (vector_cfg.get("exclude_titles") or [])}
+
     note_rows = conn.execute(
         """
         SELECT path, title, frontmatter_text, body_excerpt
         FROM notes
+        WHERE has_frontmatter = 1
         ORDER BY mtime DESC
-        LIMIT 250
         """
     ).fetchall()
     vector_notes = [
-        {"path": row[0], "title": row[1], "frontmatter_text": row[2], "render_text": f"{row[1]}\n{row[2]}"}
+        {
+            "path": row[0],
+            "title": row[1],
+            "frontmatter_text": row[2],
+            "render_text": "\n".join(
+                part for part in [row[1] or "", row[2] or "", row[3] or ""] if part
+            ),
+        }
         for row in note_rows
+        if not any(str(row[0] or "").replace("\\", "/").lower().startswith(prefix.replace("\\", "/").lower()) for prefix in excluded_prefixes)
+        if not any(str(row[0] or "").replace("\\", "/").lower().endswith(suffix) for suffix in excluded_suffixes)
+        if str(row[1] or "").strip().lower() not in excluded_titles
     ]
     vector_result = build_vector_cache(vector_notes)
     wellbeing = _extract_wellbeing(conn)

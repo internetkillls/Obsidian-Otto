@@ -9,7 +9,7 @@ SRC = REPO_ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from otto.config import save_local_bootstrap_summary, write_env  # noqa: E402
+from otto.config import load_env_file, load_yaml_config, save_local_bootstrap_summary, write_env  # noqa: E402
 from otto.openclaw_support import sync_openclaw_config  # noqa: E402
 from otto.pipeline import run_pipeline  # noqa: E402
 
@@ -26,8 +26,19 @@ def prompt_bool(prompt: str, default: bool = False) -> bool:
 
 
 def choose_vault(user_value: str | None) -> str:
-    if user_value:
-        return user_value
+    normalized = (user_value or "").strip()
+    if normalized in {'""', "''"}:
+        normalized = ""
+    if normalized:
+        return normalized
+    env = load_env_file(REPO_ROOT / ".env")
+    configured = (
+        env.get("OTTO_VAULT_PATH")
+        or (load_yaml_config("paths.yaml").get("paths") or {}).get("vault_path")
+        or ""
+    ).strip()
+    if configured:
+        return configured
     sample = str((REPO_ROOT / "data" / "sample" / "vault").resolve())
     if not sys.stdin.isatty():
         return sample

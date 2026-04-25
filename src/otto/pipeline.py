@@ -19,7 +19,8 @@ from .events import (
     EVENT_TRAINING_REVIEW_REQUIRED,
 )
 from .logging_utils import get_logger
-from .state import OttoState, now_iso, write_json
+from .orchestration.graph_demotion import graph_controller_handoff_fields, load_graph_demotion_review
+from .state import OttoState, now_iso, read_json, write_json
 
 
 _pipeline_lock_file: Any = None
@@ -67,6 +68,23 @@ def _clean_artifacts(paths: Any) -> None:
                 pass
 
 
+def _dedupe_text(items: list[str], *, limit: int = 16) -> list[str]:
+    seen: set[str] = set()
+    output: list[str] = []
+    for item in items:
+        cleaned = str(item or "").strip()
+        if not cleaned:
+            continue
+        key = cleaned.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        output.append(cleaned)
+        if len(output) >= limit:
+            break
+    return output
+
+
 def run_pipeline(scope: str | None = None, full: bool = True) -> dict[str, Any]:
     logger = get_logger("otto.pipeline")
     state = OttoState.load()
@@ -105,18 +123,29 @@ def run_pipeline(scope: str | None = None, full: bool = True) -> dict[str, Any]:
         }
         write_json(state.checkpoints, checkpoint)
 
+        existing_handoff = read_json(state.handoff_latest, default={}) or {}
+        graph_review = load_graph_demotion_review(paths)
+        controller_fields = graph_controller_handoff_fields(
+            graph_review,
+            handoff=existing_handoff,
+            fallback_actions=list(gold.get("next_actions", []) or []),
+        )
         handoff = {
-            "goal": "Maintain a stable Obsidian-Otto retrieval core",
+            **existing_handoff,
+            **controller_fields,
             "last_pipeline_scope": scope or ".",
             "status": "ready",
             "updated_at": now_iso(),
-            "artifacts": [
-                "artifacts/reports/bronze_summary.json",
-                "artifacts/reports/silver_summary.json",
-                "artifacts/summaries/gold_summary.json",
-                "artifacts/reports/gold_summary.md",
-            ],
-            "next_actions": gold.get("next_actions", []),
+            "artifacts": _dedupe_text(
+                list(existing_handoff.get("artifacts", []) or [])
+                + [
+                    "artifacts/reports/bronze_summary.json",
+                    "artifacts/reports/silver_summary.json",
+                    "artifacts/summaries/gold_summary.json",
+                    "artifacts/reports/gold_summary.md",
+                ]
+                + ([str(graph_review.get("source_path"))] if graph_review else [])
+            ),
         }
         write_json(state.handoff_latest, handoff)
         logger.info("[pipeline] complete")

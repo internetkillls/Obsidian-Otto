@@ -3,9 +3,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import os
 import sys
-import tempfile
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -75,11 +73,14 @@ def run_checks(include_pipeline: bool = True) -> dict:
         "status_summary": {
             "training_ready": status.get("training_ready"),
             "active_tasks": status.get("active_tasks"),
+            "runtime_status": status.get("runtime", {}).get("status"),
             "docker_status": status.get("docker", {}).get("status"),
             "top_folder_count": len(status.get("top_folders", [])),
             "openclaw_config_sync": status.get("openclaw_config_sync"),
             "anthropic_ready": status.get("anthropic_ready"),
             "hf_fallback_ready": status.get("hf_fallback_ready"),
+            "vector_enabled": status.get("vector", {}).get("enabled"),
+            "vector_note": status.get("vector", {}).get("note"),
         },
         "retrieval_summary": {
             "enough_evidence": retrieval.get("enough_evidence"),
@@ -106,12 +107,15 @@ def write_reports(report: dict) -> None:
         "",
         f"- all_promised_present: {report['all_promised_present']}",
         f"- training_ready: {report['status_summary']['training_ready']}",
+        f"- runtime_status: {report['status_summary']['runtime_status']}",
         f"- docker_status: {report['status_summary']['docker_status']}",
         f"- top_folder_count: {report['status_summary']['top_folder_count']}",
         f"- retrieval_note_hits: {report['retrieval_summary']['note_hits']}",
         f"- openclaw_config_sync: {report['status_summary']['openclaw_config_sync']}",
         f"- anthropic_ready: {report['status_summary']['anthropic_ready']}",
         f"- hf_fallback_ready: {report['status_summary']['hf_fallback_ready']}",
+        f"- vector_enabled: {report['status_summary']['vector_enabled']}",
+        f"- vector_note: {report['status_summary']['vector_note']}",
         "",
         "## Missing promised files",
     ]
@@ -122,16 +126,43 @@ def write_reports(report: dict) -> None:
     (reports / "sanity_check.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def render_summary(report: dict) -> str:
+    lines = [
+        "Obsidian-Otto Sanity Check",
+        "",
+        f"Promised files present: {report['all_promised_present']}",
+        f"Training ready: {report['status_summary']['training_ready']}",
+        f"Runtime status: {report['status_summary']['runtime_status']}",
+        f"Docker status: {report['status_summary']['docker_status']}",
+        f"Top folder count: {report['status_summary']['top_folder_count']}",
+        f"Retrieval note hits: {report['retrieval_summary']['note_hits']}",
+        f"OpenClaw config sync: {report['status_summary']['openclaw_config_sync']}",
+        f"HF fallback ready: {report['status_summary']['hf_fallback_ready']}",
+        f"Vector enabled: {report['status_summary']['vector_enabled']}",
+        "",
+        "Active tasks",
+    ]
+    lines.extend([f"- {item}" for item in report["status_summary"]["active_tasks"]] or ["- none"])
+    missing = [p for p, ok in report["promised_files"].items() if not ok]
+    lines.extend(["", "Missing promised files"])
+    lines.extend([f"- {item}" for item in missing] or ["- none"])
+    return "\n".join(lines) + "\n"
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Run Otto sanity check")
     parser.add_argument("--write-report", action="store_true")
     parser.add_argument("--pipeline", action="store_true", help="Run full pipeline (slow, LLM calls). Default: fast checks only.")
+    parser.add_argument("--json", action="store_true")
     args = parser.parse_args(argv)
 
     report = run_checks(include_pipeline=args.pipeline)
     if args.write_report:
         write_reports(report)
-    print(json.dumps(report, ensure_ascii=False, indent=2))
+    if args.json:
+        print(json.dumps(report, ensure_ascii=False, indent=2))
+    else:
+        print(render_summary(report), end="")
     return 0
 
 

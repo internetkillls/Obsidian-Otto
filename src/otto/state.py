@@ -45,6 +45,10 @@ class OttoState:
         return self.paths.state_root / "checkpoints" / "pipeline.json"
 
     @property
+    def run_journal(self) -> Path:
+        return self.paths.state_root / "run_journal"
+
+    @property
     def kairos(self) -> Path:
         return self.paths.state_root / "kairos" / "heartbeat.jsonl"
 
@@ -56,6 +60,7 @@ class OttoState:
         for path in [
             self.paths.state_root / "handoff",
             self.paths.state_root / "retrieval_state",
+            self.paths.state_root / "retrieval",
             self.paths.state_root / "run_journal",
             self.paths.state_root / "checkpoints",
             self.paths.state_root / "pids",

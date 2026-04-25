@@ -26,7 +26,7 @@ class WriteBoundary:
         return False
 
     def can_link_to_folder(self, folder: str) -> bool:
-        return folder in {"Action", "30-Projects", "Otto-Realm"}
+        return folder in {"Action", "30-Projects", ".Otto-realm"}
 
     def can_write_future_ref_links(self) -> bool:
         return True
@@ -51,9 +51,9 @@ class MemoryLayer:
         if self.vault_path is None:
             raise RuntimeError("Vault path not configured. Run initial.bat first.")
 
-        self.facts_path = cfg.get("memory_tiers", {}).get("facts_path", "Otto-Realm/Memory-Tiers/01-Facts")
-        self.interpretations_path = cfg.get("memory_tiers", {}).get("interpretations_path", "Otto-Realm/Memory-Tiers/02-Interpretations")
-        self.speculations_path = cfg.get("memory_tiers", {}).get("speculations_path", "Otto-Realm/Memory-Tiers/03-Speculations")
+        self.facts_path = cfg.get("memory_tiers", {}).get("facts_path", ".Otto-Realm/Memory-Tiers/01-Facts")
+        self.interpretations_path = cfg.get("memory_tiers", {}).get("interpretations_path", ".Otto-Realm/Memory-Tiers/02-Interpretations")
+        self.speculations_path = cfg.get("memory_tiers", {}).get("speculations_path", ".Otto-Realm/Memory-Tiers/03-Speculations")
         self.max_facts = cfg.get("max_facts", 100)
         self.max_interpretations = cfg.get("max_interpretations", 50)
         self.max_speculations = cfg.get("max_speculations", 30)

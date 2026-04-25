@@ -1,0 +1,35 @@
+{
+  "id": "obsidian-otto-bridge",
+  "name": "Obsidian-Otto Bridge",
+  "description": "Expose the Obsidian-Otto control plane and official Obsidian desktop actions as OpenClaw tools.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "repoRoot": {
+        "type": "string",
+        "description": "Absolute path to the Obsidian-Otto repository. Defaults to the plugin's grandparent directory."
+      },
+      "pythonCommand": {
+        "type": "string",
+        "description": "Python executable to use for running the Otto CLI. Defaults to the repo virtualenv when present."
+      },
+      "obsidianCommand": {
+        "type": "string",
+        "description": "Obsidian desktop CLI command. Defaults to obsidian."
+      },
+      "defaultTimeoutSeconds": {
+        "type": "number",
+        "minimum": 1,
+        "description": "Default timeout for otto_repo and obsidian_desktop commands."
+      },
+      "defaultVault": {
+        "type": "string",
+        "description": "Default Obsidian vault name or id for URI actions."
+      }
+    }
+  },
+  "skills": [
+    "./skills"
+  ]
+}

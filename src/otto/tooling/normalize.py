@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from ..config import load_paths
+from ..schema_registry import schema_fingerprint
 from ..logging_utils import get_logger
 from ..state import write_json
 
@@ -20,15 +21,21 @@ def _table_exists(conn: sqlite3.Connection, name: str) -> bool:
 
 
 def _atomic_schema_build(conn: sqlite3.Connection) -> None:
-    """Atomically rebuild schema: creates temp tables, migrates data, replaces originals.
+    """Atomically rebuild the Silver schema from scratch.
 
-    If anything fails mid-way, the transaction is rolled back and the original
-    tables remain intact — no partial/corrupt state.
+    Silver is derived data produced from Bronze on every pipeline run, so we do
+    not need best-effort migration from older table layouts. Rebuilding cleanly
+    is safer than attempting to copy from legacy schemas that may have missing
+    columns.
     """
     conn.execute("PRAGMA journal_mode=WAL")
-
     conn.executescript("""
-    CREATE TABLE IF NOT EXISTS notes_new (
+    DROP TABLE IF EXISTS notes;
+    DROP TABLE IF EXISTS attachments;
+    DROP TABLE IF EXISTS folder_risk;
+    DROP TABLE IF EXISTS notes_fts;
+
+    CREATE TABLE notes (
         path TEXT PRIMARY KEY,
         title TEXT NOT NULL,
         size INTEGER NOT NULL,
@@ -36,17 +43,24 @@ def _atomic_schema_build(conn: sqlite3.Connection) -> None:
         mtime REAL NOT NULL,
         has_frontmatter INTEGER NOT NULL,
         frontmatter_text TEXT,
+        aliases_json TEXT,
         body_excerpt TEXT,
         tags_json TEXT,
-        wikilinks_json TEXT
+        wikilinks_json TEXT,
+        scarcity TEXT,
+        necessity TEXT,
+        artificial TEXT,
+        orientation TEXT,
+        allocation TEXT,
+        cluster_membership TEXT
     );
-    CREATE TABLE IF NOT EXISTS attachments_new (
+    CREATE TABLE attachments (
         path TEXT PRIMARY KEY,
         size INTEGER NOT NULL,
         mtime REAL NOT NULL,
         extension TEXT
     );
-    CREATE TABLE IF NOT EXISTS folder_risk_new (
+    CREATE TABLE folder_risk (
         folder TEXT PRIMARY KEY,
         missing_frontmatter INTEGER NOT NULL,
         duplicate_titles INTEGER NOT NULL,
@@ -54,36 +68,10 @@ def _atomic_schema_build(conn: sqlite3.Connection) -> None:
         note_count INTEGER NOT NULL,
         risk_score REAL NOT NULL
     );
-    CREATE VIRTUAL TABLE IF NOT EXISTS notes_fts_new USING fts5(
-        path, title, frontmatter_text, body_excerpt, content=''
+    CREATE VIRTUAL TABLE notes_fts USING fts5(
+        path, title, aliases_text, frontmatter_text, body_excerpt
     );
     """)
-
-    if _table_exists(conn, "notes"):
-        conn.execute("""
-            INSERT OR IGNORE INTO notes_new
-                SELECT * FROM notes WHERE 0;
-        """)
-    if _table_exists(conn, "attachments"):
-        conn.execute("""
-            INSERT OR IGNORE INTO attachments_new
-                SELECT * FROM attachments WHERE 0;
-        """)
-    if _table_exists(conn, "folder_risk"):
-        conn.execute("""
-            INSERT OR IGNORE INTO folder_risk_new
-                SELECT * FROM folder_risk WHERE 0;
-        """)
-
-    conn.execute("DROP TABLE IF EXISTS notes")
-    conn.execute("DROP TABLE IF EXISTS attachments")
-    conn.execute("DROP TABLE IF EXISTS folder_risk")
-    conn.execute("DROP TABLE IF EXISTS notes_fts")
-
-    conn.execute("ALTER TABLE notes_new RENAME TO notes")
-    conn.execute("ALTER TABLE attachments_new RENAME TO attachments")
-    conn.execute("ALTER TABLE folder_risk_new RENAME TO folder_risk")
-    conn.execute("ALTER TABLE notes_fts_new RENAME TO notes_fts")
 
 
 def build_silver(bronze_payload: dict[str, Any]) -> dict[str, Any]:
@@ -104,8 +92,8 @@ def build_silver(bronze_payload: dict[str, Any]) -> dict[str, Any]:
             conn.execute(
                 """
                 INSERT OR REPLACE INTO notes
-                (path, title, size, sha1, mtime, has_frontmatter, frontmatter_text, body_excerpt, tags_json, wikilinks_json)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (path, title, size, sha1, mtime, has_frontmatter, frontmatter_text, aliases_json, body_excerpt, tags_json, wikilinks_json, scarcity, necessity, artificial, orientation, allocation, cluster_membership)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     note["path"],
@@ -115,14 +103,27 @@ def build_silver(bronze_payload: dict[str, Any]) -> dict[str, Any]:
                     note["mtime"],
                     1 if note["has_frontmatter"] else 0,
                     note["frontmatter_text"],
+                    json.dumps(note.get("aliases", []), ensure_ascii=False),
                     note.get("body_excerpt", ""),
                     json.dumps(note.get("tags", []), ensure_ascii=False),
                     json.dumps(note.get("wikilinks", []), ensure_ascii=False),
+                    json.dumps(note.get("scarcity", []), ensure_ascii=False),
+                    note.get("necessity"),
+                    note.get("artificial"),
+                    note.get("orientation"),
+                    note.get("allocation"),
+                    json.dumps(note.get("cluster_membership", []), ensure_ascii=False),
                 ),
             )
             conn.execute(
-                "INSERT INTO notes_fts(path, title, frontmatter_text, body_excerpt) VALUES (?, ?, ?, ?)",
-                (note["path"], note["title"], note["frontmatter_text"], note.get("body_excerpt", "")),
+                "INSERT INTO notes_fts(path, title, aliases_text, frontmatter_text, body_excerpt) VALUES (?, ?, ?, ?, ?)",
+                (
+                    note["path"],
+                    note["title"],
+                    " ".join(note.get("aliases", [])),
+                    note["frontmatter_text"],
+                    note.get("body_excerpt", ""),
+                ),
             )
 
             folder = str(Path(note["path"]).parent)
@@ -184,6 +185,7 @@ def build_silver(bronze_payload: dict[str, Any]) -> dict[str, Any]:
         "note_count": len(bronze_payload.get("notes", [])),
         "attachment_count": len(bronze_payload.get("attachments", [])),
         "top_risky_folders": sorted(risk_rows, key=lambda x: x["risk_score"], reverse=True)[:10],
+        "schema_fingerprint": schema_fingerprint(),
     }
     write_json(paths.artifacts_root / "reports" / "silver_summary.json", summary)
     logger.info(f"[silver] db={db_path} notes={summary['note_count']}")

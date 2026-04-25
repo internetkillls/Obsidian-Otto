@@ -69,6 +69,10 @@ def load_paths() -> AppPaths:
 
     sqlite_value = os.environ.get("OTTO_SQLITE_PATH") or env.get("OTTO_SQLITE_PATH") or cfg.get("sqlite_path", "external/sqlite/otto_silver.db")
     chroma_value = os.environ.get("OTTO_CHROMA_PATH") or env.get("OTTO_CHROMA_PATH") or cfg.get("chroma_path", "external/chroma_store")
+    bronze_value = os.environ.get("OTTO_BRONZE_ROOT") or env.get("OTTO_BRONZE_ROOT") or cfg.get("bronze_root", "data/bronze")
+    artifacts_value = os.environ.get("OTTO_ARTIFACTS_ROOT") or env.get("OTTO_ARTIFACTS_ROOT") or cfg.get("artifacts_root", "artifacts")
+    logs_value = os.environ.get("OTTO_LOGS_ROOT") or env.get("OTTO_LOGS_ROOT") or cfg.get("logs_root", "logs")
+    state_value = os.environ.get("OTTO_STATE_ROOT") or env.get("OTTO_STATE_ROOT") or cfg.get("state_root", "state")
 
     base = repo_root()
     paths = AppPaths(
@@ -76,10 +80,10 @@ def load_paths() -> AppPaths:
         vault_path=vault_path,
         sqlite_path=(base / sqlite_value).resolve() if not Path(sqlite_value).is_absolute() else Path(sqlite_value),
         chroma_path=(base / chroma_value).resolve() if not Path(chroma_value).is_absolute() else Path(chroma_value),
-        bronze_root=(base / cfg.get("bronze_root", "data/bronze")).resolve(),
-        artifacts_root=(base / cfg.get("artifacts_root", "artifacts")).resolve(),
-        logs_root=(base / cfg.get("logs_root", "logs")).resolve(),
-        state_root=(base / cfg.get("state_root", "state")).resolve(),
+        bronze_root=(base / bronze_value).resolve() if not Path(bronze_value).is_absolute() else Path(bronze_value),
+        artifacts_root=(base / artifacts_value).resolve() if not Path(artifacts_value).is_absolute() else Path(artifacts_value),
+        logs_root=(base / logs_value).resolve() if not Path(logs_value).is_absolute() else Path(logs_value),
+        state_root=(base / state_value).resolve() if not Path(state_value).is_absolute() else Path(state_value),
     )
     ensure_dirs(paths)
     return paths
@@ -103,6 +107,10 @@ def load_wellbeing() -> dict[str, Any]:
 
 def load_docker_config() -> dict[str, Any]:
     return load_yaml_config("docker.yaml").get("docker", {})
+
+
+def load_postgres_config() -> dict[str, Any]:
+    return load_yaml_config("postgres.yaml").get("postgres", {})
 
 
 def write_env(updates: dict[str, str]) -> Path:

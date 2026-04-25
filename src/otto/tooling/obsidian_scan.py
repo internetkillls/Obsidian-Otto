@@ -8,7 +8,7 @@ from typing import Any
 
 import yaml
 
-from ..config import load_paths
+from ..config import load_paths, load_retrieval_config
 from ..logging_utils import get_logger
 from ..state import write_json
 
@@ -36,6 +36,7 @@ class NoteRecord:
     orientation: str | None
     allocation: str | None
     cluster_membership: list[str]
+    aliases: list[str]
 
 
 SCARCITY_TAG_KEYS = {
@@ -47,6 +48,21 @@ SCARCITY_TAG_KEYS = {
     "cluster": True,
     "cluster_membership": True,
 }
+
+
+@dataclass(frozen=True)
+class ScanBoundary:
+    include_prefixes: tuple[str, ...]
+    exclude_prefixes: tuple[str, ...]
+
+
+DEFAULT_INCLUDE_PREFIXES = (
+    ".Otto-Realm/Brain/",
+    ".Otto-Realm/Memory-Tiers/",
+)
+DEFAULT_EXCLUDE_PREFIXES = (
+    ".Otto-Realm/",
+)
 
 
 def _yaml_frontmatter(frontmatter_text: str) -> dict[str, Any]:
@@ -162,6 +178,54 @@ def _sha1(path: Path) -> str:
     return hashlib.sha1(path.read_bytes()).hexdigest()
 
 
+def _normalize_rel_path(value: str) -> str:
+    return value.replace("\\", "/").strip("/")
+
+
+def _normalize_prefixes(values: Any, defaults: tuple[str, ...]) -> tuple[str, ...]:
+    if not isinstance(values, list):
+        values = list(defaults)
+    normalized: list[str] = []
+    for value in values:
+        if not isinstance(value, str):
+            continue
+        trimmed = _normalize_rel_path(value)
+        if not trimmed:
+            continue
+        prefix = f"{trimmed}/"
+        if prefix not in normalized:
+            normalized.append(prefix)
+    return tuple(normalized)
+
+
+def _load_scan_boundary() -> ScanBoundary:
+    cfg = load_retrieval_config().get("scan", {})
+    return ScanBoundary(
+        include_prefixes=_normalize_prefixes(cfg.get("include_prefixes"), DEFAULT_INCLUDE_PREFIXES),
+        exclude_prefixes=_normalize_prefixes(cfg.get("exclude_prefixes"), DEFAULT_EXCLUDE_PREFIXES),
+    )
+
+
+def _match_prefix(path: str, prefixes: tuple[str, ...]) -> str | None:
+    normalized = _normalize_rel_path(path)
+    for prefix in prefixes:
+        if normalized.startswith(prefix[:-1]) and (
+            normalized == prefix[:-1] or normalized.startswith(prefix)
+        ):
+            return prefix
+    return None
+
+
+def _classify_scan_path(path: str, boundary: ScanBoundary) -> tuple[bool, str | None]:
+    included_by = _match_prefix(path, boundary.include_prefixes)
+    if included_by:
+        return True, included_by
+    excluded_by = _match_prefix(path, boundary.exclude_prefixes)
+    if excluded_by:
+        return False, excluded_by
+    return True, None
+
+
 def scan_vault(scope: str | None = None) -> dict[str, Any]:
     logger = get_logger("otto.scan")
     paths = load_paths()
@@ -177,11 +241,27 @@ def scan_vault(scope: str | None = None) -> dict[str, Any]:
 
     notes: list[NoteRecord] = []
     attachments: list[dict[str, Any]] = []
+    boundary = _load_scan_boundary()
+    excluded_notes = 0
+    excluded_attachments = 0
+    excluded_by_prefix: dict[str, int] = {}
+    excluded_samples: list[str] = []
 
     for path in target.rglob("*"):
         if not path.is_file():
             continue
         rel = str(path.relative_to(base))
+        allowed, matched_prefix = _classify_scan_path(rel, boundary)
+        if not allowed:
+            if path.suffix.lower() == ".md":
+                excluded_notes += 1
+            else:
+                excluded_attachments += 1
+            if matched_prefix:
+                excluded_by_prefix[matched_prefix] = excluded_by_prefix.get(matched_prefix, 0) + 1
+            if len(excluded_samples) < 12:
+                excluded_samples.append(_normalize_rel_path(rel))
+            continue
         stat = path.stat()
         if path.suffix.lower() == ".md":
             text = path.read_text(encoding="utf-8", errors="replace")
@@ -192,6 +272,7 @@ def scan_vault(scope: str | None = None) -> dict[str, Any]:
             frontmatter_text = fm.group(1).strip() if fm else ""
             frontmatter_data = _yaml_frontmatter(frontmatter_text)
             scarcity_meta = _merge_scarcity_metadata(frontmatter_data, tags)
+            aliases = _dedupe_preserve(_normalize_list(frontmatter_data.get("aliases")))
             notes.append(
                 NoteRecord(
                     path=rel,
@@ -211,6 +292,7 @@ def scan_vault(scope: str | None = None) -> dict[str, Any]:
                     orientation=scarcity_meta["orientation"],
                     allocation=scarcity_meta["allocation"],
                     cluster_membership=scarcity_meta["cluster_membership"],
+                    aliases=aliases,
                 )
             )
         else:
@@ -237,12 +319,28 @@ def scan_vault(scope: str | None = None) -> dict[str, Any]:
         "attachment_count": len(attachments),
         "notes": [asdict(n) for n in notes],
         "attachments": attachments,
+        "scan_boundary": {
+            "include_prefixes": list(boundary.include_prefixes),
+            "exclude_prefixes": list(boundary.exclude_prefixes),
+            "excluded_note_count": excluded_notes,
+            "excluded_attachment_count": excluded_attachments,
+            "excluded_by_prefix": excluded_by_prefix,
+            "excluded_samples": excluded_samples,
+        },
     }
     write_json(paths.bronze_root / "bronze_manifest.json", payload)
     write_json(paths.artifacts_root / "reports" / "bronze_summary.json", {
         "scope": payload["scope"],
         "note_count": payload["note_count"],
         "attachment_count": payload["attachment_count"],
+        "included_prefixes": list(boundary.include_prefixes),
+        "excluded_prefixes": list(boundary.exclude_prefixes),
+        "excluded_note_count": excluded_notes,
+        "excluded_attachment_count": excluded_attachments,
+        "excluded_by_prefix": excluded_by_prefix,
     })
-    logger.info(f"[scan] notes={len(notes)} attachments={len(attachments)} scope={scope or '.'}")
+    logger.info(
+        f"[scan] notes={len(notes)} attachments={len(attachments)} "
+        f"excluded_notes={excluded_notes} excluded_attachments={excluded_attachments} scope={scope or '.'}"
+    )
     return payload

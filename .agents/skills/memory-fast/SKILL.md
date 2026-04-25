@@ -58,3 +58,6 @@ Use when the user asks:
 - Never dump raw note bodies if the summary package is enough.
 - Never trigger full vault reindex from this skill.
 - Keep answers compact and grounded.
+- Treat MORPHEUS and dreaming outputs as `candidate memory`, not verified memory.
+- Prefer structured retrieval over markdown body + semantic evidence; do not treat frontmatter-only matches as sufficient when the question could influence dreaming or durable memory.
+- Never use `memory/.dreams/session-corpus` as primary evidence for recall answers.

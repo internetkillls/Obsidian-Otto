@@ -29,7 +29,7 @@ class RitualResult:
 
 
 class RitualEngine:
-    RITUALS_PATH = "Otto-Realm/Rituals"
+    RITUALS_PATH = ".Otto-Realm/Rituals"
 
     def __init__(self, vault_path: Path | None = None):
         paths = load_paths()
@@ -115,7 +115,7 @@ class RitualEngine:
         dream_entry = TierEntry(
             tier=MemoryTier.INTERPRETATION,
             content=f"Ritual dream consolidation: {len(preds)} predictions generated, {len(self.history)} phases completed",
-            source_note="Otto-Realm/Rituals/ritual_cycle.md",
+            source_note=".Otto-Realm/Rituals/ritual_cycle.md",
             confidence=0.75,
         )
         ml.write_tier_entry(dream_entry)

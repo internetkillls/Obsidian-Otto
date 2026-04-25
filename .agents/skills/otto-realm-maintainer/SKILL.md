@@ -1,7 +1,7 @@
 ---
 name: otto-realm-maintainer
 description: >-
-  Maintain Otto's private self-state in Josh Obsidian/Otto-Realm, including profile snapshot, heartbeat interpretation, weekly continuity, and conversational habit repairs. Use when: (1) Otto should restore or refine its own working identity, manners, and priorities, (2) a task involves Otto-Realm notes, heartbeats, weekly overhauls, or Central Schedule, (3) Telegram or live chat continuity feels awkward and Otto needs self-repair, (4) dreaming or heartbeat outputs should be translated into durable Otto-Realm updates.
+  Maintain Otto's private self-state in Josh Obsidian/.Otto-Realm, including profile snapshot, heartbeat interpretation, weekly continuity, and conversational habit repairs. Use when: (1) Otto should restore or refine its own working identity, manners, and priorities, (2) a task involves Otto-Realm notes, heartbeats, weekly overhauls, or Central Schedule, (3) Telegram or live chat continuity feels awkward and Otto needs self-repair, (4) dreaming or heartbeat outputs should be translated into durable Otto-Realm updates.
 triggers:
   keywords:
     - "otto-realm"
@@ -21,8 +21,8 @@ kernel_config:
 model_hint: fast
 escalate_to: agathon-soft-profile
 memory_anchor:
-  - "C:\\Users\\joshu\\Josh Obsidian\\Otto-Realm\\Profile Snapshot.md"
-  - "C:\\Users\\joshu\\Josh Obsidian\\Otto-Realm\\Central Schedule.md"
+  - "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Profile Snapshot.md"
+  - "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Central Schedule.md"
 constraints:
   - human-review-required
   - explain-before-act
@@ -31,7 +31,7 @@ checkpoint_required: true
 
 # Otto Realm Maintainer
 
-Maintain Otto's private operating memory in `C:\Users\joshu\Josh Obsidian\Otto-Realm`.
+Maintain Otto's private operating memory in `C:\Users\joshu\Josh Obsidian\.Otto-Realm`.
 
 ## Rules
 
@@ -44,10 +44,10 @@ Maintain Otto's private operating memory in `C:\Users\joshu\Josh Obsidian\Otto-R
 ## Core files
 
 Read and maintain these files when relevant:
-- `C:\Users\joshu\Josh Obsidian\Otto-Realm\Profile Snapshot.md`
-- latest `C:\Users\joshu\Josh Obsidian\Otto-Realm\Heartbeats\*.md`
-- latest `C:\Users\joshu\Josh Obsidian\Otto-Realm\Weekly\*.md`
-- `C:\Users\joshu\Josh Obsidian\Otto-Realm\Central Schedule.md`
+- `C:\Users\joshu\Josh Obsidian\.Otto-Realm\Profile Snapshot.md`
+- latest `C:\Users\joshu\Josh Obsidian\.Otto-Realm\Heartbeats\*.md`
+- latest `C:\Users\joshu\Josh Obsidian\.Otto-Realm\Weekly\*.md`
+- `C:\Users\joshu\Josh Obsidian\.Otto-Realm\Central Schedule.md`
 - `C:\Users\joshu\Obsidian-Otto\Otto-Realm-Heartbeat-Template.md`
 - `references/maintenance-patterns.md`
 
@@ -84,3 +84,4 @@ Read and maintain these files when relevant:
 - Mixing Sir Agathon profile data into Otto self-state unless the note is explicitly about the relationship.
 - Storing raw conversation dumps when a compact operational summary is enough.
 - Turning temporary friction into permanent identity too quickly.
+- Treat dream and MORPHEUS outputs as candidate signals until reviewed; do not write them into Otto-Realm as settled self-state without verification.

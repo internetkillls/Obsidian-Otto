@@ -24,7 +24,7 @@ kernel_config:
 model_hint: standard
 escalate_to: null
 memory_anchor:
-  - "C:\\Users\\joshu\\Josh Obsidian\\Otto-Realm\\Profile Snapshot.md"
+  - "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Profile Snapshot.md"
   - "artifacts/summaries/gold_summary.json"
 constraints:
   - no-false-confidence
@@ -44,15 +44,15 @@ Use this skill to keep a compact, revisable model of Sir Agathon's working patte
 - Distinguish evidence, inference, and recommendation.
 - Keep user-facing outputs concise.
 - Treat the main source of truth as `C:\Users\joshu\Josh Obsidian`, not the Otto repo, unless the task is specifically about Otto state.
-- Read `C:\Users\joshu\Josh Obsidian\Otto-Realm` first when the task involves Otto's habits, heartbeats, dreaming targets, relationship continuity, or conversational fit.
+- Read `C:\Users\joshu\Josh Obsidian\.Otto-Realm` first when the task involves Otto's habits, heartbeats, dreaming targets, relationship continuity, or conversational fit.
 
 ## Workflow
 
 1. Read the Otto-Realm anchors when relevant:
-   - `C:\Users\joshu\Josh Obsidian\Otto-Realm\Profile Snapshot.md`
-   - latest `C:\Users\joshu\Josh Obsidian\Otto-Realm\Heartbeats\*.md`
-   - latest `C:\Users\joshu\Josh Obsidian\Otto-Realm\Weekly\*.md`
-   - `C:\Users\joshu\Josh Obsidian\Otto-Realm\Central Schedule.md`
+   - `C:\Users\joshu\Josh Obsidian\.Otto-Realm\Profile Snapshot.md`
+   - latest `C:\Users\joshu\Josh Obsidian\.Otto-Realm\Heartbeats\*.md`
+   - latest `C:\Users\joshu\Josh Obsidian\.Otto-Realm\Weekly\*.md`
+   - `C:\Users\joshu\Josh Obsidian\.Otto-Realm\Central Schedule.md`
 2. Retrieve a small set of relevant notes from the main vault.
 3. Extract only the lines needed to support a claim.
 4. Organize findings into:

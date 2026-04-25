@@ -46,6 +46,10 @@ def build_vector_cache(notes: list[dict[str, Any]]) -> VectorBuildResult:
     collection_name = str(cfg.get("vector", {}).get("collection_name", "otto_gold"))
 
     client = chromadb.PersistentClient(path=str(paths.chroma_path))
+    try:
+        client.delete_collection(collection_name)
+    except Exception:
+        pass
     collection = client.get_or_create_collection(collection_name)
 
     splitter = None
@@ -56,6 +60,9 @@ def build_vector_cache(notes: list[dict[str, Any]]) -> VectorBuildResult:
     count = 0
     for note in notes:
         text = note.get("render_text", "") or note.get("frontmatter_text", "") or note.get("title", "")
+        text = text.strip()
+        if not text:
+            continue
         chunks = splitter.split_text(text) if splitter else [text[:chunk_size]]
         for idx, chunk in enumerate(chunks):
             docs.append(chunk)

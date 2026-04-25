@@ -58,9 +58,16 @@ Use when:
    - evidence found
    - evidence still missing
    - whether another scope is needed
+5. If the result will feed dreaming, OpenClaw, or Otto-Realm writeback, inspect the current Morpheus bridge:
+
+   ```bash
+   python -m otto.cli morpheus-bridge
+   ```
 
 ## Rules
 
 - Prefer scoped refresh over full-vault rebuild.
 - Return uncertainty explicitly.
 - Keep the answer smaller than the combined evidence package.
+- Treat MORPHEUS outputs as investigation seeds that need markdown-body and semantic verification before promotion.
+- Reject raw `memory/.dreams/session-corpus` or operational noise as proof, even if it appears in a generated artifact.

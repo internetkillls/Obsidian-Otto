@@ -3,11 +3,13 @@ from __future__ import annotations
 import argparse
 import os
 import signal
-import sys
+import subprocess
 import time
 from pathlib import Path
 
-from .config import load_kairos_config, load_paths
+from .config import load_docker_config, load_kairos_config, load_paths
+from .db import init_pg_schema
+from .infra import build_infra_result
 from .logging_utils import get_logger
 from .orchestration.dream import run_dream_once
 from .orchestration.kairos import run_kairos_once
@@ -34,6 +36,27 @@ def clear_pid() -> None:
 MAX_CONSECUTIVE_FAILURES = 3
 KAIROS_RETRY_SECONDS = 30
 
+DOCKER_COMPOSE_FILE = "docker-compose.yml"
+
+
+def bootstrap_docker_services(logger) -> dict[str, bool]:
+    cfg = load_docker_config()
+    infra = build_infra_result()
+    if not cfg.get("enabled", False):
+        logger.info("[runtime] Docker disabled in config/docker.yaml, skipping")
+        return {}
+
+    if not infra.docker_available:
+        logger.warning("[runtime] Docker not available, skipping service bootstrap")
+        return {}
+
+    if not infra.daemon_running:
+        logger.warning("[runtime] Docker daemon not running, skipping service bootstrap")
+        return {}
+    if infra.running_services:
+        logger.info("[runtime] infra handler reports running services: %s", ",".join(infra.running_services))
+    return {"infra_checked": True}
+
 
 def run_loop() -> None:
     logger = get_logger("otto.runtime")
@@ -44,6 +67,8 @@ def run_loop() -> None:
     dream_minutes = max(15, kairos_minutes * 2)
 
     write_pid()
+    bootstrap_docker_services(logger)
+    init_pg_schema()  # wire events to Postgres
     logger.info(f"[runtime] started pid={os.getpid()} kairos_minutes={kairos_minutes}")
     last_dream = 0.0
     consecutive_failures = 0
@@ -92,12 +117,21 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.once:
+        # Bootstrap Docker services even for one-shot runs
+        _bootstrap_once()
         run_kairos_once()
         run_dream_once()
         return 0
 
     run_loop()
     return 0
+
+
+def _bootstrap_once() -> None:
+    """Run Docker + Postgres bootstrap without the full loop."""
+    logger = get_logger("otto.runtime")
+    bootstrap_docker_services(logger)
+    init_pg_schema()
 
 
 if __name__ == "__main__":
