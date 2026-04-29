@@ -1,13 +1,26 @@
 # OpenClaw Otto Bridge
 
-This local plugin exposes the full Obsidian-Otto control plane to OpenClaw through two tools:
+This local plugin exposes an installer-safe Obsidian-Otto bridge to OpenClaw through two tools:
 
 - `otto_repo` for repo-scoped control plane actions
 - `obsidian_desktop` for official Obsidian desktop CLI and URI actions
 
-## What it wraps
+## What it wraps now
 
-`otto_repo` calls the Python control plane in this repository through `python -m otto.cli` or `python -m otto.brain_cli`.
+The bridge intentionally avoids shell execution inside the plugin so it can pass current OpenClaw install safety policy in WSL live mode.
+
+That means:
+
+- read-only repo state is returned directly from Otto state files
+- mutating or long-running Otto actions are returned as exact command previews
+- operator launchers remain the execution surface for restart, reindex, sync, and other state-changing tasks
+
+This is the intended boundary for the WSL live migration patch. The plugin remains useful inside OpenClaw, but it no longer hides shell execution inside a linked plugin package.
+
+`otto_repo` returns either:
+
+- cached repo/runtime state for safe read actions
+- an exact `python -m otto.cli` or `python -m otto.brain_cli` preview for manual/operator execution
 
 Supported `otto_repo` actions:
 
@@ -15,6 +28,8 @@ Supported `otto_repo` actions:
 - `openclaw-health`
 - `openclaw-gateway-probe`
 - `openclaw-sync`
+- `qmd-index-health`
+- `qmd-reindex`
 - `openclaw-gateway-restart`
 - `openclaw-plugin-reload`
 - `pipeline`
@@ -27,6 +42,7 @@ Supported `otto_repo` actions:
 
 `kairos-chat` is the NL bridge for:
 - semantic fetch/search across SQLite + Chroma
+- QMD-backed OpenClaw memory retrieval for Otto-Realm sources
 - one-shot internal auto-deepen on weak `find ...` queries
 - widening a weak query through explicit `deepen ...`
 - sparse vs dense comparison
@@ -52,16 +68,28 @@ Example operator prompts:
 - `otto_repo` action=`openclaw-gateway-probe`
 - `otto_repo` action=`openclaw-plugin-reload`
 - `otto_repo` action=`openclaw-gateway-restart`
+- `otto_repo` action=`qmd-index-health`
+- `otto_repo` action=`qmd-reindex`
 - `otto_repo` action=`morpheus-bridge`
 
 `morpheus-bridge` exposes the current Otto-side contract for MORPHEUS output:
 - MORPHEUS output is an `investigative-memory-candidate`
-- it is **not** ready for OpenClaw dreaming by default
+- it is **not** ready for OpenClaw or QMD memory promotion by default
 - promotion is blocked until the candidate has been reviewed or verified against markdown-body retrieval evidence
 - raw `memory/.dreams/session-corpus` and operational noise are forbidden as primary memory evidence
 
-`openclaw-plugin-reload` is the fast/default path.
-Use `openclaw-gateway-restart` only when you need a full process restart.
+`openclaw-plugin-reload` and other mutating actions are now operator-lane previews from the plugin surface.
+Use `otto.bat`, the launcher menu, or the provided `.bat` wrappers to execute them on the host.
+
+## QMD on Windows
+
+OpenClaw memory is configured for QMD through the repo-owned WSL2 launcher:
+
+```powershell
+C:\Users\joshu\Obsidian-Otto\scripts\shell\qmd-wsl.js
+```
+
+The OpenClaw target is a Node launcher so Windows direct-spawn policy does not need shell fallback. It calls `/usr/bin/qmd` inside WSL2 to avoid accidentally loading Windows npm modules from `/mnt/c`, forces a Linux PATH, and maps OpenClaw's `XDG_CONFIG_HOME`, `QMD_CONFIG_DIR`, and `XDG_CACHE_HOME` from `C:\...` to `/mnt/c/...`. It defaults to the `Ubuntu` distro and honors `OTTO_QMD_WSL_DISTRO` when a different distro owns the QMD install.
 
 `obsidian_desktop` uses:
 
@@ -87,10 +115,12 @@ If needed, configure plugin overrides under `plugins.entries.obsidian-otto-bridg
 From the repo root on Windows:
 
 ```powershell
-openclaw plugins install -l .\packages\openclaw-otto-bridge --force
+openclaw plugins install -l .\packages\openclaw-otto-bridge
 ```
 
 Then restart the OpenClaw gateway so the tools and plugin-shipped skill load cleanly.
+
+For WSL live, the migration flow mirrors this package into `/home/joshu/.openclaw/plugins-local/obsidian-otto-bridge` before linking it. Linking directly from `/mnt/c/...` may be flagged as world-writable by OpenClaw.
 
 If the OpenClaw CLI is hanging on `plugins` or `health`, use the repo fallback:
 

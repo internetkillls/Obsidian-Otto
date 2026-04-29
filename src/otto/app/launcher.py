@@ -10,12 +10,29 @@ from pathlib import Path
 from typing import Any, Sequence
 
 from ..config import load_docker_config, load_env_file, load_paths
-from ..docker_utils import docker_available, docker_daemon_running, docker_probe_diagnostics
+from ..docker_utils import cleanup_ephemeral_mcp_containers, docker_available, docker_daemon_running, docker_probe_diagnostics
 from ..launcher_state import LauncherStateStore, mcp_configured
 from ..openclaw_support import probe_openclaw_gateway, reload_openclaw_plugin_surface, restart_openclaw_gateway
+from ..operator_control import (
+    fallback_to_native,
+    operator_doctor,
+    operator_status,
+    operator_update,
+    restart_wsl_gateway,
+    start_wsl_gateway,
+    stop_wsl_gateway,
+)
+from ..orchestration.wsl_live_migration import (
+    build_wsl_live_preflight,
+    build_wsl_live_status,
+    promote_wsl_live,
+    rollback_wsl_live,
+)
+from ..orchestration.graph_demotion import run_graph_demotion_followup
 from ..orchestration.mentor import MentoringEngine
 from ..state import read_json
 from .janitor import run_janitor
+from .health_repair import run_health_repair
 from .loop import run_loop
 from .repair import run_repair
 from .runtime_support import RuntimeSnapshot, classify_runtime, clear_stale_runtime_pid, runtime_pid_file
@@ -30,6 +47,10 @@ QUERY_SCRIPT = Path("scripts/manage/query_memory.py")
 DREAM_SCRIPT = Path("scripts/manage/run_dream.py")
 KAIROS_SCRIPT = Path("scripts/manage/run_kairos.py")
 SYNC_OPENCLAW_SCRIPT = Path("scripts/manage/sync_openclaw_config.py")
+INSTALL_HEALTH_AUTOMATION_SCRIPT = Path("scripts/manage/install_health_automation.py")
+INSTALL_OPERATOR_SHORTCUTS_SCRIPT = Path("scripts/manage/install_operator_shortcuts.ps1")
+METADATA_ENRICHMENT_SCRIPT = Path("scripts/manage/run_metadata_enrichment.py")
+NOTION_EXPORT_HYGIENE_SCRIPT = Path("scripts/manage/run_notion_export_hygiene.py")
 
 
 @dataclass
@@ -56,30 +77,51 @@ def normalize_action_name(action: str) -> str:
 
 
 ACTION_SPECS: tuple[LauncherActionSpec, ...] = (
-    LauncherActionSpec("initial", "Run initial setup", "Bootstrap the repo and Python environment.", ("initial.bat",), "home", aliases=("init",), menu_key="1"),
-    LauncherActionSpec("start", "Start runtime loop", "Launch the background Otto runtime loop.", ("start.bat",), "home", aliases=("run",), menu_key="2"),
-    LauncherActionSpec("stop", "Stop runtime loop", "Stop the background Otto runtime loop.", ("stop.bat",), "home", menu_key="3"),
-    LauncherActionSpec("tui", "Open live TUI", "Watch runtime health, handoff, and Gold state live.", ("tui.bat",), "home", menu_key="4"),
-    LauncherActionSpec("status", "Show status report", "Print an operator summary of runtime, handoff, and OpenClaw state.", ("status.bat",), "home", menu_key="5"),
-    LauncherActionSpec("reindex", "Run reindex pipeline", "Rebuild the scoped pipeline and refresh Gold/Silver state.", ("reindex.bat",), "home", menu_key="6"),
-    LauncherActionSpec("doctor", "Doctor checks", "Run status plus sanity checks and surface next fixes.", ("doctor.bat",), "home", menu_key="7"),
-    LauncherActionSpec("training-queue", "Training Queue", "Show active probes, pending tasks, and recent mentor resolutions.", ("main.bat",), "home", aliases=("training",), menu_key="8"),
-    LauncherActionSpec("resolve-training-task", "Resolve Training Task", "Mark one pending mentor task as done or skipped.", ("main.bat",), "home", aliases=("resolve-training",), menu_key="9"),
-    LauncherActionSpec("kairos", "Run KAIROS once", "Execute one KAIROS controller cycle.", ("kairos.bat",), "advanced", menu_key="1"),
-    LauncherActionSpec("dream", "Run Dream once", "Execute one dream consolidation cycle.", ("dream.bat",), "advanced", menu_key="2"),
-    LauncherActionSpec("query", "Query memory", "Run a fast retrieval query against the control-plane memory surfaces.", ("query.bat",), "advanced", menu_key="3"),
-    LauncherActionSpec("sync-openclaw", "Sync OpenClaw config", "Push repo OpenClaw config into the live gateway surface.", ("sync-openclaw.bat",), "advanced", aliases=("openclaw-sync",), menu_key="4"),
-    LauncherActionSpec("openclaw-gateway-probe", "Probe OpenClaw gateway", "Check the local OpenClaw HTTP gateway health.", ("probe-openclaw-gateway.bat",), "advanced", aliases=("probe-openclaw-gateway",), menu_key="5"),
-    LauncherActionSpec("openclaw-plugin-reload", "Reload OpenClaw plugin surface", "Soft-reload the plugin surface without a full gateway restart.", ("reload-openclaw-plugin.bat",), "advanced", aliases=("reload-openclaw-plugin",), menu_key="6"),
-    LauncherActionSpec("mcp-ready", "Prepare obsidian-mcp container", "Build and warm the MCP container without attaching stdio.", ("launch-mcp.bat",), "advanced", aliases=("prepare-mcp",), menu_key="7"),
-    LauncherActionSpec("kairos-tui", "KAIROS deep-dive TUI", "Open the KAIROS analysis console.", ("otto.bat",), "advanced", menu_key="8"),
-    LauncherActionSpec("brain", "Run Brain CLI", "Run Otto brain subcommands such as self-model or predictions.", ("brain.bat",), "advanced", menu_key="9"),
-    LauncherActionSpec("docker-up", "Bring up Docker stack", "Start the configured Docker services for Otto.", ("docker-up.bat",), "advanced", menu_key="10"),
-    LauncherActionSpec("docker-clean", "Clean Docker stack", "Stop and clean the configured Docker services.", ("docker-clean.bat",), "advanced", menu_key="11"),
-    LauncherActionSpec("docker-probe", "Probe Docker bridge", "Diagnose direct vs PowerShell-backed Docker access used by status and infra checks.", ("docker-probe.bat", "otto.bat"), "advanced", aliases=("docker-diagnostics",)),
-    LauncherActionSpec("openclaw-gateway-restart", "Restart OpenClaw gateway", "Force-restart the OpenClaw gateway process.", ("reload-openclaw-gateway.bat",), "advanced", aliases=("reload-openclaw-gateway",)),
-    LauncherActionSpec("launch-mcp", "Attach obsidian-mcp stdio", "Attach stdio to the running obsidian-mcp container.", ("launch-mcp.bat",), "advanced", aliases=("mcp",)),
-    LauncherActionSpec("sanity-check", "Run sanity check", "Run the repo sanity audit and write a report.", ("sanity-check.bat",), "advanced"),
+    LauncherActionSpec("initial", "Run initial setup", "Bootstrap the repo and Python environment.", ("scripts/shell/initial.bat",), "home", aliases=("init",), menu_key="1"),
+    LauncherActionSpec("start", "Start runtime loop", "Launch the background Otto runtime loop.", ("scripts/shell/start.bat",), "home", aliases=("run",), menu_key="2"),
+    LauncherActionSpec("stop", "Stop runtime loop", "Stop the background Otto runtime loop.", ("scripts/shell/stop.bat",), "home", menu_key="3"),
+    LauncherActionSpec("tui", "Open live TUI", "Watch runtime health, handoff, and Gold state live.", ("scripts/shell/tui.bat",), "home", menu_key="4"),
+    LauncherActionSpec("status", "Show status report", "Print an operator summary of runtime, handoff, and OpenClaw state.", ("scripts/shell/status.bat",), "home", menu_key="5"),
+    LauncherActionSpec("reindex", "Run reindex pipeline", "Rebuild the scoped pipeline and refresh Gold/Silver state.", ("scripts/shell/reindex.bat",), "home", menu_key="6"),
+    LauncherActionSpec("doctor", "Doctor checks", "Run status plus sanity checks and surface next fixes.", ("scripts/shell/doctor.bat",), "home", menu_key="7"),
+    LauncherActionSpec("training-queue", "Training Queue", "Show active probes, pending tasks, and recent mentor resolutions.", ("scripts/shell/main.bat",), "home", aliases=("training",), menu_key="8"),
+    LauncherActionSpec("resolve-training-task", "Resolve Training Task", "Mark one pending mentor task as done or skipped.", ("scripts/shell/main.bat",), "home", aliases=("resolve-training",), menu_key="9"),
+    LauncherActionSpec("kairos", "Run KAIROS once", "Execute one KAIROS controller cycle.", ("scripts/shell/kairos.bat",), "advanced", menu_key="1"),
+    LauncherActionSpec("dream", "Run Dream once", "Execute one dream consolidation cycle.", ("scripts/shell/dream.bat",), "advanced", menu_key="2"),
+    LauncherActionSpec("query", "Query memory", "Run a fast retrieval query against the control-plane memory surfaces.", ("scripts/shell/query.bat",), "advanced", menu_key="3"),
+    LauncherActionSpec("sync-openclaw", "Sync OpenClaw config", "Push repo OpenClaw config into the live gateway surface.", ("scripts/shell/sync-openclaw.bat",), "advanced", aliases=("openclaw-sync",), menu_key="4"),
+    LauncherActionSpec("openclaw-gateway-probe", "Probe OpenClaw gateway", "Check the local OpenClaw HTTP gateway health.", ("scripts/shell/probe-openclaw-gateway.bat",), "advanced", aliases=("probe-openclaw-gateway",), menu_key="5"),
+    LauncherActionSpec("openclaw-plugin-reload", "Reload OpenClaw plugin surface", "Soft-reload the plugin surface without a full gateway restart.", ("scripts/shell/reload-openclaw-plugin.bat",), "advanced", aliases=("reload-openclaw-plugin",), menu_key="6"),
+    LauncherActionSpec("graph-demotion-followup", "Graph demotion follow-up", "Run the reviewed ALLO-only ALLOCATION-FAMILY follow-up with gateway preflight.", ("scripts/shell/graph-demotion-followup.bat",), "advanced", menu_key="7"),
+    LauncherActionSpec("mcp-ready", "Prepare obsidian-mcp container", "Build and warm the MCP container without attaching stdio.", ("scripts/shell/launch-mcp.bat",), "advanced", aliases=("prepare-mcp",), menu_key="8"),
+    LauncherActionSpec("kairos-tui", "KAIROS deep-dive TUI", "Open the KAIROS analysis console.", ("otto.bat",), "advanced", menu_key="9"),
+    LauncherActionSpec("brain", "Run Brain CLI", "Run Otto brain subcommands such as self-model or predictions.", ("scripts/shell/brain.bat",), "advanced", menu_key="10"),
+    LauncherActionSpec("docker-up", "Bring up Docker stack", "Start the configured Docker services for Otto.", ("scripts/shell/docker-up.bat",), "advanced", menu_key="11"),
+    LauncherActionSpec("docker-clean", "Clean Docker stack", "Stop and clean the configured Docker services.", ("scripts/shell/docker-clean.bat",), "advanced", menu_key="12"),
+    LauncherActionSpec("mcp-clean", "Clean stale MCP runs", "Remove leftover obsidian-mcp run containers without stopping the main stack.", ("scripts/shell/mcp-clean.bat",), "advanced", menu_key="13"),
+    LauncherActionSpec("postgres-repair", "Repair Postgres", "Start and restart the configured Postgres service when it is unreachable.", ("scripts/shell/postgres-repair.bat",), "advanced", aliases=("repair-postgres",), menu_key="14"),
+    LauncherActionSpec("health-repair", "Health repair", "Run safe health cleanup, Docker/Postgres repair, OpenClaw check, and runtime ensure.", ("scripts/shell/health-repair.bat",), "advanced", aliases=("repair-health",), menu_key="15"),
+    LauncherActionSpec("fresh-everything", "Fresh everything", "Recreate the Docker stack, clean stale MCP runs, restart OpenClaw gateway, and ensure runtime.", ("scripts/shell/fresh-everything.bat",), "advanced", aliases=("fresh-start", "restart-fresh"), menu_key="16"),
+    LauncherActionSpec("install-health-automation", "Install health automation", "Install Windows scheduled tasks for 3-hour health repair and login fresh start.", ("scripts/shell/install-health-automation.bat",), "advanced", aliases=("install-automation",), menu_key="17"),
+    LauncherActionSpec("uninstall-health-automation", "Uninstall health automation", "Remove the Windows scheduled health/startup tasks.", ("scripts/shell/uninstall-health-automation.bat",), "advanced", aliases=("uninstall-automation",), menu_key="18"),
+    LauncherActionSpec("metadata-enrich", "Metadata enrichment", "Normalize frontmatter, tags, wikilinks, and optional entity metadata.", ("scripts/shell/metadata-enrich.bat",), "advanced", aliases=("metadata-enrichment",), menu_key="19"),
+    LauncherActionSpec("notion-export-hygiene", "Notion export hygiene", "Rename hash-suffixed notes, normalize frontmatter, and optionally reindex.", ("scripts/shell/notion-export-hygiene.bat",), "advanced", aliases=("notion-hygiene", "hash-cleanup", "path-cleanup"), menu_key="20"),
+    LauncherActionSpec("operator-status", "Operator parity status", "Check native/WSL OpenClaw, QMD, cron, and heartbeat parity.", ("scripts/shell/operator-status.bat",), "advanced", aliases=("oo-status",), menu_key="21"),
+    LauncherActionSpec("operator-doctor", "Operator doctor", "Sync operator config and report native/WSL parity without unsafe cutover.", ("scripts/shell/operator-doctor.bat",), "advanced", aliases=("oo-doctor",), menu_key="22"),
+    LauncherActionSpec("operator-update", "Operator update", "Regenerate OpenClaw tool/context/QMD payloads and resync operator state.", ("scripts/shell/operator-update.bat",), "advanced", aliases=("oo-update",), menu_key="23"),
+    LauncherActionSpec("wsl-live-preflight", "WSL live preflight", "Verify Ubuntu OpenClaw/QMD is safe to promote as live owner.", ("scripts/shell/wsl-live-preflight.bat",), "advanced", aliases=("preflight-wsl-live",), menu_key="24"),
+    LauncherActionSpec("wsl-live-promote", "Promote WSL live", "Promote Ubuntu OpenClaw to live gateway and Telegram owner.", ("scripts/shell/wsl-live-promote.bat",), "advanced", aliases=("promote-wsl-live",), menu_key="25"),
+    LauncherActionSpec("wsl-live-status", "WSL live status", "Summarize current WSL live owner, gateway, and rollback readiness.", ("scripts/shell/wsl-live-status.bat",), "advanced", aliases=("status-wsl-live",), menu_key="26"),
+    LauncherActionSpec("wsl-live-rollback", "Rollback to Windows", "Disable Ubuntu Telegram and return gateway ownership to Windows.", ("scripts/shell/wsl-live-rollback.bat",), "advanced", aliases=("rollback-wsl-live",), menu_key="27"),
+    LauncherActionSpec("wsl-gateway-start", "Start WSL gateway", "Start the WSL OpenClaw gateway using the current promoted config.", ("scripts/shell/wsl-gateway-start.bat",), "advanced", aliases=("start-wsl-gateway",), menu_key="28"),
+    LauncherActionSpec("wsl-gateway-stop", "Stop WSL gateway", "Stop the WSL OpenClaw gateway.", ("scripts/shell/wsl-gateway-stop.bat",), "advanced", aliases=("stop-wsl-gateway",), menu_key="29"),
+    LauncherActionSpec("wsl-gateway-restart", "Restart WSL gateway", "Restart and probe the current WSL OpenClaw gateway.", ("scripts/shell/wsl-gateway-restart.bat",), "advanced", aliases=("restart-wsl-gateway",), menu_key="30"),
+    LauncherActionSpec("native-fallback", "Fallback to native gateway", "Restart native Windows OpenClaw if WSL live/shadow is unhealthy.", ("scripts/shell/native-fallback.bat",), "advanced", aliases=("switch-native", "windows-fallback"), menu_key="31"),
+    LauncherActionSpec("install-operator-shortcuts", "Install desktop/startup shortcuts", "Create desktop launcher shortcuts and login startup task for WSL gateway.", ("scripts/shell/install-operator-shortcuts.bat",), "advanced", aliases=("install-shortcuts",), menu_key="32"),
+    LauncherActionSpec("docker-probe", "Probe Docker bridge", "Diagnose direct vs PowerShell-backed Docker access used by status and infra checks.", ("scripts/shell/docker-probe.bat", "otto.bat"), "advanced", aliases=("docker-diagnostics",)),
+    LauncherActionSpec("openclaw-gateway-restart", "Restart OpenClaw gateway", "Force-restart the OpenClaw gateway process.", ("scripts/shell/reload-openclaw-gateway.bat",), "advanced", aliases=("reload-openclaw-gateway",)),
+    LauncherActionSpec("launch-mcp", "Attach obsidian-mcp stdio", "Attach stdio to the running obsidian-mcp container.", ("scripts/shell/launch-mcp.bat",), "advanced", aliases=("mcp",)),
+    LauncherActionSpec("sanity-check", "Run sanity check", "Run the repo sanity audit and write a report.", ("scripts/shell/sanity-check.bat",), "advanced"),
 )
 
 ACTION_SPEC_BY_NAME = {spec.name: spec for spec in ACTION_SPECS}
@@ -227,9 +269,35 @@ class LauncherApp:
             "dream": self._action_dream,
             "sync-openclaw": self._action_sync_openclaw,
             "openclaw-sync": self._action_sync_openclaw,
+            "operator-status": self._action_operator_status,
+            "oo-status": self._action_operator_status,
+            "operator-doctor": self._action_operator_doctor,
+            "oo-doctor": self._action_operator_doctor,
+            "operator-update": self._action_operator_update,
+            "oo-update": self._action_operator_update,
+            "wsl-live-preflight": self._action_wsl_live_preflight,
+            "preflight-wsl-live": self._action_wsl_live_preflight,
+            "wsl-live-promote": self._action_wsl_live_promote,
+            "promote-wsl-live": self._action_wsl_live_promote,
+            "wsl-live-status": self._action_wsl_live_status,
+            "status-wsl-live": self._action_wsl_live_status,
+            "wsl-live-rollback": self._action_wsl_live_rollback,
+            "rollback-wsl-live": self._action_wsl_live_rollback,
+            "wsl-gateway-start": self._action_wsl_gateway_start,
+            "start-wsl-gateway": self._action_wsl_gateway_start,
+            "wsl-gateway-stop": self._action_wsl_gateway_stop,
+            "stop-wsl-gateway": self._action_wsl_gateway_stop,
+            "wsl-gateway-restart": self._action_wsl_gateway_restart,
+            "restart-wsl-gateway": self._action_wsl_gateway_restart,
+            "native-fallback": self._action_native_fallback,
+            "switch-native": self._action_native_fallback,
+            "windows-fallback": self._action_native_fallback,
+            "install-operator-shortcuts": self._action_install_operator_shortcuts,
+            "install-shortcuts": self._action_install_operator_shortcuts,
             "openclaw-gateway-probe": self._action_openclaw_gateway_probe,
             "openclaw-gateway-restart": self._action_openclaw_gateway_restart,
             "openclaw-plugin-reload": self._action_openclaw_plugin_reload,
+            "graph-demotion-followup": self._action_graph_demotion_followup,
             "mcp-ready": self._action_mcp_ready,
             "prepare-mcp": self._action_mcp_ready,
             "mcp": self._action_launch_mcp,
@@ -237,6 +305,24 @@ class LauncherApp:
             "brain": self._action_brain,
             "docker-up": self._action_docker_up,
             "docker-clean": self._action_docker_clean,
+            "mcp-clean": self._action_mcp_clean,
+            "postgres-repair": self._action_postgres_repair,
+            "repair-postgres": self._action_postgres_repair,
+            "health-repair": self._action_health_repair,
+            "repair-health": self._action_health_repair,
+            "fresh-everything": self._action_fresh_everything,
+            "fresh-start": self._action_fresh_everything,
+            "restart-fresh": self._action_fresh_everything,
+            "install-health-automation": self._action_install_health_automation,
+            "install-automation": self._action_install_health_automation,
+            "uninstall-health-automation": self._action_uninstall_health_automation,
+            "uninstall-automation": self._action_uninstall_health_automation,
+            "metadata-enrich": self._action_metadata_enrich,
+            "metadata-enrichment": self._action_metadata_enrich,
+            "notion-export-hygiene": self._action_notion_export_hygiene,
+            "notion-hygiene": self._action_notion_export_hygiene,
+            "hash-cleanup": self._action_notion_export_hygiene,
+            "path-cleanup": self._action_notion_export_hygiene,
             "docker-probe": self._action_docker_probe,
             "docker-diagnostics": self._action_docker_probe,
             "sanity-check": self._action_sanity_check,
@@ -683,6 +769,130 @@ class LauncherApp:
         exit_code = self._run_python_script(SYNC_OPENCLAW_SCRIPT)
         return ActionResult(status="ok" if exit_code == 0 else "error", exit_code=exit_code, details={})
 
+    def _action_operator_status(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = operator_status()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_operator_doctor(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = operator_doctor()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_operator_update(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = operator_update()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_wsl_live_preflight(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = build_wsl_live_preflight()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_wsl_live_promote(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        write = "--write" in args or interactive
+        result = promote_wsl_live(write=write)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_wsl_live_status(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = build_wsl_live_status()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_wsl_live_rollback(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = rollback_wsl_live(write=True)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_wsl_gateway_start(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = start_wsl_gateway()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_wsl_gateway_stop(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = stop_wsl_gateway()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_wsl_gateway_restart(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = restart_wsl_gateway()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_native_fallback(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = fallback_to_native()
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_install_operator_shortcuts(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        script = self.root / INSTALL_OPERATOR_SHORTCUTS_SCRIPT
+        if not script.exists():
+            print(f"[ERROR] Missing shortcut installer: {script}")
+            return ActionResult(status="error", exit_code=1, details={"reason": "missing-installer"})
+        result = subprocess.run(
+            [
+                "powershell",
+                "-NoProfile",
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                str(script),
+                *args,
+            ],
+            cwd=self.root,
+            check=False,
+        )
+        return ActionResult(
+            status="ok" if result.returncode == 0 else "error",
+            exit_code=result.returncode,
+            details={"script": str(script), "args": list(args)},
+        )
+
     def _action_openclaw_gateway_probe(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
         result = probe_openclaw_gateway(timeout_seconds=5.0)
         print(json.dumps(result, ensure_ascii=False, indent=2))
@@ -707,6 +917,30 @@ class LauncherApp:
         return ActionResult(
             status="ok" if result.get("ok") else "error",
             exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_graph_demotion_followup(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        max_writes = 6
+        timeout_seconds = 60
+        for item in args:
+            if item.startswith("--max-demotion-writes="):
+                try:
+                    max_writes = int(item.split("=", 1)[1])
+                except ValueError:
+                    pass
+            elif item == "--max-demotion-writes":
+                continue
+            elif item.startswith("--timeout-seconds="):
+                try:
+                    timeout_seconds = int(item.split("=", 1)[1])
+                except ValueError:
+                    pass
+        result = run_graph_demotion_followup(max_demotion_writes=max_writes, timeout_seconds=timeout_seconds)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("status") == "applied" else "error",
+            exit_code=0 if result.get("status") == "applied" else 1,
             details=result,
         )
 
@@ -795,6 +1029,11 @@ class LauncherApp:
 
         build_exit: int | None = None
         run_exit: int | None = None
+        stale_cleanup = cleanup_ephemeral_mcp_containers()
+        if stale_cleanup.get("removed"):
+            count = len(stale_cleanup["removed"])
+            notes.append(f"cleaned {count} stale obsidian-mcp run container(s)")
+            print(f"[OTTO] Cleaned {count} stale obsidian-mcp run container(s).")
         if do_build:
             print("[OTTO] Building MCP containers...")
             build_result = subprocess.run(
@@ -915,6 +1154,14 @@ class LauncherApp:
         exit_code = self._run_python_script(SANITY_SCRIPT, args=script_args)
         return ActionResult(status="ok" if exit_code == 0 else "error", exit_code=exit_code, details={"args": script_args})
 
+    def _action_metadata_enrich(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        exit_code = self._run_python_script(METADATA_ENRICHMENT_SCRIPT, args=list(args))
+        return ActionResult(status="ok" if exit_code == 0 else "error", exit_code=exit_code, details={"args": list(args)})
+
+    def _action_notion_export_hygiene(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        exit_code = self._run_python_script(NOTION_EXPORT_HYGIENE_SCRIPT, args=list(args))
+        return ActionResult(status="ok" if exit_code == 0 else "error", exit_code=exit_code, details={"args": list(args)})
+
     def _action_docker_up(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
         if not docker_available():
             print("[ERROR] Docker is not installed or not on PATH.")
@@ -943,7 +1190,99 @@ class LauncherApp:
             cwd=self.root,
             check=False,
         )
-        return ActionResult(status="ok" if result.returncode == 0 else "error", exit_code=result.returncode, details={})
+        stale_cleanup = cleanup_ephemeral_mcp_containers()
+        if stale_cleanup.get("removed"):
+            print(f"[Otto] Removed {len(stale_cleanup['removed'])} stale obsidian-mcp run container(s).")
+        return ActionResult(
+            status="ok" if result.returncode == 0 and stale_cleanup.get("ok", True) else "error",
+            exit_code=result.returncode if result.returncode != 0 else (0 if stale_cleanup.get("ok", True) else 1),
+            details={"ephemeral_mcp_cleanup": stale_cleanup},
+        )
+
+    def _action_mcp_clean(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        if not docker_available():
+            print("[ERROR] Docker is not installed or not on PATH.")
+            return ActionResult(status="error", exit_code=1, details={"reason": "docker-not-found"})
+        if not docker_daemon_running():
+            print("[ERROR] Docker daemon is not running. Start Docker Desktop first.")
+            return ActionResult(status="error", exit_code=1, details={"reason": "docker-not-running"})
+        result = cleanup_ephemeral_mcp_containers()
+        removed = result.get("removed") or []
+        if removed:
+            print(f"[Otto] Removed {len(removed)} stale obsidian-mcp run container(s).")
+        else:
+            print("[Otto] No stale obsidian-mcp run containers found.")
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_postgres_repair(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        if not docker_available():
+            print("[ERROR] Docker is not installed or not on PATH.")
+            return ActionResult(status="error", exit_code=1, details={"reason": "docker-not-found"})
+        if not docker_daemon_running():
+            print("[ERROR] Docker daemon is not running. Start Docker Desktop first.")
+            return ActionResult(status="error", exit_code=1, details={"reason": "docker-not-running"})
+        up_result = subprocess.run(
+            ["docker", "compose", "-f", "docker-compose.yml", "up", "-d", "postgres"],
+            cwd=self.root,
+            check=False,
+        )
+        if up_result.returncode != 0:
+            return ActionResult(status="error", exit_code=up_result.returncode, details={"up_exit": up_result.returncode})
+        restart_result = subprocess.run(
+            ["docker", "compose", "-f", "docker-compose.yml", "restart", "postgres"],
+            cwd=self.root,
+            check=False,
+        )
+        status = "ok" if restart_result.returncode == 0 else "error"
+        if status == "ok":
+            print("[Otto] Postgres service restarted. Run `otto.bat status` to confirm reachability.")
+        return ActionResult(
+            status=status,
+            exit_code=restart_result.returncode,
+            details={"up_exit": up_result.returncode, "restart_exit": restart_result.returncode},
+        )
+
+    def _action_health_repair(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = run_health_repair(
+            root=self.root,
+            runtime_env=_runtime_env(self.root),
+            fresh=False,
+            scheduled="--scheduled" in args,
+            ensure_runtime="--no-runtime" not in args,
+        )
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_fresh_everything(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        result = run_health_repair(
+            root=self.root,
+            runtime_env=_runtime_env(self.root),
+            fresh=True,
+            scheduled="--scheduled" in args,
+            ensure_runtime="--no-runtime" not in args,
+        )
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return ActionResult(
+            status="ok" if result.get("ok") else "error",
+            exit_code=0 if result.get("ok") else 1,
+            details=result,
+        )
+
+    def _action_install_health_automation(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        exit_code = self._run_python_script(INSTALL_HEALTH_AUTOMATION_SCRIPT, args=args)
+        return ActionResult(status="ok" if exit_code == 0 else "error", exit_code=exit_code, details={"args": list(args)})
+
+    def _action_uninstall_health_automation(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
+        exit_code = self._run_python_script(INSTALL_HEALTH_AUTOMATION_SCRIPT, args=["--uninstall", *args])
+        return ActionResult(status="ok" if exit_code == 0 else "error", exit_code=exit_code, details={"args": list(args)})
 
     def _action_docker_probe(self, *, args: Sequence[str], interactive: bool) -> ActionResult:
         result = docker_probe_diagnostics()

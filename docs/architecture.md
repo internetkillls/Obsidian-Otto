@@ -39,6 +39,7 @@ main.bat          -> interactive home/advanced menu (Python launcher)
   query.bat      -> memory query
   kairos.bat     -> KAIROS telemetry (one-shot)
   dream.bat      -> Dream consolidation (one-shot)
+  metadata-enrich.bat -> metadata enrichment workflow
   training queue -> read mentor probes/tasks from launcher home screen
   resolve task   -> move one pending mentor task into done/skipped
   sync-openclaw.bat -> OpenClaw config sync

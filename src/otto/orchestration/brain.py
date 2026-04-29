@@ -10,13 +10,14 @@ from ..brain import (
     MemoryTier,
     TierEntry,
 )
-from ..config import load_paths
+from ..config import load_paths, load_yaml_config
 from ..events import (
     Event,
     EventBus,
     EVENT_BRAIN_SELF_MODEL_UPDATED,
     EVENT_BRAIN_PREDICTION_GENERATED,
     EVENT_BRAIN_RITUAL_COMPLETED,
+    EVENT_QMD_INDEX_REFRESHED,
 )
 from ..logging_utils import get_logger
 from ..state import OttoState, now_iso, read_json, write_json
@@ -87,6 +88,18 @@ def run_brain_self_model() -> dict[str, Any]:
     sm = OttoSelfModel(vault_path=paths.vault_path)
     snapshot = sm.build_from_scan(bronze)
     profile_path = sm.write_profile_to_vault()
+
+    brain_cfg = load_yaml_config("brain.yaml")
+    if (brain_cfg.get("qmd") or {}).get("reindex_after_self_model"):
+        from ..openclaw_support import run_qmd_index_refresh
+
+        qmd_result = run_qmd_index_refresh()
+        EventBus(paths).publish(Event(
+            type=EVENT_QMD_INDEX_REFRESHED,
+            source="brain",
+            payload={"trigger": "self_model_update", "qmd": qmd_result},
+        ))
+
     report_path = _write_otto_profile_report(paths, snapshot)
 
     EventBus(paths).publish(Event(

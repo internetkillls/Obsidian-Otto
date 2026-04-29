@@ -10,6 +10,7 @@ from typing import Any
 import yaml
 
 from ..config import load_paths, load_retrieval_config
+from .cron_control import build_cron_status, clear_essay_control, steer_essay_control
 from ..retrieval.memory import retrieve_breakdown
 from ..state import now_iso, write_json
 
@@ -41,6 +42,9 @@ class KAIROSChatHandler:
       "compare X"              → compare sparse vs dense retrieval
       "show vector status"     → vector cache / chroma summary
       "show chunks for X.md"   → inspect stored vector chunks for one note
+      "cron status"            → show managed cron + essay steering status
+      "focus paper topics for 2 days: X" → steer essay cron toward topic generation
+      "paper now"              → force the next eligible paper immediately
       "give me directives"     → show full directive manifest
       "how's my vault"         → vault summary
     """
@@ -61,6 +65,21 @@ class KAIROSChatHandler:
         if "train" in msg or "training" in msg:
             area = self._extract_target(msg, ["train on ", "training on ", "train in "])
             return self._train_targets(area)
+
+        # ── cron steering / status ─────────────────────────────────────
+        if any(k in msg for k in ["cron status", "status cron", "job status", "jobs status", "cron jobs"]):
+            return self._cron_status()
+        cron_focus = self._parse_cron_focus_message(message)
+        if cron_focus:
+            if cron_focus["mode"] == "normal":
+                return clear_essay_control(reason=cron_focus.get("reason", ""), source="chat")
+            return steer_essay_control(
+                mode=cron_focus["mode"],
+                topic=cron_focus.get("topic", ""),
+                days=int(cron_focus.get("days", 2) or 2),
+                reason=cron_focus.get("reason", ""),
+                source="chat",
+            )
 
         # ── scan commands ────────────────────────────────────────────────
         if any(k in msg for k in ["scan", "how's", "how is", "vault summary", "vault status", "quality check"]):
@@ -224,6 +243,9 @@ class KAIROSChatHandler:
                 "compare <query>    — compare SQLite vs Chroma hits",
                 "vector status      — show vector cache / Chroma state",
                 "show chunks for <path.md> — inspect stored vector chunks",
+                "cron status        — show cron steering + managed job status",
+                "focus paper topics for 2 days: <topic> — steer essay cron toward topic generation",
+                "paper now          — force the next eligible paper immediately",
                 "directives         — show current KAIROS strategy directives",
                 "help               — this help",
             ],
@@ -833,6 +855,9 @@ class KAIROSChatHandler:
                 {"command": "dig <folder>", "description": "Deep-dive into folder quality + per-note breakdown + repair recommendations"},
                 {"command": "scan", "description": "Full vault telemetry: uselessness score, training worth, dead zones, high-value areas"},
                 {"command": "train [on <area>]", "description": "Show training targets — areas with high signal density and good metadata"},
+                {"command": "cron status", "description": "Show managed cron jobs, essay steering state, and the active focus window"},
+                {"command": "focus paper topics for 2 days: <topic>", "description": "Steer the essay cron toward topic generation for a bounded window"},
+                {"command": "paper now", "description": "Force the next eligible paper immediately"},
                 {"command": "file <path.md>", "description": "Analyze a single note: quality score, missing fields, specific recommendations"},
                 {"command": "date YYYY-MM-DD to YYYY-MM-DD", "description": "List all notes modified in a date range"},
                 {"command": "what's useless", "description": "Show dead zones — areas with highest uselessness scores"},
@@ -849,6 +874,53 @@ class KAIROSChatHandler:
             "persona": "KAIROS is a top-tier academic data engineer. It thinks critically, identifies systemic patterns, and refines strategies based on evidence.",
             "data_source": "All analysis grounded in SQLite (notes, folder_risk, FTS5), Postgres (vault_signals), and bronze_manifest.json",
         }
+
+    def _cron_status(self) -> dict[str, Any]:
+        return build_cron_status(paths=self.paths)
+
+    def _parse_cron_focus_message(self, message: str) -> dict[str, Any] | None:
+        raw = message.strip()
+        lower = raw.lower()
+        if any(phrase in lower for phrase in ["paper now", "force paper", "paper immediately"]):
+            return {
+                "mode": "paper_now",
+                "topic": self._extract_cron_focus_topic(raw),
+                "days": 0,
+                "reason": raw,
+            }
+        if not any(phrase in lower for phrase in ["paper topic", "paper topics", "focus paper", "steer cron", "cron focus", "topic focus"]):
+            return None
+        if "clear paper focus" in lower or "reset paper focus" in lower or "clear cron focus" in lower:
+            return {
+                "mode": "normal",
+                "topic": "",
+                "days": 0,
+                "reason": raw,
+            }
+        days = 2
+        day_match = re.search(r"(?i)\bfor\s+(\d+)\s+days?\b", raw)
+        if day_match:
+            try:
+                days = max(int(day_match.group(1)), 1)
+            except Exception:
+                days = 2
+        return {
+            "mode": "paper_topics",
+            "topic": self._extract_cron_focus_topic(raw),
+            "days": days,
+            "reason": raw,
+        }
+
+    def _extract_cron_focus_topic(self, message: str) -> str:
+        cleaned = message.strip()
+        cleaned = re.sub(r"(?i)^(?:steer|focus|set)\s+(?:cron\s+)?", "", cleaned).strip()
+        cleaned = re.sub(r"(?i)^(?:paper\s+now|force\s+paper(?:\s+now)?|paper\s+immediately)\s*[:\-]?\s*", "", cleaned).strip()
+        cleaned = re.sub(r"(?i)^(?:paper\s+topics?|topics?)\s*", "", cleaned).strip()
+        cleaned = re.sub(r"(?i)^for\s+\d+\s+days?\s*", "", cleaned).strip()
+        cleaned = re.sub(r"(?i)^(?:on|about|for)\s+", "", cleaned).strip(" :-")
+        cleaned = re.sub(r"(?i)\bfor\s+\d+\s+days?\b", "", cleaned).strip(" :-")
+        cleaned = re.sub(r"(?i)^(?:paper\s+topics?|topics?)\s*", "", cleaned).strip(" :-")
+        return cleaned or "paper topics"
 
     def _extract_target(self, msg: str, prefixes: list[str]) -> str | None:
         for prefix in prefixes:
@@ -926,6 +998,37 @@ class KAIROSChatHandler:
             if result.get("hint"):
                 out += f"\n→ {result['hint']}"
             return out
+
+        if "control_path" in result and "essay_control" in result:
+            control = result.get("essay_control", {}) or {}
+            lines = [f"🧭 *Cron Steering*"]
+            lines.append(f"  Mode: `{control.get('mode', 'normal')}`")
+            lines.append(f"  Active: `{result.get('focus_active', False)}`")
+            if control.get("focus_topic"):
+                lines.append(f"  Focus: {control.get('focus_topic')}")
+            if control.get("focus_until"):
+                lines.append(f"  Until: {control.get('focus_until')}")
+            if control.get("focus_reason"):
+                lines.append(f"  Reason: {control.get('focus_reason')[:120]}")
+            return "\n".join(lines)
+
+        if "managed_jobs" in result and "steering" in result:
+            steering = result.get("steering", {}) or {}
+            lines = [f"🕰 *Cron Status*"]
+            lines.append(f"  Jobs: `{result.get('enabled_job_count', 0)}/{result.get('job_count', 0)}` enabled")
+            lines.append(f"  Managed: `{result.get('managed_job_count', 0)}`")
+            lines.append(f"  Steering: mode=`{steering.get('mode', 'normal')}` active=`{steering.get('active', False)}`")
+            if steering.get("topic"):
+                lines.append(f"  Topic: {steering.get('topic')}")
+            if steering.get("expires_at"):
+                lines.append(f"  Focus until: {steering.get('expires_at')}")
+            if result.get("contract_drift_free") is False:
+                lines.append("  ⚠ Contract drift detected")
+            managed_jobs = result.get("managed_jobs") or []
+            if managed_jobs:
+                first = managed_jobs[0]
+                lines.append(f"  First managed job: {first.get('name')}")
+            return "\n".join(lines)
 
         # vault summary
         if "overall_uselessness" in result:

@@ -1,7 +1,5 @@
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
-import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -12,6 +10,8 @@ const OTTO_ACTIONS = [
   "openclaw-health",
   "openclaw-gateway-probe",
   "openclaw-sync",
+  "qmd-index-health",
+  "qmd-reindex",
   "openclaw-gateway-restart",
   "openclaw-plugin-reload",
   "pipeline",
@@ -34,16 +34,12 @@ const DESKTOP_ACTIONS = [
   "devtools"
 ];
 
-function resolveOpenClawDistDir() {
-  const appData = process.env.APPDATA;
-  if (appData) {
-    const npmDist = path.join(appData, "npm", "node_modules", "openclaw", "dist");
-    if (fs.existsSync(npmDist)) return npmDist;
-  }
-  const runtimeDist = path.join(os.homedir(), ".openclaw", "runtime", "openclaw", "dist");
-  if (fs.existsSync(runtimeDist)) return runtimeDist;
-  return null;
-}
+const REPO_STATE_ACTIONS = {
+  "openclaw-gateway-probe": ["state/openclaw/gateway_probe.json"],
+  "qmd-index-health": ["state/qmd/qmd_last_health.json", "state/openclaw/qmd_refresh_status.json", "state/openclaw/sync_status.json"],
+  "morpheus-bridge": ["state/openclaw/morpheus_openclaw_bridge_latest.json"],
+  "openclaw-health": ["state/openclaw/sync_status.json", "state/openclaw/gateway_probe.json"]
+};
 
 function readString(raw, key) {
   const value = raw?.[key];
@@ -60,12 +56,34 @@ function readNumber(raw, key) {
 }
 
 function shellQuote(value) {
-  if (/^[A-Za-z0-9_./:-]+$/.test(value)) return value;
+  if (/^[A-Za-z0-9_./:=+-]+$/.test(value)) return value;
   return JSON.stringify(value);
 }
 
 function formatCommandPreview(command, args) {
   return [command, ...args].map((part) => shellQuote(String(part))).join(" ");
+}
+
+function jsonEnum(values, description) {
+  return {
+    type: "string",
+    enum: values,
+    description
+  };
+}
+
+function toolError(text, details = {}) {
+  return {
+    content: [{ type: "text", text }],
+    details: { error: true, ...details }
+  };
+}
+
+function toolJson(payload, details = {}) {
+  return {
+    content: [{ type: "text", text: JSON.stringify(payload, null, 2) }],
+    details
+  };
 }
 
 function resolveRepoRoot(api) {
@@ -86,80 +104,198 @@ function resolveObsidianCommand(api) {
   return readString(api.pluginConfig, "obsidianCommand") ?? "obsidian";
 }
 
-function resolveTimeoutMs(api, rawParams) {
-  const seconds = readNumber(rawParams, "timeoutSeconds") ?? readNumber(api.pluginConfig, "defaultTimeoutSeconds") ?? 120;
-  return Math.max(1, seconds) * 1000;
+function repoPath(repoRoot, relativePath) {
+  return path.join(repoRoot, ...relativePath.split("/"));
 }
 
-function buildPythonEnv(repoRoot) {
-  const env = { ...process.env };
-  const srcPath = path.join(repoRoot, "src");
-  env.PYTHONPATH = env.PYTHONPATH ? `${srcPath}${path.delimiter}${env.PYTHONPATH}` : srcPath;
-  env.PYTHONUTF8 = env.PYTHONUTF8 || "1";
-  env.PYTHONIOENCODING = env.PYTHONIOENCODING || "utf-8";
-  return env;
+function readJsonFile(filePath) {
+  if (!fs.existsSync(filePath)) return { ok: false, reason: "missing" };
+  try {
+    const value = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    return { ok: true, value };
+  } catch (error) {
+    return {
+      ok: false,
+      reason: "invalid-json",
+      error: error instanceof Error ? error.message : String(error)
+    };
+  }
 }
 
-function runCommand(command, args, { cwd, env, timeoutMs }) {
-  return new Promise((resolve) => {
-    const child = spawn(command, args, {
-      cwd,
-      env,
-      shell: false,
-      windowsHide: true
-    });
-    let stdout = "";
-    let stderr = "";
-    let timedOut = false;
-    const timer = setTimeout(() => {
-      timedOut = true;
-      child.kill("SIGTERM");
-    }, timeoutMs);
-    child.stdout.on("data", (chunk) => {
-      stdout += chunk.toString();
-    });
-    child.stderr.on("data", (chunk) => {
-      stderr += chunk.toString();
-    });
-    child.on("error", (error) => {
-      clearTimeout(timer);
-      resolve({
-        ok: false,
-        code: null,
-        stdout,
-        stderr: error.message,
-        timedOut
-      });
-    });
-    child.on("close", (code) => {
-      clearTimeout(timer);
-      resolve({
-        ok: code === 0 && !timedOut,
-        code,
-        stdout,
-        stderr,
-        timedOut
-      });
-    });
-  });
-}
-
-function jsonEnum(values, description) {
+function readFirstAvailableJson(repoRoot, relativePaths) {
+  const checked = [];
+  for (const relativePath of relativePaths) {
+    const absolutePath = repoPath(repoRoot, relativePath);
+    checked.push(absolutePath);
+    const result = readJsonFile(absolutePath);
+    if (result.ok) {
+      return {
+        ok: true,
+        path: absolutePath,
+        relativePath,
+        checked,
+        value: result.value
+      };
+    }
+  }
   return {
-    type: "string",
-    enum: values,
-    description
+    ok: false,
+    checked
   };
 }
 
-function toolText(text) {
-  return { content: [{ type: "text", text }] };
+function buildStatusSnapshot(repoRoot) {
+  const handoff = readFirstAvailableJson(repoRoot, ["state/handoff/latest.json"]);
+  const pipeline = readFirstAvailableJson(repoRoot, ["state/checkpoints/pipeline.json"]);
+  const owner = readFirstAvailableJson(repoRoot, ["state/runtime/owner.json"]);
+  const lock = readFirstAvailableJson(repoRoot, ["state/runtime/single_owner_lock.json"]);
+  const gateway = readFirstAvailableJson(repoRoot, ["state/openclaw/gateway_probe.json"]);
+  const contextPack = readFirstAvailableJson(repoRoot, ["state/openclaw/context_pack_v1.json"]);
+  const qmd = readFirstAvailableJson(repoRoot, ["state/qmd/qmd_last_health.json", "state/openclaw/qmd_refresh_status.json"]);
+
+  return {
+    ok: true,
+    execution_mode: "state_read",
+    repo_root: repoRoot,
+    summary: {
+      handoff_state: handoff.value?.state ?? null,
+      pipeline_state: pipeline.value?.state ?? null,
+      runtime_state: owner.value?.runtime_state ?? null,
+      gateway_owner: owner.value?.gateway_owner ?? null,
+      telegram_owner: owner.value?.telegram_owner ?? null,
+      single_owner_lock_ok: lock.value?.ok ?? null,
+      gateway_ok: gateway.value?.ok ?? null,
+      qmd_ok: qmd.value?.ok ?? null,
+      context_pack_state: contextPack.value?.state ?? null
+    },
+    state_files: {
+      handoff,
+      pipeline,
+      owner,
+      single_owner_lock: lock,
+      gateway_probe: gateway,
+      qmd,
+      context_pack: contextPack
+    }
+  };
 }
 
-function toolError(text, details = {}) {
+function buildOttoCommand(api, repoRoot, rawParams) {
+  const action = readString(rawParams, "action");
+  const pythonCommand = resolvePythonCommand(api, repoRoot);
+  let command = pythonCommand;
+  let args = ["-m", "otto.cli"];
+
+  if (action === "status") {
+    args.push("status");
+  } else if (action === "openclaw-health") {
+    args.push("openclaw-health");
+  } else if (action === "openclaw-gateway-probe") {
+    args.push("openclaw-gateway-probe");
+  } else if (action === "openclaw-sync") {
+    args.push("openclaw-sync");
+  } else if (action === "qmd-index-health") {
+    args.push("qmd-index-health");
+  } else if (action === "qmd-reindex") {
+    args.push("qmd-reindex");
+  } else if (action === "openclaw-gateway-restart") {
+    args.push("openclaw-gateway-restart");
+  } else if (action === "openclaw-plugin-reload") {
+    args.push("openclaw-plugin-reload");
+  } else if (action === "pipeline") {
+    args.push("pipeline");
+    const scope = readString(rawParams, "scope");
+    if (scope) args.push("--scope", scope);
+    if (readBoolean(rawParams, "full")) args.push("--full");
+  } else if (action === "retrieve") {
+    const query = readString(rawParams, "query");
+    const mode = readString(rawParams, "mode") ?? "fast";
+    if (query) {
+      args.push("retrieve", "--mode", mode, "--query", query);
+    }
+  } else if (action === "kairos") {
+    args.push("kairos");
+  } else if (action === "dream") {
+    args.push("dream");
+  } else if (action === "morpheus-bridge") {
+    args.push("morpheus-bridge");
+    if (readBoolean(rawParams, "refresh")) args.push("--refresh");
+  } else if (action === "kairos-chat") {
+    const message = readString(rawParams, "message");
+    if (message) args.push("kairos-chat", message);
+  } else if (action === "brain") {
+    args = ["-m", "otto.brain_cli", readString(rawParams, "brainAction") ?? "all"];
+  }
+
   return {
-    content: [{ type: "text", text }],
-    details: { error: true, ...details }
+    command,
+    args,
+    preview: formatCommandPreview(command, args)
+  };
+}
+
+function buildManualOttoPayload(api, repoRoot, rawParams, reason) {
+  const command = buildOttoCommand(api, repoRoot, rawParams);
+  return {
+    ok: true,
+    state_changed: false,
+    execution_mode: "manual_required",
+    reason,
+    repo_root: repoRoot,
+    action: readString(rawParams, "action"),
+    command_preview: command.preview,
+    created_ids: [],
+    updated_ids: [],
+    warnings: [
+      "OpenClaw plugin install policy blocks shell execution inside linked plugins.",
+      "Use the repo launcher/operator lane for mutating Otto actions."
+    ],
+    blockers: [],
+    quarantined: [],
+    next_required_action: command.preview
+  };
+}
+
+function buildStateBackedOttoPayload(api, repoRoot, rawParams) {
+  const action = readString(rawParams, "action");
+  if (action === "status") return buildStatusSnapshot(repoRoot);
+  const relativePaths = REPO_STATE_ACTIONS[action];
+  if (!relativePaths) {
+    return buildManualOttoPayload(
+      api,
+      repoRoot,
+      rawParams,
+      "This action remains launcher/operator-driven in the installer-safe bridge."
+    );
+  }
+  const found = readFirstAvailableJson(repoRoot, relativePaths);
+  if (!found.ok) {
+    return {
+      ...buildManualOttoPayload(
+        api,
+        repoRoot,
+        rawParams,
+        "No cached state file was available, so the bridge is returning the exact command preview instead."
+      ),
+      state_lookup: {
+        checked_paths: found.checked
+      }
+    };
+  }
+  return {
+    ok: true,
+    state_changed: false,
+    execution_mode: "state_read",
+    action,
+    source_path: found.path,
+    source_relative_path: found.relativePath,
+    payload: found.value,
+    created_ids: [],
+    updated_ids: [],
+    warnings: [],
+    blockers: [],
+    quarantined: [],
+    next_required_action: null
   };
 }
 
@@ -193,35 +329,84 @@ function buildObsidianUri(api, params) {
   return `obsidian://${action}?${query.toString()}`;
 }
 
-function resolveUriLauncher() {
-  if (process.platform === "win32") {
-    return { command: "cmd", args: ["/c", "start", ""] };
+function buildDesktopPayload(api, rawParams) {
+  const action = readString(rawParams, "action");
+  if (["open", "new", "daily", "search"].includes(action)) {
+    const uri = buildObsidianUri(api, { ...rawParams, action });
+    return {
+      ok: true,
+      state_changed: false,
+      execution_mode: "manual_required",
+      transport: "uri",
+      action,
+      uri,
+      warnings: [
+        "Installer-safe bridge does not launch desktop commands directly.",
+        "Use the URI from a desktop-capable surface or call the operator launcher on the host."
+      ],
+      next_required_action: uri
+    };
   }
-  if (process.platform === "darwin") {
-    return { command: "open", args: [] };
+
+  const obsidianCommand = resolveObsidianCommand(api);
+  const args = [];
+  if (action === "create") {
+    args.push("create");
+    const name = readString(rawParams, "name");
+    const content = readString(rawParams, "content");
+    if (name) args.push(`name=${name}`);
+    if (content) args.push(`content=${content}`);
+    if (readBoolean(rawParams, "append")) args.push("append");
+    if (readBoolean(rawParams, "overwrite")) args.push("overwrite");
+  } else if (action === "plugin-reload") {
+    const pluginId = readString(rawParams, "pluginId");
+    if (!pluginId) throw new Error("pluginId is required for plugin-reload");
+    args.push("plugin:reload", `id=${pluginId}`);
+  } else if (action === "dev-screenshot") {
+    const outputPath = readString(rawParams, "path");
+    if (!outputPath) throw new Error("path is required for dev-screenshot");
+    args.push("dev:screenshot", `path=${outputPath}`);
+  } else if (action === "eval") {
+    const code = readString(rawParams, "code");
+    if (!code) throw new Error("code is required for eval");
+    args.push("eval", `code=${code}`);
+  } else if (action === "devtools") {
+    args.push("devtools");
   }
-  return { command: "xdg-open", args: [] };
+
+  return {
+    ok: true,
+    state_changed: false,
+    execution_mode: "manual_required",
+    transport: "cli",
+    action,
+    command_preview: formatCommandPreview(obsidianCommand, args),
+    warnings: [
+      "Installer-safe bridge does not execute desktop CLI commands directly from the plugin."
+    ],
+    next_required_action: formatCommandPreview(obsidianCommand, args)
+  };
 }
 
 function createOttoRepoTool(api) {
   return {
     name: "otto_repo",
     label: "Obsidian-Otto Repo",
-    description: "Run the Obsidian-Otto control plane from OpenClaw through the repo CLI.",
+    description: "Read repo state or emit exact Otto control-plane command previews without shell execution inside the plugin.",
     parameters: {
       type: "object",
       additionalProperties: false,
       properties: {
-        action: jsonEnum(OTTO_ACTIONS, "Repo control-plane action to run."),
+        action: jsonEnum(OTTO_ACTIONS, "Repo control-plane action to inspect or preview."),
         query: { type: "string", description: "Query string for retrieve." },
         mode: jsonEnum(["fast", "deep"], "Retrieve mode when action=retrieve."),
         scope: { type: "string", description: "Optional scoped path for pipeline runs." },
         full: { type: "boolean", description: "Run full pipeline behavior when action=pipeline." },
         brainAction: { type: "string", description: "Brain CLI action when action=brain (self-model, predictions, ritual, all)." },
-        message: { type: "string", description: "Natural-language message for kairos-chat, including prompts like 'cari catatan tentang X', 'deepen X', 'compare X', 'show vector status', or 'ambil chunk note Y.md'." },
+        message: { type: "string", description: "Natural-language message for kairos-chat." },
         refresh: { type: "boolean", description: "Refresh cached state for actions that support it, such as morpheus-bridge." },
-        timeoutSeconds: { type: "number", minimum: 1, description: "Timeout in seconds." },
-        dryRun: { type: "boolean", description: "Preview the generated command without executing it." }
+        timeoutSeconds: { type: "number", minimum: 1, description: "Reserved for compatibility; the safe bridge does not spawn a subprocess." },
+        dryRun: { type: "boolean", description: "Compatibility flag; previews are returned by default in safe bridge mode." }
       },
       required: ["action"]
     },
@@ -232,84 +417,12 @@ function createOttoRepoTool(api) {
           return toolError(`Unknown otto_repo action '${action ?? ""}'. Allowed: ${OTTO_ACTIONS.join(", ")}`);
         }
         const repoRoot = resolveRepoRoot(api);
-        const pythonCommand = resolvePythonCommand(api, repoRoot);
-        const timeoutMs = resolveTimeoutMs(api, rawParams);
-        let command = pythonCommand;
-        let args = ["-m", "otto.cli"];
-        if (action === "status") {
-          args.push("status");
-        } else if (action === "openclaw-health") {
-          args.push("openclaw-health");
-        } else if (action === "openclaw-gateway-probe") {
-          args.push("openclaw-gateway-probe");
-        } else if (action === "openclaw-sync") {
-          args.push("openclaw-sync");
-        } else if (action === "openclaw-gateway-restart") {
-          args.push("openclaw-gateway-restart");
-        } else if (action === "openclaw-plugin-reload") {
-          args.push("openclaw-plugin-reload");
-        } else if (action === "pipeline") {
-          args.push("pipeline");
-          const scope = readString(rawParams, "scope");
-          if (scope) args.push("--scope", scope);
-          if (readBoolean(rawParams, "full")) args.push("--full");
-        } else if (action === "retrieve") {
-          const query = readString(rawParams, "query");
-          if (!query) return toolError("otto_repo action=retrieve requires query.");
-          const mode = readString(rawParams, "mode") ?? "fast";
-          args.push("retrieve", "--mode", mode, "--query", query);
-        } else if (action === "kairos") {
-          args.push("kairos");
-        } else if (action === "dream") {
-          args.push("dream");
-        } else if (action === "morpheus-bridge") {
-          args.push("morpheus-bridge");
-          if (readBoolean(rawParams, "refresh")) args.push("--refresh");
-        } else if (action === "kairos-chat") {
-          const message = readString(rawParams, "message");
-          if (!message) return toolError("otto_repo action=kairos-chat requires message.");
-          args.push("kairos-chat", message);
-        } else if (action === "brain") {
-          command = pythonCommand;
-          args = ["-m", "otto.brain_cli", readString(rawParams, "brainAction") ?? "all"];
-        }
-        const preview = formatCommandPreview(command, args);
-        if (readBoolean(rawParams, "dryRun")) {
-          return {
-            content: [{ type: "text", text: preview }],
-            details: { dryRun: true, command, args, cwd: repoRoot }
-          };
-        }
-        const result = await runCommand(command, args, {
-          cwd: repoRoot,
-          env: buildPythonEnv(repoRoot),
-          timeoutMs
+        const payload = buildStateBackedOttoPayload(api, repoRoot, rawParams);
+        return toolJson(payload, {
+          action,
+          execution_mode: payload.execution_mode,
+          repo_root: repoRoot
         });
-        if (!result.ok) {
-          return toolError(
-            result.stderr.trim() || result.stdout.trim() || `otto_repo failed with code ${result.code}`,
-            {
-              command,
-              args,
-              cwd: repoRoot,
-              exitCode: result.code,
-              timedOut: result.timedOut,
-              stdout: result.stdout,
-              stderr: result.stderr
-            }
-          );
-        }
-        return {
-          content: [{ type: "text", text: result.stdout.trim() || "[otto_repo] command completed with no stdout." }],
-          details: {
-            command,
-            args,
-            cwd: repoRoot,
-            exitCode: result.code,
-            timedOut: result.timedOut,
-            stderr: result.stderr.trim()
-          }
-        };
       } catch (error) {
         return toolError(`otto_repo failed: ${error instanceof Error ? error.message : String(error)}`);
       }
@@ -321,12 +434,12 @@ function createObsidianDesktopTool(api) {
   return {
     name: "obsidian_desktop",
     label: "Obsidian Desktop",
-    description: "Use official Obsidian desktop automation surfaces: CLI for developer commands and URI for navigation/new-note flows.",
+    description: "Build safe URI/CLI previews for Obsidian desktop actions without spawning host processes from the plugin.",
     parameters: {
       type: "object",
       additionalProperties: false,
       properties: {
-        action: jsonEnum(DESKTOP_ACTIONS, "Desktop action to run."),
+        action: jsonEnum(DESKTOP_ACTIONS, "Desktop action to preview."),
         vault: { type: "string", description: "Vault name or id for URI actions." },
         file: { type: "string", description: "Vault-relative file path." },
         path: { type: "string", description: "Global absolute path for URI actions or screenshot output path." },
@@ -341,8 +454,8 @@ function createObsidianDesktopTool(api) {
         silent: { type: "boolean", description: "Do not focus the note when supported by URI." },
         prepend: { type: "boolean", description: "Prepend content when supported by URI." },
         clipboard: { type: "boolean", description: "Use clipboard contents for URI new actions." },
-        timeoutSeconds: { type: "number", minimum: 1, description: "Timeout in seconds." },
-        dryRun: { type: "boolean", description: "Preview the generated command or URI without executing it." }
+        timeoutSeconds: { type: "number", minimum: 1, description: "Reserved for compatibility; the safe bridge does not spawn a subprocess." },
+        dryRun: { type: "boolean", description: "Compatibility flag; previews are returned by default in safe bridge mode." }
       },
       required: ["action"]
     },
@@ -352,93 +465,12 @@ function createObsidianDesktopTool(api) {
         if (!action || !DESKTOP_ACTIONS.includes(action)) {
           return toolError(`Unknown obsidian_desktop action '${action ?? ""}'. Allowed: ${DESKTOP_ACTIONS.join(", ")}`);
         }
-        const timeoutMs = resolveTimeoutMs(api, rawParams);
-        if (["open", "new", "daily", "search"].includes(action)) {
-          const uri = buildObsidianUri(api, { ...rawParams, action });
-          const launcher = resolveUriLauncher();
-          const preview = formatCommandPreview(launcher.command, [...launcher.args, uri]);
-          if (readBoolean(rawParams, "dryRun")) {
-            return {
-              content: [{ type: "text", text: uri }],
-              details: { dryRun: true, transport: "uri", preview }
-            };
-          }
-          const result = await runCommand(launcher.command, [...launcher.args, uri], {
-            cwd: resolveRepoRoot(api),
-            env: process.env,
-            timeoutMs
-          });
-          if (!result.ok) {
-            return toolError(result.stderr.trim() || `obsidian_desktop URI launch failed with code ${result.code}`, {
-              transport: "uri",
-              uri,
-              preview,
-              exitCode: result.code,
-              timedOut: result.timedOut,
-              stdout: result.stdout,
-              stderr: result.stderr
-            });
-          }
-          return {
-            content: [{ type: "text", text: uri }],
-            details: { transport: "uri", uri, preview, exitCode: result.code }
-          };
-        }
-        const obsidianCommand = resolveObsidianCommand(api);
-        const args = [];
-        if (action === "create") {
-          args.push("create");
-          const name = readString(rawParams, "name");
-          const content = readString(rawParams, "content");
-          if (name) args.push(`name=${name}`);
-          if (content) args.push(`content=${content}`);
-          if (readBoolean(rawParams, "append")) args.push("append");
-          if (readBoolean(rawParams, "overwrite")) args.push("overwrite");
-        } else if (action === "plugin-reload") {
-          const pluginId = readString(rawParams, "pluginId");
-          if (!pluginId) return toolError("obsidian_desktop action=plugin-reload requires pluginId.");
-          args.push("plugin:reload", `id=${pluginId}`);
-        } else if (action === "dev-screenshot") {
-          const outputPath = readString(rawParams, "path");
-          if (!outputPath) return toolError("obsidian_desktop action=dev-screenshot requires path.");
-          args.push("dev:screenshot", `path=${outputPath}`);
-        } else if (action === "eval") {
-          const code = readString(rawParams, "code");
-          if (!code) return toolError("obsidian_desktop action=eval requires code.");
-          args.push("eval", `code=${code}`);
-        } else if (action === "devtools") {
-          args.push("devtools");
-        }
-        const preview = formatCommandPreview(obsidianCommand, args);
-        if (readBoolean(rawParams, "dryRun")) {
-          return {
-            content: [{ type: "text", text: preview }],
-            details: { dryRun: true, transport: "cli", command: obsidianCommand, args }
-          };
-        }
-        const result = await runCommand(obsidianCommand, args, {
-          cwd: resolveRepoRoot(api),
-          env: process.env,
-          timeoutMs
+        const payload = buildDesktopPayload(api, rawParams);
+        return toolJson(payload, {
+          action,
+          execution_mode: payload.execution_mode,
+          transport: payload.transport
         });
-        if (!result.ok) {
-          return toolError(
-            result.stderr.trim() || result.stdout.trim() || `obsidian_desktop failed with code ${result.code}`,
-            {
-              transport: "cli",
-              command: obsidianCommand,
-              args,
-              exitCode: result.code,
-              timedOut: result.timedOut,
-              stdout: result.stdout,
-              stderr: result.stderr
-            }
-          );
-        }
-        return {
-          content: [{ type: "text", text: result.stdout.trim() || "[obsidian_desktop] command completed." }],
-          details: { transport: "cli", command: obsidianCommand, args, exitCode: result.code }
-        };
       } catch (error) {
         return toolError(`obsidian_desktop failed: ${error instanceof Error ? error.message : String(error)}`);
       }
@@ -449,7 +481,7 @@ function createObsidianDesktopTool(api) {
 const plugin = {
   id: "obsidian-otto-bridge",
   name: "Obsidian-Otto Bridge",
-  description: "Expose Obsidian-Otto control-plane actions and Obsidian desktop automation to OpenClaw.",
+  description: "Expose installer-safe Obsidian-Otto repo state and exact command previews to OpenClaw.",
   get configSchema() {
     return {
       type: "object",
@@ -461,16 +493,16 @@ const plugin = {
         },
         pythonCommand: {
           type: "string",
-          description: "Python executable to use for running the Otto CLI. Defaults to the repo virtualenv when present."
+          description: "Python executable to use when building Otto CLI command previews."
         },
         obsidianCommand: {
           type: "string",
-          description: "Obsidian desktop CLI command. Defaults to obsidian."
+          description: "Obsidian desktop CLI command used when building preview commands."
         },
         defaultTimeoutSeconds: {
           type: "number",
           minimum: 1,
-          description: "Default timeout for otto_repo and obsidian_desktop commands."
+          description: "Compatibility field retained for preview parity."
         },
         defaultVault: {
           type: "string",
@@ -480,9 +512,8 @@ const plugin = {
     };
   },
   register(api) {
-    const openClawDistDir = resolveOpenClawDistDir();
     api.registerTool(createOttoRepoTool(api));
-    api.registerTool(createObsidianDesktopTool(api), { optional: !openClawDistDir });
+    api.registerTool(createObsidianDesktopTool(api));
   }
 };
 

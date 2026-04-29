@@ -11,8 +11,7 @@ from .config import load_docker_config, load_kairos_config, load_paths
 from .db import init_pg_schema
 from .infra import build_infra_result
 from .logging_utils import get_logger
-from .orchestration.dream import run_dream_once
-from .orchestration.kairos import run_kairos_once
+from .app.loop import run_loop as run_control_loop
 from .state import OttoState
 
 
@@ -31,6 +30,14 @@ def clear_pid() -> None:
     path = _pid_file()
     if path.exists():
         path.unlink()
+
+
+def _runtime_env(root: Path) -> dict[str, str]:
+    env = os.environ.copy()
+    src = str(root / "src")
+    existing = env.get("PYTHONPATH", "")
+    env["PYTHONPATH"] = src if not existing else f"{src}{os.pathsep}{existing}"
+    return env
 
 
 MAX_CONSECUTIVE_FAILURES = 3
@@ -60,17 +67,17 @@ def bootstrap_docker_services(logger) -> dict[str, bool]:
 
 def run_loop() -> None:
     logger = get_logger("otto.runtime")
+    paths = load_paths()
     state = OttoState.load()
     state.ensure()
     cfg = load_kairos_config()
     kairos_minutes = int(cfg.get("kairos", {}).get("heartbeat_minutes", 15))
-    dream_minutes = max(15, kairos_minutes * 2)
+    runtime_env = _runtime_env(paths.repo_root)
 
     write_pid()
     bootstrap_docker_services(logger)
     init_pg_schema()  # wire events to Postgres
     logger.info(f"[runtime] started pid={os.getpid()} kairos_minutes={kairos_minutes}")
-    last_dream = 0.0
     consecutive_failures = 0
     running = True
 
@@ -85,25 +92,27 @@ def run_loop() -> None:
     try:
         while running:
             try:
-                run_kairos_once()
+                result = run_control_loop(root=paths.repo_root, runtime_env=runtime_env, mode="heartbeat")
                 consecutive_failures = 0
+                executed_actions = [
+                    str(item.get("action"))
+                    for item in (result.get("executed") or [])
+                    if isinstance(item, dict) and item.get("action")
+                ]
+                logger.info(
+                    "[runtime] heartbeat decisions=%s executed=%s",
+                    ",".join(result.get("decisions") or []) or "none",
+                    ",".join(executed_actions) or "none",
+                )
             except Exception as exc:
                 consecutive_failures += 1
-                logger.error(f"[runtime] kairos failed ({consecutive_failures}/{MAX_CONSECUTIVE_FAILURES}): {exc}")
+                logger.error(f"[runtime] heartbeat failed ({consecutive_failures}/{MAX_CONSECUTIVE_FAILURES}): {exc}")
                 if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
-                    logger.error("[runtime] max consecutive kairos failures reached, exiting")
+                    logger.error("[runtime] max consecutive heartbeat failures reached, exiting")
                     break
-                logger.info(f"[runtime] retrying kairos in {KAIROS_RETRY_SECONDS}s")
+                logger.info(f"[runtime] retrying heartbeat in {KAIROS_RETRY_SECONDS}s")
                 time.sleep(KAIROS_RETRY_SECONDS)
                 continue
-
-            now = time.time()
-            if now - last_dream >= dream_minutes * 60:
-                try:
-                    run_dream_once()
-                    last_dream = now
-                except Exception as exc:
-                    logger.warning(f"[runtime] dream failed: {exc}, continuing loop")
 
             time.sleep(kairos_minutes * 60)
     finally:
@@ -119,8 +128,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.once:
         # Bootstrap Docker services even for one-shot runs
         _bootstrap_once()
-        run_kairos_once()
-        run_dream_once()
+        paths = load_paths()
+        run_control_loop(root=paths.repo_root, runtime_env=_runtime_env(paths.repo_root), mode="heartbeat")
         return 0
 
     run_loop()

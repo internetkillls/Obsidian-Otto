@@ -8,6 +8,8 @@ from typing import Any
 
 import yaml
 
+from .path_compat import normalize_platform_path
+
 
 @dataclass
 class AppPaths:
@@ -65,6 +67,7 @@ def load_paths() -> AppPaths:
     env = load_env_file(repo_root() / ".env")
     cfg = load_yaml_config("paths.yaml").get("paths", {})
     vault_value = os.environ.get("OTTO_VAULT_PATH") or env.get("OTTO_VAULT_PATH") or cfg.get("vault_path") or ""
+    vault_value = normalize_platform_path(str(vault_value)) if vault_value else ""
     vault_path = Path(vault_value).expanduser().resolve() if vault_value else None
 
     sqlite_value = os.environ.get("OTTO_SQLITE_PATH") or env.get("OTTO_SQLITE_PATH") or cfg.get("sqlite_path", "external/sqlite/otto_silver.db")
@@ -73,6 +76,12 @@ def load_paths() -> AppPaths:
     artifacts_value = os.environ.get("OTTO_ARTIFACTS_ROOT") or env.get("OTTO_ARTIFACTS_ROOT") or cfg.get("artifacts_root", "artifacts")
     logs_value = os.environ.get("OTTO_LOGS_ROOT") or env.get("OTTO_LOGS_ROOT") or cfg.get("logs_root", "logs")
     state_value = os.environ.get("OTTO_STATE_ROOT") or env.get("OTTO_STATE_ROOT") or cfg.get("state_root", "state")
+    sqlite_value = normalize_platform_path(str(sqlite_value))
+    chroma_value = normalize_platform_path(str(chroma_value))
+    bronze_value = normalize_platform_path(str(bronze_value))
+    artifacts_value = normalize_platform_path(str(artifacts_value))
+    logs_value = normalize_platform_path(str(logs_value))
+    state_value = normalize_platform_path(str(state_value))
 
     base = repo_root()
     paths = AppPaths(
@@ -107,6 +116,10 @@ def load_wellbeing() -> dict[str, Any]:
 
 def load_docker_config() -> dict[str, Any]:
     return load_yaml_config("docker.yaml").get("docker", {})
+
+
+def load_metadata_enrichment_config() -> dict[str, Any]:
+    return load_yaml_config("metadata_enrichment.yaml")
 
 
 def load_postgres_config() -> dict[str, Any]:

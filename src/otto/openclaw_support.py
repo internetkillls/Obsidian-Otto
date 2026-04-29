@@ -17,11 +17,13 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
+from .adapters.qmd.manifest import build_qmd_manifest, qmd_manifest_health
 from .config import load_env_file, load_paths, repo_root
 from .events import (
     Event,
     EventBus,
     EVENT_OPENCLAW_FALLBACK_TRIGGERED,
+    EVENT_QMD_INDEX_REFRESHED,
 )
 from .logging_utils import append_jsonl, get_logger
 from .openclaw_guardrails import sanitize_generated_dreaming_artifacts, sync_openclaw_cron_contract
@@ -39,6 +41,11 @@ MANAGED_SECTION_PATHS: tuple[tuple[str, ...], ...] = (
     ("agents", "defaults", "cliBackends"),
     ("agents", "defaults", "models"),
     ("agents", "defaults", "heartbeat"),
+    ("agents", "defaults", "blockStreamingBreak"),
+    ("agents", "defaults", "contextInjection"),
+    ("agents", "defaults", "bootstrapMaxChars"),
+    ("agents", "defaults", "bootstrapTotalMaxChars"),
+    ("agents", "defaults", "systemPromptOverride"),
     ("models", "providers"),
     ("env",),
 )
@@ -455,19 +462,36 @@ def _merge_probe_state(probe: dict[str, Any]) -> dict[str, Any]:
     else:
         last_failure_at = checked_at
         last_failure_reason = probe.get("reason")
-    merged = {
+    history = {
         "checked_at": checked_at,
         "last_ok_at": checked_at if probe.get("ok") else previous.get("last_ok_at"),
         "last_failure_at": last_failure_at,
         "last_failure_reason": last_failure_reason,
     }
-    write_json(state_path, merged)
-    return merged
+    stored = dict(probe)
+    stored.update(history)
+    write_json(state_path, stored)
+    return history
 
 
-def probe_openclaw_gateway(*, timeout_seconds: float = 5.0) -> dict[str, Any]:
-    port = _openclaw_gateway_port()
-    base_url = f"http://127.0.0.1:{port}"
+def _gateway_shadow_telegram_enabled() -> bool | None:
+    shadow_path = repo_root() / "state" / "openclaw" / "ubuntu-shadow" / "openclaw.json"
+    shadow_config, _ = _load_config(shadow_path)
+    if shadow_config is None:
+        return None
+    telegram = ((shadow_config.get("channels") or {}).get("telegram") or {})
+    return bool(telegram.get("enabled")) if isinstance(telegram, dict) else None
+
+
+def probe_openclaw_gateway(
+    *,
+    timeout_seconds: float = 5.0,
+    port: int | None = None,
+    host: str = "127.0.0.1",
+    runtime: str = "windows-live",
+) -> dict[str, Any]:
+    port = port or _openclaw_gateway_port()
+    base_url = f"http://{host}:{port}"
     pids = _find_openclaw_gateway_pids()
     port_open = _gateway_port_open(port, timeout=min(max(timeout_seconds, 0.1), 1.0))
     health_status, health_json, health_error = _http_get_json(
@@ -480,26 +504,43 @@ def probe_openclaw_gateway(*, timeout_seconds: float = 5.0) -> dict[str, Any]:
     )
     health_ok = bool(health_status == 200 and isinstance(health_json, dict) and health_json.get("ok") is True)
     restart_window = _recent_restart_window()
-    ok = bool(port_open and health_ok)
+    root_reachable = root_status is not None
+    websocket_reachable = bool(port_open and runtime == "wsl-shadow")
+    ok = bool(port_open and (health_ok or root_reachable or websocket_reachable))
     if ok:
-        reason = "gateway-http-healthy"
+        if health_ok:
+            reason = "gateway-http-healthy"
+        elif root_reachable:
+            reason = "gateway-root-reachable"
+        else:
+            reason = "gateway-port-open-websocket"
     elif restart_window.get("active"):
         reason = "gateway-restart-window"
     else:
         reason = "gateway-http-unhealthy"
+    qmd_index = build_qmd_index_health() if runtime == "wsl-shadow" else None
+    telegram_enabled = _gateway_shadow_telegram_enabled() if runtime == "wsl-shadow" else None
     result = {
         "ok": ok,
         "reason": reason,
         "status": "healthy" if ok else ("restarting" if restart_window.get("active") else "unhealthy"),
+        "runtime": runtime,
+        "host": host,
         "port": port,
         "base_url": base_url,
         "pids": pids,
         "port_open": port_open,
+        "websocket_reachable": websocket_reachable,
         "health_status": health_status,
         "health_json": health_json,
         "health_error": health_error,
         "root_status": root_status,
         "root_error": root_error,
+        "auth_required": health_status in {401, 403} or root_status in {401, 403},
+        "body_snippet": str(root_error or health_error or "")[:500],
+        "telegram_enabled": telegram_enabled,
+        "qmd_index_seen": bool(qmd_index and qmd_index.get("ok")),
+        "qmd_index": qmd_index,
         "cli_bypass_recommended": ok,
         "transient_restart_window": bool(restart_window.get("active")),
         "restart_state": restart_window.get("state"),
@@ -601,6 +642,245 @@ def latest_openclaw_sync_status() -> dict[str, Any]:
     return read_json(openclaw_sync_status_path(), default={}) or {}
 
 
+def qmd_refresh_status_path() -> Path:
+    return load_paths().state_root / "openclaw" / "qmd_refresh_status.json"
+
+
+def _extract_qmd_sources(config: dict[str, Any]) -> list[dict[str, Any]]:
+    qmd = (config.get("memory") or {}).get("qmd", {})
+    sources = qmd.get("sources")
+    if isinstance(sources, list) and sources:
+        return [item for item in sources if isinstance(item, dict)]
+
+    paths = qmd.get("paths")
+    normalized: list[dict[str, Any]] = []
+    if not isinstance(paths, list):
+        return normalized
+
+    for item in paths:
+        if not isinstance(item, dict):
+            continue
+        normalized.append(
+            {
+                "id": item.get("name") or item.get("id"),
+                "path": item.get("path"),
+                "pattern": item.get("pattern"),
+            }
+        )
+    return normalized
+
+
+def _qmd_source_host_path(raw_path: str) -> Path:
+    normalized = raw_path.replace("\\", "/")
+    if sys.platform == "win32" and normalized.lower().startswith("/mnt/") and len(normalized) > 6:
+        drive = normalized[5]
+        if normalized[6] == "/" and drive.isalpha():
+            windows_tail = normalized[7:].replace("/", "\\")
+            return Path(f"{drive.upper()}:\\{windows_tail}")
+    return Path(raw_path).expanduser()
+
+
+def build_qmd_index_health(live_config_path: Path | None = None) -> dict[str, Any]:
+    """Validate that QMD is configured and that all declared source paths exist with markdown files."""
+    live_path = live_config_path or live_openclaw_config_path()
+    registry_manifest = qmd_manifest_health(build_qmd_manifest()) if live_config_path is None else None
+    candidate_paths = [live_path]
+    repo_path = repo_openclaw_config_path()
+    if repo_path != live_path:
+        candidate_paths.append(repo_path)
+
+    paths = load_paths()
+    vault_fallback = str(getattr(paths, "vault_path", "") or "")
+    chosen_config: dict[str, Any] | None = None
+    chosen_source: Path | None = None
+    chosen_error: str | None = None
+    for candidate_path in candidate_paths:
+        candidate_config, candidate_error = _load_config(candidate_path)
+        if candidate_config is None:
+            chosen_error = candidate_error
+            continue
+        if (candidate_config.get("memory") or {}).get("backend") == "qmd" or _extract_qmd_sources(candidate_config):
+            chosen_config = candidate_config
+            chosen_source = candidate_path
+            break
+        chosen_error = candidate_error
+
+    if chosen_config is None:
+        return {
+            "ok": False,
+            "error": chosen_error or "qmd config missing",
+            "sources": [],
+            "manifest": registry_manifest,
+        }
+
+    backend = (chosen_config.get("memory") or {}).get("backend")
+    source_health: list[dict[str, Any]] = []
+    for src in _extract_qmd_sources(chosen_config):
+        raw_path = str(src.get("path", ""))
+        for env_var, fallback in (("OTTO_VAULT_PATH", vault_fallback), ("QMD_SOCKET_PATH", "")):
+            raw_path = raw_path.replace(f"${{{env_var}}}", os.environ.get(env_var) or fallback)
+        src_path = _qmd_source_host_path(raw_path)
+        exists = src_path.exists()
+        md_count = len(list(src_path.rglob("*.md"))) if exists else 0
+        source_health.append(
+            {
+                "id": src.get("id"),
+                "path": raw_path,
+                "host_path": str(src_path),
+                "exists": exists,
+                "md_file_count": md_count,
+                "ok": exists,
+                "populated": md_count > 0,
+            }
+        )
+
+    all_ok = backend == "qmd" and bool(source_health) and all(item["ok"] for item in source_health)
+    return {
+        "ok": all_ok,
+        "config_source": str(chosen_source) if chosen_source else None,
+        "backend": backend,
+        "backend_is_qmd": backend == "qmd",
+        "manifest": registry_manifest,
+        "sources": source_health,
+        "source_count": len(source_health),
+        "sources_all_ok": bool(source_health) and all(item["ok"] for item in source_health),
+    }
+
+
+def run_qmd_index_refresh(timeout_seconds: int = 60) -> dict[str, Any]:
+    """Call the OpenClaw memory index command. Graceful no-op if the CLI is not present."""
+    cooldown_seconds = 15 * 60
+    state_path = qmd_refresh_status_path()
+    refresh_state = read_json(state_path, default={}) or {}
+    health = build_qmd_index_health()
+    now_epoch = int(time.time())
+    now_stamp = now_iso()
+
+    def _write_state(payload: dict[str, Any]) -> None:
+        write_json(state_path, payload)
+
+    def _record_failure(kind: str, message: str, *, skipped: bool) -> dict[str, Any]:
+        payload = {
+            "last_attempt_at": now_stamp,
+            "last_attempt_epoch": now_epoch,
+            "last_failure_at": now_stamp,
+            "last_failure_epoch": now_epoch,
+            "last_success_at": refresh_state.get("last_success_at"),
+            "last_success_epoch": refresh_state.get("last_success_epoch"),
+            "failure_kind": kind,
+            "failure_message": message,
+            "consecutive_failures": int(refresh_state.get("consecutive_failures") or 0) + (0 if skipped else 1),
+            "cooldown_seconds": cooldown_seconds,
+        }
+        _write_state(payload)
+        return payload
+
+    last_failure_epoch = int(refresh_state.get("last_failure_epoch") or 0)
+    cooldown_remaining = max(cooldown_seconds - (now_epoch - last_failure_epoch), 0) if last_failure_epoch else 0
+
+    if not health.get("backend_is_qmd"):
+        state_payload = _record_failure("backend-not-qmd", "QMD backend is not active", skipped=True)
+        return {
+            "ok": False,
+            "skipped": True,
+            "reason": "qmd-backend-inactive",
+            "stderr": "QMD backend is not active",
+            "qmd_index": health,
+            "state": state_payload,
+        }
+
+    if not health.get("ok"):
+        message = "QMD index preflight is unhealthy"
+        reason = "qmd-preflight-unhealthy"
+        if cooldown_remaining > 0:
+            reason = "qmd-cooldown-active"
+            message = f"{message}; cooldown active for {cooldown_remaining}s"
+        state_payload = _record_failure("preflight-unhealthy", message, skipped=True)
+        return {
+            "ok": False,
+            "skipped": True,
+            "reason": reason,
+            "stderr": message,
+            "cooldown_remaining_seconds": cooldown_remaining,
+            "qmd_index": health,
+            "state": state_payload,
+        }
+
+    if cooldown_remaining > 0 and str(refresh_state.get("failure_kind") or "") in {"command-failed", "timeout"}:
+        state_payload = _record_failure(
+            str(refresh_state.get("failure_kind") or "command-failed"),
+            str(refresh_state.get("failure_message") or "Previous qmd refresh failed"),
+            skipped=True,
+        )
+        return {
+            "ok": False,
+            "skipped": True,
+            "reason": "qmd-cooldown-active",
+            "stderr": f"Previous qmd refresh failed; cooldown active for {cooldown_remaining}s",
+            "cooldown_remaining_seconds": cooldown_remaining,
+            "qmd_index": health,
+            "state": state_payload,
+        }
+
+    cli_path = shutil.which("openclaw")
+    if not cli_path:
+        state_payload = _record_failure("openclaw-missing", "openclaw not on PATH", skipped=True)
+        return {
+            "ok": False,
+            "skipped": True,
+            "reason": "openclaw-missing",
+            "stderr": "openclaw not on PATH",
+            "qmd_index": health,
+            "state": state_payload,
+        }
+    try:
+        proc = subprocess.run(
+            [cli_path, "memory", "index"],
+            capture_output=True,
+            text=True,
+            timeout=timeout_seconds,
+            check=False,
+        )
+    except subprocess.TimeoutExpired:
+        state_payload = _record_failure("timeout", f"timed out after {timeout_seconds}s", skipped=False)
+        return {
+            "ok": False,
+            "skipped": False,
+            "reason": "timeout",
+            "stderr": f"timed out after {timeout_seconds}s",
+            "qmd_index": health,
+            "state": state_payload,
+        }
+
+    ok = proc.returncode == 0
+    if ok:
+        state_payload = {
+            "last_attempt_at": now_stamp,
+            "last_attempt_epoch": now_epoch,
+            "last_success_at": now_stamp,
+            "last_success_epoch": now_epoch,
+            "last_failure_at": None,
+            "last_failure_epoch": None,
+            "failure_kind": None,
+            "failure_message": None,
+            "consecutive_failures": 0,
+            "cooldown_seconds": cooldown_seconds,
+        }
+        _write_state(state_payload)
+    else:
+        failure_message = (proc.stderr or proc.stdout or "").strip() or f"qmd refresh failed with exit code {proc.returncode}"
+        state_payload = _record_failure("command-failed", failure_message, skipped=False)
+    return {
+        "ok": ok,
+        "skipped": False,
+        "exit_code": proc.returncode,
+        "stdout": (proc.stdout or "").strip(),
+        "stderr": (proc.stderr or "").strip(),
+        "qmd_index": health,
+        "state": state_payload,
+    }
+
+
 def build_openclaw_health(
     repo_config_path: Path | None = None,
     live_config_path: Path | None = None,
@@ -666,6 +946,7 @@ def build_openclaw_health(
         "otto_env_contract": read_json(openclaw_env_contract_path(), default=_otto_env_contract()) or _otto_env_contract(),
         "capabilities_path": str(openclaw_capabilities_path()),
         "capabilities": read_json(openclaw_capabilities_path(), default={}) or {},
+        "qmd_index": build_qmd_index_health(live_path),
     }
     return report
 
@@ -706,6 +987,12 @@ def sync_openclaw_config(
                 changed_sections.append(".".join(path_parts))
             _set_section(merged_live, path_parts, source_section)
 
+        source_memory = source_with_contract.get("memory")
+        current_memory = merged_live.get("memory")
+        if _normalize_json_text(current_memory) != _normalize_json_text(source_memory):
+            merged_live["memory"] = _clone_json(source_memory) if source_memory is not None else None
+            changed_sections.append("memory")
+
         merged_live = _with_otto_contract(merged_live)
         merged_live_text = _normalize_json_text(merged_live)
         if live_existing != merged_live_text:
@@ -723,6 +1010,7 @@ def sync_openclaw_config(
         "boundary_mode": boundary_mode,
         "sync_performed": sync_performed,
         "config_drift_free": health["config_drift_free"],
+        "openclaw_config_sync": health["config_drift_free"],
         "managed_hashes_match": health["managed_hashes_match"],
         "anthropic_ready": health["anthropic_ready"],
         "hf_fallback_ready": health["hf_fallback_ready"],
@@ -733,6 +1021,7 @@ def sync_openclaw_config(
         "backup_path": str(backup_path) if backup_path else None,
         "changed_sections": changed_sections,
         "otto_env_contract": _otto_env_contract(),
+        "qmd_index": build_qmd_index_health(live_path),
         "cli_validation": {
             "skipped": True,
             "reason": "Otto no longer performs OpenClaw subprocess validation.",

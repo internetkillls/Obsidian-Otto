@@ -7,7 +7,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 from otto.events import EVENT_KAIROS_GOLD_SCORED
-from otto.orchestration.council import CouncilEngine
+from otto.orchestration.council import CouncilEngine, PsychiatricFrame
 from otto.orchestration.dream import run_dream_once
 from otto.orchestration.kairos import run_kairos_once
 from otto.orchestration.kairos_gold import KairosGoldEngine, KairosGoldResult
@@ -90,6 +90,305 @@ def test_council_recurrence_gate(monkeypatch, tmp_path):
     assert run2.triggered is False
     assert run3.triggered is True
     assert any(item.trigger_category == "cognitive_weakness" for item in run3.debates)
+
+
+def test_council_uses_mentor_weakness_registry_for_cognitive_trigger(monkeypatch, tmp_path):
+    monkeypatch.setenv("OTTO_STATE_ROOT", str(tmp_path / "state"))
+    monkeypatch.setenv("OTTO_ARTIFACTS_ROOT", str(tmp_path / "artifacts"))
+    monkeypatch.setenv("OTTO_SQLITE_PATH", str(tmp_path / "otto.db"))
+    monkeypatch.setenv("OTTO_CHROMA_PATH", str(tmp_path / "chroma"))
+    monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_path / "vault"))
+
+    result = KairosGoldResult(
+        ts=now_iso(),
+        kairos_score=6.2,
+        gold_promoted_count=1,
+        silver_count=2,
+        noise_count=0,
+        scored_signals=[],
+        contradictions=[],
+        dynamic_thresholds={},
+        promoted_paths=[],
+    )
+    weakness_registry = {
+        "proof_construction": {
+            "latest_gap_type": "theory_gap",
+            "probe_history": [],
+        }
+    }
+
+    engine = CouncilEngine()
+    engine.run(gold_result=result, unresolved=[], weakness_registry=weakness_registry)
+    engine.run(gold_result=result, unresolved=[], weakness_registry=weakness_registry)
+    run3 = engine.run(gold_result=result, unresolved=[], weakness_registry=weakness_registry)
+
+    assert run3.triggered is True
+    debate = next(item for item in run3.debates if item.trigger_category == "cognitive_weakness")
+    assert debate.weakness == "Unresolved theory_gap in domain: proof_construction"
+    assert "weakness_domain=proof_construction" in debate.evidence
+    trigger = next(item for item in run3.triggers_detected if item.trigger_category == "cognitive_weakness")
+    assert trigger.weakness_domain == "proof_construction"
+
+
+def test_council_cognitive_weakness_fallback_uses_noise_when_registry_absent(monkeypatch, tmp_path):
+    monkeypatch.setenv("OTTO_STATE_ROOT", str(tmp_path / "state"))
+    monkeypatch.setenv("OTTO_ARTIFACTS_ROOT", str(tmp_path / "artifacts"))
+    monkeypatch.setenv("OTTO_SQLITE_PATH", str(tmp_path / "otto.db"))
+    monkeypatch.setenv("OTTO_CHROMA_PATH", str(tmp_path / "chroma"))
+    monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_path / "vault"))
+
+    result = KairosGoldResult(
+        ts=now_iso(),
+        kairos_score=6.2,
+        gold_promoted_count=1,
+        silver_count=2,
+        noise_count=10,
+        scored_signals=[],
+        contradictions=[],
+        dynamic_thresholds={},
+        promoted_paths=[],
+    )
+
+    engine = CouncilEngine()
+    engine.run(gold_result=result, unresolved=[], weakness_registry=None)
+    engine.run(gold_result=result, unresolved=[], weakness_registry=None)
+    run3 = engine.run(gold_result=result, unresolved=[], weakness_registry=None)
+
+    assert run3.triggered is True
+    debate = next(item for item in run3.debates if item.trigger_category == "cognitive_weakness")
+    assert debate.weakness == "Recurring unresolved load - no active mentor probe to anchor."
+    assert "noise_count=10" in debate.evidence
+    trigger = next(item for item in run3.triggers_detected if item.trigger_category == "cognitive_weakness")
+    assert trigger.severity == "medium"
+
+
+def test_council_does_not_fire_cognitive_weakness_below_fallback_threshold(monkeypatch, tmp_path):
+    monkeypatch.setenv("OTTO_STATE_ROOT", str(tmp_path / "state"))
+    monkeypatch.setenv("OTTO_ARTIFACTS_ROOT", str(tmp_path / "artifacts"))
+    monkeypatch.setenv("OTTO_SQLITE_PATH", str(tmp_path / "otto.db"))
+    monkeypatch.setenv("OTTO_CHROMA_PATH", str(tmp_path / "chroma"))
+    monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_path / "vault"))
+
+    result = KairosGoldResult(
+        ts=now_iso(),
+        kairos_score=6.2,
+        gold_promoted_count=1,
+        silver_count=2,
+        noise_count=3,
+        scored_signals=[],
+        contradictions=[],
+        dynamic_thresholds={},
+        promoted_paths=[],
+    )
+
+    engine = CouncilEngine()
+    engine.run(gold_result=result, unresolved=[], weakness_registry={})
+    engine.run(gold_result=result, unresolved=[], weakness_registry={})
+    run3 = engine.run(gold_result=result, unresolved=[], weakness_registry={})
+
+    assert not any(item.trigger_category == "cognitive_weakness" for item in run3.triggers_detected)
+    assert run3.triggered is False
+
+
+def test_council_attaches_psychiatric_frame_to_debate(monkeypatch, tmp_path):
+    monkeypatch.setenv("OTTO_STATE_ROOT", str(tmp_path / "state"))
+    monkeypatch.setenv("OTTO_ARTIFACTS_ROOT", str(tmp_path / "artifacts"))
+    monkeypatch.setenv("OTTO_SQLITE_PATH", str(tmp_path / "otto.db"))
+    monkeypatch.setenv("OTTO_CHROMA_PATH", str(tmp_path / "chroma"))
+    monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_path / "vault"))
+
+    result = KairosGoldResult(
+        ts=now_iso(),
+        kairos_score=6.2,
+        gold_promoted_count=1,
+        silver_count=2,
+        noise_count=0,
+        scored_signals=[],
+        contradictions=[],
+        dynamic_thresholds={},
+        promoted_paths=[],
+    )
+    weakness_registry = {
+        "proof_construction": {
+            "latest_gap_type": "theory_gap",
+            "probe_history": [{"id": "p1"}],
+        }
+    }
+
+    engine = CouncilEngine()
+    monkeypatch.setattr(
+        engine,
+        "_psychiatric_frame",
+        lambda *, weakness_domain, gap_type, suffering_surface: PsychiatricFrame(
+            weakness_domain=weakness_domain,
+            functional_code="belief_gap",
+            frame_summary=f"{weakness_domain} needs reframing first.",
+            generative_or_degenerative="generative",
+            recommended_output_role="thought_partner",
+        ),
+    )
+    engine.run(gold_result=result, unresolved=[], weakness_registry=weakness_registry)
+    engine.run(gold_result=result, unresolved=[], weakness_registry=weakness_registry)
+    run3 = engine.run(gold_result=result, unresolved=[], weakness_registry=weakness_registry)
+
+    assert run3.triggered is True
+    debate = next(item for item in run3.debates if item.trigger_category == "cognitive_weakness")
+    assert debate.psychiatric_frame["functional_code"] == "belief_gap"
+    assert debate.psychiatric_frame["recommended_output_role"] == "thought_partner"
+    assert "Recommended output role: thought_partner." in debate.synthesis
+    assert debate.output.role == "thought_partner"
+    assert debate.next_action == debate.output.primary_action
+
+
+def test_council_output_role_therapist_for_avoidance_loop(monkeypatch, tmp_path):
+    monkeypatch.setenv("OTTO_STATE_ROOT", str(tmp_path / "state"))
+    monkeypatch.setenv("OTTO_ARTIFACTS_ROOT", str(tmp_path / "artifacts"))
+    monkeypatch.setenv("OTTO_SQLITE_PATH", str(tmp_path / "otto.db"))
+    monkeypatch.setenv("OTTO_CHROMA_PATH", str(tmp_path / "chroma"))
+    monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_path / "vault"))
+
+    result = KairosGoldResult(
+        ts=now_iso(),
+        kairos_score=6.2,
+        gold_promoted_count=1,
+        silver_count=2,
+        noise_count=0,
+        scored_signals=[],
+        contradictions=[],
+        dynamic_thresholds={},
+        promoted_paths=[],
+    )
+    weakness_registry = {"execution_discipline": {"latest_gap_type": "application_gap", "probe_history": []}}
+
+    engine = CouncilEngine()
+    monkeypatch.setattr(
+        engine,
+        "_psychiatric_frame",
+        lambda *, weakness_domain, gap_type, suffering_surface: PsychiatricFrame(
+            weakness_domain=weakness_domain,
+            functional_code="avoidance_loop",
+            frame_summary="Recurring defer loop.",
+            generative_or_degenerative="degenerative",
+            recommended_output_role="therapist",
+        ),
+    )
+    engine.run(gold_result=result, unresolved=["Ship one bounded step"], weakness_registry=weakness_registry)
+    engine.run(gold_result=result, unresolved=["Ship one bounded step"], weakness_registry=weakness_registry)
+    run3 = engine.run(gold_result=result, unresolved=["Ship one bounded step"], weakness_registry=weakness_registry)
+
+    debate = next(item for item in run3.debates if item.trigger_category == "cognitive_weakness")
+    assert debate.output.role == "therapist"
+    assert "Stop-rule:" in debate.output.primary_action
+    assert debate.next_action == debate.output.primary_action
+
+
+def test_council_output_role_researcher_for_epistemic_gap(monkeypatch, tmp_path):
+    monkeypatch.setenv("OTTO_STATE_ROOT", str(tmp_path / "state"))
+    monkeypatch.setenv("OTTO_ARTIFACTS_ROOT", str(tmp_path / "artifacts"))
+    monkeypatch.setenv("OTTO_SQLITE_PATH", str(tmp_path / "otto.db"))
+    monkeypatch.setenv("OTTO_CHROMA_PATH", str(tmp_path / "chroma"))
+    monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_path / "vault"))
+
+    result = KairosGoldResult(
+        ts=now_iso(),
+        kairos_score=6.2,
+        gold_promoted_count=0,
+        silver_count=2,
+        noise_count=0,
+        scored_signals=[],
+        contradictions=[],
+        dynamic_thresholds={},
+        promoted_paths=[],
+    )
+    unresolved = ["task-a", "task-b", "task-c"]
+    engine = CouncilEngine()
+    run1 = engine.run(gold_result=result, unresolved=unresolved, weakness_registry={})
+    run2 = engine.run(gold_result=result, unresolved=unresolved, weakness_registry={})
+    run3 = engine.run(gold_result=result, unresolved=unresolved, weakness_registry={})
+
+    assert run1.triggered is False
+    assert run2.triggered is False
+    debate = next(item for item in run3.debates if item.trigger_category == "epistemic_gap")
+    assert debate.output.role == "researcher"
+    assert debate.next_action == debate.output.primary_action
+    assert "Research brief" in debate.output.primary_action
+
+
+def test_council_enriches_synthesis_from_suffering_surface(monkeypatch, tmp_path):
+    monkeypatch.setenv("OTTO_STATE_ROOT", str(tmp_path / "state"))
+    monkeypatch.setenv("OTTO_ARTIFACTS_ROOT", str(tmp_path / "artifacts"))
+    monkeypatch.setenv("OTTO_SQLITE_PATH", str(tmp_path / "otto.db"))
+    monkeypatch.setenv("OTTO_CHROMA_PATH", str(tmp_path / "chroma"))
+    monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_path / "vault"))
+
+    write_json(
+        tmp_path / "state" / "openclaw" / "morpheus_openclaw_bridge_latest.json",
+        {
+            "suffering_surface": ["proof_construction"],
+            "love_surface": [],
+        },
+    )
+    result = KairosGoldResult(
+        ts=now_iso(),
+        kairos_score=6.2,
+        gold_promoted_count=1,
+        silver_count=2,
+        noise_count=0,
+        scored_signals=[],
+        contradictions=[],
+        dynamic_thresholds={},
+        promoted_paths=[],
+    )
+    weakness_registry = {"proof_construction": {"latest_gap_type": "theory_gap"}}
+    engine = CouncilEngine()
+    engine.run(gold_result=result, unresolved=["close proof loop"], weakness_registry=weakness_registry)
+    engine.run(gold_result=result, unresolved=["close proof loop"], weakness_registry=weakness_registry)
+    run3 = engine.run(gold_result=result, unresolved=["close proof loop"], weakness_registry=weakness_registry)
+
+    debate = next(item for item in run3.debates if item.trigger_category == "cognitive_weakness")
+    assert debate.suffering_love_context["surface"] == "suffering_surface"
+    assert debate.suffering_love_context["verdict"] == "degenerative"
+    assert "degenerative drag" in debate.synthesis
+    assert "Predator qua Angel check:" in debate.synthesis
+    assert "metabolic response=" in debate.synthesis
+
+
+def test_council_enriches_synthesis_from_love_surface(monkeypatch, tmp_path):
+    monkeypatch.setenv("OTTO_STATE_ROOT", str(tmp_path / "state"))
+    monkeypatch.setenv("OTTO_ARTIFACTS_ROOT", str(tmp_path / "artifacts"))
+    monkeypatch.setenv("OTTO_SQLITE_PATH", str(tmp_path / "otto.db"))
+    monkeypatch.setenv("OTTO_CHROMA_PATH", str(tmp_path / "chroma"))
+    monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_path / "vault"))
+
+    write_json(
+        tmp_path / "state" / "openclaw" / "morpheus_openclaw_bridge_latest.json",
+        {
+            "suffering_surface": [],
+            "love_surface": ["proof_construction"],
+        },
+    )
+    result = KairosGoldResult(
+        ts=now_iso(),
+        kairos_score=6.2,
+        gold_promoted_count=1,
+        silver_count=2,
+        noise_count=0,
+        scored_signals=[],
+        contradictions=[],
+        dynamic_thresholds={},
+        promoted_paths=[],
+    )
+    weakness_registry = {"proof_construction": {"latest_gap_type": "theory_gap"}}
+    engine = CouncilEngine()
+    engine.run(gold_result=result, unresolved=["close proof loop"], weakness_registry=weakness_registry)
+    engine.run(gold_result=result, unresolved=["close proof loop"], weakness_registry=weakness_registry)
+    run3 = engine.run(gold_result=result, unresolved=["close proof loop"], weakness_registry=weakness_registry)
+
+    debate = next(item for item in run3.debates if item.trigger_category == "cognitive_weakness")
+    assert debate.suffering_love_context["surface"] == "love_surface"
+    assert debate.suffering_love_context["verdict"] == "generative"
+    assert "generative depth" in debate.synthesis
+    assert "Predator qua Angel check:" in debate.synthesis
 
 
 def test_council_prefers_ranked_graph_action_candidate(monkeypatch, tmp_path):

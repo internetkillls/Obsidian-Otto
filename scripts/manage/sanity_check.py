@@ -20,15 +20,19 @@ from otto.retrieval.memory import retrieve  # noqa: E402
 
 
 PROMISED = [
-    "initial.bat",
-    "tui.bat",
-    "status.bat",
-    "reindex.bat",
-    "kairos.bat",
-    "dream.bat",
-    "start.bat",
-    "stop.bat",
-    "docker-clean.bat",
+    "scripts/shell/initial.bat",
+    "scripts/shell/tui.bat",
+    "scripts/shell/status.bat",
+    "scripts/shell/reindex.bat",
+    "scripts/shell/kairos.bat",
+    "scripts/shell/dream.bat",
+    "scripts/shell/start.bat",
+    "scripts/shell/stop.bat",
+    "scripts/shell/metadata-enrich.bat",
+    "scripts/shell/docker-clean.bat",
+    "scripts/manage/run_metadata_enrichment.py",
+    "config/metadata_enrichment.yaml",
+    "main.bat",
     "AGENTS.md",
     ".codex/config.toml",
     ".agents/skills/memory-fast/SKILL.md",
@@ -70,6 +74,7 @@ def run_checks(include_pipeline: bool = True) -> dict:
         "promised_files": promised,
         "all_promised_present": all(promised.values()),
         "pipeline_checkpoint": pipeline_checkpoint,
+        "issues": status.get("issues", []),
         "status_summary": {
             "training_ready": status.get("training_ready"),
             "active_tasks": status.get("active_tasks"),
@@ -163,7 +168,8 @@ def main(argv: list[str] | None = None) -> int:
         print(json.dumps(report, ensure_ascii=False, indent=2))
     else:
         print(render_summary(report), end="")
-    return 0
+    has_issues = bool(report.get("issues")) or not report.get("all_promised_present")
+    return 1 if has_issues else 0
 
 
 if __name__ == "__main__":

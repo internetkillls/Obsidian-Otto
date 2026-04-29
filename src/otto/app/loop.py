@@ -26,6 +26,14 @@ def _loop_state_path(paths: Any) -> Path:
     return paths.state_root / "openclaw" / "loop_state.json"
 
 
+def _openclaw_sync_ok(sync_status: dict[str, Any]) -> bool:
+    if "openclaw_config_sync" in sync_status:
+        return bool(sync_status.get("openclaw_config_sync"))
+    if "config_drift_free" in sync_status:
+        return bool(sync_status.get("config_drift_free"))
+    return False
+
+
 def _intake(paths: Any) -> dict[str, Any]:
     state = OttoState.load()
     handoff = read_json(state.handoff_latest, default={}) or {}
@@ -61,12 +69,14 @@ def _intake(paths: Any) -> dict[str, Any]:
 def _decision(mode: str, intake: dict[str, Any], last_loop: dict[str, Any]) -> list[str]:
     decisions: list[str] = []
     fingerprint_changed = intake["fingerprint"] != last_loop.get("fingerprint")
-    needs_sync = not intake["sync_status"].get("openclaw_config_sync")
+    needs_sync = not _openclaw_sync_ok(intake["sync_status"])
     if mode == "heartbeat":
-        decisions.append("kairos")
-        decisions.append("morpheus")
+        if not fingerprint_changed:
+            return ["repair"] if needs_sync else []
         if needs_sync:
             decisions.append("repair")
+        if intake["unresolved_count"] > 0:
+            decisions.extend(["kairos", "morpheus"])
         if intake["janitor_candidates"] >= 5:
             decisions.append("janitor")
         return decisions
@@ -86,6 +96,7 @@ def run_loop(*, root: Path, runtime_env: dict[str, str], mode: str = "pulse") ->
     state = OttoState.load()
     intake = _intake(paths)
     last_loop = read_json(_loop_state_path(paths), default={}) or {}
+    fingerprint_changed = intake["fingerprint"] != last_loop.get("fingerprint")
     decisions = _decision(mode, intake, last_loop)
 
     executed: list[dict[str, Any]] = []
@@ -107,6 +118,7 @@ def run_loop(*, root: Path, runtime_env: dict[str, str], mode: str = "pulse") ->
             "tasks": intake["tasks"],
             "unresolved_count": intake["unresolved_count"],
             "fingerprint": intake["fingerprint"],
+            "fingerprint_changed": fingerprint_changed,
             "delta_sources": intake["delta_sources"],
         },
         "decisions": decisions,
@@ -134,6 +146,7 @@ def run_loop(*, root: Path, runtime_env: dict[str, str], mode: str = "pulse") ->
         "ts": payload["ts"],
         "mode": mode,
         "fingerprint": intake["fingerprint"],
+        "fingerprint_changed": fingerprint_changed,
         "decisions": decisions,
     })
     EventBus().publish(Event(type="otto.loop", source="loop", payload=payload))

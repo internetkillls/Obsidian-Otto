@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 import sqlite3
+from datetime import datetime
 from typing import Any
 
 import yaml
@@ -184,6 +185,50 @@ def _ranking_cfg() -> dict[str, Any]:
 def _vector_cfg() -> dict[str, Any]:
     cfg = load_retrieval_config()
     return cfg.get("vector", {})
+
+
+def _partner_collection_name() -> str:
+    vector_cfg = _vector_cfg()
+    return str(vector_cfg.get("partner_collection_name", "otto_partner"))
+
+
+def _partner_distance_caps() -> tuple[float, float]:
+    vector_cfg = _vector_cfg()
+    return (
+        float(vector_cfg.get("partner_max_distance", 0.75)),
+        float(vector_cfg.get("partner_relaxed_max_distance", 0.90)),
+    )
+
+
+def _is_relational_query(query: str) -> bool:
+    lowered = query.lower()
+    cues = (
+        "partner",
+        "care",
+        "wellness",
+        "check in",
+        "check-in",
+        "mood",
+        "fatigue",
+        "energy",
+        "recovery",
+        "support",
+        "relationship",
+        "sentimental",
+        "feeling",
+        "feels",
+        "down",
+        "shutdown",
+        "gak sanggup",
+        "ga sanggup",
+        "berat banget",
+        "moodku",
+        "lelah",
+        "capek",
+        "cemas",
+        "nggak kuat",
+    )
+    return any(cue in lowered for cue in cues)
 
 
 def _table_columns(conn: sqlite3.Connection, name: str) -> set[str]:
@@ -654,6 +699,7 @@ def _chroma_hits(
     paths = load_paths()
     cfg = load_retrieval_config()
     collection_name = str(cfg.get("vector", {}).get("collection_name", "otto_gold"))
+    partner_collection_name = str(cfg.get("vector", {}).get("partner_collection_name", "otto_partner"))
     effective_candidate_limit = max(int(candidate_limit or limit or 0), int(limit or 0), 1)
     try:
         client = chromadb.PersistentClient(path=str(paths.chroma_path))
@@ -661,44 +707,54 @@ def _chroma_hits(
     except Exception:
         return []
 
+    collection_names = [collection_name]
+    if _is_relational_query(query):
+        collection_names.append(partner_collection_name)
+
     by_path: dict[str, dict[str, Any]] = {}
-    for variant in query_variants or _query_variants(query):
+    for current_collection_name in collection_names:
         try:
-            results = collection.query(
-                query_texts=[variant],
-                n_results=effective_candidate_limit,
-                include=["documents", "metadatas", "distances"],
-            )
+            current_collection = client.get_or_create_collection(current_collection_name, metadata={"hnsw:space": "cosine"})
         except Exception:
             continue
-
-        docs = results.get("documents") or [[]]
-        metas = results.get("metadatas") or [[]]
-        distances = results.get("distances") or [[]]
-        if not docs or not docs[0]:
-            continue
-
-        for doc, meta, distance in zip(docs[0], metas[0], distances[0] if distances else [None] * len(docs[0])):
-            meta = meta or {}
-            path = str(meta.get("path", "") or "")
-            if not path:
+        for variant in query_variants or _query_variants(query):
+            try:
+                results = current_collection.query(
+                    query_texts=[variant],
+                    n_results=effective_candidate_limit,
+                    include=["documents", "metadatas", "distances"],
+                )
+            except Exception:
                 continue
-            key = _normalize_path(path)
-            current = by_path.get(key)
-            candidate_distance = float(distance) if distance is not None else 999.0
-            if current is None or candidate_distance < float(current.get("distance", 999.0) or 999.0):
-                by_path[key] = {
-                    "path": path,
-                    "title": meta.get("title", path or "vector_hit"),
-                    "frontmatter_text": "",
-                    "body_excerpt": (doc or "")[:240],
-                    "distance": distance,
-                    "source": "chroma",
-                    "matched_queries": [variant],
-                    "best_variant": variant,
-                }
-            elif variant not in list(current.get("matched_queries", []) or []):
-                current["matched_queries"] = [*list(current.get("matched_queries", []) or []), variant]
+
+            docs = results.get("documents") or [[]]
+            metas = results.get("metadatas") or [[]]
+            distances = results.get("distances") or [[]]
+            if not docs or not docs[0]:
+                continue
+
+            for doc, meta, distance in zip(docs[0], metas[0], distances[0] if distances else [None] * len(docs[0])):
+                meta = meta or {}
+                path = str(meta.get("path", "") or "")
+                if not path:
+                    continue
+                key = _normalize_path(path)
+                current = by_path.get(key)
+                candidate_distance = float(distance) if distance is not None else 999.0
+                source_label = "chroma_partner" if current_collection_name == partner_collection_name else "chroma"
+                if current is None or candidate_distance < float(current.get("distance", 999.0) or 999.0):
+                    by_path[key] = {
+                        "path": path,
+                        "title": meta.get("title", path or "vector_hit"),
+                        "frontmatter_text": "",
+                        "body_excerpt": (doc or "")[:240],
+                        "distance": distance,
+                        "source": source_label,
+                        "matched_queries": [variant],
+                        "best_variant": variant,
+                    }
+                elif variant not in list(current.get("matched_queries", []) or []):
+                    current["matched_queries"] = [*list(current.get("matched_queries", []) or []), variant]
 
     hits = sorted(
         by_path.values(),
@@ -713,6 +769,71 @@ def _chroma_hits(
                 selected.append(hit)
                 selected_by_key[key] = hit
     return selected
+
+
+def _metadata_matches(meta: dict[str, Any], *, signal_type: str | None, mood_phase: str | None, since_epoch: float | None) -> bool:
+    if signal_type and str(meta.get("signal_type", "")).lower() != signal_type.lower():
+        return False
+    if mood_phase and str(meta.get("mood_phase", "")).lower() != mood_phase.lower():
+        return False
+    if since_epoch is not None and float(meta.get("ts_epoch") or 0.0) < since_epoch:
+        return False
+    return True
+
+
+def _partner_hits(
+    query: str,
+    limit: int,
+    *,
+    signal_type: str | None = None,
+    mood_phase: str | None = None,
+    since_hours: int | None = None,
+    max_distance: float | None = None,
+) -> list[dict[str, Any]]:
+    if chromadb is None or not query.strip():
+        return []
+    since_epoch = None
+    if since_hours is not None:
+        since_epoch = datetime.now().timestamp() - (float(since_hours) * 3600.0)
+    try:
+        client = chromadb.PersistentClient(path=str(load_paths().chroma_path))
+        collection = client.get_or_create_collection(_partner_collection_name(), metadata={"hnsw:space": "cosine"})
+        results = collection.query(
+            query_texts=[query],
+            n_results=max(int(limit or 1) * 3, int(limit or 1)),
+            include=["documents", "metadatas", "distances"],
+        )
+    except Exception:
+        return []
+
+    docs = results.get("documents") or [[]]
+    metas = results.get("metadatas") or [[]]
+    distances = results.get("distances") or [[]]
+    hits: list[dict[str, Any]] = []
+    for doc, meta, distance in zip(docs[0], metas[0], distances[0] if distances else [None] * len(docs[0])):
+        meta = meta or {}
+        candidate_distance = float(distance) if distance is not None else 999.0
+        if max_distance is not None and candidate_distance > max_distance:
+            continue
+        if not _metadata_matches(meta, signal_type=signal_type, mood_phase=mood_phase, since_epoch=since_epoch):
+            continue
+        hits.append(
+            {
+                "path": str(meta.get("path", "")),
+                "title": str(meta.get("title", meta.get("path", "partner_memory"))),
+                "body_excerpt": (doc or "")[:240],
+                "distance": distance,
+                "source": "chroma_partner",
+                "signal_type": str(meta.get("signal_type", "")),
+                "mood_phase": str(meta.get("mood_phase", "")),
+                "audhd_state": str(meta.get("audhd_state", "")),
+                "ts": str(meta.get("ts", "")),
+                "ts_epoch": float(meta.get("ts_epoch") or 0.0),
+                "care_moment_type": str(meta.get("care_moment_type", "")),
+                "metadata_source": str(meta.get("source", "")),
+            }
+        )
+    return sorted(hits, key=lambda hit: (float(hit.get("distance", 999.0) or 999.0), str(hit.get("path", ""))))[:limit]
 
 
 def _rerank_chroma_hits(
@@ -920,3 +1041,41 @@ def retrieve_breakdown(query: str, mode: str = "fast") -> dict[str, Any]:
 
 def retrieve(query: str, mode: str = "fast") -> dict[str, Any]:
     return retrieve_breakdown(query, mode=mode)
+
+
+def retrieve_partner(
+    query: str,
+    n_results: int = 5,
+    signal_type: str | None = None,
+    mood_phase: str | None = None,
+    since_hours: int | None = None,
+) -> dict[str, Any]:
+    strict_cap, relaxed_cap = _partner_distance_caps()
+    hits = _partner_hits(
+        query,
+        n_results,
+        signal_type=signal_type,
+        mood_phase=mood_phase,
+        since_hours=since_hours,
+        max_distance=strict_cap,
+    )
+    gate = "strict"
+    if not hits:
+        hits = _partner_hits(
+            query,
+            n_results,
+            signal_type=signal_type,
+            mood_phase=mood_phase,
+            since_hours=since_hours,
+            max_distance=relaxed_cap,
+        )
+        gate = "relaxed" if hits else "empty"
+    return {
+        "query": query,
+        "collection": _partner_collection_name(),
+        "n_results": n_results,
+        "distance_gate": gate,
+        "max_distance": strict_cap if gate == "strict" else relaxed_cap,
+        "hits": hits,
+        "enough_evidence": bool(hits),
+    }

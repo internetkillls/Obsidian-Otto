@@ -129,6 +129,47 @@ class TestOttoSelfModel:
         assert "90-Archive/old-opportunity.md" in top_opportunity_paths
         assert all(not path.startswith(".Otto-Realm/Reports") for path in top_commitment_paths + top_opportunity_paths)
 
+    def test_build_from_scan_emits_weakness_taxonomy_from_mentor_registry(self):
+        sm = OttoSelfModel.__new__(OttoSelfModel)
+        sm.profile = SirAgathonProfile()
+        sm.vault_path = None
+        result = sm.build_from_scan(
+            {
+                "note_count": 1,
+                "notes": [
+                    {
+                        "path": "10-Personal/goal.md",
+                        "tags": ["goal"],
+                        "wikilinks": [],
+                        "body_excerpt": "Need a proof routine.",
+                        "frontmatter_text": "type: goal",
+                    }
+                ],
+            },
+            mentor_weakness_registry={
+                "proof_construction": {
+                    "latest_gap_type": "theory_gap",
+                    "probe_history": [{"id": "a"}, {"id": "b"}],
+                },
+                "execution_discipline": {
+                    "latest_gap_type": "application_gap",
+                    "probe_history": [{"id": "c"}],
+                },
+                "resolved_loop": {
+                    "latest_gap_type": "resolved",
+                    "probe_history": [{"id": "z"}],
+                },
+            },
+        )
+        taxonomy = result["weakness_taxonomy"]
+        keys = [item["weakness_key"] for item in taxonomy]
+        assert "proof_construction" in keys
+        assert "execution_discipline" in keys
+        assert "resolved_loop" not in keys
+        proof_entry = next(item for item in taxonomy if item["weakness_key"] == "proof_construction")
+        assert proof_entry["gap_type"] == "theory_gap"
+        assert proof_entry["recurrence_count"] == 2
+
     def test_write_profile_to_vault(self, tmp_vault, monkeypatch):
         monkeypatch.setenv("OTTO_VAULT_PATH", str(tmp_vault))
         sm = OttoSelfModel(vault_path=tmp_vault)

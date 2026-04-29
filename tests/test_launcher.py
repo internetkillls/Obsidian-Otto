@@ -157,20 +157,21 @@ def test_build_infra_result_survives_missing_docker(monkeypatch):
 
 
 def test_build_infra_result_uses_docker_ps_when_available(monkeypatch):
-    monkeypatch.setattr("otto.infra.load_docker_config", lambda: {"services": ["postgres", "chromadb", "obsidian-mcp"]})
+    monkeypatch.setattr("otto.infra.load_docker_config", lambda: {"services": ["postgres", "chromadb", "otto-indexer", "obsidian-mcp"]})
     monkeypatch.setattr("otto.infra.docker_available", lambda: True)
     monkeypatch.setattr("otto.infra.docker_daemon_running", lambda: False)
     monkeypatch.setattr(
         "otto.infra._running_container_names",
-        lambda: ({"ob-otto-postgres", "ob-otto-chromadb", "ob-otto-obsidian-mcp"}, None, "powershell-fallback"),
+        lambda: ({"ob-otto-postgres", "ob-otto-chromadb", "ob-otto-indexer", "ob-otto-obsidian-mcp"}, None, "powershell-fallback"),
     )
+    monkeypatch.setattr("otto.infra._postgres_reachable", lambda: True)
 
     result = build_infra_result()
     assert result.daemon_running is True
     assert result.running_services_known is True
     assert result.docker_probe_status == "ok"
     assert result.docker_probe_transport == "powershell-fallback"
-    assert result.running_services == ["postgres", "chromadb", "obsidian-mcp"]
+    assert result.running_services == ["postgres", "chromadb", "otto-indexer", "obsidian-mcp"]
     assert result.mcp_reachable is True
 
 
@@ -190,6 +191,19 @@ def test_build_infra_result_marks_probe_denied_without_fake_service_down(monkeyp
     assert result.postgres_reachable is True
 
 
+def test_build_infra_result_recommends_postgres_repair_when_unreachable(monkeypatch):
+    monkeypatch.setattr("otto.infra.load_docker_config", lambda: {"services": ["postgres", "chromadb"]})
+    monkeypatch.setattr("otto.infra.docker_available", lambda: True)
+    monkeypatch.setattr("otto.infra.docker_daemon_running", lambda: True)
+    monkeypatch.setattr("otto.infra._running_container_names", lambda: ({"ob-otto-postgres", "ob-otto-chromadb"}, None, "direct"))
+    monkeypatch.setattr("otto.infra._postgres_reachable", lambda: False)
+
+    result = build_infra_result()
+
+    assert result.postgres_reachable is False
+    assert result.next_safe_action == "postgres-repair"
+
+
 def test_compose_profile_args_follow_config():
     app = LauncherApp()
     app.root = Path.cwd()
@@ -202,7 +216,8 @@ def test_advanced_menu_routes_mcp_to_ready_mode():
     app = LauncherApp()
     assert app._resolve_choice("advanced", "5") == "openclaw-gateway-probe"
     assert app._resolve_choice("advanced", "6") == "openclaw-plugin-reload"
-    assert app._resolve_choice("advanced", "7") == "mcp-ready"
+    assert app._resolve_choice("advanced", "7") == "graph-demotion-followup"
+    assert app._resolve_choice("advanced", "8") == "mcp-ready"
     assert app._resolve_choice("home", "8") == "training-queue"
     assert app._resolve_choice("home", "9") == "resolve-training-task"
     assert app._resolve_choice("home", "a") == "advanced"
@@ -216,6 +231,26 @@ def test_launcher_action_catalog_resolves_wrapper_alias():
     docker_probe = resolve_action_spec("docker-probe")
     assert docker_probe is not None
     assert docker_probe.name == "docker-probe"
+    mcp_clean = resolve_action_spec("mcp-clean")
+    assert mcp_clean is not None
+    assert mcp_clean.name == "mcp-clean"
+    postgres_repair = resolve_action_spec("repair-postgres")
+    assert postgres_repair is not None
+    assert postgres_repair.name == "postgres-repair"
+    health_repair = resolve_action_spec("repair-health")
+    assert health_repair is not None
+    assert health_repair.name == "health-repair"
+    fresh_everything = resolve_action_spec("fresh-start")
+    assert fresh_everything is not None
+    assert fresh_everything.name == "fresh-everything"
+    metadata_enrich = resolve_action_spec("metadata-enrich")
+    assert metadata_enrich is not None
+    assert metadata_enrich.name == "metadata-enrich"
+    assert "metadata-enrich.bat" in metadata_enrich.wrappers[0]
+    notion_hygiene = resolve_action_spec("notion-hygiene")
+    assert notion_hygiene is not None
+    assert notion_hygiene.name == "notion-export-hygiene"
+    assert "notion-export-hygiene.bat" in notion_hygiene.wrappers[0]
     exit_code, text = render_action_description("status")
     assert exit_code == 0
     assert "Show status report" in text
@@ -279,6 +314,7 @@ def test_mcp_ready_mode_does_not_attach_stdio(tmp_path, monkeypatch):
 
     recorded: dict[str, object] = {}
     calls: list[list[str]] = []
+    cleanup_calls: list[bool] = []
     ps_counter = {"count": 0}
 
     class _Completed:
@@ -300,6 +336,10 @@ def test_mcp_ready_mode_does_not_attach_stdio(tmp_path, monkeypatch):
     monkeypatch.setattr("otto.app.launcher.docker_available", lambda: True)
     monkeypatch.setattr("otto.app.launcher.docker_daemon_running", lambda: True)
     monkeypatch.setattr(
+        "otto.app.launcher.cleanup_ephemeral_mcp_containers",
+        lambda: cleanup_calls.append(True) or {"ok": True, "removed": ["obsidian-mcp-run-old"]},
+    )
+    monkeypatch.setattr(
         "otto.app.launcher.load_env_file",
         lambda path: {
             "OBSIDIAN_VAULT_HOST": str(vault_dir),
@@ -319,8 +359,49 @@ def test_mcp_ready_mode_does_not_attach_stdio(tmp_path, monkeypatch):
     assert result.details["mode"] == "container_ready"
     assert recorded["mode"] == "container_ready"
     assert recorded["run_exit"] == 0
+    assert cleanup_calls == [True]
     assert any(command[:4] == ["docker", "compose", "-f", "docker-compose.yml"] and "build" in command for command in calls)
     assert any(command[:6] == ["docker", "compose", "-f", "docker-compose.yml", "--profile", "mcp"] for command in calls)
+
+
+def test_mcp_clean_removes_only_stale_mcp_runs(monkeypatch):
+    app = LauncherApp()
+    monkeypatch.setattr("otto.app.launcher.docker_available", lambda: True)
+    monkeypatch.setattr("otto.app.launcher.docker_daemon_running", lambda: True)
+    monkeypatch.setattr(
+        "otto.app.launcher.cleanup_ephemeral_mcp_containers",
+        lambda: {"ok": True, "removed": ["obsidian-otto-obsidian-mcp-run-old"]},
+    )
+
+    result = app._action_mcp_clean(args=[], interactive=False)
+
+    assert result.status == "ok"
+    assert result.details["removed"] == ["obsidian-otto-obsidian-mcp-run-old"]
+
+
+def test_postgres_repair_starts_and_restarts_postgres(monkeypatch):
+    app = LauncherApp()
+    calls: list[list[str]] = []
+
+    class _Completed:
+        def __init__(self, returncode: int = 0) -> None:
+            self.returncode = returncode
+
+    def fake_run(command, *args, **kwargs):
+        calls.append(list(command))
+        return _Completed()
+
+    monkeypatch.setattr("otto.app.launcher.docker_available", lambda: True)
+    monkeypatch.setattr("otto.app.launcher.docker_daemon_running", lambda: True)
+    monkeypatch.setattr(subprocess, "run", fake_run)
+
+    result = app._action_postgres_repair(args=[], interactive=False)
+
+    assert result.status == "ok"
+    assert calls == [
+        ["docker", "compose", "-f", "docker-compose.yml", "up", "-d", "postgres"],
+        ["docker", "compose", "-f", "docker-compose.yml", "restart", "postgres"],
+    ]
 
 
 def test_training_queue_action_handles_empty_state(monkeypatch):

@@ -103,12 +103,65 @@ launch-mcp.bat --no-build    # skip build, run directly
 
 `launch-mcp.bat --help` prints usage without touching state files.
 
+## Native/WSL operator lane
+
+The advanced launcher screen includes a dedicated OpenClaw/QMD operator lane:
+
+```batch
+otto.bat operator-status
+otto.bat operator-doctor
+otto.bat operator-update
+otto.bat wsl-live-preflight
+otto.bat wsl-live-promote --dry-run
+otto.bat wsl-live-promote --write
+otto.bat wsl-live-status
+otto.bat wsl-live-rollback --write
+otto.bat wsl-gateway-start
+otto.bat wsl-gateway-stop
+otto.bat wsl-gateway-restart
+otto.bat native-fallback
+```
+
+For a desktop-first workflow, install shortcuts and the login startup task:
+
+```batch
+scripts\shell\install-operator-shortcuts.bat
+```
+
+This creates shortcuts for the operator menu, WSL gateway start/restart, WSL live status, and native fallback. It also installs a current-user `ONLOGON` task that runs `otto.bat wsl-gateway-start` after restart. The startup task starts the current WSL config already installed, so it is safe for both shadow and promoted live states. See [operator-wsl-native.md](/C:/Users/joshu/Obsidian-Otto/docs/operator-wsl-native.md) for the safety boundary and parity checks.
+
 ## Runtime PID lifecycle
 
 1. `start.bat` spawns `runtime_loop.py` via `subprocess.Popen` (detached)
 2. PID written to `state/pids/runtime.pid`
 3. `stop.bat` reads PID → `Stop-Process -Force`
 4. If process dies without stopping, PID file is stale → cleared on next start/stop
+
+## Metadata enrichment entrypoint
+
+`metadata-enrich.bat` is a thin shim for the metadata workflow:
+
+```text
+metadata-enrich.bat -> otto.bat metadata-enrich -> scripts/manage/run_launcher.py --once metadata-enrich -> scripts/manage/run_metadata_enrichment.py
+```
+
+Default mode is `review`. `apply` or `entity` must be paired with `--confirm` to write.
+If you want Obsidian itself to execute the matching plugin command for a single note, pass `--dispatch-command` to the runner. The command name comes from `config/metadata_enrichment.yaml`.
+
+## Notion export hygiene entrypoint
+
+`notion-export-hygiene.bat` is the companion workflow for Notion imports that need hash cleanup:
+
+```text
+notion-export-hygiene.bat -> otto.bat notion-export-hygiene -> scripts/manage/run_launcher.py --once notion-export-hygiene -> scripts/manage/run_notion_export_hygiene.py
+```
+
+Use it after import to:
+- strip hash-like suffixes from filenames
+- write or normalize frontmatter titles and aliases
+- rewrite scoped wikilinks that still point at the old filename
+
+`apply` writes changes only when paired with `--confirm`. Add `--reindex-after` if you want the scoped pipeline to run immediately after the rename pass.
 
 ## MCP configuration check
 

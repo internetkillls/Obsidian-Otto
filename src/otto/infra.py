@@ -35,6 +35,12 @@ def _running_container_names() -> tuple[set[str] | None, str | None, str]:
     return names, None, str(probe.get("transport") or "direct")
 
 
+def _container_name_for_service(service: str) -> str:
+    if service.startswith("otto-"):
+        return f"ob-{service}"
+    return f"ob-otto-{service}"
+
+
 def _postgres_reachable() -> bool:
     cfg = load_postgres_config()
     try:
@@ -73,11 +79,16 @@ def build_infra_result() -> InfraResult:
     running = [
         svc
         for svc in services
-        if running_names is not None and f"ob-otto-{svc}" in running_names
+        if running_names is not None and _container_name_for_service(svc) in running_names
     ]
-    postgres_ok = "postgres" in running or _postgres_reachable()
+    postgres_ok = _postgres_reachable()
     mcp_ok = "obsidian-mcp" in running
-    next_action = "docker-up" if docker_ok and daemon_ok and running_known and len(running) < len(services) else "status"
+    if docker_ok and daemon_ok and running_known and not postgres_ok and "postgres" in services:
+        next_action = "postgres-repair"
+    elif docker_ok and daemon_ok and running_known and len(running) < len(services):
+        next_action = "docker-up"
+    else:
+        next_action = "status"
     return InfraResult(
         docker_available=docker_ok,
         daemon_running=daemon_ok,

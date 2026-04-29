@@ -27,6 +27,7 @@ class SirAgathonProfile:
     opportunity_map: list[dict[str, Any]] = field(default_factory=list)
     continuity_prompts: list[dict[str, Any]] = field(default_factory=list)
     suffering_signals: list[str] = field(default_factory=list)
+    weakness_taxonomy: list[dict[str, Any]] = field(default_factory=list)
     swot: dict[str, list[str]] = field(default_factory=lambda: {
         "strengths": [],
         "weaknesses": [],
@@ -211,10 +212,19 @@ class OttoSelfModel:
         for theme, count in theme_matches:
             self.profile.theme_map[theme] = int(count)
 
-    def build_from_scan(self, scan_result: dict[str, Any]) -> dict[str, Any]:
+    def build_from_scan(
+        self,
+        scan_result: dict[str, Any],
+        mentor_weakness_registry: dict[str, dict[str, Any]] | None = None,
+    ) -> dict[str, Any]:
         notes = self._build_profile_note_pool(scan_result.get("notes", []))
+        registry = mentor_weakness_registry
+        if registry is None:
+            maybe_registry = scan_result.get("mentor_weakness_registry", {})
+            registry = maybe_registry if isinstance(maybe_registry, dict) else {}
         self.profile.vault_strengths = self._derive_strengths(notes)
         self.profile.vault_weaknesses = self._derive_weaknesses(notes)
+        self.profile.weakness_taxonomy = self._derive_weakness_taxonomy(registry)
         self._build_theme_map(notes)
         self._infer_response_style(notes)
         self.profile.cognitive_risks = self._derive_cognitive_risks(notes)
@@ -238,6 +248,7 @@ class OttoSelfModel:
             "opportunity_map": self.profile.opportunity_map,
             "continuity_prompts": self.profile.continuity_prompts,
             "suffering_signals": self.profile.suffering_signals,
+            "weakness_taxonomy": self.profile.weakness_taxonomy,
             "swot": self.profile.swot,
         }
 
@@ -260,6 +271,36 @@ class OttoSelfModel:
         if len(no_frontmatter) / max(len(notes), 1) > 0.3:
             weaknesses.append(f"Missing frontmatter on {len(no_frontmatter)} notes")
         return weaknesses
+
+    def _derive_weakness_taxonomy(
+        self,
+        mentor_weakness_registry: dict[str, dict[str, Any]] | None,
+    ) -> list[dict[str, Any]]:
+        taxonomy: list[dict[str, Any]] = []
+        for weakness_key, entry in (mentor_weakness_registry or {}).items():
+            if not isinstance(entry, dict):
+                continue
+            gap_type = str(entry.get("latest_gap_type", "")).strip()
+            if gap_type not in {"theory_gap", "application_gap"}:
+                continue
+            recurrence_count = 0
+            for history_key in ("probe_history", "task_history", "history"):
+                history = entry.get(history_key)
+                if isinstance(history, list):
+                    recurrence_count = max(recurrence_count, len(history))
+            try:
+                recurrence_count = max(recurrence_count, int(entry.get("recurrence_count", 0) or 0))
+            except (TypeError, ValueError):
+                recurrence_count = max(recurrence_count, 0)
+            taxonomy.append(
+                {
+                    "weakness_key": str(weakness_key),
+                    "gap_type": gap_type,
+                    "recurrence_count": max(1, recurrence_count),
+                }
+            )
+        taxonomy.sort(key=lambda item: (-int(item["recurrence_count"]), str(item["weakness_key"])))
+        return taxonomy[:20]
 
     def _build_theme_map(self, notes: list[dict[str, Any]]) -> None:
         tag_counts: dict[str, int] = {}

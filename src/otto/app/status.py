@@ -15,6 +15,7 @@ from ..orchestration.graph_demotion import (
     graph_handoff_is_active,
     load_graph_demotion_review,
 )
+from ..orchestration.cron_control import build_cron_status
 from ..orchestration.morpheus_openclaw_bridge import load_morpheus_openclaw_bridge
 from ..openclaw_support import build_openclaw_health, probe_openclaw_gateway
 from ..schema_registry import schema_fingerprint, schema_registry
@@ -203,6 +204,7 @@ def build_status() -> dict[str, Any]:
     sqlite = _sqlite_status(paths.sqlite_path)
     vector = _vector_status(paths, gold, infra)
     controller = _controller_surface(handoff, gold, paths)
+    cron = build_cron_status(paths=paths)
 
     tasks_dir = paths.repo_root / "tasks" / "active"
     active_tasks = [p.name for p in sorted(tasks_dir.glob("*.md"))]
@@ -221,6 +223,7 @@ def build_status() -> dict[str, Any]:
         "controller": controller,
         "goal": controller.get("goal"),
         "next_actions": controller.get("next_actions", []),
+        "cron": cron,
         "active_tasks": active_tasks,
         "infra": infra,
         "docker": docker,
@@ -246,9 +249,15 @@ def build_status() -> dict[str, Any]:
     }
     controller_issues = _controller_issues(checkpoint, sqlite, openclaw)
     infra_issues = _infra_issues(runtime, sqlite, infra, vector, openclaw, openclaw_gateway)
+    cron_issues: list[str] = []
+    if cron.get("contract_drift_free") is False:
+        cron_issues.append("OpenClaw cron contract has drift or validation issues")
+    if cron.get("focus_expired"):
+        cron_issues.append("Essay focus window has expired; steer again or reset to normal")
+    status["cron_issues"] = cron_issues
     status["controller_issues"] = controller_issues
     status["infra_issues"] = infra_issues
-    status["issues"] = controller_issues + infra_issues
+    status["issues"] = controller_issues + cron_issues + infra_issues
     return status
 
 
@@ -259,6 +268,7 @@ def render_status_summary(status: dict[str, Any]) -> str:
     handoff = status.get("handoff", {}) or {}
     gateway = status.get("openclaw_gateway", {}) or {}
     controller = status.get("controller", {}) or {}
+    cron = status.get("cron", {}) or {}
     infra = status.get("infra", {}) or {}
     morpheus_bridge = status.get("morpheus_openclaw_bridge", {}) or {}
     top_folder = ((status.get("top_folders") or [])[:1] or [{}])[0]
@@ -303,6 +313,19 @@ def render_status_summary(status: dict[str, Any]) -> str:
         )
     if controller.get("goal"):
         lines.extend(["", f"Controller goal: {controller.get('goal')}"])
+    steering = cron.get("steering", {}) or {}
+    lines.extend(["", "Cron"])
+    lines.append(
+        f"- jobs: {cron.get('enabled_job_count', 0)}/{cron.get('job_count', 0)} enabled, managed={cron.get('managed_job_count', 0)}"
+    )
+    lines.append(
+        f"- steering: mode={steering.get('mode', 'normal')} active={steering.get('active', False)} topic={steering.get('topic') or '(none)'}"
+    )
+    if steering.get("expires_at"):
+        lines.append(f"- focus until: {steering.get('expires_at')}")
+    if cron.get("contract_drift_free") is False:
+        issues = ", ".join((cron.get("contract_issues") or [])[:3]) or "validation issues present"
+        lines.append(f"- contract drift: {issues}")
     next_actions = (status.get("next_actions") or [])[:3]
     if next_actions:
         lines.extend(["", "Next actions"])

@@ -9,6 +9,7 @@ from typing import Any
 import yaml
 
 from ..config import load_paths, load_retrieval_config
+from ..fs_utils import exists as path_exists, is_dir as path_is_dir, is_file as path_is_file, iter_files, read_bytes, read_text
 from ..logging_utils import get_logger
 from ..state import write_json
 
@@ -175,7 +176,7 @@ def _title_from_path(path: Path) -> str:
 
 
 def _sha1(path: Path) -> str:
-    return hashlib.sha1(path.read_bytes()).hexdigest()
+    return hashlib.sha1(read_bytes(path)).hexdigest()
 
 
 def _normalize_rel_path(value: str) -> str:
@@ -231,12 +232,12 @@ def scan_vault(scope: str | None = None) -> dict[str, Any]:
     paths = load_paths()
     if paths.vault_path is None:
         raise RuntimeError("Vault path not configured. Run initial.bat first.")
-    if not paths.vault_path.is_dir():
+    if not path_is_dir(paths.vault_path):
         raise RuntimeError(f"Vault path is not a directory: {paths.vault_path}")
 
     base = paths.vault_path
     target = (base / scope).resolve() if scope else base
-    if not target.exists():
+    if not path_exists(target):
         raise FileNotFoundError(f"Scope does not exist: {target}")
 
     notes: list[NoteRecord] = []
@@ -247,8 +248,8 @@ def scan_vault(scope: str | None = None) -> dict[str, Any]:
     excluded_by_prefix: dict[str, int] = {}
     excluded_samples: list[str] = []
 
-    for path in target.rglob("*"):
-        if not path.is_file():
+    for path in iter_files(target):
+        if not path_is_file(path):
             continue
         rel = str(path.relative_to(base))
         allowed, matched_prefix = _classify_scan_path(rel, boundary)
@@ -264,7 +265,7 @@ def scan_vault(scope: str | None = None) -> dict[str, Any]:
             continue
         stat = path.stat()
         if path.suffix.lower() == ".md":
-            text = path.read_text(encoding="utf-8", errors="replace")
+            text = read_text(path, encoding="utf-8", errors="replace")
             fm = FRONTMATTER_RE.match(text)
             body = text[fm.end():] if fm else text
             tags = sorted(set(TAG_RE.findall(body)))
