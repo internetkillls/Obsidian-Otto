@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "paper_onboarding_policy": {
+    "cadence_hours_min": 4,
+    "cadence_hours_max": 6,
+    "mode_default": "onboarding_before_critique",
+    "source_priority": [
+      "university_press_books",
+      "top_journal_articles",
+      "field_handbooks",
+      "canonical_debates",
+      "recent_review_articles",
+      "lectures_or_syllabi_from_universities"
+    ],
+    "onboarding_pack_must_include": [
+      "who_are_these_people",
+      "what_problem_are_they_living_inside",
+      "what_counts_as_status_or_credibility",
+      "what_jargon_should_i_survive_first",
+      "what_historical_wound_or_argument_started_this",
+      "what_is_trivial_to_them_but_not_to_me",
+      "what_should_i_read_first",
+      "how_this_connects_to_my_work"
+    ],
+    "critical_mode_style": "crack_research_reversing_simon",
+    "auto_vault_write": false,
+    "auto_qmd_index": false,
+    "review_required_before_gold": true
+  }
+}

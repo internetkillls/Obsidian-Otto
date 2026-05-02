@@ -1,0 +1,30 @@
+{
+  "ts": "2026-04-24T09:00:00+07:00",
+  "source": "otto_a_signal_v4",
+  "status": "ready",
+  "followup_auto": [
+    {
+      "id": "repair-projects-metadata",
+      "why_now": "Projects is the highest-risk folder and the active task asks for metadata repair/sorting evidence.",
+      "expected_artifact": "scoped metadata fix report for Projects",
+      "risk": "low",
+      "confidence": 0.86
+    },
+    {
+      "id": "repair-areas-metadata",
+      "why_now": "Areas is the next highest-risk folder and can be repaired with the same scoped pass.",
+      "expected_artifact": "scoped metadata fix report for Areas",
+      "risk": "low",
+      "confidence": 0.8
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "escalate-urgent-review",
+      "why_now": "council_repeat is recurring and the strategy explicitly asks to escalate before the next heartbeat cycle.",
+      "expected_artifact": "user decision on urgency / review priority",
+      "risk": "medium",
+      "confidence": 0.74
+    }
+  ]
+}

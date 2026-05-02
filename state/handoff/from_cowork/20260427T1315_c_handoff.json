@@ -1,0 +1,26 @@
+{
+  "source": "graph-rollup-audit",
+  "role": "c",
+  "status": "handoff",
+  "updated_at": "2026-04-27T13:15:57+07:00",
+  "summary": "status=partial batch=10 linked=2 deferred=45",
+  "artifacts": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shape_audit.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shape_audit.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shadow_decisions.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shadow_decisions.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shadow_review.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_allo_hotspots.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_demotion_plan.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_demotion_plan.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_demotion_review_latest.json"
+  ],
+  "next_actions": [
+    "Use the reviewed graph-demotion batch to run one bounded OpenClaw fetch for ALLOCATION-FAMILY, then apply the next ALLO-only batch.",
+    "Continue bounded heartbeat batches",
+    "Review deferred entity creations",
+    "Review ALLO/TO/LACK shadow family proposals"
+  ],
+  "next_action": "Use the reviewed graph-demotion batch to run one bounded OpenClaw fetch for ALLOCATION-FAMILY, then apply the next ALLO-only batch.",
+  "language": "id"
+}

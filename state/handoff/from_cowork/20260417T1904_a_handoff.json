@@ -1,0 +1,23 @@
+{
+  "source": "cowork-otto-a",
+  "role": "a",
+  "status": "handoff",
+  "updated_at": "2026-04-17T19:04:51+07:00",
+  "summary": "Phase C gate is green (846 active notes); primary bottleneck is initiation tiebreak plus stale Obsidian-Otto artifacts. Recommend gentle posture; refresh pipeline if machine path.",
+  "artifacts": [
+    "Otto-Realm/Handoff/a_signal.md",
+    "Otto-Realm/Brain/otto_bottleneck.md"
+  ],
+  "next_actions": [
+    "B: default gentle; honor skip unless Josh can state a one-sentence tiebreak immediately",
+    "If machine path: rerun OO pipeline scoped to `reports` to refresh Gold + produce 3 representative files",
+    "If human path: send minimal tiebreak prompt (code first vs hygiene first)"
+  ],
+  "next_action": "B: default gentle; honor skip unless Josh can state a one-sentence tiebreak immediately",
+  "wellbeing": {
+    "josh_state": "stall",
+    "evidence": "Heartbeat 2026-04-17: two threads compete → session doesn’t start; recent idle window."
+  },
+  "language": "mixed"
+}
+

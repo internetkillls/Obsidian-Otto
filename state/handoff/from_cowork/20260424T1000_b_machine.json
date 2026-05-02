@@ -1,0 +1,8 @@
+{
+  "ts": "2026-04-24T10:00:00+07:00",
+  "role": "B",
+  "status": "machine",
+  "followup_auto": ["repair-projects-metadata", "repair-areas-metadata"],
+  "followup_human": ["escalate-urgent-review"],
+  "next_anchor": "Start with Projects metadata repair, then re-evaluate Areas."
+}

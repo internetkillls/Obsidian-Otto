@@ -1,0 +1,29 @@
+{
+  "schema": "otto.oa.research.memory.v1",
+  "updated_at": "2026-04-28T18:20:00+07:00",
+  "store": {
+    "domain": "",
+    "source_mix": [],
+    "resource_log": [],
+    "progress_snapshot": {
+      "latest_updated_at": "",
+      "shadow_updated_at": "",
+      "recent_focus": ""
+    }
+  },
+  "display": {
+    "digest": [],
+    "show_sources": false,
+    "show_question": false
+  },
+  "evaluate": {
+    "novelty_score": 0,
+    "relevance_score": 0,
+    "reuse_potential": 0,
+    "confidence": 0,
+    "freshness_score": 0,
+    "should_ask_user": false,
+    "should_refresh_memory": false,
+    "note_quality": "empty"
+  }
+}

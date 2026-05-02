@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "clarity_markers": [
+    "clarity",
+    "insight",
+    "aha",
+    "jernih",
+    "nyambung",
+    "paham",
+    "breakthrough",
+    "masuk akal"
+  ],
+  "anti_markers": [
+    "bingung",
+    "acak",
+    "ngawur",
+    "stuck",
+    "confused",
+    "gak nyambung"
+  ],
+  "positive_threshold": 1.2,
+  "negative_threshold": -0.2,
+  "require_marker_for_positive": true,
+  "min_pos_df": 2,
+  "min_score": 0.7,
+  "top_k_phrases": 80,
+  "top_k_go_words": 40,
+  "max_age_runs": 60
+}

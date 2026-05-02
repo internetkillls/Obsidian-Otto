@@ -1,0 +1,22 @@
+{
+  "source": "cowork-otto-a",
+  "role": "a",
+  "status": "handoff",
+  "updated_at": "2026-04-19T00:06:55+07:00",
+  "summary": "Phase C preflight red (6 system docs); Josh stall; hold; suggest tool exemption + OO refresh",
+  "artifacts": [
+    "Otto-Realm/Handoff/a_signal.md",
+    "Otto-Realm/Brain/otto_bottleneck.md"
+  ],
+  "next_actions": [
+    "Decide + implement Phase C exemption for root system docs (restore audit green)",
+    "If time: run scoped Obsidian-Otto pipeline refresh (folder risk + unresolved signals)",
+    "Hold posture: no third Josh prompt until re-entry signal"
+  ],
+  "next_action": "Decide + implement Phase C exemption for root system docs (restore audit green)",
+  "wellbeing": {
+    "josh_state": "stall",
+    "evidence": "Loop 10 C: stall + no uptake; two prompts staged; avoid push"
+  },
+  "language": "mixed"
+}

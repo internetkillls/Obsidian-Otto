@@ -1,0 +1,40 @@
+{
+  "source": "otto_a_signal_v5",
+  "created_at": "2026-04-26T09:00:00+07:00",
+  "status": "ready",
+  "followup_auto": [
+    {
+      "id": "auto-1",
+      "title": "ALLOCATION-FAMILY bounded fetch + ALLO-only apply",
+      "why_now": "Reviewed graph-demotion batch is ready; next step is explicitly bounded.",
+      "expected_artifact": "updated graph-demotion run note or apply journal entry",
+      "risk": "low-medium",
+      "confidence": 0.88
+    },
+    {
+      "id": "auto-2",
+      "title": "Scoped vault hygiene pass on 00-Meta/scarcity",
+      "why_now": "Highest-risk folder in the snapshot and the active task wants a small subset.",
+      "expected_artifact": "folder severity shortlist plus representative files",
+      "risk": "medium",
+      "confidence": 0.81
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "human-1",
+      "title": "Escalate urgent review before the next heartbeat cycle",
+      "why_now": "Council-repeat and low gold rate point to a judgment call.",
+      "expected_artifact": "yes/no decision on whether to pause synthesis and inspect the drift",
+      "risk": "medium-high",
+      "confidence": 0.74
+    }
+  ],
+  "evidence": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\handoff\\latest.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\tasks\\active\\vault-hygiene-pass-01.md"
+  ]
+}

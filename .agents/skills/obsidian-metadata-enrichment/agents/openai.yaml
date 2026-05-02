@@ -1,0 +1,6 @@
+interface:
+  display_name: "Obsidian Metadata Enrichment"
+  short_description: "Fetch and normalize note metadata"
+  default_prompt: "Use $obsidian-metadata-enrichment to fetch and normalize frontmatter, tags, and wikilinks for these notes."
+policy:
+  allow_implicit_invocation: true

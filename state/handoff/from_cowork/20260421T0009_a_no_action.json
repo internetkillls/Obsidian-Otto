@@ -1,0 +1,23 @@
+{
+  "source": "cowork-otto-a",
+  "role": "a",
+  "status": "no_action",
+  "updated_at": "2026-04-21T00:09:33+07:00",
+  "summary": "Phase C verified green (active scope 599; missing_scarcity_field_count=0; orphan_count=0). Josh appears stall (last heartbeat entry 2026-04-20 14:02 WIB confirms 0 delta; no newer heartbeat yet). OO artifacts remain stale (last updated 2026-04-17). Cowork → OO bridge drops appear stalled since 2026-04-20 02:09 WIB.",
+  "artifacts": [
+    "Otto-Realm/Handoff/a_signal.md",
+    "Otto-Realm/Brain/otto_bottleneck.md"
+  ],
+  "next_actions": [
+    "Honor skip_this_cycle; no Josh-facing output without user-authored vault delta",
+    "If vault delta occurs: trigger a date-refresh card re-dated to 2026-04-21 (not a 4th full prompt)",
+    "Investigate Cowork → OO bridge gap (from_cowork stale since 2026-04-20 02:09) / scripts Errno 5 failure mode",
+    "Refresh OO artifacts when a machine window returns (latest/pipeline/gold/kairos)"
+  ],
+  "next_action": "Honor skip_this_cycle; no Josh-facing output without user-authored vault delta",
+  "wellbeing": {
+    "josh_state": "stall",
+    "evidence": "Last heartbeat entry (2026-04-20 14:02 WIB) confirms 0 delta + extended stall; no newer heartbeat yet"
+  },
+  "language": "en"
+}

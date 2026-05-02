@@ -1,0 +1,27 @@
+test_queries:
+  - query: "daily note"
+    relevant_paths:
+      - "Inbox/Daily Note.md"
+  - query: "policy"
+    relevant_paths:
+      - "Projects/Policy Study.md"
+  - query: "neural-network"
+    relevant_paths:
+      - "20-Programs/Neural-Network-Learning/index.md"
+      - "20-Programs/Neural-Network-Learning/00 - Smart Connections, Transformer, dan Embedding.md"
+      - "20-Programs/Neural-Network-Learning/01-Remix-Smart-Connector/remix-smart-connector.md"
+  - query: "semantic embedding"
+    relevant_paths:
+      - "20-Programs/Neural-Network-Learning/00 - Smart Connections, Transformer, dan Embedding.md"
+  - query: "semantic vector"
+    relevant_paths:
+      - "20-Programs/Neural-Network-Learning/00 - Smart Connections, Transformer, dan Embedding.md"
+  - query: "smart connections"
+    relevant_paths:
+      - "20-Programs/Neural-Network-Learning/00 - Smart Connections, Transformer, dan Embedding.md"
+      - "20-Programs/Neural-Network-Learning/01-Remix-Smart-Connector/remix-smart-connector.md"
+      - "20-Programs/Neural-Network-Learning/01-Remix-Smart-Connector/10-Modular-Refactor/smart-connections-remix/modular/README.md"
+  - query: "connector refactor"
+    relevant_paths:
+      - "20-Programs/Neural-Network-Learning/01-Remix-Smart-Connector/remix-smart-connector.md"
+      - "20-Programs/Neural-Network-Learning/01-Remix-Smart-Connector/10-Modular-Refactor/smart-connections-remix/modular/README.md"

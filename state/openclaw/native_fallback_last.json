@@ -1,0 +1,11 @@
+{
+  "ok": false,
+  "state": "NATIVE_FALLBACK_BLOCKED",
+  "reason": "wsl-active",
+  "created_at": "2026-04-30T13:02:53+07:00",
+  "runtime_state_before_fallback": "S4_WSL_LIVE",
+  "gateway_decision": {
+    "active": "wsl",
+    "runtime_state": "S4_WSL_LIVE"
+  }
+}

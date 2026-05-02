@@ -1,0 +1,60 @@
+{
+  "ts": "2026-04-28T09:13:00+07:00",
+  "status": "ready",
+  "goal": "Advance graph-demotion cleanup via ALLO-only follow-up on ALLOCATION-FAMILY",
+  "route": "no_action",
+  "followup_auto": [
+    {
+      "id": "auto-allocation-family-batch",
+      "title": "Bounded ALLOCATION-FAMILY fetch + next ALLO-only batch",
+      "why_now": "Reviewed graph-demotion batch is ready; next_apply_mode is ALLO-only.",
+      "expected_artifact": "Updated run journal / next batch applied.",
+      "risk": "Scope creep if the fetch is not bounded.",
+      "confidence": 0.91,
+      "evidence": [
+        "C:\\Users\\joshu\\Obsidian-Otto\\state\\handoff\\latest.json",
+        "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md"
+      ]
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "human-commitment-continuity-probe",
+      "title": "Commitment continuity probe",
+      "why_now": "Active mentor probe is pending and maps to the top continuity weakness.",
+      "expected_artifact": "Answered probe note.",
+      "risk": "Weak recall can produce a vague answer.",
+      "confidence": 0.88,
+      "evidence": [
+        "C:\\Users\\joshu\\Obsidian-Otto\\state\\handoff\\latest.json",
+        "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md"
+      ]
+    },
+    {
+      "id": "human-gold-low-review",
+      "title": "Scoring calibration / intake sparsity review",
+      "why_now": "Gold promotion is still at 0 and meta-gov flagged gold_low.",
+      "expected_artifact": "Calibration decision or a narrower intake rule.",
+      "risk": "Can turn into noise-chasing.",
+      "confidence": 0.72,
+      "evidence": [
+        "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+        "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "path": "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\current.json",
+      "note": "runtime RUNNING"
+    },
+    {
+      "path": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\sync_status.json",
+      "note": "config drift free, managed sync healthy"
+    },
+    {
+      "path": "C:\\Users\\joshu\\Obsidian-Otto\\tasks\\active\\vault-hygiene-pass-01.md",
+      "note": "fallback task cue"
+    }
+  ]
+}

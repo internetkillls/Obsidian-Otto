@@ -1,0 +1,114 @@
+retrieval:
+  preferred_order:
+    - gold_summary
+    - silver_sql
+    - chroma_vector
+    - bronze_raw
+  fusion_method: rrf
+  rrf_k: 60
+  fast:
+    max_note_hits: 8
+    max_folder_hits: 4
+    max_state_hits: 8
+    use_chroma_first: false
+  deep:
+    max_note_hits: 20
+    max_folder_hits: 8
+    allow_scoped_refresh: true
+    allow_full_refresh: false
+  ranking:
+    exclude_prefixes:
+      - 90-Archive/
+      - z Incubator/
+      - .Otto-Realm/
+      - Otto-Realm/
+    penalize_prefixes:
+      - 04 Archive/
+      - memory/
+      - 10-Inbox/Typst/
+      - Action/++/
+    penalize_suffixes:
+      - /index.md
+      - /readme.md
+    penalize_titles:
+      - index
+      - readme
+    frontmatter_bonus: 0.15
+    title_bonus: 0.05
+    penalty_per_flag: 0.35
+
+scan:
+  include_prefixes:
+    - .Otto-Realm/Brain
+    - .Otto-Realm/Memory-Tiers
+    - 20-Programs/Crack-Research
+  exclude_prefixes:
+    - .Otto-Realm
+
+vector:
+  chunk_size: 900
+  chunk_overlap: 120
+  collection_name: otto_gold
+  partner_collection_name: otto_partner
+  embedding_model: sentence-transformers/all-mpnet-base-v2
+  embedding_fallback: onnx-mini-lm-l6-v2
+  partner_max_distance: 0.75
+  partner_relaxed_max_distance: 0.90
+  max_distance_fast: 1.1
+  max_distance_deep: 1.25
+  exclude_prefixes:
+    - 90-Archive/
+    - z Incubator/
+    - .Otto-Realm/
+    - Otto-Realm/
+    - 00-Meta/scarcity/
+    - 00-Meta/orientation/
+    - 00-Meta/allocation/
+    - 00-Meta/canvas-meta/
+    - 10-Inbox/Typst/
+  exclude_suffixes:
+    - /index.md
+    - /readme.md
+  exclude_titles:
+    - index
+    - readme
+
+rewrite:
+  auto_deepen_on_no_evidence: true
+  high_confidence_title_score: 8.0
+  prefer_titles_over_folders_gap: 3.0
+  max_folder_fallbacks_when_title_confident: 0
+  configured_title_alias_base_score: 7.0
+  configured_folder_alias_base_score: 6.5
+  metadata_alias_base_score: 6.0
+  title_match_base_score: 4.0
+  path_match_base_score: 3.0
+  folder_match_base_score: 2.5
+  nearby_alias_folder_base_score: 1.5
+  title_aliases:
+    - title: self model
+      aliases:
+        - self-model
+        - operator rhythm
+        - work rhythm
+        - operator profile
+    - title: GPT on Ultraradian
+      aliases:
+        - ultraradian
+        - ultradian rhythm
+        - operator cadence
+        - work cadence
+    - title: Operator Rhythm
+      aliases:
+        - rhythm protocol
+        - workflow rhythm
+  folder_aliases:
+    - folder: Action/Daily Thought
+      aliases:
+        - daily thought
+        - ultraradian
+        - cadence
+    - folder: .Otto-Realm/Brain
+      aliases:
+        - self model
+        - operator profile

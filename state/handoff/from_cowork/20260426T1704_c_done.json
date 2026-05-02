@@ -1,0 +1,39 @@
+{
+  "source": "otto_c_execution_v4",
+  "role": "c",
+  "status": "done",
+  "updated_at": "2026-04-26T17:04:25+07:00",
+  "summary": "Bounded ALLO-focused graph-demotion follow-up executed; 12 applied, 9 skipped by cap; health/no_action; gold_watch/no_action.",
+  "completions": [
+    {
+      "title": "Bounded ALLOCATION-FAMILY demotion follow-up",
+      "result": "completed",
+      "notes": "Review verdict ready, readability improved_allocation_signal, next mode remains ALLO-only."
+    },
+    {
+      "title": "Health tick gate",
+      "result": "no_action",
+      "notes": "Launcher runtime, MCP, and sync status healthy."
+    },
+    {
+      "title": "Gold-first gate",
+      "result": "no_action",
+      "notes": "Gold readiness true but promotions low; kept watch-only."
+    }
+  ],
+  "needs_human": [
+    "Gold calibration check (strict threshold vs sparse intake)",
+    "Commitment continuity probe answer"
+  ],
+  "evidence": {
+    "graph_demotion_review": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_demotion_review_latest.json",
+    "graph_shape_audit": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shape_audit.json",
+    "demotion_plan": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_demotion_plan.json",
+    "shadow_review": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shadow_review.md",
+    "launcher_current": "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\current.json",
+    "mcp_last_run": "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\mcp_last_run.json",
+    "sync_status": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\sync_status.json",
+    "gold_summary": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+    "kairos_daily_strategy": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md"
+  }
+}

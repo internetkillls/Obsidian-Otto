@@ -1,0 +1,357 @@
+{
+  "ts": "2026-05-01T20:48:36+07:00",
+  "queue_count": 8,
+  "group_count": 2,
+  "items": [
+    {
+      "id": "folder-1-50-Resources__Notion Export 26-04-28__Database Central__Areas__Academics__Academics Mainboard__Academics Timeline Database__Academics Agenda Database [Odd 23-24]",
+      "kind": "folder-repair",
+      "priority": 990,
+      "title": "Review folder hygiene: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]",
+      "source": "artifacts/summaries/gold_summary.json",
+      "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]",
+      "label": "must-fix",
+      "label_reason": "folder hygiene risk",
+      "why_now": "risk=722.0 missing_frontmatter=361 duplicate_titles=0 note_count=361",
+      "evidence": {
+        "representative_files": [
+          "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Etika Biomedik 1 9 4\\Untitled 9639a95415e9451495bb08df67c9a3cb.md",
+          "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme 9 40 [Presentasi]\\Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md",
+          "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Biomedik Recap fc9535da90714fe88bffb0182fbe50f2.md"
+        ],
+        "outbound_links": 0
+      },
+      "next_manual_step": "Inspect the representative files, then decide whether to normalize metadata or split the folder into smaller clusters."
+    },
+    {
+      "id": "folder-2-50-Resources__Notion Export 26-04-28__Database Central__Legacy Database__Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle",
+      "kind": "folder-repair",
+      "priority": 980,
+      "title": "Review folder hygiene: 50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle",
+      "source": "artifacts/summaries/gold_summary.json",
+      "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle",
+      "label": "must-fix",
+      "label_reason": "folder hygiene risk",
+      "why_now": "risk=352.0 missing_frontmatter=176 duplicate_titles=0 note_count=176",
+      "evidence": {
+        "representative_files": [
+          "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle\\Papper Hari ini\\PPT Skripsi\\PPT Sempro Fix 297bf49767a546a0b3ee2599beaab81a.md",
+          "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle\\Foucault Charter\\Desain Pasca-Cybernetics dan Kritisisme 0a05dc1cc04842428c7d1ab3985f05af.md",
+          "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle\\Foucault Charter\\Design, Meta-Design f7086ca5922d4d429dd97287b04b27b9.md"
+        ],
+        "outbound_links": 0
+      },
+      "next_manual_step": "Inspect the representative files, then decide whether to normalize metadata or split the folder into smaller clusters."
+    },
+    {
+      "id": "folder-3-50-Resources__Notion Export 26-04-28__Database Central__Legacy Database__Thought Tracker 2023 →",
+      "kind": "folder-repair",
+      "priority": 970,
+      "title": "Review folder hygiene: 50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2023 →",
+      "source": "artifacts/summaries/gold_summary.json",
+      "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2023 →",
+      "label": "must-fix",
+      "label_reason": "folder hygiene risk",
+      "why_now": "risk=228.0 missing_frontmatter=114 duplicate_titles=0 note_count=114",
+      "evidence": {
+        "representative_files": [
+          "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2023 →\\9 Streamlining the System and Initiate “Books and_\\Academics Tracker Gasal 2022\\Untitled 5f88c5a694fb4da5bd1012c1901c9741.md",
+          "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2023 →\\9 Streamlining the System and Initiate “Books and_\\Academics Tracker Gasal 2022\\Untitled 8829e43efa754621b17022d7ee0401bf.md",
+          "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2023 →\\9 Streamlining the System and Initiate “Books and_\\Academics Tracker Gasal 2022\\Week 1 228bdd5971f64b499bd566d257c97840.md"
+        ],
+        "outbound_links": 0
+      },
+      "next_manual_step": "Inspect the representative files, then decide whether to normalize metadata or split the folder into smaller clusters."
+    },
+    {
+      "id": "gold-1-50-Resources__Notion Export 26-04-28__Database Central__Areas__Academics__Academics Mainboard__Academics Timeline Database__Academics Agenda Database [Odd 23-24]__Thomisme 9 40 [Presentasi]__Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md",
+      "kind": "gold-candidate-review",
+      "priority": 690,
+      "title": "Review Gold candidate: Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b",
+      "source": "state/kairos/gold_scored_latest.json",
+      "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme 9 40 [Presentasi]\\Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md",
+      "label": "should-review",
+      "label_reason": "category=theory score=4.452 threshold=3.920 consistency_hits=12",
+      "why_now": "category=theory score=4.452 threshold=3.920 consistency_hits=12",
+      "evidence": {
+        "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme 9 40 [Presentasi]\\Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md",
+        "category": "theory",
+        "category_reason": "argument, framework, principle, philosophy",
+        "notes": [
+          "category:theory"
+        ]
+      },
+      "next_manual_step": "Open the note and decide whether it should remain Gold, be revised, or be downgraded to Silver."
+    },
+    {
+      "id": "gold-2-50-Resources__Notion Export 26-04-28__Database Central__Areas__Academics__Academics Mainboard__Academics Timeline Database__Academics Agenda Database [Odd 23-24]__Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f.md",
+      "kind": "gold-candidate-review",
+      "priority": 680,
+      "title": "Review Gold candidate: Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f",
+      "source": "state/kairos/gold_scored_latest.json",
+      "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f.md",
+      "label": "should-review",
+      "label_reason": "category=bridge score=4.236 threshold=3.950 consistency_hits=12",
+      "why_now": "category=bridge score=4.236 threshold=3.950 consistency_hits=12",
+      "evidence": {
+        "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f.md",
+        "category": "bridge",
+        "category_reason": "fallback:no strong category signal",
+        "notes": [
+          "category:bridge"
+        ]
+      },
+      "next_manual_step": "Open the note and decide whether it should remain Gold, be revised, or be downgraded to Silver."
+    },
+    {
+      "id": "gold-3-50-Resources__Notion Export 26-04-28__Database Central__Areas__Academics__Academics Mainboard__Academics Timeline Database__Academics Agenda Database [Odd 23-24]__TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5.md",
+      "kind": "gold-candidate-review",
+      "priority": 670,
+      "title": "Review Gold candidate: TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5",
+      "source": "state/kairos/gold_scored_latest.json",
+      "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5.md",
+      "label": "should-review",
+      "label_reason": "category=operational score=4.158 threshold=3.950 consistency_hits=12",
+      "why_now": "category=operational score=4.158 threshold=3.950 consistency_hits=12",
+      "evidence": {
+        "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5.md",
+        "category": "operational",
+        "category_reason": "task, automation",
+        "notes": [
+          "category:operational"
+        ]
+      },
+      "next_manual_step": "Open the note and decide whether it should remain Gold, be revised, or be downgraded to Silver."
+    },
+    {
+      "id": "probe-1-2026 04 26 Re Entry Probe",
+      "kind": "training-probe",
+      "priority": 490,
+      "title": "Answer training probe: 2026 04 26 Re Entry Probe",
+      "source": "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Training\\probes\\2026-04-26-re-entry-probe.md",
+      "focus_path": ".Otto-Realm/Training/probes/2026-04-26-re-entry-probe.md",
+      "label": "should-review",
+      "label_reason": "probe=.Otto-Realm/Training/probes/2026-04-26-re-entry-probe.md",
+      "why_now": "weakness=2026-04-26-re-entry-probe gap=unknown",
+      "evidence": {
+        "probe_id": "2026-04-26-re-entry-probe",
+        "status": "pending",
+        "gap_type": "unknown",
+        "weakness_key": "2026-04-26-re-entry-probe"
+      },
+      "next_manual_step": "Write the shortest truthful answer and, if needed, attach one concrete next move."
+    },
+    {
+      "id": "probe-2-commitment continuity probe",
+      "kind": "training-probe",
+      "priority": 480,
+      "title": "Answer training probe: commitment continuity probe",
+      "source": "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Training\\probes\\2026-04-25-commitment-continuity-probe.md",
+      "focus_path": ".Otto-Realm/Training/probes/2026-04-25-commitment-continuity-probe.md",
+      "label": "should-review",
+      "label_reason": "probe=.Otto-Realm/Training/probes/2026-04-25-commitment-continuity-probe.md",
+      "why_now": "weakness=Commitments can be forgotten unless recalled from history and surfaced proactively. gap=unknown",
+      "evidence": {
+        "probe_id": "probe-commitment-continuity-probe-2026-04-25",
+        "status": "pending",
+        "gap_type": "unknown",
+        "weakness_key": "commitment-recall"
+      },
+      "next_manual_step": "Write the shortest truthful answer and, if needed, attach one concrete next move."
+    }
+  ],
+  "groups": [
+    {
+      "group_id": "50-Resources::Notion Export 26-04-28::standard",
+      "moc": "50-Resources",
+      "context": "Notion Export 26-04-28",
+      "is_exception": false,
+      "title": "MOC: 50-Resources / Context: Notion Export 26-04-28",
+      "group_label": "must-fix",
+      "priority": 990,
+      "label_counts": {
+        "must-fix": 3,
+        "should-review": 3,
+        "optional": 0
+      },
+      "items": [
+        {
+          "id": "folder-1-50-Resources__Notion Export 26-04-28__Database Central__Areas__Academics__Academics Mainboard__Academics Timeline Database__Academics Agenda Database [Odd 23-24]",
+          "kind": "folder-repair",
+          "priority": 990,
+          "title": "Review folder hygiene: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]",
+          "source": "artifacts/summaries/gold_summary.json",
+          "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]",
+          "label": "must-fix",
+          "label_reason": "folder hygiene risk",
+          "why_now": "risk=722.0 missing_frontmatter=361 duplicate_titles=0 note_count=361",
+          "evidence": {
+            "representative_files": [
+              "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Etika Biomedik 1 9 4\\Untitled 9639a95415e9451495bb08df67c9a3cb.md",
+              "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme 9 40 [Presentasi]\\Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md",
+              "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Biomedik Recap fc9535da90714fe88bffb0182fbe50f2.md"
+            ],
+            "outbound_links": 0
+          },
+          "next_manual_step": "Inspect the representative files, then decide whether to normalize metadata or split the folder into smaller clusters."
+        },
+        {
+          "id": "folder-2-50-Resources__Notion Export 26-04-28__Database Central__Legacy Database__Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle",
+          "kind": "folder-repair",
+          "priority": 980,
+          "title": "Review folder hygiene: 50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle",
+          "source": "artifacts/summaries/gold_summary.json",
+          "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle",
+          "label": "must-fix",
+          "label_reason": "folder hygiene risk",
+          "why_now": "risk=352.0 missing_frontmatter=176 duplicate_titles=0 note_count=176",
+          "evidence": {
+            "representative_files": [
+              "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle\\Papper Hari ini\\PPT Skripsi\\PPT Sempro Fix 297bf49767a546a0b3ee2599beaab81a.md",
+              "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle\\Foucault Charter\\Desain Pasca-Cybernetics dan Kritisisme 0a05dc1cc04842428c7d1ab3985f05af.md",
+              "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2024 - 2025→ @Daily Scratchpad Fle\\Foucault Charter\\Design, Meta-Design f7086ca5922d4d429dd97287b04b27b9.md"
+            ],
+            "outbound_links": 0
+          },
+          "next_manual_step": "Inspect the representative files, then decide whether to normalize metadata or split the folder into smaller clusters."
+        },
+        {
+          "id": "folder-3-50-Resources__Notion Export 26-04-28__Database Central__Legacy Database__Thought Tracker 2023 →",
+          "kind": "folder-repair",
+          "priority": 970,
+          "title": "Review folder hygiene: 50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2023 →",
+          "source": "artifacts/summaries/gold_summary.json",
+          "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2023 →",
+          "label": "must-fix",
+          "label_reason": "folder hygiene risk",
+          "why_now": "risk=228.0 missing_frontmatter=114 duplicate_titles=0 note_count=114",
+          "evidence": {
+            "representative_files": [
+              "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2023 →\\9 Streamlining the System and Initiate “Books and_\\Academics Tracker Gasal 2022\\Untitled 5f88c5a694fb4da5bd1012c1901c9741.md",
+              "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2023 →\\9 Streamlining the System and Initiate “Books and_\\Academics Tracker Gasal 2022\\Untitled 8829e43efa754621b17022d7ee0401bf.md",
+              "50-Resources\\Notion Export 26-04-28\\Database Central\\Legacy Database\\Thought Tracker 2023 →\\9 Streamlining the System and Initiate “Books and_\\Academics Tracker Gasal 2022\\Week 1 228bdd5971f64b499bd566d257c97840.md"
+            ],
+            "outbound_links": 0
+          },
+          "next_manual_step": "Inspect the representative files, then decide whether to normalize metadata or split the folder into smaller clusters."
+        },
+        {
+          "id": "gold-1-50-Resources__Notion Export 26-04-28__Database Central__Areas__Academics__Academics Mainboard__Academics Timeline Database__Academics Agenda Database [Odd 23-24]__Thomisme 9 40 [Presentasi]__Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md",
+          "kind": "gold-candidate-review",
+          "priority": 690,
+          "title": "Review Gold candidate: Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b",
+          "source": "state/kairos/gold_scored_latest.json",
+          "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme 9 40 [Presentasi]\\Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md",
+          "label": "should-review",
+          "label_reason": "category=theory score=4.452 threshold=3.920 consistency_hits=12",
+          "why_now": "category=theory score=4.452 threshold=3.920 consistency_hits=12",
+          "evidence": {
+            "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme 9 40 [Presentasi]\\Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md",
+            "category": "theory",
+            "category_reason": "argument, framework, principle, philosophy",
+            "notes": [
+              "category:theory"
+            ]
+          },
+          "next_manual_step": "Open the note and decide whether it should remain Gold, be revised, or be downgraded to Silver."
+        },
+        {
+          "id": "gold-2-50-Resources__Notion Export 26-04-28__Database Central__Areas__Academics__Academics Mainboard__Academics Timeline Database__Academics Agenda Database [Odd 23-24]__Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f.md",
+          "kind": "gold-candidate-review",
+          "priority": 680,
+          "title": "Review Gold candidate: Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f",
+          "source": "state/kairos/gold_scored_latest.json",
+          "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f.md",
+          "label": "should-review",
+          "label_reason": "category=bridge score=4.236 threshold=3.950 consistency_hits=12",
+          "why_now": "category=bridge score=4.236 threshold=3.950 consistency_hits=12",
+          "evidence": {
+            "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f.md",
+            "category": "bridge",
+            "category_reason": "fallback:no strong category signal",
+            "notes": [
+              "category:bridge"
+            ]
+          },
+          "next_manual_step": "Open the note and decide whether it should remain Gold, be revised, or be downgraded to Silver."
+        },
+        {
+          "id": "gold-3-50-Resources__Notion Export 26-04-28__Database Central__Areas__Academics__Academics Mainboard__Academics Timeline Database__Academics Agenda Database [Odd 23-24]__TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5.md",
+          "kind": "gold-candidate-review",
+          "priority": 670,
+          "title": "Review Gold candidate: TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5",
+          "source": "state/kairos/gold_scored_latest.json",
+          "focus_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5.md",
+          "label": "should-review",
+          "label_reason": "category=operational score=4.158 threshold=3.950 consistency_hits=12",
+          "why_now": "category=operational score=4.158 threshold=3.950 consistency_hits=12",
+          "evidence": {
+            "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5.md",
+            "category": "operational",
+            "category_reason": "task, automation",
+            "notes": [
+              "category:operational"
+            ]
+          },
+          "next_manual_step": "Open the note and decide whether it should remain Gold, be revised, or be downgraded to Silver."
+        }
+      ]
+    },
+    {
+      "group_id": ".Otto-Realm::Training::exception",
+      "moc": ".Otto-Realm",
+      "context": "Training",
+      "is_exception": true,
+      "title": ".Otto-Realm (exception) / Context: Training",
+      "group_label": "should-review",
+      "priority": 490,
+      "label_counts": {
+        "must-fix": 0,
+        "should-review": 2,
+        "optional": 0
+      },
+      "items": [
+        {
+          "id": "probe-1-2026 04 26 Re Entry Probe",
+          "kind": "training-probe",
+          "priority": 490,
+          "title": "Answer training probe: 2026 04 26 Re Entry Probe",
+          "source": "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Training\\probes\\2026-04-26-re-entry-probe.md",
+          "focus_path": ".Otto-Realm/Training/probes/2026-04-26-re-entry-probe.md",
+          "label": "should-review",
+          "label_reason": "probe=.Otto-Realm/Training/probes/2026-04-26-re-entry-probe.md",
+          "why_now": "weakness=2026-04-26-re-entry-probe gap=unknown",
+          "evidence": {
+            "probe_id": "2026-04-26-re-entry-probe",
+            "status": "pending",
+            "gap_type": "unknown",
+            "weakness_key": "2026-04-26-re-entry-probe"
+          },
+          "next_manual_step": "Write the shortest truthful answer and, if needed, attach one concrete next move."
+        },
+        {
+          "id": "probe-2-commitment continuity probe",
+          "kind": "training-probe",
+          "priority": 480,
+          "title": "Answer training probe: commitment continuity probe",
+          "source": "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Training\\probes\\2026-04-25-commitment-continuity-probe.md",
+          "focus_path": ".Otto-Realm/Training/probes/2026-04-25-commitment-continuity-probe.md",
+          "label": "should-review",
+          "label_reason": "probe=.Otto-Realm/Training/probes/2026-04-25-commitment-continuity-probe.md",
+          "why_now": "weakness=Commitments can be forgotten unless recalled from history and surfaced proactively. gap=unknown",
+          "evidence": {
+            "probe_id": "probe-commitment-continuity-probe-2026-04-25",
+            "status": "pending",
+            "gap_type": "unknown",
+            "weakness_key": "commitment-recall"
+          },
+          "next_manual_step": "Write the shortest truthful answer and, if needed, attach one concrete next move."
+        }
+      ]
+    }
+  ],
+  "source": "kairos",
+  "source_handoff": "C:\\Users\\joshu\\Obsidian-Otto\\state\\handoff\\latest.json",
+  "source_gold_summary": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+  "source_mentor_report": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\mentor_daily.md"
+}

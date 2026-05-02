@@ -1,0 +1,60 @@
+{
+  "ts": "2026-04-25T02:10:15+07:00",
+  "type": "vault_hygiene_checkpoint",
+  "goal": "Turn graph-shadow demotion planning into a bounded real apply path and record the latest vault-side deltas.",
+  "status": "completed",
+  "completed": [
+    "Implemented dry-run and apply-mode demotion planning in scripts/c4_graph_rollup_audit.py",
+    "Added dedicated ALLO hotspot markdown output ordered by cleanup payoff",
+    "Executed a real bounded apply against the Obsidian vault with max_demotion_writes=12",
+    "Recorded apply artifacts, apply/skipped counts, and updated review outputs"
+  ],
+  "verified": [
+    "Real apply command completed successfully against C:\\Users\\joshu\\Josh Obsidian",
+    "graph_demotion_plan.json reports mode=apply, plan_count=49, applied_count=12, skipped_count=37",
+    "graph_shape_audit.json reports note_count_batch=20, note_count_total=589, shadow_demotion_applied_count=12",
+    "ALLO hotspot report exists and currently points to ALLOCATION-FAMILY as the top cleanup surface"
+  ],
+  "deltas": {
+    "from_previous_state": [
+      "Demotion workflow moved from preview-only to bounded write mode",
+      "Real note mutation is now possible under --apply-demotion-plan with --max-demotion-writes",
+      "Checkpoint and handoff can now reference applied/skipped demotion counts instead of plan count only"
+    ],
+    "latest_apply": {
+      "vault": "C:\\Users\\joshu\\Josh Obsidian",
+      "scope": "full",
+      "note_count_batch": 20,
+      "note_count_total": 589,
+      "shadow_decision_count": 99,
+      "shadow_demotion_plan_count": 49,
+      "shadow_demotion_applied_count": 12,
+      "shadow_demotion_skipped_count": 37,
+      "top_allo_hotspot_family": "ALLOCATION-FAMILY"
+    }
+  },
+  "blockers": [],
+  "next_actions": [
+    "Inspect the first 12 mutated notes for graph readability and metadata quality",
+    "Run the next bounded batch only after reviewing ALLO hotspot examples",
+    "Decide whether future apply should stay mixed-family or be constrained to ALLO-only cleanup"
+  ],
+  "artifacts": {
+    "spec": "docs/superpowers/specs/2026-04-25-graph-shadow-demotion-apply-design.md",
+    "handoff": "state/handoff/latest.json",
+    "graph_shape_audit": "state/run_journal/graph_shape_audit.json",
+    "graph_shadow_decisions": "state/run_journal/graph_shadow_decisions.json",
+    "graph_shadow_review": "state/run_journal/graph_shadow_review.md",
+    "graph_demotion_plan_json": "state/run_journal/graph_demotion_plan.json",
+    "graph_demotion_plan_md": "state/run_journal/graph_demotion_plan.md",
+    "graph_allo_hotspots": "state/run_journal/graph_allo_hotspots.md"
+  },
+  "routing": {
+    "intent": "vault-hygiene",
+    "confidence": 79,
+    "persona": "archivist-owl",
+    "skill": "hygiene-audit",
+    "model_tier": "standard",
+    "kernel_required": true
+  }
+}

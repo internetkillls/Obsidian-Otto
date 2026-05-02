@@ -1,0 +1,375 @@
+# Otto-Obsidian Skill & Agentic Routing Inference
+# Generated from: docs/superpowers/specs/2026-04-13-otto-routing-inference-design.md
+# MIGRATION: when MCP is live — backends map to MCP tool contract (see config/migration-bridges.yaml BRIDGE-007)
+
+version: "1.0"
+last_updated: "2026-04-22"
+
+# Backend mapping (from openclaw.json)
+backends:
+  openai-codex:
+    type: codex
+    cli_path: "codex"
+    cli_args: []
+    models:
+      gpt-5.4-mini: "openai-codex/gpt-5.4-mini"
+      gpt-5.4: "openai-codex/gpt-5.4"
+  claude-cli:
+    type: claude-cli
+    cli_path: "C:\\Users\\joshu\\.local\\bin\\claude.exe"
+    cli_args:
+      - "-p"
+      - "--output-format"
+      - "stream-json"
+      - "--permission-mode"
+      - "bypassPermissions"
+      - "--allow-dangerously-skip-permissions"
+    models:
+      claude-sonnet-4-6: "claude-cli/claude-sonnet-4-6"
+      claude-opus-4-6: "claude-cli/claude-opus-4-6"
+
+tiers:
+  fast:
+    backend: openai-codex
+    model: gpt-5.4-mini
+    token_limit: 32000
+    kernel_required: true
+    context_isolation: true
+    tool_commitment: true
+    output_schema: compact
+  standard:
+    backend: openai-codex
+    model: gpt-5.4
+    token_limit: 64000
+    kernel_required: false
+  sonnet:
+    backend: claude-cli
+    model: claude-sonnet-4-6
+    token_limit: 200000
+    kernel_required: false
+  premium:
+    backend: claude-cli
+    model: claude-opus-4-6
+    token_limit: 200000
+    kernel_required: false
+
+intents:
+  - id: deep-profile
+    name: "Deep User Profiling"
+    triggers:
+      - "understand me"
+      - "soft profile"
+      - "how i work"
+      - "friction"
+      - "recovery"
+      - "fatigue"
+      - "monetizable"
+      - "wellbeing"
+    skill: agathon-soft-profile
+    persona: strategist-fox
+    priority: 8
+    model_tier: standard
+    kernel_required: true
+
+  - id: vault-maintenance
+    name: "Otto Self-Maintenance"
+    triggers:
+      - "otto-realm"
+      - "self-repair"
+      - "profile snapshot"
+      - "heartbeat"
+      - "continuity"
+      - "Otto maintain"
+      - "Otto self"
+    skill: otto-realm-maintainer
+    persona: otto-core
+    priority: 7
+    model_tier: fast
+    escalate_to: agathon-soft-profile
+
+  - id: dream-consolidate
+    name: "Dream Consolidation"
+    triggers:
+      - "dream"
+      - "consolidate"
+      - "reflect"
+      - "make sense of"
+      - "nightmare"
+      - "dream cycle"
+    skill: dream-consolidation
+    persona: dreamer-moth
+    priority: 7
+    model_tier: standard
+    kernel_required: true
+
+  - id: memory-recall-fast
+    name: "Fast Memory Recall"
+    triggers:
+      - "remember"
+      - "find"
+      - "where is"
+      - "did i note"
+      - "show me"
+      - "recall"
+      - "remind"
+    skill: memory-fast
+    persona: archivist-owl
+    priority: 6
+    model_tier: fast
+    escalate_to: memory-deep
+
+  - id: memory-recall-deep
+    name: "Deep Memory Retrieval"
+    triggers:
+      - "deep context"
+      - "rich context"
+      - "what's the full picture"
+      - "detailed retrieval"
+      - "full context"
+    skill: memory-deep
+    persona: archivist-owl
+    priority: 6
+    model_tier: standard
+    escalate_to: hygiene-audit
+
+  - id: hygiene-check
+    name: "Vault Hygiene Audit"
+    triggers:
+      - "hygiene"
+      - "clean"
+      - "folder risk"
+      - "duplicate"
+      - "audit"
+      - "folder check"
+    skill: hygiene-audit
+    persona: auditor-crow
+    priority: 5
+    model_tier: fast
+
+  - id: scholarly-research
+    name: "Scholarly Research"
+    triggers:
+      - "literature review"
+      - "evidence map"
+      - "academic"
+      - "source"
+      - "remap"
+      - "exploration"
+      - "research"
+      - "scholarly"
+    skill: scholarly-explore-remap
+    persona: archivist-owl
+    priority: 8
+    model_tier: standard
+    kernel_required: true
+
+  - id: visual-precedent
+    name: "Visual Precedent Execution"
+    triggers:
+      - "visual"
+      - "precedent"
+      - "moodboard"
+      - "design reference"
+      - "screenshot"
+      - "sketch"
+      - "layout"
+      - "diagram"
+      - "borrow from"
+    skill: visual-precedent-execution
+    persona: builder-beaver
+    priority: 7
+    model_tier: standard
+    kernel_required: true
+    tool_commitment: true
+
+  - id: obsidian-cli
+    name: "Obsidian CLI Operation"
+    triggers:
+      - "obsidian CLI"
+      - "MCP"
+      - "command queue"
+      - "routine"
+      - "headless"
+      - "vault command"
+    skill: obsidian-cli-expert-system
+    persona: builder-beaver
+    priority: 6
+    model_tier: fast
+    constraints:
+      - human-review-required
+      - explain-before-act
+
+  - id: typst-document
+    name: "Typst Document System"
+    triggers:
+      - "typst"
+      - "PDF layout"
+      - "document system"
+      - "cross-format"
+      - "markdown to PDF"
+      - "luxury layout"
+      - "typst document"
+    skill: typst-luxury-layout
+    persona: builder-beaver
+    priority: 6
+    model_tier: standard
+    kernel_required: true
+
+  - id: thought-partnership
+    name: "Josh Thought Partnership"
+    triggers:
+      - "thought partner"
+      - "philosophical"
+      - "essay"
+      - "reflection"
+      - "discuss"
+      - "what do you think"
+    skill: josh-thought-partner
+    persona: strategist-fox
+    priority: 9
+    model_tier: standard
+    kernel_required: true
+    constraints:
+      - no-flattery
+      - no-premature-closure
+      - end-with-move
+
+  - id: swot-analysis
+    name: "SWOT Analysis"
+    triggers:
+      - "SWOT"
+      - "strength weakness"
+      - "opportunity threat"
+      - "strategic"
+      - "priority"
+    skill: agathon-soft-profile
+    persona: strategist-fox
+    priority: 8
+    model_tier: standard
+    kernel_required: true
+
+  - id: umkm-debt-negotiation
+    name: "UMKM Debt Negotiation"
+    triggers:
+      - "UMKM debt negotiation"
+      - "utang UMKM"
+      - "mitigasi utang"
+      - "debt mitigation"
+      - "cash survival"
+      - "bertahan hidup"
+      - "peluang uang cepat"
+      - "debt-to-business bridge"
+      - "coverage ratio"
+    skill: umkm-debt-negotiation
+    persona: strategist-fox
+    priority: 10
+    model_tier: standard
+    kernel_required: true
+    constraints:
+      - source-crack-research-only
+      - no-generic-debt-method
+      - cite-specific-file-paths
+
+  - id: operational-handoff
+    name: "Operational Task"
+    triggers:
+      - "run"
+      - "execute"
+      - "build"
+      - "implement"
+      - "create file"
+      - "edit"
+      - "refactor"
+      - "fix"
+    skill: otto-realm-maintainer
+    persona: builder-beaver
+    priority: 7
+    model_tier: standard
+
+llm_router:
+  model: gpt-5.4-mini
+  timeout_seconds: 3
+  prompt_template: |
+    Classify this query into one of the following intents: {intent_list}.
+    Return JSON with fields: intent, confidence (0-100), reasoning, skill, persona, model_tier, kernel_notes.
+    If confidence < 50, return: {intent: "unknown", confidence, reasoning, skill: "otto-realm-maintainer", persona: "otto-core", model_tier: "fast", kernel_notes: "full kernelization applied"}.
+
+fallback:
+  method: keyword_intersection
+  weights:
+    exact_phrase_match: 30
+    partial_keyword_match: 10
+    persona_keyword_match: 5
+  threshold: 20
+  default_intent: operational-handoff
+  default_persona: otto-core
+  default_model: fast
+  kernel_required: true
+
+novel_intent:
+  confidence_threshold: 40
+  novel_queries_log: "state/run_journal/novel_queries.jsonl"
+  skillification_threshold: 3
+  auto_create_draft: true
+  heartbeat_review_flag: true
+
+escalation:
+  fast_to_standard:
+    triggers:
+      - intent.kernel_required: true
+      - query_keywords: [multi-file, multiple, compare, synthesize, analyze deeply]
+      - context_length_gt: 5
+      - time_window: ["06:00-11:59", "12:00-17:59"]
+      - rt_sdz_signal: true
+      - confidence_lt: 60
+  standard_to_sonnet:
+    triggers:
+      - intent in: [thought-partnership, scholarly-research]
+      - query_requires_deep_synthesis: true
+      - context_length_gt: 10
+      - 1x_failure_with_error: "context too complex"
+  standard_to_premium:
+    triggers:
+      - intent.requires_opus: true
+      - query.multimodal_and_ambiguous: true
+      - 2x_consecutive_failure: true
+      - tool_failure_with: "insufficient context"
+  sonnet_to_premium:
+    triggers:
+      - intent.requires_opus: true
+      - 2x_consecutive_failure: true
+      - high_complexity_and_multimodal: true
+  premium_fallback_to_sonnet:
+    triggers:
+      - opus_unavailable: [rate_limit, downtime]
+    mitigation:
+      apply_full_kernelization: true
+      chunk_task: true
+      max_chunks: 3
+      tool_commitment: enforced
+      output_schema: premium_compatible
+  sonnet_fallback_to_standard:
+    triggers:
+      - sonnet_unavailable: true
+    mitigation:
+      apply_full_kernelization: true
+      chunk_task: true
+      output_schema: compact
+
+time_windows:
+  morning_rtw:
+    start: "06:00"
+    end: "11:59"
+    signals: [RTW, IB, SDZ, friction, schedule, readiness]
+  afternoon_swot:
+    start: "12:00"
+    end: "17:59"
+    signals: [SWOT, cognitive, monetizable, service]
+  evening_sm2:
+    start: "18:00"
+    end: "23:59"
+    signals: [SM-2, quiz, soul, council]
+  night_urgent:
+    start: "00:00"
+    end: "05:59"
+    signals: [urgent-repair, high-signal-delta]

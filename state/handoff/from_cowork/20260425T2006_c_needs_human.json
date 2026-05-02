@@ -1,0 +1,32 @@
+{
+  "source": "otto_c_execution_v4",
+  "role": "c",
+  "status": "needs_human",
+  "updated_at": "2026-04-25T20:06:27+07:00",
+  "summary": "Scoped 00-Meta\\scarcity pipeline refresh completed; human council review still pending.",
+  "artifacts": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\c_completion.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\needs_you.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json"
+  ],
+  "next_actions": [
+    "Escalate council_repeat for urgent review before the next heartbeat cycle.",
+    "Review scoring calibration and whether the intake stream is too sparse.",
+    "Keep training export gated behind reviewed Gold."
+  ],
+  "next_action": "Escalate council_repeat for urgent review before the next heartbeat cycle.",
+  "health_gate": {
+    "result": "no_action",
+    "runtime_status": "RUNNING",
+    "mcp_mode": "container_ready",
+    "sync_ok": true
+  },
+  "gold_gate": {
+    "result": "ready",
+    "scope": "00-Meta\\scarcity",
+    "training_ready": true,
+    "gold_ready": true,
+    "gold_promoted_count": 0
+  }
+}

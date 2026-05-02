@@ -1,0 +1,6 @@
+{
+  "version": "1.0",
+  "protected_entities": [],
+  "protected_families": [],
+  "notes": "Add small human-protected nodes or families that should resist auto-demotion."
+}

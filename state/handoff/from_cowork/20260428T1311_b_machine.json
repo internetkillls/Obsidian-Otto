@@ -1,0 +1,19 @@
+{
+  "ts": "2026-04-28T13:11:00+07:00",
+  "source": "otto_b_triage_v5",
+  "verdict": "machine",
+  "next_anchor": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md",
+  "followup_auto": [
+    "ALLOCATION-FAMILY bounded fetch + ALLO-only apply"
+  ],
+  "followup_human": [
+    "Commitment continuity probe",
+    "Vault hygiene pass on 00-Meta\\scarcity"
+  ],
+  "stop_trigger": "Stop if bounded fetch is weak or apply scope leaves ALLOCATION-FAMILY / ALLO-only.",
+  "evidence": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\a_signal.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Brain\\otto_bottleneck.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md"
+  ]
+}

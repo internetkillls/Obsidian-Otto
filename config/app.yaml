@@ -1,0 +1,14 @@
+app:
+  name: Obsidian-Otto
+  mode: stable
+  timezone: Asia/Jakarta
+  default_refresh_seconds: 2
+  vault_relative_task_file: tasks/active/vault-hygiene-pass-01.md
+
+runtime:
+  local_only: true
+  enable_background_runtime: true
+  enable_kairos: true
+  enable_dreaming: true
+  enable_training_exports: true
+  install_codex_home_helper: false

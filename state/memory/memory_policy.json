@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "default_rules": {
+    "raw_qmd_index": false,
+    "raw_vault_writeback": false,
+    "candidate_qmd_index": false,
+    "candidate_vault_writeback": false,
+    "review_required_for_gold": true,
+    "evidence_required_for_claim": true
+  },
+  "privacy_rules": {
+    "public": {
+      "qmd_index_allowed": true,
+      "vault_writeback_allowed": true
+    },
+    "private": {
+      "qmd_index_allowed": true,
+      "vault_writeback_allowed": true
+    },
+    "private_reviewed": {
+      "qmd_index_allowed": true,
+      "vault_writeback_allowed": true
+    },
+    "sensitive": {
+      "qmd_index_allowed": false,
+      "vault_writeback_allowed": false
+    }
+  },
+  "kind_rules": {
+    "social_raw": {
+      "qmd_index_allowed": false,
+      "vault_writeback_allowed": false,
+      "review_required": true
+    },
+    "profile_claim_candidate": {
+      "qmd_index_allowed": false,
+      "vault_writeback_allowed": false,
+      "review_required": true
+    },
+    "handoff_note": {
+      "qmd_index_allowed": true,
+      "vault_writeback_allowed": true,
+      "review_required": true
+    },
+    "gold_memory": {
+      "qmd_index_allowed": true,
+      "vault_writeback_allowed": true,
+      "review_required": false
+    }
+  }
+}

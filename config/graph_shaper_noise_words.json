@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "use_common_stopwords": true,
+  "common_stopwords": [
+    "about",
+    "across",
+    "and",
+    "atau",
+    "dan",
+    "dari",
+    "dengan",
+    "di",
+    "for",
+    "from",
+    "ini",
+    "into",
+    "itu",
+    "ke",
+    "pada",
+    "that",
+    "the",
+    "this",
+    "untuk",
+    "with",
+    "yang"
+  ],
+  "custom_stopwords": [
+    "archive",
+    "misc",
+    "related",
+    "template",
+    "daily",
+    "moc",
+    "meta"
+  ],
+  "noise_words": [
+    "archive",
+    "misc",
+    "related",
+    "template",
+    "daily",
+    "moc",
+    "meta",
+    "index",
+    "dashboard"
+  ],
+  "go_words": [],
+  "notes": "Update via your own n-gram pipeline; this file is dynamic and editable."
+}

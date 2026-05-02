@@ -1,0 +1,23 @@
+{
+  "source": "cowork-otto-b",
+  "role": "b",
+  "status": "handoff",
+  "updated_at": "2026-04-21T01:15:18+07:00",
+  "summary": "Loop 27 B — A skip_this_cycle honored (Josh state: stall). Choose machine-only handoff: restore loop continuity (B/C exit artifacts + bridge drops) and seed missing OO-copy self_model.md. Renew date-refresh card only on first user-authored vault delta (re-dated to 2026-04-21; single-action; not a 4th full prompt). OO artifacts remain stale since 2026-04-17.",
+  "artifacts": [
+    "Otto-Realm/Handoff/b_execution_brief.md"
+  ],
+  "next_actions": [
+    "Loop 27 C: execute machine-only loop-health maintenance per b_execution_brief.md; write c_completion + heartbeat; write C bridge drop",
+    "Honor skip_this_cycle: no Josh-facing output unless a user-authored vault delta is confirmed",
+    "If delta occurs: create the re-dated (2026-04-21) single-action date-refresh card (not a 4th full prompt)",
+    "Defer OO refresh (latest/pipeline/gold/kairos) until Josh re-enters or a clear machine window",
+    "After C: A re-evaluates stall tier + whether bridge continuity is restored"
+  ],
+  "next_action": "Loop 27 C: execute machine-only loop-health maintenance per b_execution_brief.md; write c_completion + heartbeat; write C bridge drop",
+  "wellbeing": {
+    "josh_state": "stall",
+    "evidence": "01:15 WIB Tue; A-signal indicates extended stall; no fresh OO artifacts beyond 2026-04-17"
+  },
+  "language": "mixed"
+}

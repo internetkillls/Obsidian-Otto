@@ -1,0 +1,10 @@
+{
+  "ottoVaultContext": true,
+  "agentContextTuning": false,
+  "ottoLoopReady": true,
+  "ottoInitialize": true,
+  "dreamMemoryFeed": true,
+  "kairosTelemetry": true,
+  "morpheusContinuity": true,
+  "ottoRepairMode": true
+}

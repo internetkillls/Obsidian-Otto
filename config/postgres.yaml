@@ -1,0 +1,10 @@
+postgres:
+  host: "localhost"
+  port: 54329
+  database: "otto"
+  user: "otto"
+  password: "otto"
+  # Connection pool settings
+  max_connections: 10
+  # Schema auto-init on runtime boot
+  auto_init_schema: true

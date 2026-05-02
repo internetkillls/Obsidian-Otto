@@ -1,0 +1,10 @@
+{
+  "OTTO_REPO_ROOT": "/mnt/c/Users/joshu/Obsidian-Otto",
+  "OTTO_VAULT_HOST": "/mnt/c/Users/joshu/Josh Obsidian",
+  "OTTO_VAULT_PATH": "/mnt/c/Users/joshu/Josh Obsidian",
+  "OTTO_STATE_ROOT": "/mnt/c/Users/joshu/Obsidian-Otto/state",
+  "OTTO_LAUNCHER": "otto.bat",
+  "OTTO_LOOP_MODE": "local",
+  "PYTHONUTF8": "1",
+  "PYTHONIOENCODING": "utf-8"
+}

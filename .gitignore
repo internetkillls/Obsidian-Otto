@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Data
+external/sqlite/*.db
+external/sqlite/*.sqlite*
+external/chroma_store/*
+!external/chroma_store/.gitkeep
+data/temp/*
+!data/temp/.gitkeep
+
+# Runtime
+logs/**/*.log
+logs/**/*.jsonl
+state/**/*.pid
+state/bootstrap/*.json
+state/kairos/*.jsonl
+state/launcher/*.json
+state/run_journal/*.jsonl
+state/openclaw/ubuntu-shadow/*.json
+state/openclaw/clarity_ngram_counts.json
+state/openclaw/backups/
+.openclaw/*.bak*
+.openclaw/openclaw.json.pre-*
+artifacts/**/*.json
+artifacts/**/*.md
+dist/
+node_modules/
+.tmp_pytest_verify/
+.tmp_test/
+.tmp_launcher_tests/
+scripts/vault-home-extract/
+
+# Test scratch
+.pytest_cache/
+.tmp_test/
+.tmp_launcher_tests/
+
+# Editors
+.vscode/
+.idea/
+.DS_Store
+
+# Archives
+*.zip
+*.7z
+*.tar
+*.gz

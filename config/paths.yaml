@@ -1,0 +1,8 @@
+paths:
+  vault_path: "C:\\Users\\joshu\\Josh Obsidian"
+  sqlite_path: "external/sqlite/otto_silver.db"
+  chroma_path: "external/chroma_store"
+  bronze_root: "data/bronze"
+  artifacts_root: "artifacts"
+  logs_root: "logs"
+  state_root: "state"

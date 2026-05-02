@@ -1,0 +1,38 @@
+{
+  "ts": "2026-04-21T21:50:45+07:00",
+  "type": "research_checkpoint",
+  "goal": "Provide a foundational-to-practical reading + YouTube watchlist for the Obsidian-Otto retrieval control plane (bronze→silver→gold, MCP, orchestration).",
+  "status": "completed",
+  "completed": [
+    "Ran routing inference by inspecting config/routing.yaml, config/personas.yaml, and config/kernelization.yaml",
+    "Verified current mission context from tasks/active and state/handoff + pipeline checkpoints",
+    "Collected primary references for RAG / retrieval papers and MCP specification + introductory talk",
+    "Prepared a staged curriculum (foundations → RAG → evaluation → control plane → variants)"
+  ],
+  "verified": [
+    "Current active objective includes Pipeline (bronze→silver→gold) + MCP integration (tasks/active/pipeline-optimizer-01.md)",
+    "Last pipeline scope recorded as '.' and silver DB path is present (state/checkpoints/pipeline.json)"
+  ],
+  "blockers": [],
+  "next_actions": [
+    "Pick a primary variant to optimize first (hybrid BM25+dense+rereank vs graph/hierarchical summaries vs pure SQL)",
+    "Add one small, repeatable evaluation harness for retrieval quality (e.g., BEIR-style metrics + RAGAS-style faithfulness checks) before large architecture expansion"
+  ],
+  "artifacts": {
+    "handoff": "state/handoff/latest.json",
+    "pipeline_checkpoint": "state/checkpoints/pipeline.json",
+    "gold_summary": "artifacts/summaries/gold_summary.json",
+    "routing_config": "config/routing.yaml",
+    "personas_config": "config/personas.yaml",
+    "kernelization_config": "config/kernelization.yaml"
+  },
+  "routing": {
+    "query_hash": "31016ed49a4590e71120545686ddd2ff75d805d2643498e686471747691d4ddc",
+    "intent": "scholarly-research",
+    "confidence": 75,
+    "persona": "archivist-owl",
+    "skill": "scholarly-explore-remap",
+    "model_tier": "standard",
+    "kernel_required": true
+  }
+}

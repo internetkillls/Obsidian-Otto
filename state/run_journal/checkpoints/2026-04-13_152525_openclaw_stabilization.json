@@ -1,0 +1,38 @@
+{
+  "ts": "2026-04-13T15:25:25+07:00",
+  "type": "implementation_checkpoint",
+  "goal": "Stabilize Claude fallback via OpenClaw and prepare scarcity ingest without mutating Josh vault note bodies",
+  "status": "implemented_with_preflight_blocker",
+  "completed": [
+    "Canonical OpenClaw config established at repo .openclaw/openclaw.json and synced to live C:\\Users\\joshu\\.openclaw\\openclaw.json",
+    "OpenClaw config schema repaired so current OpenClaw CLI validates the file and accepts the Hugging Face provider block",
+    "Managed sync path added via scripts/manage/sync_openclaw_config.py, bootstrap integration, and sync-openclaw.bat",
+    "OpenClaw health/fallback support added in Otto with status, sanity, and CLI hooks",
+    "Anthropic 529 fallback behavior now resolves to Hugging Face Qwen and writes fallback events to state/openclaw/fallback_events.jsonl",
+    "Bronze manifest extraction extended with scarcity, necessity, artificial, orientation, allocation, and cluster_membership using frontmatter-first then tags fallback precedence",
+    "Josh Obsidian helper scripts created: audit_frontmatter.py, scan_scarcity.py, gen_base_views.py, canvas_companion.py, audit_delta.py"
+  ],
+  "verified": [
+    "OpenClaw sync status reports openclaw_config_sync=true, managed_hashes_match=true, anthropic_ready=true, hf_fallback_ready=true",
+    "Simulated 529 fallback probe succeeded and was logged",
+    "tests/test_openclaw_support.py passed",
+    "tests/test_scarcity_scan.py passed",
+    "tests/test_pipeline.py passed"
+  ],
+  "blockers": [
+    "Josh Obsidian scarcity preflight is not ready: scarcity_preflight.json reports note_count=1214, scarcity_field_notes=0, missing_scarcity_field_count=1214, ok=false",
+    "Base view and canvas generation should stay deferred until scarcity frontmatter is normalized in the Josh vault"
+  ],
+  "next_actions": [
+    "Add normalized scarcity frontmatter in Josh Obsidian",
+    "Rerun audit_frontmatter --check-scarcity-field until preflight passes",
+    "Then run scan_scarcity, gen_base_views, canvas_companion, and audit_delta",
+    "Keep Otto Bronze scarcity fields in place; do not change Silver or Gold in the first scarcity pass"
+  ],
+  "artifacts": {
+    "openclaw_sync": "state/openclaw/sync_status.json",
+    "openclaw_fallback_log": "state/openclaw/fallback_events.jsonl",
+    "josh_scarcity_preflight": "../Josh Obsidian/state/scarcity_preflight.json",
+    "josh_scarcity_index": "../Josh Obsidian/state/scarcity_index.json"
+  }
+}

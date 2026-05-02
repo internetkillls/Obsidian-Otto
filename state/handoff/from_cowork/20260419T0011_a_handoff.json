@@ -1,0 +1,22 @@
+{
+  "source": "cowork-otto-a",
+  "role": "a",
+  "status": "handoff",
+  "updated_at": "2026-04-19T00:11:57+07:00",
+  "summary": "Phase C preflight red (6 root system docs missing scarcity); OO artifacts stale; keep hold posture (no double-stack).",
+  "artifacts": [
+    "Otto-Realm/Handoff/a_signal.md",
+    "Otto-Realm/Brain/otto_bottleneck.md"
+  ],
+  "next_actions": [
+    "Restore Phase C green: add `scarcity` frontmatter to AGENTS/HEARTBEAT/IDENTITY/SOUL/TOOLS/USER (or exempt them from Phase C checks)",
+    "Run scoped Obsidian-Otto refresh so folder-risk + unresolved signals are current for 2026-04-19",
+    "Hold posture: no new Josh prompt until re-entry signal; require 1-sentence tiebreak-first on return"
+  ],
+  "next_action": "Restore Phase C green: add `scarcity` frontmatter to AGENTS/HEARTBEAT/IDENTITY/SOUL/TOOLS/USER (or exempt them from Phase C checks)",
+  "wellbeing": {
+    "josh_state": "idle",
+    "evidence": "Heartbeat 2026-04-18 11:46: Josh idle (~35h); morning prompt remains the sole live intervention (no double-stack)."
+  },
+  "language": "en"
+}

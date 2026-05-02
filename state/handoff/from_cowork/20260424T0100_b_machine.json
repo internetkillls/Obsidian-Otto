@@ -1,0 +1,19 @@
+{
+  "ts": "2026-04-24T01:00:00+07:00",
+  "role": "b",
+  "status": "machine",
+  "source": "scheduled_reminder",
+  "brief_path": "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\b_execution_brief.md",
+  "verdict": "machine",
+  "followup_auto": [
+    "auto_projects_metadata_repair",
+    "auto_areas_metadata_repair",
+    "auto_brain_frontmatter_repair"
+  ],
+  "followup_human": [
+    "human_urgent_review_council_repeat",
+    "human_gold_calibration_review"
+  ],
+  "health_gate": "healthy",
+  "gold_gate": "ready"
+}

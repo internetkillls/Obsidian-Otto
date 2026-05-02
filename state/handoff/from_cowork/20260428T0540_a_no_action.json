@@ -1,0 +1,46 @@
+{
+  "ts": "2026-04-28T05:40:00+07:00",
+  "status": "no_action",
+  "signal": "a_signal_v5",
+  "followups": {
+    "auto": [
+      {
+        "id": "auto-1",
+        "title": "ALLOCATION-FAMILY bounded fetch",
+        "why_now": "Graph-demotion review is ready; smallest machine-step that advances the reviewed batch.",
+        "expected_artifact": "refreshed batch evidence / updated run-journal note",
+        "risk": "low",
+        "confidence": 0.86
+      },
+      {
+        "id": "auto-2",
+        "title": "00-Meta\\scarcity scoped metadata repair",
+        "why_now": "Highest-risk folder in the current hygiene snapshot.",
+        "expected_artifact": "frontmatter fixes and reduced duplicate-title risk in the scoped folder",
+        "risk": "medium",
+        "confidence": 0.78
+      }
+    ],
+    "human": [
+      {
+        "id": "human-1",
+        "title": "Commitment continuity probe",
+        "why_now": "Pending and explicitly targets a known recall weakness.",
+        "expected_artifact": "answered probe note with a usable next-step cue",
+        "risk": "low",
+        "confidence": 0.82
+      }
+    ]
+  },
+  "evidence": {
+    "launcher": {
+      "current": "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\current.json",
+      "mcp_last_run": "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\mcp_last_run.json",
+      "sync_status": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\sync_status.json"
+    },
+    "gold": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+    "pipeline": "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+    "strategy": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md",
+    "task": "C:\\Users\\joshu\\Obsidian-Otto\\tasks\\active\\vault-hygiene-pass-01.md"
+  }
+}

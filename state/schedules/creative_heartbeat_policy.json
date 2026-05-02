@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "runtime": "wsl_shadow",
+  "mode": "proactive_review_gated",
+  "safety": {
+    "auto_publish": false,
+    "auto_enable_telegram": false,
+    "auto_download_youtube": false,
+    "auto_write_public": false,
+    "auto_qmd_index_raw": false,
+    "auto_vault_write_unreviewed": false
+  },
+  "cadence": {
+    "song_skeleton": {
+      "every_hours": 4,
+      "lab_mode_every_hours": 2,
+      "max_per_day": 6
+    },
+    "paper_onboarding": {
+      "every_hours_min": 4,
+      "every_hours_max": 6,
+      "max_per_day": 4
+    },
+    "blocker_experiment": {
+      "every_hours": 24,
+      "min_per_day": 1
+    },
+    "memento_due": {
+      "every_hours": 8
+    },
+    "visual_inspo": {
+      "trigger": "on_song_or_prose_candidate"
+    }
+  },
+  "review_gates": {
+    "song_skeleton_to_gold": "manual_promote",
+    "paper_onboarding_to_gold": "manual_review",
+    "memento_block_to_quiz": "reviewed_or_gold",
+    "visual_inspo_to_vault": "reference_only_or_reviewed"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "ts": "2026-05-01T20:48:36+07:00",
+  "topic": "Metadata repair strategy for 50-Resources/Notion Export 26-04-28/Database Central/Areas/Academics/Academics Mainboard/Academics Timeline Database/Academics Agenda Database [Odd 23-24] (risk=722.0)",
+  "topic_class": "systems",
+  "priority": "medium",
+  "approved": true,
+  "budget_reason": "Topic is specific enough for a bounded review-first fetch",
+  "planned_cycles": 1,
+  "source_tiers": [
+    "expert blogs",
+    "documentation",
+    "conference proceedings"
+  ],
+  "needs_freshness_check": false,
+  "effect_size_required": false,
+  "search_query": "Metadata repair strategy for 50-Resources/Notion Export 26-04-28/Database Central/Areas/Academics/Academics Mainboard/Academics Timeline Database/Academics Agenda Database [Odd 23-24] (risk=722.0) site:acm.org OR site:arxiv.org OR site:plos.org Research should clarify the highest-leverage decision behind: Metadata repair strategy for 50-Resources/Notion Export 26-04-28/Database Central/Areas/Academics/Academics Mainboard/Academics Timeline Database/Academics Agenda Database [Odd 23-24] (risk=722.0)",
+  "hypothesis": "Research should clarify the highest-leverage decision behind: Metadata repair strategy for 50-Resources/Notion Export 26-04-28/Database Central/Areas/Academics/Academics Mainboard/Academics Timeline Database/Academics Agenda Database [Odd 23-24] (risk=722.0)",
+  "plan_only": true,
+  "fetch_executed": false
+}

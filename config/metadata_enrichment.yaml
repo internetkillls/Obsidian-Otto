@@ -1,0 +1,61 @@
+metadata_enrichment:
+  default_scope: active
+  core_backend_priority:
+    - metadata_menu
+    - metaedit
+  entity_backend_priority:
+    - wikidata_importer
+    - metadata_menu
+    - metaedit
+  otto_realm:
+    roots:
+      - .Otto-Realm
+      - Otto-Realm
+    artifact_globs:
+      - Brain/*.md
+      - Heartbeats/*.md
+      - Memory-Tiers/*.md
+      - Predictions/*.md
+      - Rituals/*.md
+      - Handoff/*.md
+  wikidata:
+    api_base: https://www.wikidata.org/w/api.php
+    user_agent: Obsidian-Otto Metadata Enrichment
+  execution:
+    uri_scheme: advanced-uri
+    dispatch_single_target_only: true
+  backends:
+    metadata_menu:
+      enabled: true
+      label: Metadata Menu
+      command_labels:
+        review: "Metadata Menu: Review and normalize metadata"
+        apply: "Metadata Menu: Update frontmatter and tags"
+        verify: "Metadata Menu: Re-scan note metadata"
+      write:
+        tags: true
+        aliases: true
+        wikilinks: false
+        entity_fields: true
+    metaedit:
+      enabled: true
+      label: MetaEdit
+      command_labels:
+        review: "MetaEdit: Inspect YAML"
+        apply: "MetaEdit: Update YAML"
+        verify: "MetaEdit: Re-open YAML"
+      write:
+        tags: true
+        aliases: false
+        wikilinks: false
+        entity_fields: true
+    wikidata_importer:
+      enabled: true
+      label: Wikidata Importer
+      command_labels:
+        entity: "Wikidata Importer: Import entity data"
+      write:
+        tags: false
+        aliases: false
+        wikilinks: false
+        entity_fields: true

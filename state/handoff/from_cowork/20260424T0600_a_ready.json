@@ -1,0 +1,9 @@
+{
+  "ts": "2026-04-24T06:00:00+07:00",
+  "agent": "a_signal_v4",
+  "status": "ready",
+  "plan": "auto_and_human_followups",
+  "artifacts": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\a_signal.md"
+  ]
+}

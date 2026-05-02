@@ -1,0 +1,24 @@
+{
+  "source": "cowork-otto-b",
+  "role": "b",
+  "status": "handoff",
+  "updated_at": "2026-04-19T01:13:28+07:00",
+  "summary": "Machine-only: exclude 6 vault-root system docs from Phase C active scope so pre-flight passes; no human prompt; hold posture.",
+  "artifacts": [
+    "Otto-Realm/Handoff/b_execution_brief.md"
+  ],
+  "next_actions": [
+    "C: patch scripts/_active_scope.py EXCLUDE_ROOT_DOCS add AGENTS, HEARTBEAT, IDENTITY, SOUL, TOOLS, USER",
+    "C: run python scripts/audit_frontmatter.py --check-scarcity-field --scope active (expect ok=true)",
+    "C: run python scripts/scan_scarcity.py --scope active (expect orphan_count=0)",
+    "C: record result in Otto-Realm/Handoff/c_completion.md + heartbeat 2026-04-19; no Josh prompt",
+    "Hold posture: do not stack a third prompt; watch re-entry 08:00–12:00 WIB"
+  ],
+  "next_action": "C: patch scripts/_active_scope.py EXCLUDE_ROOT_DOCS add AGENTS, HEARTBEAT, IDENTITY, SOUL, TOOLS, USER",
+  "wellbeing": {
+    "josh_state": "stall",
+    "evidence": "Heartbeat 2026-04-19 00:06 WIB: ~47h idle, two prompts staged, no vault delta; avoid third prompt."
+  },
+  "language": "mixed"
+}
+

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "generated_at": "2026-04-30T04:27:49+07:00",
+  "runtime_state": "S4_WSL_LIVE",
+  "gateway_port": 18790,
+  "config_path": "/home/joshu/.openclaw/openclaw.json",
+  "backup_path": "/home/joshu/.openclaw/openclaw.json.bak.20260430T042540+0700",
+  "bridge_install_command": "openclaw plugins install -l /home/joshu/.openclaw/plugins-local/obsidian-otto-bridge",
+  "start_command": "openclaw gateway run --port 18790",
+  "notes": [
+    "Do not commit Telegram secrets.",
+    "Do not add plugins.local or _otto_shadow metadata to openclaw.json.",
+    "Windows OpenClaw must remain stopped while Ubuntu owns Telegram.",
+    "Mirror the Otto bridge into a WSL-local plugin directory before linking it."
+  ]
+}

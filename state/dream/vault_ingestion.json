@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "last_dream_ts": "2026-05-01T20:48:40+07:00",
+  "areas": {
+    "brain": {
+      "mtime": "2026-05-01T20:32:50+07:00",
+      "note_count": 6
+    },
+    "heartbeats": {
+      "mtime": "2026-04-21T16:33:31+07:00",
+      "note_count": 8
+    },
+    "memory-tiers": {
+      "mtime": "2026-05-01T20:33:18+07:00",
+      "note_count": 20
+    },
+    "predictions": {
+      "mtime": "2026-05-01T20:48:37+07:00",
+      "note_count": 15
+    },
+    "rituals": {
+      "mtime": "2026-04-25T03:11:42+07:00",
+      "note_count": 12
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "generated_at": "2026-05-02T14:16:11+07:00",
+  "overall": "green",
+  "runtime": {
+    "wsl_live": "green",
+    "openclaw_gateway": "green",
+    "telegram_single_owner": "green",
+    "qmd_native": "green"
+  },
+  "memory": {
+    "source_registry": "green",
+    "qmd_manifest": "green",
+    "review_queue": "green",
+    "gold_promotion": "green",
+    "vault_writeback": "green",
+    "qmd_roundtrip": "green"
+  },
+  "soul": {
+    "soul_manifest": "green",
+    "identity_docs": "green",
+    "heartbeats": "green",
+    "context_pack": "green"
+  },
+  "creative": {
+    "song_skeleton": "green",
+    "paper_onboarding": "green",
+    "memento": "green",
+    "blocker_experiment": "green",
+    "visual_inspo": "green"
+  },
+  "cron": {
+    "planned_jobs": "green",
+    "enabled_jobs": "green",
+    "last_runs": "green",
+    "no_silent_failures": "green"
+  },
+  "safety": {
+    "no_auto_publish": "green",
+    "no_raw_qmd": "green",
+    "no_unreviewed_vault": "green",
+    "no_youtube_rip": "green",
+    "no_diagnostic_claims": "green"
+  },
+  "rollback": {
+    "dry_run_ready": "green",
+    "no_state_mutation": "green"
+  }
+}

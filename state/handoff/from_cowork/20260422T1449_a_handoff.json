@@ -1,0 +1,17 @@
+{
+  "source": "cowork-otto-a",
+  "role": "a",
+  "status": "handoff",
+  "updated_at": "2026-04-22T14:49:38+07:00",
+  "summary": "A clarity miner run=256; batch=341/341; positive=189; anchors=80; go_candidates=40",
+  "artifacts": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\clarity_ngram_profile.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\clarity_ngram_counts.json"
+  ],
+  "next_actions": [
+    "B: review top phrase anchors before auto-apply",
+    "C: use go_words for graph-shaper semantic anchor"
+  ],
+  "next_action": "B: review top phrase anchors before auto-apply",
+  "language": "id"
+}

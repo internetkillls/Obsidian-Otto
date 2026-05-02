@@ -1,0 +1,543 @@
+{
+  "ts": "2026-04-27T13:15:57+07:00",
+  "status": "partial",
+  "vault": "C:\\Users\\joshu\\Josh Obsidian",
+  "scope": "full",
+  "writeback": true,
+  "noise_config_path": "C:\\Users\\joshu\\Obsidian-Otto\\config\\graph_shaper_noise_words.json",
+  "protected_config_path": "C:\\Users\\joshu\\Obsidian-Otto\\config\\graph_shadow_protected_nodes.json",
+  "block_words_count": 30,
+  "go_words_count": 0,
+  "note_count_total": 580,
+  "note_count_batch": 10,
+  "cursor_start": 210,
+  "cursor_next": 220,
+  "budgets": {
+    "note_writes": 2,
+    "entity_writes": 2,
+    "moc_writes": 1
+  },
+  "writes_used": {
+    "note_writes": 0,
+    "entity_writes": 2,
+    "moc_writes": 0
+  },
+  "ignore_active_count": 978,
+  "resolved_entity_links": [
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\20225-08-30 PasteBin.md",
+      "kind": "scarcity",
+      "value": "Critical realism data methodology",
+      "entity": "00-Meta\\scarcity\\LACK-critical-realism-data-methodology.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\20225-08-30 PasteBin.md",
+      "kind": "scarcity",
+      "value": "Mechanism identification framework",
+      "entity": "00-Meta\\scarcity\\LACK-mechanism-identification-framework.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\20225-08-30 PasteBin.md",
+      "kind": "scarcity",
+      "value": "Intransitivity operationalization",
+      "entity": "00-Meta\\scarcity\\LACK-intransitivity-operationalization.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-06 Reflection on Writing.md",
+      "kind": "scarcity",
+      "value": "Personal writing voice",
+      "entity": "00-Meta\\scarcity\\LACK-personal-writing-voice.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-06 Reflection on Writing.md",
+      "kind": "scarcity",
+      "value": "Narrative temporal structuring",
+      "entity": "00-Meta\\scarcity\\LACK-narrative-temporal-structuring.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-06 Reflection on Writing.md",
+      "kind": "scarcity",
+      "value": "\"Mengapa\" analytical depth",
+      "entity": "00-Meta\\scarcity\\LACK-mengapa-analytical-depth.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-20 Daily Log.md",
+      "kind": "scarcity",
+      "value": "Philosophical thesis coherence",
+      "entity": "00-Meta\\scarcity\\LACK-philosophical-thesis-coherence.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-20 Daily Log.md",
+      "kind": "scarcity",
+      "value": "Institusionalisasi knowledge",
+      "entity": "00-Meta\\scarcity\\LACK-institusionalisasi-knowledge.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-20 Daily Log.md",
+      "kind": "scarcity",
+      "value": "Thesis argument architecture",
+      "entity": "00-Meta\\scarcity\\LACK-thesis-argument-architecture.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-24 Tree Skripsi.md",
+      "kind": "scarcity",
+      "value": "Thesis argument structure",
+      "entity": "00-Meta\\scarcity\\LACK-thesis-argument-structure.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-24 Tree Skripsi.md",
+      "kind": "scarcity",
+      "value": "Metakritik operationalization",
+      "entity": "00-Meta\\scarcity\\LACK-metakritik-operationalization.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-24 Tree Skripsi.md",
+      "kind": "scarcity",
+      "value": "Realisme Kritis implications",
+      "entity": "00-Meta\\scarcity\\LACK-realisme-kritis-implications.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-27 Kelahiran Ilmu Pengetahuan.md",
+      "kind": "scarcity",
+      "value": "Science-metaphysics boundary articulation",
+      "entity": "00-Meta\\scarcity\\LACK-science-metaphysics-boundary-articulation.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-27 Kelahiran Ilmu Pengetahuan.md",
+      "kind": "scarcity",
+      "value": "Indonesian academic framing",
+      "entity": "00-Meta\\scarcity\\LACK-indonesian-academic-framing.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-01-27 Kelahiran Ilmu Pengetahuan.md",
+      "kind": "scarcity",
+      "value": "Systematic knowledge birth narrative",
+      "entity": "00-Meta\\scarcity\\LACK-systematic-knowledge-birth-narrative.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-03-26 Evaluasi Tulisan.md",
+      "kind": "scarcity",
+      "value": "writing discipline",
+      "entity": "00-Meta\\scarcity\\LACK-writing-discipline.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-03-26 Evaluasi Tulisan.md",
+      "kind": "scarcity",
+      "value": "sustained creative output",
+      "entity": "00-Meta\\scarcity\\LACK-sustained-creative-output.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-03-26.md",
+      "kind": "scarcity",
+      "value": "original Islamic epistemology synthesis",
+      "entity": "00-Meta\\scarcity\\LACK-original-islamic-epistemology-synthesis.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-03-31 Desktop Prompt.md",
+      "kind": "scarcity",
+      "value": "metacritique-emancipation integration",
+      "entity": "00-Meta\\scarcity\\LACK-metacritique-emancipation-integration.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-03-31 Desktop Prompt.md",
+      "kind": "scarcity",
+      "value": "AI-assisted philosophical writing",
+      "entity": "00-Meta\\scarcity\\LACK-ai-assisted-philosophical-writing.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-04-03 Skripsi - Buat Prompt untuk teliti obsidian SRHE.md",
+      "kind": "scarcity",
+      "value": "Bhaskar SRHE deep comprehension",
+      "entity": "00-Meta\\scarcity\\LACK-bhaskar-srhe-deep-comprehension.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-04-06 Sunting Bab III.md",
+      "kind": "scarcity",
+      "value": "Bhaskar critical realism mastery",
+      "entity": "00-Meta\\scarcity\\LACK-bhaskar-critical-realism-mastery.md"
+    },
+    {
+      "note": "90-Archive\\04 Archive\\Misc 1\\Q3-4 Mix\\2025-04-06 Sunting Bab III.md",
+      "kind": "scarcity",
+      "value": "doctoral-level philosophical argumentation",
+      "entity": "00-Meta\\scarcity\\LACK-doctoral-level-philosophical-argumentation.md"
+    }
+  ],
+  "already_present": [
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-critical-realism-data-methodology.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-mechanism-identification-framework.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-intransitivity-operationalization.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-personal-writing-voice.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-narrative-temporal-structuring.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-mengapa-analytical-depth.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-philosophical-thesis-coherence.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-institusionalisasi-knowledge.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-thesis-argument-architecture.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-thesis-argument-structure.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-metakritik-operationalization.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-realisme-kritis-implications.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-science-metaphysics-boundary-articulation.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-indonesian-academic-framing.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-systematic-knowledge-birth-narrative.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-writing-discipline.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-sustained-creative-output.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-original-islamic-epistemology-synthesis.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-metacritique-emancipation-integration.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-ai-assisted-philosophical-writing.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-bhaskar-srhe-deep-comprehension.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-bhaskar-critical-realism-mastery.md",
+      "reason": "existing-entity"
+    },
+    {
+      "kind": "scarcity",
+      "entity": "00-Meta\\scarcity\\LACK-doctoral-level-philosophical-argumentation.md",
+      "reason": "existing-entity"
+    }
+  ],
+  "linked": [
+    {
+      "type": "entity-backlink",
+      "path": "00-Meta\\scarcity\\LACK-critical-realism-data-methodology.md",
+      "links_added": "2"
+    },
+    {
+      "type": "entity-backlink",
+      "path": "00-Meta\\scarcity\\LACK-mechanism-identification-framework.md",
+      "links_added": "2"
+    }
+  ],
+  "missing_or_deferred": [
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\orientation\\TO-apply-these-data-structure-principles-to-design-research-methodology-tha.md",
+      "reason": "demote_frontmatter:sentence_like_orientation"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\allocation\\ALLO-translate-this-theoretical-data-framework-into-concrete-research-design-.md",
+      "reason": "demote_frontmatter:granular_allocation_sentence"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\orientation\\TO-develop-thesis-writing-style-that-balances-structural-clarity-with-tempo.md",
+      "reason": "demote_frontmatter:sentence_like_orientation"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\allocation\\ALLO-practice-writing-passages-that-integrate-table-like-structure-with-cause.md",
+      "reason": "demote_frontmatter:granular_allocation_sentence"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\orientation\\TO-trace-the-intellectual-lineage-from-institutionalization-to-metaphysics-.md",
+      "reason": "demote_frontmatter:sentence_like_orientation"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\allocation\\ALLO-map-the-thesis-argument-connecting-institutional-history-with-bhaskar-s-.md",
+      "reason": "ignore_route:route_like_low_reuse"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\orientation\\TO-use-this-tree-as-the-master-structure-ensure-each-branch-serves-the-eman.md",
+      "reason": "ignore_route:route_like_low_reuse"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\allocation\\ALLO-populate-each-node-with-content-prioritizing-the-krisis-and-metakritik-b.md",
+      "reason": "ignore_route:route_like_low_reuse"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\orientation\\TO-establish-the-thesis-argument-foundation-what-distinguishes-science-from.md",
+      "reason": "demote_frontmatter:sentence_like_orientation"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\allocation\\ALLO-develop-this-definitional-chapter-as-the-first-building-block-connecting.md",
+      "reason": "demote_frontmatter:granular_allocation_sentence"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\scarcity\\LACK-self-awareness-of-creative-blocks.md",
+      "reason": "merge_into_family:merge_to_existing_or_family"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\orientation\\TO-supports-thesis-on-metacritique-by-addressing-the-precondition-of-actual.md",
+      "reason": "demote_frontmatter:sentence_like_orientation"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\allocation\\ALLO-convert-reflective-insight-into-concrete-writing-schedule-and-daily-outp.md",
+      "reason": "demote_frontmatter:granular_allocation_sentence"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\scarcity\\LACK-applied-ethics-framework-for-religious-communities.md",
+      "reason": "merge_into_family:merge_to_existing_or_family"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\scarcity\\LACK-ijtihad-al-mursalam-as-applied-methodology.md",
+      "reason": "merge_into_family:merge_to_existing_or_family"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\orientation\\TO-serves-the-broader-thesis-on-metacritique-by-offering-an-islamic-philoso.md",
+      "reason": "demote_frontmatter:sentence_like_orientation"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\allocation\\ALLO-develop-this-conceptual-framework-further-with-specific-case-studies-and.md",
+      "reason": "demote_frontmatter:granular_allocation_sentence"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\orientation\\TO-provides-a-prompting-scaffold-for-exploring-metacritique-as-emancipatory.md",
+      "reason": "demote_frontmatter:sentence_like_orientation"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\allocation\\ALLO-use-as-a-drafting-aid-but-prioritize-direct-engagement-with-bhaskar-s-te.md",
+      "reason": "demote_frontmatter:granular_allocation_sentence"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\scarcity\\LACK-obsidian-llm-workflow-for-philosophy.md",
+      "reason": "merge_into_family:merge_to_existing_or_family"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\scarcity\\LACK-prompt-engineering-for-academic-texts.md",
+      "reason": "merge_into_family:merge_to_existing_or_family"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\orientation\\TO-supports-thesis-methodology-by-building-tools-for-systematic-srhe-analys.md",
+      "reason": "demote_frontmatter:sentence_like_orientation"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\allocation\\ALLO-refine-the-obsidian-llm-pipeline-to-accelerate-text-processing-while-mai.md",
+      "reason": "demote_frontmatter:granular_allocation_sentence"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\scarcity\\LACK-chapter-structure-coherence.md",
+      "reason": "merge_into_family:default_deflation_policy"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\orientation\\TO-directly-serves-the-thesis-chapter-on-critical-realism-by-clarifying-the.md",
+      "reason": "demote_frontmatter:sentence_like_orientation"
+    },
+    {
+      "type": "policy-gate",
+      "path": "00-Meta\\allocation\\ALLO-focus-on-strengthening-the-argumentative-chain-and-ensuring-philosophica.md",
+      "reason": "demote_frontmatter:granular_allocation_sentence"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-intransitivity-operationalization.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-personal-writing-voice.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-narrative-temporal-structuring.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-mengapa-analytical-depth.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-philosophical-thesis-coherence.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-institusionalisasi-knowledge.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-thesis-argument-architecture.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-thesis-argument-structure.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-metakritik-operationalization.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-realisme-kritis-implications.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-science-metaphysics-boundary-articulation.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-indonesian-academic-framing.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-systematic-knowledge-birth-narrative.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-writing-discipline.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-sustained-creative-output.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-original-islamic-epistemology-synthesis.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-metacritique-emancipation-integration.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-ai-assisted-philosophical-writing.md",
+      "reason": "entity_writes budget exhausted"
+    },
+    {
+      "type": "budget",
+      "path": "C:\\Users\\joshu\\Josh Obsidian\\00-Meta\\scarcity\\LACK-bhaskar-srhe-deep-comprehension.md",
+      "reason": "entity_writes budget exhausted"
+    }
+  ],
+  "graph_growth": {
+    "gradual": true,
+    "note": "bounded writes + cursor batching + canonical links only"
+  },
+  "shadow_graph": {
+    "decision_count": 49,
+    "protected_hits": 0,
+    "hidden_relations": 21,
+    "review_groups": 3,
+    "demotion_plan_count": 26,
+    "demotion_applied_count": 6,
+    "demotion_skipped_count": 20,
+    "json": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shadow_decisions.json",
+    "markdown": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shadow_decisions.md",
+    "review_markdown": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shadow_review.md",
+    "review_csv": "",
+    "demotion_plan_markdown": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_demotion_plan.md",
+    "demotion_plan_json": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_demotion_plan.json",
+    "graph_demotion_review_json": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_demotion_review_latest.json",
+    "allo_hotspots_markdown": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_allo_hotspots.md"
+  }
+}

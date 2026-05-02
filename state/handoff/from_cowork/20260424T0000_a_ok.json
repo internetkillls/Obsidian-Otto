@@ -1,0 +1,45 @@
+{
+  "ts": "2026-04-24T00:00:00+07:00",
+  "role": "A",
+  "status": "ok",
+  "source": "scheduled_reminder",
+  "followup_auto": [
+    {
+      "id": "auto_projects_metadata_repair",
+      "why_now": "Projects is the highest-risk folder and appears as the immediate next action across pipeline and strategy outputs.",
+      "expected_artifact": "scoped metadata repair result for Projects with updated frontmatter counts",
+      "risk": "low",
+      "confidence": 0.92
+    },
+    {
+      "id": "auto_areas_metadata_repair",
+      "why_now": "Areas is the second-highest folder risk and a named follow-up once Projects is addressed.",
+      "expected_artifact": "scoped metadata repair result for Areas",
+      "risk": "low",
+      "confidence": 0.84
+    },
+    {
+      "id": "auto_brain_frontmatter_repair",
+      "why_now": ".Otto-Realm\\Brain remains flagged for missing frontmatter and is small enough for a bounded cleanup.",
+      "expected_artifact": "corrected frontmatter in .Otto-Realm\\Brain note set",
+      "risk": "low",
+      "confidence": 0.8
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "human_urgent_review_council_repeat",
+      "why_now": "Repeated council triggers have crossed the urgent-review threshold before the next heartbeat cycle.",
+      "expected_artifact": "explicit decision on escalation path or intervention priority",
+      "risk": "medium",
+      "confidence": 0.95
+    },
+    {
+      "id": "human_gold_calibration_review",
+      "why_now": "Gold promotions are zero over the last 24h despite recent scored events, suggesting threshold or intake calibration may need judgment.",
+      "expected_artifact": "approved calibration change or decision to keep current thresholds",
+      "risk": "medium",
+      "confidence": 0.88
+    }
+  ]
+}

@@ -1,0 +1,471 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "moonshot/kimi-k2.6",
+        "fallbacks": [
+          "moonshot/kimi-k2.5",
+          "openai-codex/gpt-5.4-mini",
+          "openai-codex/gpt-5.4"
+        ]
+      },
+      "workspace": "/mnt/c/Users/joshu/Josh Obsidian",
+      "cliBackends": {
+        "claude-cli": {
+          "command": "/mnt/c/Users/joshu/.local/bin/claude.exe",
+          "args": [
+            "-p",
+            "--output-format",
+            "stream-json",
+            "--include-partial-messages",
+            "--verbose",
+            "--setting-sources",
+            "user",
+            "--permission-mode",
+            "bypassPermissions"
+          ],
+          "resumeArgs": [
+            "-p",
+            "--output-format",
+            "stream-json",
+            "--include-partial-messages",
+            "--verbose",
+            "--setting-sources",
+            "user",
+            "--permission-mode",
+            "bypassPermissions",
+            "--resume",
+            "{sessionId}"
+          ],
+          "output": "jsonl",
+          "input": "stdin",
+          "jsonlDialect": "claude-stream-json",
+          "modelArg": "--model",
+          "modelAliases": {
+            "opus": "opus",
+            "opus-4.7": "opus",
+            "opus-4.6": "opus",
+            "opus-4.5": "opus",
+            "opus-4": "opus",
+            "claude-opus-4-7": "opus",
+            "claude-opus-4-6": "opus",
+            "claude-opus-4-5": "opus",
+            "claude-opus-4": "opus",
+            "sonnet": "sonnet",
+            "sonnet-4.6": "sonnet",
+            "sonnet-4.5": "sonnet",
+            "sonnet-4.1": "sonnet",
+            "sonnet-4.0": "sonnet",
+            "claude-sonnet-4-6": "sonnet",
+            "claude-sonnet-4-5": "sonnet",
+            "claude-sonnet-4-1": "sonnet",
+            "claude-sonnet-4-0": "sonnet",
+            "haiku": "haiku",
+            "haiku-3.5": "haiku",
+            "claude-haiku-3-5": "haiku"
+          },
+          "sessionArg": "--session-id",
+          "sessionMode": "always",
+          "sessionIdFields": [
+            "session_id",
+            "sessionId",
+            "conversation_id",
+            "conversationId"
+          ],
+          "systemPromptArg": "--append-system-prompt",
+          "systemPromptMode": "append",
+          "systemPromptWhen": "first",
+          "clearEnv": [
+            "ANTHROPIC_API_KEY",
+            "ANTHROPIC_API_KEY_OLD",
+            "ANTHROPIC_API_TOKEN",
+            "ANTHROPIC_AUTH_TOKEN",
+            "ANTHROPIC_BASE_URL",
+            "ANTHROPIC_CUSTOM_HEADERS",
+            "ANTHROPIC_OAUTH_TOKEN",
+            "ANTHROPIC_UNIX_SOCKET",
+            "CLAUDE_CONFIG_DIR",
+            "CLAUDE_CODE_API_KEY_FILE_DESCRIPTOR",
+            "CLAUDE_CODE_ENTRYPOINT",
+            "CLAUDE_CODE_OAUTH_REFRESH_TOKEN",
+            "CLAUDE_CODE_OAUTH_SCOPES",
+            "CLAUDE_CODE_OAUTH_TOKEN",
+            "CLAUDE_CODE_OAUTH_TOKEN_FILE_DESCRIPTOR",
+            "CLAUDE_CODE_PLUGIN_CACHE_DIR",
+            "CLAUDE_CODE_PLUGIN_SEED_DIR",
+            "CLAUDE_CODE_REMOTE",
+            "CLAUDE_CODE_USE_COWORK_PLUGINS",
+            "CLAUDE_CODE_USE_BEDROCK",
+            "CLAUDE_CODE_USE_FOUNDRY",
+            "CLAUDE_CODE_USE_VERTEX",
+            "OTEL_EXPORTER_OTLP_ENDPOINT",
+            "OTEL_EXPORTER_OTLP_HEADERS",
+            "OTEL_EXPORTER_OTLP_LOGS_ENDPOINT",
+            "OTEL_EXPORTER_OTLP_LOGS_HEADERS",
+            "OTEL_EXPORTER_OTLP_LOGS_PROTOCOL",
+            "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT",
+            "OTEL_EXPORTER_OTLP_METRICS_HEADERS",
+            "OTEL_EXPORTER_OTLP_METRICS_PROTOCOL",
+            "OTEL_EXPORTER_OTLP_PROTOCOL",
+            "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT",
+            "OTEL_EXPORTER_OTLP_TRACES_HEADERS",
+            "OTEL_EXPORTER_OTLP_TRACES_PROTOCOL",
+            "OTEL_LOGS_EXPORTER",
+            "OTEL_METRICS_EXPORTER",
+            "OTEL_SDK_DISABLED",
+            "OTEL_TRACES_EXPORTER"
+          ],
+          "reliability": {
+            "watchdog": {
+              "fresh": {
+                "noOutputTimeoutRatio": 0.8,
+                "minMs": 180000,
+                "maxMs": 600000
+              },
+              "resume": {
+                "noOutputTimeoutRatio": 0.3,
+                "minMs": 60000,
+                "maxMs": 180000
+              }
+            }
+          },
+          "serialize": true
+        }
+      },
+      "models": {
+        "openai-codex/gpt-5.4-mini": {
+          "alias": "GPT-5.4 Mini Fast"
+        },
+        "openai-codex/gpt-5.4": {
+          "alias": "GPT-5.4"
+        },
+        "openai-codex/gpt-5.3-codex": {
+          "alias": "GPT-5.3 Codex"
+        },
+        "openai-codex/gpt-5.2-codex": {
+          "alias": "GPT-5.2 Codex"
+        },
+        "openai-codex/gpt-5.1-codex": {
+          "alias": "GPT-5.1 Codex"
+        },
+        "claude-cli/claude-sonnet-4-6": {
+          "alias": "Claude Sonnet 4.6"
+        },
+        "claude-cli/claude-opus-4-6": {
+          "alias": "Claude Opus 4.6"
+        },
+        "moonshot/kimi-k2.5": {
+          "alias": "Kimi K2.5 (Moonshot API)"
+        },
+        "moonshot/kimi-k2.6": {
+          "alias": "Kimi K2.6 (Moonshot API)"
+        },
+        "minimax/MiniMax-M2.5": {
+          "alias": "MiniMax M2.5"
+        },
+        "minimax/MiniMax-M2.5-highspeed": {
+          "alias": "MiniMax M2.5 Highspeed"
+        }
+      },
+      "heartbeat": {
+        "every": "2m",
+        "model": "openai-codex/gpt-5.4-mini",
+        "ackMaxChars": 300,
+        "lightContext": true,
+        "isolatedSession": true,
+        "timeoutSeconds": 120,
+        "includeSystemPromptSection": false
+      },
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "memorySearch": {
+        "enabled": true,
+        "provider": "gemini",
+        "model": "gemini-embedding-001",
+        "remote": {
+          "apiKey": "***REDACTED***"
+        },
+        "store": {
+          "vector": {
+            "enabled": true,
+            "extensionPath": "/home/joshu/.npm-global/lib/node_modules/openclaw/node_modules/sqlite-vec-linux-x64/vec0.so"
+          }
+        }
+      },
+      "blockStreamingBreak": "text_end",
+      "contextInjection": "always",
+      "bootstrapMaxChars": 20000,
+      "bootstrapTotalMaxChars": 150000,
+      "systemPromptOverride": "You are Otto, Sir Agathon's thinking partner and personal operator.\n\n## Core\n\n- Address the human as Sir Agathon.\n- Prefer Codex models when available.\n- Be proactive when uncertainty is technical and costly.\n- Close mental-model deltas before answering.\n- Keep user-visible replies short and direct by default.\n- Run tools first when tools are relevant.\n- Show concrete findings before recommendations.\n- In dreaming narrative sessions, write in English and keep style grounded in Sir Agathon's aesthetic evidence.\n\n## Transducer Rule\n\nFor fuzzy product or strategy requests, build structure first. Generate internal artifacts before the final reply when useful: scoped assumptions, candidate frames, JSON or tables for evaluation, why-this-is-viral or why-this-fails reasoning. Return concise conclusions unless Sir Agathon asks for internals.\n\n## Planner / Executor Split\n\n- Anthropic planner is allowed for chunking, planning, and synthesis only.\n- Codex executes changes, runs heavy tools, and owns final implementation.\n- If a planner proposes work, convert it into an explicit Codex handoff.\n- Externalized planner notes may use Chinese.\n- Final user-facing output stays Indonesian or English.\n\n## Voice\n\n- Default language: Indonesian. Switch to English only for technical terms, proper nouns, or when Josh writes in English first.\n- Address as \"Sir Agathon\" once if opening a session cold. Mid-flow: no address, just respond.\n- Never open by restating the question or summarizing what you're about to do. Start with the substance.\n- Never close with \"semoga membantu\", \"hope this helps\", or any warm-padding filler.\n- When Josh says \"Gini\" atau \"Sebenernya\", treat it as a direct reset. Match the directness without mimicking catchphrases.\n- Diagnosis-first: frame problems as structural, not motivational. \"Problem-set-nya adalah...\" is Josh's register - meet him there.\n- Question style: diagnostic, not rhetorical. Prefer \"apa constraint utama?\", \"apa bukti sekarang?\", and \"apa stop condition?\".\n- Overload state (short messages, one-word replies, \"hiks\"): give one sentence + one action. Nothing else.\n- Flow state (long diagnostic message, system thinking): match depth. Go technical, philosophical, whatever the thread needs.\n- Humor: dry, precise, self-aware. One understated line beats three warm ones. Never performative.\n- Metaphor register: cycles, loops, kairos moments, predator/angel duality, metabolic cost, AHA as currency.\n- Prefer protocol/cycle framing over pep talk. If a pattern repeats, propose a concrete loop, tracer, or checklist.\n- Preserve AHA-over-archive bias: optimize for knowledge gain and usable decisions, not raw note accumulation.\n- When Josh describes a recurring failure - name it structurally before suggesting a fix. He already knows it's a problem.\n- Stop triggers and hard rules are welcome. Josh responds better to \"stop condition: X\" than to \"try to be more Y\".\n\n## Boundaries\n\n- Do not leak vault content without need.\n- Do not pretend certainty.\n- Keep behavior evolvable through AGENTS.md, skills, and local prompt files.\n\n## Proactive Memory Load\n\n- Treat injected USER.md and MEMORY.md as the human-first session context on every new conversation.\n- Use them proactively even when the opening prompt is vague, affective, overloaded, or underspecified.\n- If deeper context is needed before the first reply and tools are available, read these two files:\n1. .Otto-Realm/briefing.md - secondary Otto system context, vault health, and active context from the last KAIROS cycle\n2. .Otto-Realm/Brain/self_model.md - Josh's cognitive patterns and recovery levers\n\n## Overload / Scheduling Triage\n\n- If Josh sounds tired, overloaded, avoidant, says \"capek\" or \"bingung\", or asks for a schedule:\n1. Name the structural issue in 1-3 sentences max.\n2. Ask at most 3 narrow diagnostic questions. Prioritize money urgency, current energy or capacity, and deadline or start date.\n3. Then produce the simplest executable output immediately: one next step, a short checklist, or a realistic day schedule.\n4. Prefer no new system, no meta-framework, and no broad ideation unless Josh explicitly asks for it.\n5. When scheduling, be realistic about current capacity, include one stop condition or checkpoint, and preserve room for recovery.\n\nIf the tools are unavailable or files do not exist yet, proceed - but note you are working without current context."
+    }
+  },
+  "commands": {
+    "native": true,
+    "nativeSkills": true,
+    "ownerDisplay": "hash",
+    "restart": true,
+    "config": true,
+    "mcp": true,
+    "debug": true,
+    "ownerDisplaySecret": "***REDACTED***"
+  },
+  "meta": {
+    "lastTouchedAt": "2026-04-29T21:18:32.538Z",
+    "lastTouchedVersion": "2026.4.24"
+  },
+  "models": {
+    "providers": {
+      "huggingface": {
+        "api": "openai-completions",
+        "apiKey": "***REDACTED***",
+        "baseUrl": "https://api-inference.huggingface.co/framework/openai",
+        "models": [
+          {
+            "id": "Qwen/Qwen2.5-72B-Instruct",
+            "name": "Qwen 72B",
+            "contextWindow": 32768,
+            "maxTokens": "***REDACTED***",
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "input": 0,
+              "output": 0
+            },
+            "reasoning": true
+          }
+        ]
+      },
+      "moonshot": {
+        "api": "openai-completions",
+        "apiKey": "***REDACTED***",
+        "baseUrl": "https://api.moonshot.ai/v1",
+        "models": [
+          {
+            "id": "kimi-k2.5",
+            "name": "Kimi K2.5",
+            "contextWindow": 262144,
+            "maxTokens": "***REDACTED***",
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "input": 0,
+              "output": 0
+            },
+            "reasoning": true
+          }
+        ]
+      },
+      "minimax": {
+        "api": "anthropic-messages",
+        "apiKey": "***REDACTED***",
+        "authHeader": true,
+        "baseUrl": "https://api.minimax.io/anthropic",
+        "models": [
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "contextWindow": 204800,
+            "maxTokens": "***REDACTED***",
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "cacheRead": 0.03,
+              "cacheWrite": 0.375,
+              "input": 0.3,
+              "output": 1.2
+            },
+            "reasoning": true
+          },
+          {
+            "id": "MiniMax-M2.5-highspeed",
+            "name": "MiniMax M2.5 Highspeed",
+            "contextWindow": 204800,
+            "maxTokens": "***REDACTED***",
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "cacheRead": 0.03,
+              "cacheWrite": 0.375,
+              "input": 0.6,
+              "output": 2.4
+            },
+            "reasoning": true
+          }
+        ]
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "***REDACTED***"
+    },
+    "bind": "loopback",
+    "controlUi": {
+      "allowedOrigins": [
+        "http://localhost:18789",
+        "http://127.0.0.1:18789",
+        "http://192.168.1.11:18789",
+        "http://josh:18789",
+        "http://localhost:18790",
+        "http://127.0.0.1:18790"
+      ]
+    },
+    "port": 18790
+  },
+  "discovery": {
+    "mdns": {
+      "mode": "off"
+    }
+  },
+  "channels": {
+    "telegram": {
+      "name": "Otto",
+      "enabled": true,
+      "dmPolicy": "open",
+      "allowFrom": [
+        "775920855",
+        "*"
+      ],
+      "execApprovals": {
+        "enabled": false,
+        "approvers": [
+          "775920855"
+        ]
+      },
+      "botToken": "***REDACTED***"
+    }
+  },
+  "plugins": {
+    "entries": {
+      "codex": {
+        "enabled": true
+      },
+      "anthropic": {
+        "enabled": true
+      },
+      "openai": {
+        "enabled": true
+      },
+      "moonshot": {
+        "enabled": true
+      },
+      "minimax": {
+        "enabled": true
+      },
+      "memory-core": {
+        "config": {
+          "dreaming": {
+            "enabled": true,
+            "storage": {
+              "mode": "separate",
+              "separateReports": true
+            }
+          }
+        }
+      },
+      "memory-wiki": {
+        "enabled": true
+      }
+    },
+    "load": {
+      "paths": [
+        "/home/joshu/.openclaw/plugins-local/obsidian-otto-bridge"
+      ]
+    }
+  },
+  "tools": {
+    "exec": {
+      "host": "auto",
+      "strictInlineEval": false
+    }
+  },
+  "env": {
+    "shellEnv": {
+      "enabled": true,
+      "timeoutMs": 5000
+    },
+    "vars": {
+      "MOONSHOT_API_KEY": "***REDACTED***",
+      "MINIMAX_API_KEY": "***REDACTED***",
+      "HF_TOKEN": "***REDACTED***",
+      "GEMINI_API_KEY": "***REDACTED***"
+    }
+  },
+  "update": {
+    "channel": "stable",
+    "checkOnStart": true,
+    "auto": {
+      "enabled": true,
+      "stableDelayHours": 6,
+      "stableJitterHours": 12
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-04-27T08:09:34.099Z",
+    "lastRunVersion": "2026.4.24",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "ui": {
+    "assistant": {
+      "name": "Otto"
+    }
+  },
+  "auth": {
+    "profiles": {
+      "openai-codex:dirmanadigiind@gmail.com": {
+        "provider": "openai-codex",
+        "mode": "oauth"
+      }
+    }
+  },
+  "memory": {
+    "backend": "qmd",
+    "qmd": {
+      "command": "/usr/bin/qmd",
+      "paths": [
+        {
+          "name": "otto-facts",
+          "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Memory-Tiers/01-Facts",
+          "pattern": "**/*.md"
+        },
+        {
+          "name": "otto-interpretations",
+          "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Memory-Tiers/02-Interpretations",
+          "pattern": "**/*.md"
+        },
+        {
+          "name": "otto-speculations",
+          "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Memory-Tiers/03-Speculations",
+          "pattern": "**/*.md"
+        },
+        {
+          "name": "otto-brain",
+          "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Brain",
+          "pattern": "**/*.md"
+        },
+        {
+          "name": "otto-briefing",
+          "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm",
+          "pattern": "briefing.md"
+        },
+        {
+          "name": "otto-crack-research",
+          "path": "/mnt/c/Users/joshu/Josh Obsidian/20-Programs/Crack-Research",
+          "pattern": "**/*.md"
+        }
+      ]
+    }
+  }
+}

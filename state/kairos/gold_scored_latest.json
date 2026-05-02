@@ -1,0 +1,534 @@
+{
+  "ts": "2026-05-01T20:48:35+07:00",
+  "kairos_score": 3.774,
+  "gold_promoted_count": 5,
+  "silver_count": 18,
+  "noise_count": 1,
+  "category_counts": {
+    "bridge": 4,
+    "theory": 1,
+    "operational": 18,
+    "anchor": 1
+  },
+  "category_promoted_counts": {
+    "theory": 1,
+    "operational": 3,
+    "bridge": 1
+  },
+  "scored_signals": [
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme 9 40 [Presentasi]\\Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md",
+      "title": "Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b",
+      "folder": "50-Resources",
+      "category": "theory",
+      "category_reason": "argument, framework, principle, philosophy",
+      "primary_claim": "title: Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme 9 40 [Presentasi]\\Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md\nbody: # Presentasi\n\nTHE TRANSCENDENTALS\nThe Properties of Being\n\nReference:\nTHOMAS AQUINAS, Quaestiones Disputatae de Veritate, q. 1, a. 1.\nGoris, Wouter and Aertsen, Jan, \"Medieval Theories of Transcendentals\", The Stanford Encyclopedia of Philosophy (Summer 2013 Edition), Edward N. Zalta (ed.), URL = [http://plato.stanford.edu/archives/sum2013/entries/transcendentals-medieval/](http://plato.stanford.edu/archives/sum2013/entries/transcendentals-medieval/).\n\n# Philosophy of Being\n\nFollowing Aristotle, Thomas Aquinas derives the principles of Substance and Accidents from the analysis of accidental change. He",
+      "utility": 2.5,
+      "vault_alignment": 5.6,
+      "insight_density": 4.5,
+      "actionability": 4.0,
+      "temporal_durability": 5.0,
+      "total_score": 4.452,
+      "threshold": 3.92,
+      "promoted": true,
+      "consistency_hits": 12,
+      "notes": [
+        "category:theory"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f.md",
+      "title": "Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f",
+      "folder": "50-Resources",
+      "category": "bridge",
+      "category_reason": "fallback:no strong category signal",
+      "primary_claim": "title: Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f.md\nbody: # Teori Kejahatan dan Penderitaan: 3\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: February 26, 2024\nCreated At: February 26, 2024 12:53 PM\nUpdated At: February 26, 2024 2:15 PM\nHour (Σ): 12:00 AM\nIs This Week (Σ): No\nIs Today (Σ): No\nWeekday (Σ): 1\nDuration minutes (Σ): 0\n\nGeneologi Kejahatan Agustinus\n\nFirdaus adalah tolok ukur kebaitan. Kejatuhan firdaus melalu kebebasan manusia adalah awal kemunculan kejahatan. Dari sana, kejahatan terwariskan. Dalam budaya Romawi, dosa bapak diwariskan ke anak {?}. Kesadaran budaya romawi pada zaman ini turut memp",
+      "utility": 4.5,
+      "vault_alignment": 5.6,
+      "insight_density": 4.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 4.236,
+      "threshold": 3.95,
+      "promoted": true,
+      "consistency_hits": 12,
+      "notes": [
+        "category:bridge"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5.md",
+      "title": "TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5.md\nbody: # TPNI 7:50\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: October 4, 2023 7:00 AM (GMT+7) → 10:00 AM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=N2lzZ2UxaWZsb2I1cmNjNzc4dGMwdjdkdThfMjAyMzEwMDRUMDAwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: Default\nCreated At: September 17, 2023 12:58 PM\nUpdate",
+      "utility": 4.5,
+      "vault_alignment": 5.6,
+      "insight_density": 4.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 4.158,
+      "threshold": 3.95,
+      "promoted": true,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Dedicated Review Thomisme dan Quiz f888472afd3c4a2dacec350afd77f003.md",
+      "title": "Dedicated Review Thomisme dan Quiz f888472afd3c4a2dacec350afd77f003",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, review, automation",
+      "primary_claim": "title: Dedicated Review Thomisme dan Quiz f888472afd3c4a2dacec350afd77f003\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Dedicated Review Thomisme dan Quiz f888472afd3c4a2dacec350afd77f003.md\nbody: # Dedicated Review:Thomisme dan Quiz\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nDescription: 1. Buat Paper Singkat dari Recap minggu lalu\n     Format 1\n     Material: General System/Organisasi \n     Formal: Thomisme minggu lalu\n     Format 2 Juxtaposisi\n     Material: Thomisme minggu lalu + Aristotles + Agustinus\n     Formal: \n     Urgensi: Relativisme dan Positivisme\n     Area: Teori Kebenaran\nSource: Google Calendar\nDate: December 25, 2023 4:00 PM (GMT+7) → 6:00 PM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nItem Color: Sage\nOrganizer: Academics [Odd 23-24] <7",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 5.0,
+      "total_score": 3.978,
+      "threshold": 3.95,
+      "promoted": true,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Dedicated Review Thomisme + QUIZ f0060fa299694a73b2624c7c79bb8dc5.md",
+      "title": "Dedicated Review Thomisme + QUIZ f0060fa299694a73b2624c7c79bb8dc5",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, review, automation",
+      "primary_claim": "title: Dedicated Review Thomisme + QUIZ f0060fa299694a73b2624c7c79bb8dc5\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Dedicated Review Thomisme + QUIZ f0060fa299694a73b2624c7c79bb8dc5.md\nbody: # Dedicated Review:Thomisme + QUIZ\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nDescription: 1. Buat Paper Singkat dari Recap minggu lalu\n     Format 1\n     Material: General System/Organisasi \n     Formal: Thomisme minggu lalu\n     Format 2 Juxtaposisi\n     Material: Thomisme minggu lalu + Aristotles + Agustinus\n     Formal: \n     Urgensi: Relativisme dan Positivisme\n     Area: Teori Kebenaran\nSource: Google Calendar\nDate: October 9, 2023 4:00 PM (GMT+7) → 6:00 PM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nItem Color: Sage\nOrganizer: Academics [Odd 23-24] <723634aa3",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 5.0,
+      "total_score": 3.978,
+      "threshold": 3.95,
+      "promoted": true,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Skripsi (research) fa785fc3386d4354902f05b2b012a04d.md",
+      "title": "Skripsi (research) fa785fc3386d4354902f05b2b012a04d",
+      "folder": "50-Resources",
+      "category": "bridge",
+      "category_reason": "mixed:operational, theory",
+      "primary_claim": "title: Skripsi (research) fa785fc3386d4354902f05b2b012a04d\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Skripsi (research) fa785fc3386d4354902f05b2b012a04d.md\nbody: # Skripsi (research)\n\nDone: Yes\nCalendar Name: Academics [Odd 23-24]\nDescription: 1. Collect Data\n2. Buat Struktur/tactic/strategi buat dieksekusi besok\nSource: Google Calendar\nDate: September 12, 2023 12:30 PM (GMT+7) → 2:30 PM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nItem Color: Sage\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=M2s2NjcxanYxb3U0dmpiYnQ4Y2RmZjRlODRfMjAyMzA5MTJUMDUzMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.776,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:bridge"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Skripsi (research) facc178a409248788ceb016db572cdf7.md",
+      "title": "Skripsi (research) facc178a409248788ceb016db572cdf7",
+      "folder": "50-Resources",
+      "category": "bridge",
+      "category_reason": "mixed:operational, theory",
+      "primary_claim": "title: Skripsi (research) facc178a409248788ceb016db572cdf7\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Skripsi (research) facc178a409248788ceb016db572cdf7.md\nbody: # Skripsi (research)\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nDescription: 1. Collect Data\n2. Buat Struktur/tactic/strategi buat dieksekusi besok\nSource: Google Calendar\nDate: November 21, 2023 12:30 PM (GMT+7) → 2:30 PM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nItem Color: Sage\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=M2s2NjcxanYxb3U0dmpiYnQ4Y2RmZjRlODRfMjAyMzExMjFUMDUzMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0O",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.776,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:bridge"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Filsafat Alam 8 f7e92c6f1d264eb7ac21ca497fcc3312.md",
+      "title": "Filsafat Alam 8 f7e92c6f1d264eb7ac21ca497fcc3312",
+      "folder": "50-Resources",
+      "category": "anchor",
+      "category_reason": "state",
+      "primary_claim": "title: Filsafat Alam 8 f7e92c6f1d264eb7ac21ca497fcc3312\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Filsafat Alam 8 f7e92c6f1d264eb7ac21ca497fcc3312.md\nbody: # Filsafat Alam 8\n\nDone: No\nSource: Google Calendar\nDate: October 23, 2024\nCreated At: October 23, 2024 8:11 AM\nUpdated At: October 23, 2024 10:15 AM\nHour (Σ): 12:00 AM\nIs This Week (Σ): No\nIs Today (Σ): No\nWeekday (Σ): 3\nDuration minutes (Σ): 0\n\n# Kuantitas dan Kualitas\n\nDescartes memisahkan rex cogitan dan rex extensa. Segala sesuatu itu bisa diukur (extensa), lantas warna bagaimana? Warna itu dalam perspektif. \n\nDescartes mengganti subtansi dalam metafisko realis ke dalam ekstensa-ekstensa, segala yang kualitas adalah ide saja,  warna dsb, maka ia tidak real dan hanya berada dalam alam kedua (cogitan).\n\nAku berpiki",
+      "utility": 2.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.708,
+      "threshold": 3.88,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:anchor"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Biomedik Recap fc9535da90714fe88bffb0182fbe50f2.md",
+      "title": "Biomedik Recap fc9535da90714fe88bffb0182fbe50f2",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Biomedik Recap fc9535da90714fe88bffb0182fbe50f2\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Biomedik Recap fc9535da90714fe88bffb0182fbe50f2.md\nbody: # Biomedik Recap\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: October 23, 2023 12:00 PM (GMT+7) → 1:30 PM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nItem Color: Peacock\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=NjN2a2QyZ3U3dXRjamF2cTl0NTU5bTVsY2VfMjAyMzEwMjNUMDUwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: Default\nCreated At",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika 7 50 fe3f88031a4b498a8ef9917490ee67a6.md",
+      "title": "Estetika 7 50 fe3f88031a4b498a8ef9917490ee67a6",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Estetika 7 50 fe3f88031a4b498a8ef9917490ee67a6\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika 7 50 fe3f88031a4b498a8ef9917490ee67a6.md\nbody: # Estetika 7:50\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: September 14, 2023 7:00 AM (GMT+7) → 10:00 AM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=NG9kMWVpOGZ1a21nYzhuMTU0MDc2MGRxc2pfMjAyMzA5MTRUMDAwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: Default\nCreated At: September 17, 2023 ",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika Recap f976be038b114164a0e6a956673b0c32.md",
+      "title": "Estetika Recap f976be038b114164a0e6a956673b0c32",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Estetika Recap f976be038b114164a0e6a956673b0c32\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika Recap f976be038b114164a0e6a956673b0c32.md\nbody: # Estetika Recap\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: October 5, 2023 10:00 AM (GMT+7) → 10:30 AM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nItem Color: Peacock\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=NnVpbDIzZTBlbTEycnBlcG83aG5uZzgzY2tfMjAyMzEwMDVUMDMwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: Default\nCreated At",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Fenomenologi 12 45 fffcc68a613d4147b5373a8ac1ee8f9e.md",
+      "title": "Fenomenologi 12 45 fffcc68a613d4147b5373a8ac1ee8f9e",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Fenomenologi 12 45 fffcc68a613d4147b5373a8ac1ee8f9e\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Fenomenologi 12 45 fffcc68a613d4147b5373a8ac1ee8f9e.md\nbody: # Fenomenologi 12:45\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: December 6, 2023 12:30 PM (GMT+7) → 2:30 PM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=MmkyZmI5bnRvcWl2cjk3aDZndTVrZ2JqNXNfMjAyMzEyMDZUMDUzMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: Default\nCreated At: Septem",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Pendidikan Pancasila 10 40 fdd080564c644d508af21bc171f4d058.md",
+      "title": "Pendidikan Pancasila 10 40 fdd080564c644d508af21bc171f4d058",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Pendidikan Pancasila 10 40 fdd080564c644d508af21bc171f4d058\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Pendidikan Pancasila 10 40 fdd080564c644d508af21bc171f4d058.md\nbody: # Pendidikan Pancasila 10:40\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: September 7, 2023 10:30 AM (GMT+7) → 1:00 PM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=NmN1dGgzMzUybWI1b203dXFxYm85Mmo3c2lfMjAyMzA5MDdUMDMzMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: D",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme Recap f9b98ef693d445cda895cd04bc03d7db.md",
+      "title": "Thomisme Recap f9b98ef693d445cda895cd04bc03d7db",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Thomisme Recap f9b98ef693d445cda895cd04bc03d7db\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme Recap f9b98ef693d445cda895cd04bc03d7db.md\nbody: # Thomisme Recap\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: September 5, 2023 12:00 PM (GMT+7) → 12:30 PM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nItem Color: Peacock\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=MTNmY3V2MTRwaHE3aTd0NmkydnBxdTQ5OGtfMjAyMzA5MDVUMDUwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: Default\nCreated ",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Tugas 1 [Senin - Rabu] f7d108e039374dda985b47bfa66591e5.md",
+      "title": "Tugas 1 [Senin   Rabu] f7d108e039374dda985b47bfa66591e5",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Tugas 1 [Senin   Rabu] f7d108e039374dda985b47bfa66591e5\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Tugas 1 [Senin - Rabu] f7d108e039374dda985b47bfa66591e5.md\nbody: # Tugas 1 [Senin - Rabu]\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: November 29, 2023 10:00 AM (GMT+7) → 12:00 PM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nItem Color: Peacock\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=MjJiN3ZmbjBnYWk4N3IyZ3FpanRmdmdrYTBfMjAyMzExMjlUMDMwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisi",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Tugas Seminggu [execute] f8d5da84a46d40eeaa440d4d3c6f15f7.md",
+      "title": "Tugas Seminggu [execute] f8d5da84a46d40eeaa440d4d3c6f15f7",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Tugas Seminggu [execute] f8d5da84a46d40eeaa440d4d3c6f15f7\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Tugas Seminggu [execute] f8d5da84a46d40eeaa440d4d3c6f15f7.md\nbody: # Tugas Seminggu [execute]\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: November 11, 2023 9:00 AM (GMT+7) → 11:00 AM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nItem Color: Peacock\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=M3YzMGJia3N2cGhiczFsaGRsbmszYmpwYWtfMjAyMzExMTFUMDIwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika 7 50 ef4a013c51e04b609d69601066889170.md",
+      "title": "Estetika 7 50 ef4a013c51e04b609d69601066889170",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Estetika 7 50 ef4a013c51e04b609d69601066889170\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika 7 50 ef4a013c51e04b609d69601066889170.md\nbody: # Estetika 7:50\n\nDone: Yes\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: September 7, 2023 7:00 AM (GMT+7) → 10:00 AM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=NG9kMWVpOGZ1a21nYzhuMTU0MDc2MGRxc2pfMjAyMzA5MDdUMDAwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: Default\nCreated At: September 5, 2023 8",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika 7 50 eff88d5af40d49c0821234d2cf43d10f.md",
+      "title": "Estetika 7 50 eff88d5af40d49c0821234d2cf43d10f",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Estetika 7 50 eff88d5af40d49c0821234d2cf43d10f\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika 7 50 eff88d5af40d49c0821234d2cf43d10f.md\nbody: # Estetika 7:50\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: November 16, 2023 7:00 AM (GMT+7) → 10:00 AM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=NG9kMWVpOGZ1a21nYzhuMTU0MDc2MGRxc2pfMjAyMzExMTZUMDAwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: Default\nCreated At: September 17, 2023 1",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika Recap ebbac72641b84ec7ad12b76dabca9c7e.md",
+      "title": "Estetika Recap ebbac72641b84ec7ad12b76dabca9c7e",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Estetika Recap ebbac72641b84ec7ad12b76dabca9c7e\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika Recap ebbac72641b84ec7ad12b76dabca9c7e.md\nbody: # Estetika Recap\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: November 2, 2023 10:00 AM (GMT+7) → 10:30 AM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nItem Color: Peacock\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=NnVpbDIzZTBlbTEycnBlcG83aG5uZzgzY2tfMjAyMzExMDJUMDMwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: Default\nCreated A",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Etika Biomedik 9 40 efc5cef90e984de393ce4d512eb763b3.md",
+      "title": "Etika Biomedik 9 40 efc5cef90e984de393ce4d512eb763b3",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Etika Biomedik 9 40 efc5cef90e984de393ce4d512eb763b3\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Etika Biomedik 9 40 efc5cef90e984de393ce4d512eb763b3.md\nbody: # Etika Biomedik 9:40\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: September 25, 2023 9:00 AM (GMT+7) → 12:00 PM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nOrganizer: Gasal 23-24 <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=MjA4b25yN21mZDhqb3J2c2xsdGVubGVvdTNfMjAyMzA5MjVUMDIwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: Default\nCreated At: September 1",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Filsafat Sejarah 8 50 f3a35ca5a22846e789aa355e17a94bee.md",
+      "title": "Filsafat Sejarah 8 50 f3a35ca5a22846e789aa355e17a94bee",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Filsafat Sejarah 8 50 f3a35ca5a22846e789aa355e17a94bee\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Filsafat Sejarah 8 50 f3a35ca5a22846e789aa355e17a94bee.md\nbody: # Filsafat Sejarah 8:50\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: December 15, 2023 8:00 AM (GMT+7) → 11:00 AM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=NGVhMW5oYnBhajU3dml2anUxMHM3bXJwaTZfMjAyMzEyMTVUMDEwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: Default\nCreated ",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Pendidikan Pancasila 10 40 eb09ebb4108a43e187fbace264a86caf.md",
+      "title": "Pendidikan Pancasila 10 40 eb09ebb4108a43e187fbace264a86caf",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, automation",
+      "primary_claim": "title: Pendidikan Pancasila 10 40 eb09ebb4108a43e187fbace264a86caf\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Pendidikan Pancasila 10 40 eb09ebb4108a43e187fbace264a86caf.md\nbody: # Pendidikan Pancasila 10:40\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nSource: Google Calendar\nDate: November 9, 2023 10:30 AM (GMT+7) → 1:00 PM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=NmN1dGgzMzUybWI1b203dXFxYm85Mmo3c2lfMjAyMzExMDlUMDMzMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OGViOTc3MjYzZGE2YTE3MWQyMTYxNjZlZDUwNzg0OGNlNDc2QGc&authuser=joshuagabrielagathon@gmail.com\nLabels: Task\nVisibility: De",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Review Tugas + Brief f56a0868644343a3a6aa50c40b39b3cc.md",
+      "title": "Review Tugas + Brief f56a0868644343a3a6aa50c40b39b3cc",
+      "folder": "50-Resources",
+      "category": "operational",
+      "category_reason": "task, review, automation",
+      "primary_claim": "title: Review Tugas + Brief f56a0868644343a3a6aa50c40b39b3cc\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Review Tugas + Brief f56a0868644343a3a6aa50c40b39b3cc.md\nbody: # Review Tugas + Brief\n\nDone: No\nCalendar Name: Academics [Odd 23-24]\nDescription: 1. Review Seminggu \n2. Sort mana yg perlu \n     collect material\n     eksekusi paper\n     eksekusi ppt\nSource: Google Calendar\nDate: October 21, 2023 8:00 AM (GMT+7) → 9:00 AM\nSync Status: Synced\nEvent Status: Confirmed\nFreebusy: Busy\nItem Color: Peacock\nOrganizer: Academics [Odd 23-24] <723634aa35875f8c70338ff081358eb977263da6a171d216166ed507848ce476@group.calendar.google.com>\nItem Link: https://www.google.com/calendar/event?eid=NmJyc3BoODU5NXF0Z3F0djYzbWRhZXF2dGlfMjAyMzEwMjFUMDEwMDAwWiA3MjM2MzRhYTM1ODc1ZjhjNzAzMzhmZjA4MTM1OG",
+      "utility": 3.5,
+      "vault_alignment": 5.6,
+      "insight_density": 3.5,
+      "actionability": 3.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.698,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:operational"
+      ]
+    },
+    {
+      "note_path": "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Etika Biomedik 1 9 4\\Untitled 9639a95415e9451495bb08df67c9a3cb.md",
+      "title": "Untitled 9639a95415e9451495bb08df67c9a3cb",
+      "folder": "50-Resources",
+      "category": "bridge",
+      "category_reason": "fallback:no strong category signal",
+      "primary_claim": "title: Untitled 9639a95415e9451495bb08df67c9a3cb\npath: 50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Etika Biomedik 1 9 4\\Untitled 9639a95415e9451495bb08df67c9a3cb.md\nbody: # Untitled",
+      "utility": 2.5,
+      "vault_alignment": 5.6,
+      "insight_density": 2.0,
+      "actionability": 2.0,
+      "temporal_durability": 3.0,
+      "total_score": 3.046,
+      "threshold": 3.95,
+      "promoted": false,
+      "consistency_hits": 12,
+      "notes": [
+        "category:bridge"
+      ]
+    }
+  ],
+  "contradictions": [],
+  "dynamic_thresholds": {
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Etika Biomedik 1 9 4\\Untitled 9639a95415e9451495bb08df67c9a3cb.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme 9 40 [Presentasi]\\Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md": 3.92,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Biomedik Recap fc9535da90714fe88bffb0182fbe50f2.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Dedicated Review Thomisme dan Quiz f888472afd3c4a2dacec350afd77f003.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika 7 50 fe3f88031a4b498a8ef9917490ee67a6.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika Recap f976be038b114164a0e6a956673b0c32.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Fenomenologi 12 45 fffcc68a613d4147b5373a8ac1ee8f9e.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Filsafat Alam 8 f7e92c6f1d264eb7ac21ca497fcc3312.md": 3.88,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Pendidikan Pancasila 10 40 fdd080564c644d508af21bc171f4d058.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Skripsi (research) fa785fc3386d4354902f05b2b012a04d.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Skripsi (research) facc178a409248788ceb016db572cdf7.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme Recap f9b98ef693d445cda895cd04bc03d7db.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Tugas 1 [Senin - Rabu] f7d108e039374dda985b47bfa66591e5.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Tugas Seminggu [execute] f8d5da84a46d40eeaa440d4d3c6f15f7.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Dedicated Review Thomisme + QUIZ f0060fa299694a73b2624c7c79bb8dc5.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika 7 50 ef4a013c51e04b609d69601066889170.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika 7 50 eff88d5af40d49c0821234d2cf43d10f.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Estetika Recap ebbac72641b84ec7ad12b76dabca9c7e.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Etika Biomedik 9 40 efc5cef90e984de393ce4d512eb763b3.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Filsafat Sejarah 8 50 f3a35ca5a22846e789aa355e17a94bee.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Pendidikan Pancasila 10 40 eb09ebb4108a43e187fbace264a86caf.md": 3.95,
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Review Tugas + Brief f56a0868644343a3a6aa50c40b39b3cc.md": 3.95
+  },
+  "promoted_paths": [
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Thomisme 9 40 [Presentasi]\\Presentasi 553b097c0ca24dc2aec3c34fd5f43f6b.md",
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Teori Kejahatan dan Penderitaan 3 f6fbfad72ee24e51b6a7f5d50b187e3f.md",
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\TPNI 7 50 fa1efc2e2e6c42ee95c3ebe9b53becb5.md",
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Dedicated Review Thomisme dan Quiz f888472afd3c4a2dacec350afd77f003.md",
+    "50-Resources\\Notion Export 26-04-28\\Database Central\\Areas\\Academics\\Academics Mainboard\\Academics Timeline Database\\Academics Agenda Database [Odd 23-24]\\Dedicated Review Thomisme + QUIZ f0060fa299694a73b2624c7c79bb8dc5.md"
+  ]
+}

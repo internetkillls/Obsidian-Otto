@@ -1,0 +1,28 @@
+{
+  "source": "cowork-otto-b",
+  "role": "b",
+  "status": "machine",
+  "updated_at": "2026-04-26T13:00:00+07:00",
+  "summary": "Health and Gold are green/no_action; B triage routes to the reviewed ALLOCATION-FAMILY bounded fetch followed by ALLO-only apply.",
+  "artifacts": [
+    "Otto-Realm/Handoff/b_execution_brief.md",
+    "Otto-Realm/Handoff/a_signal.md",
+    "Otto-Realm/Brain/otto_bottleneck.md",
+    "state/run_journal/graph_demotion_review_latest.json",
+    "artifacts/summaries/gold_summary.json",
+    "artifacts/reports/kairos_daily_strategy.md"
+  ],
+  "next_actions": [
+    "Run one bounded fetch for ALLOCATION-FAMILY.",
+    "Apply the next ALLO-only batch.",
+    "Escalate the council_repeat decision before the next heartbeat cycle.",
+    "Answer the commitment continuity probe."
+  ],
+  "next_action": "Run one bounded fetch for ALLOCATION-FAMILY.",
+  "evidence": {
+    "health": "runtime RUNNING, container ready, sync_performed=true",
+    "gold": "training_ready=true, vector_cache enabled, Gold ready",
+    "triage": "reviewed_note_count=12, recommended_next_apply_mode=ALLO-only, hotspot_family=ALLOCATION-FAMILY"
+  },
+  "language": "en"
+}

@@ -1,0 +1,39 @@
+wellbeing:
+  enabled: false
+  local_only: true
+  use_raw_text_sentiment: false
+  language_patterns:
+    - gak sanggup
+    - ga sanggup
+    - gak kuat
+    - ga kuat
+    - berat banget
+    - moodku
+    - lelah
+    - capek
+    - burnout
+    - overwhelm
+    - overwhelmed
+    - shutdown
+    - kosong
+    - nangis
+    - anxious
+    - cemas
+    - bingung banget
+    - nothing helps
+    - not okay
+  short_message_max_chars: 5
+  journal_folders:
+    - Journal
+    - Daily Notes
+  frontmatter_keys:
+    mood: mood
+    energy: energy
+    stress: stress
+    strength: strength
+    weakness: weakness
+    opportunity: opportunity
+    threat: threat
+  note: >
+    Wellbeing and SWOT parsing is opt-in. This repo prefers explicit frontmatter signals
+    over free-text emotional inference.
