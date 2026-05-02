@@ -1,0 +1,54 @@
+{
+  "schema": "otto.handoff.bridge.v1",
+  "role": "A",
+  "signal_version": "v4",
+  "timestamp": "2026-04-23T17:57:00+07:00",
+  "status": "ready",
+  "inputs_read": [
+    "state/handoff/latest.json",
+    "state/checkpoints/pipeline.json",
+    "artifacts/summaries/gold_summary.json",
+    "artifacts/reports/kairos_daily_strategy.md",
+    "tasks/active/vault-hygiene-pass-01.md"
+  ],
+  "outputs_written": [
+    "Otto-Realm/Handoff/a_signal.md"
+  ],
+  "context": {
+    "kairos_score": 4.79,
+    "gold_promoted_24h": 0,
+    "council_triggered": true,
+    "top_risk_folder": ".Otto-Realm\\Reports",
+    "top_risk_score": 268.75,
+    "missing_frontmatter_top": 134,
+    "council_recurrence_count": 151,
+    "training_ready": false
+  },
+  "followup_auto": [
+    {
+      "id": "auto-001-frontmatter-batch",
+      "why_now": ".Otto-Realm\\Reports has 134 missing frontmatter — highest risk score (268.75). Blocks Gold promotion and training export.",
+      "expected_artifact": "artifacts/reports/frontmatter_repair_001.md",
+      "risk": "Low: read-only scan + template injection; no content deletion",
+      "confidence": 0.92
+    },
+    {
+      "id": "auto-002-council-repeat-suppress",
+      "why_now": "Council trigger epistemic_gap has recurred 151 times; auto-suppress repeat notifications for 24h to reduce noise while root cause (metadata debt) is addressed.",
+      "expected_artifact": "state/checkpoints/council_suppress.json",
+      "risk": "Low: state toggle only, reversible",
+      "confidence": 0.88
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "human-001-gold-threshold-calibration",
+      "why_now": "Gold promotion stalled (0 in 24h) despite 55 scored events. Scores hover at 6.07 vs threshold 6.10 — tight margin suggests calibration drift or intake sparsity. User context needed: adjust threshold or review scoring weights?",
+      "expected_artifact": "artifacts/reports/gold_calibration_proposal.md",
+      "risk": "Medium: threshold change affects downstream training quality",
+      "confidence": 0.75
+    }
+  ],
+  "verdict": "Execute auto-001 and auto-002 immediately. Await human-001 decision before unblocking Gold pipeline.",
+  "next_role_hint": "B"
+}

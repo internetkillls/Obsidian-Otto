@@ -1,0 +1,14 @@
+{
+  "ts": "2026-04-25T11:00:00+07:00",
+  "role": "c",
+  "status": "needs_human",
+  "summary": "FOLLOWUP_AUTO completed with bounded evidence pack and handoff refresh; human urgent-review and Gold calibration decisions remain open.",
+  "evidence": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_demotion_review_latest.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\scarcity_hygiene_evidence_pack.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\needs_you.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md"
+  ],
+  "next": "Await urgent-review decision and Gold calibration choice before expanding scope."
+}

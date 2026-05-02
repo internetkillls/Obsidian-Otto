@@ -1,0 +1,66 @@
+{
+  "ok": false,
+  "state": "OO_OPERATOR_PARITY_NEEDS_REPAIR",
+  "checked_at": "2026-04-30T02:21:53+07:00",
+  "runtime_state": "S4_WSL_LIVE",
+  "parity": {
+    "native_config": "C:\\Users\\joshu\\Obsidian-Otto\\.openclaw\\openclaw.json",
+    "wsl_shadow_config": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\ubuntu-live\\openclaw.json.preview",
+    "qmd_backend_match": true,
+    "qmd_sources_match": true,
+    "native_qmd_command": "C:/Users/joshu/Obsidian-Otto/scripts/shell/qmd-wsl.js",
+    "wsl_qmd_command": "/usr/bin/qmd",
+    "wsl_qmd_command_native": true,
+    "native_telegram_enabled": false,
+    "wsl_telegram_enabled": true,
+    "telegram_single_owner": true,
+    "telegram_enabled_owners": [
+      "ubuntu_openclaw"
+    ],
+    "gateway_ports": {
+      "native": 18789,
+      "wsl_shadow": 18790
+    }
+  },
+  "cron": {
+    "exists": true,
+    "drift_free": true,
+    "job_count": 17,
+    "enabled_job_count": 17,
+    "timezone_issues": []
+  },
+  "heartbeat": {
+    "exists": true,
+    "tool_count": 7,
+    "tools": [
+      "otto.heartbeat",
+      "otto.song_skeleton_next",
+      "otto.paper_onboarding_next",
+      "otto.memento_due",
+      "otto.blocker_experiment_next",
+      "otto.visual_inspo_query",
+      "otto.feedback_ingest"
+    ]
+  },
+  "wsl_environment": {
+    "ok": true,
+    "openclaw_bin": "/home/joshu/.npm-global/bin/openclaw",
+    "qmd_bin": "/usr/bin/qmd",
+    "repo_visible": true,
+    "vault_visible": true,
+    "stderr": ""
+  },
+  "openclaw_health": {
+    "config_drift_free": true,
+    "qmd_index_ok": true,
+    "qmd_source_count": 6
+  },
+  "wsl_gateway": {
+    "ok": false,
+    "reason": "gateway-http-unhealthy",
+    "port": 18790,
+    "telegram_enabled": null,
+    "qmd_index_seen": false
+  },
+  "next_required_action": "run operator-doctor or operator-repair"
+}

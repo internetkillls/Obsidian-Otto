@@ -1,0 +1,69 @@
+{
+  "ts": "2026-04-26T16:00:00+07:00",
+  "role": "b",
+  "status": "machine",
+  "source_files": {
+    "soul": "C:\\Users\\joshu\\.openclaw\\workspace\\SOUL.md",
+    "a_signal": "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\a_signal.md",
+    "bottleneck": "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Brain\\otto_bottleneck.md",
+    "heartbeat": "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Heartbeats\\2026-04-20.md",
+    "template": "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\b_execution_brief.template.md",
+    "launcher_current": "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\current.json",
+    "mcp_last_run": "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\mcp_last_run.json",
+    "sync_status": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\sync_status.json",
+    "pipeline": "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+    "gold_summary": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+    "kairos_daily_strategy": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md"
+  },
+  "health_gate": {
+    "verdict": "no_action",
+    "runtime_status": "RUNNING",
+    "mcp_mode": "container_ready",
+    "config_drift_free": true,
+    "notes": [
+      "Launcher healthy.",
+      "MCP already ready.",
+      "OpenClaw sync drift-free."
+    ]
+  },
+  "gold_gate": {
+    "verdict": "ready",
+    "training_ready": true,
+    "vector_cache": "built",
+    "meta_gov_flag": "gold_low",
+    "notes": [
+      "Gold is fresh enough to gate work.",
+      "No refresh run needed.",
+      "Scoring calibration still needs human review."
+    ]
+  },
+  "followup_auto": [
+    {
+      "id": "auto-allo-family-bounded-apply",
+      "title": "Bounded ALLO-only follow-up for ALLOCATION-FAMILY",
+      "why_now": "Reviewed graph-demotion batch is ready and strategy already approves this narrow next move.",
+      "acceptance_check": "One bounded ALLO-only pass completes without broad graph expansion and records the outcome."
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "human-gold-calibration-check",
+      "title": "Review Gold scoring calibration",
+      "why_now": "MetaGov flagged gold_low after zero promotions.",
+      "deadline_or_trigger": "Before the next Gold-facing synthesis pass."
+    },
+    {
+      "id": "human-commitment-continuity-probe",
+      "title": "Answer commitment continuity probe",
+      "why_now": "Strategy still carries this as the active probe.",
+      "deadline_or_trigger": "Next mentor-touch cycle."
+    }
+  ],
+  "stop_trigger": "Stop if the bounded ALLO-only pass starts widening beyond ALLOCATION-FAMILY or creates noisy cross-note mesh behavior.",
+  "next_anchor": "Next reviewed graph-demotion checkpoint after the bounded ALLO-only pass is recorded.",
+  "evidence": {
+    "strategy_path": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md",
+    "review_path": "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_demotion_review_latest.json",
+    "brief_path": "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\b_execution_brief.md"
+  }
+}

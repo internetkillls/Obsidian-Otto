@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-05-02T13:30:41+07:00",
+  "timezone": "Asia/Bangkok",
+  "scheduler_store": "/home/joshu/.openclaw/cron/jobs.json",
+  "generated_from": "live-jobs.json",
+  "validation": {
+    "drift_free": true,
+    "observed_issues": [
+      "Memory Dreaming Promotion: cron timezone should be Asia/Bangkok",
+      "Memory Dreaming Promotion: cron expression should be 0 11 * * * instead of 0 3 * * *"
+    ],
+    "current_issues": [],
+    "fixes_applied": [
+      "Memory Dreaming Promotion: set cron timezone to Asia/Bangkok",
+      "Memory Dreaming Promotion: moved cron schedule to 0 11 * * *"
+    ],
+    "apply_fixes": true
+  },
+  "jobs": [
+    {
+      "job_id": "9a02e16b-2347-471c-b057-1dc616f43047",
+      "job_key": "Memory Dreaming Promotion",
+      "description": "[managed-by=memory-core.short-term-promotion] Promote weighted short-term recalls into MEMORY.md (limit=10, minScore=0.800, minRecallCount=3, minUniqueQueries=3, recencyHalfLifeDays=14, maxAgeDays=30).",
+      "enabled": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 11 * * *",
+        "tz": "Asia/Bangkok"
+      },
+      "wake_mode": "now",
+      "session_target": "isolated",
+      "payload_kind": "agentTurn",
+      "delivery_mode": "none",
+      "source": "live-jobs.json"
+    }
+  ]
+}

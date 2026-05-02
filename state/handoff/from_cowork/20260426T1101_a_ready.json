@@ -1,0 +1,70 @@
+{
+  "status": "ready",
+  "generated_at_utc": "20260426T1101",
+  "source_role": "a_signal",
+  "health": {
+    "status": "healthy",
+    "runtime_status": "RUNNING",
+    "mcp_mode": "container_ready",
+    "sync_ok": true,
+    "qmd_index_ok": true,
+    "recovery_run": false
+  },
+  "gold": {
+    "training_ready": true,
+    "gold_promoted_count": 0,
+    "meta_gov_flag": "gold_low",
+    "vector_cache_enabled": true,
+    "smallest_refresh_needed": false
+  },
+  "followup_auto": [
+    {
+      "id": "auto-allo-family-bounded-apply",
+      "title": "ALLOCATION-FAMILY ALLO-only bounded apply",
+      "why_now": "Reviewed graph-demotion work is already marked ready, and the current hotspot is ALLOCATION-FAMILY.",
+      "expected_artifact": "One bounded OpenClaw fetch/apply result for ALLOCATION-FAMILY plus updated review state.",
+      "risk": "Medium",
+      "confidence": 0.9
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "human-commitment-continuity-probe",
+      "title": "commitment continuity probe",
+      "why_now": "The active mentor probe is still pending, and the system explicitly says commitments get forgotten unless surfaced on purpose.",
+      "expected_artifact": "A filled answer for the commitment continuity probe with one smallest next step.",
+      "risk": "Low",
+      "confidence": 0.91
+    },
+    {
+      "id": "human-gold-calibration-check",
+      "title": "Gold calibration check",
+      "why_now": "Gold promotion count is still zero despite recent scoring, so calibration or intake sparsity likely needs a judgment call.",
+      "expected_artifact": "A decision note on threshold tuning versus accepting sparse intake.",
+      "risk": "Medium",
+      "confidence": 0.83
+    }
+  ],
+  "evidence": {
+    "goal": "Advance graph-demotion cleanup via ALLO-only follow-up on ALLOCATION-FAMILY",
+    "next_action": "Use the reviewed graph-demotion batch to run one bounded OpenClaw fetch for ALLOCATION-FAMILY, then apply the next ALLO-only batch.",
+    "top_folder_risks": [
+      "00-Meta\\scarcity risk=45.41",
+      ". risk=24.79",
+      "10-Inbox\\Typst\\typst\\docs\\reference\\library risk=20.0"
+    ],
+    "mentor_active_probe": "commitment continuity probe",
+    "active_task_fallback": "vault-hygiene-pass-01",
+    "paths": {
+      "latest": "C:\\Users\\joshu\\Obsidian-Otto\\state\\handoff\\latest.json",
+      "pipeline": "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+      "gold_summary": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+      "kairos_daily_strategy": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md",
+      "active_task": "C:\\Users\\joshu\\Obsidian-Otto\\tasks\\active\\vault-hygiene-pass-01.md",
+      "launcher_current": "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\current.json",
+      "launcher_mcp_last_run": "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\mcp_last_run.json",
+      "sync_status": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\sync_status.json"
+    },
+    "pending_override_present": false
+  }
+}

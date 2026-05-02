@@ -1,0 +1,26 @@
+{
+  "top3": [
+    {
+      "opportunity": "Forensic analytics pitch to one audit lead",
+      "why_now": "Tier-1 task is still unstarted and blocks revenue",
+      "evidence_path": "C:/Users/joshu/Josh Obsidian/20-Programs/Crack-Research/04-Tracker/PROGRAM_TRACKER.md"
+    },
+    {
+      "opportunity": "Refactor Ajestor reusable script for paid run",
+      "why_now": "Layer-1 tool packaging directly supports paid service",
+      "evidence_path": "C:/Users/joshu/Josh Obsidian/20-Programs/Crack-Research/02-Feasibility/crack-research-feasibility.md"
+    },
+    {
+      "opportunity": "One LinkedIn post for lead generation",
+      "why_now": "Tier-1C social proof feeds inbound work",
+      "evidence_path": "C:/Users/joshu/Josh Obsidian/20-Programs/Crack-Research/index.md"
+    }
+  ],
+  "next_action": "Ship one outreach message today and log result.",
+  "evidence_links": [
+    "C:/Users/joshu/Josh Obsidian/20-Programs/Crack-Research/index.md",
+    "C:/Users/joshu/Josh Obsidian/20-Programs/Crack-Research/04-Tracker/PROGRAM_TRACKER.md"
+  ],
+  "debt_move": "Advance Debt-to-Business Bridge prerequisite by finishing one Layer-1 chunk.",
+  "program_gate_status": "tier1_active"
+}

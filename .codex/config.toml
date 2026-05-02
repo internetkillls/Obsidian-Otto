@@ -1,0 +1,50 @@
+model = "gpt-5.4-mini"
+model_reasoning_effort = "low"
+service_tier = "flex"
+personality = "pragmatic"
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+project_doc_max_bytes = 65536
+project_root_markers = [".git", "pyproject.toml"]
+project_doc_fallback_filenames = ["TEAM_GUIDE.md"]
+
+[agents]
+max_threads = 4
+max_depth = 1
+job_max_runtime_seconds = 1800
+
+[profiles.router]
+model = "gpt-5.4-nano"
+model_reasoning_effort = "none"
+service_tier = "flex"
+personality = "pragmatic"
+
+[profiles.fast]
+model = "gpt-5.4-mini"
+model_reasoning_effort = "low"
+service_tier = "flex"
+personality = "pragmatic"
+
+[profiles.deep]
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+service_tier = "flex"
+personality = "pragmatic"
+
+[profiles.deep_code]
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+service_tier = "flex"
+personality = "pragmatic"
+
+[profiles.deep_code_fallback]
+model = "gpt-5.3-codex"
+model_reasoning_effort = "high"
+service_tier = "flex"
+personality = "pragmatic"
+
+[profiles.xdeep]
+model = "gpt-5.4-pro"
+model_reasoning_effort = "high"
+service_tier = "flex"
+personality = "pragmatic"

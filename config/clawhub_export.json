@@ -1,0 +1,19 @@
+{
+  "publishable_skills": [
+    "hygiene-audit",
+    "memory-fast",
+    "memory-deep",
+    "obsidian-cli-expert-system",
+    "scholarly-explore-remap",
+    "typst-luxury-layout",
+    "visual-precedent-execution"
+  ],
+  "private_skills": [
+    "agathon-heartbeat-proactive",
+    "agathon-soft-profile",
+    "dream-consolidation",
+    "josh-thought-partner",
+    "otto-realm-maintainer"
+  ],
+  "version": "1.0.0"
+}

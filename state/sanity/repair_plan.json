@@ -1,0 +1,222 @@
+{
+  "version": 1,
+  "generated_at": "2026-05-02T14:21:16+07:00",
+  "auto_repair": false,
+  "summary": {
+    "fail": 0,
+    "warn": 30,
+    "quarantined": 0
+  },
+  "actions": [
+    {
+      "action_id": "repair_001",
+      "issue_id": "dead_20260502142106",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "enqueue_review_or_mark_parked",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_002",
+      "issue_id": "dead_20260502142106",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "enqueue_review_or_mark_parked",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_003",
+      "issue_id": "dead_20260502142106",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "enqueue_review_or_mark_parked",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_004",
+      "issue_id": "dead_20260502142106",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "enqueue_review_or_mark_parked",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_005",
+      "issue_id": "dead_20260502142106",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "enqueue_review_or_mark_parked",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_006",
+      "issue_id": "dead_20260502142106",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "enqueue_review_or_mark_parked",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_007",
+      "issue_id": "dead_20260502142106",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "enqueue_review_or_mark_parked",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_008",
+      "issue_id": "dead_20260502142106",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "enqueue_review_or_mark_parked",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_009",
+      "issue_id": "dead_20260502142106",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "enqueue_review_or_mark_parked",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_010",
+      "issue_id": "dead_20260502142106",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "enqueue_review_or_mark_parked",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_011",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_012",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_013",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_014",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_015",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_016",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_017",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_018",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_019",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_020",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_021",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_022",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_023",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_024",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_025",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_026",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_027",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_028",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_029",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    },
+    {
+      "action_id": "repair_030",
+      "issue_id": "noise_20260502142117",
+      "kind": "manual_triage_recommended",
+      "recommended_command": "request_evidence_or_park",
+      "risk": "low"
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "ts": "2026-05-02T13:26:42+07:00",
+  "reference_source": "/mnt/c/Users/joshu/Obsidian-Otto/.openclaw/openclaw.json",
+  "live_config_path": "/home/joshu/.openclaw/openclaw.json",
+  "boundary_mode": "managed-sync",
+  "sync_performed": true,
+  "config_drift_free": true,
+  "openclaw_config_sync": true,
+  "managed_hashes_match": true,
+  "anthropic_ready": true,
+  "hf_fallback_ready": true,
+  "huggingface_provider_present": true,
+  "expected_hf_model_present": true,
+  "reference_parse_error": null,
+  "live_parse_error": null,
+  "backup_path": "/mnt/c/Users/joshu/Obsidian-Otto/state/openclaw/backups/openclaw_20260502_132642_0700.bak.json",
+  "changed_sections": [
+    "memory"
+  ],
+  "otto_env_contract": {
+    "OTTO_REPO_ROOT": "/mnt/c/Users/joshu/Obsidian-Otto",
+    "OTTO_VAULT_HOST": "/mnt/c/Users/joshu/Josh Obsidian",
+    "OTTO_VAULT_PATH": "/mnt/c/Users/joshu/Josh Obsidian",
+    "OTTO_STATE_ROOT": "/mnt/c/Users/joshu/Obsidian-Otto/state",
+    "OTTO_LAUNCHER": "otto.bat",
+    "OTTO_LOOP_MODE": "local",
+    "PYTHONUTF8": "1",
+    "PYTHONIOENCODING": "utf-8"
+  },
+  "qmd_index": {
+    "ok": false,
+    "config_source": "/home/joshu/.openclaw/openclaw.json",
+    "backend": "qmd",
+    "backend_is_qmd": true,
+    "manifest": null,
+    "soul_control_plane_status": {},
+    "soul_source_groups": {
+      "control_plane_identity_present": false,
+      "soul_identity_present": false,
+      "status": "red"
+    },
+    "qmd_manifest_has_control_plane_identity": false,
+    "qmd_manifest_has_soul_identity": false,
+    "sources": [
+      {
+        "id": "otto-facts",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Memory-Tiers/01-Facts",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Memory-Tiers/01-Facts",
+        "exists": true,
+        "md_file_count": 1,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto-interpretations",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Memory-Tiers/02-Interpretations",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Memory-Tiers/02-Interpretations",
+        "exists": true,
+        "md_file_count": 17,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto-speculations",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Memory-Tiers/03-Speculations",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Memory-Tiers/03-Speculations",
+        "exists": true,
+        "md_file_count": 1,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto-brain",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Brain",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Brain",
+        "exists": true,
+        "md_file_count": 6,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto-briefing",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm",
+        "exists": true,
+        "md_file_count": 346,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto-crack-research",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/20-Programs/Crack-Research",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/20-Programs/Crack-Research",
+        "exists": true,
+        "md_file_count": 12,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "profile_gold",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto/state/profile/gold",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto/state/profile/gold",
+        "exists": false,
+        "md_file_count": 0,
+        "ok": false,
+        "populated": false
+      },
+      {
+        "id": "otto_control_plane_identity-1",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "exists": true,
+        "md_file_count": 645,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_control_plane_identity-2",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "exists": true,
+        "md_file_count": 645,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_control_plane_identity-3",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "exists": true,
+        "md_file_count": 645,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_control_plane_identity-4",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "exists": true,
+        "md_file_count": 645,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_control_plane_identity-5",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "exists": true,
+        "md_file_count": 645,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_control_plane_identity-6",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto",
+        "exists": true,
+        "md_file_count": 645,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_control_plane_identity-7",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto/state",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto/state",
+        "exists": true,
+        "md_file_count": 14,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_control_plane_identity-8",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto/artifacts",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto/artifacts",
+        "exists": true,
+        "md_file_count": 33,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_control_plane_identity-9",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto/artifacts",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto/artifacts",
+        "exists": true,
+        "md_file_count": 33,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_control_plane_identity-10",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto/artifacts",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto/artifacts",
+        "exists": true,
+        "md_file_count": 33,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_control_plane_identity-11",
+        "path": "/mnt/c/Users/joshu/Obsidian-Otto/artifacts",
+        "host_path": "/mnt/c/Users/joshu/Obsidian-Otto/artifacts",
+        "exists": true,
+        "md_file_count": 33,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_realm_identity-1",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm",
+        "exists": true,
+        "md_file_count": 346,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_realm_identity-2",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm",
+        "exists": true,
+        "md_file_count": 346,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_realm_identity-4",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Heartbeats",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Heartbeats",
+        "exists": true,
+        "md_file_count": 8,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_realm_identity-5",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Memory-Tiers",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Memory-Tiers",
+        "exists": true,
+        "md_file_count": 20,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_realm_identity-6",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Rituals",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Rituals",
+        "exists": true,
+        "md_file_count": 12,
+        "ok": true,
+        "populated": true
+      },
+      {
+        "id": "otto_realm_identity-7",
+        "path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Predictions",
+        "host_path": "/mnt/c/Users/joshu/Josh Obsidian/.Otto-Realm/Predictions",
+        "exists": true,
+        "md_file_count": 15,
+        "ok": true,
+        "populated": true
+      }
+    ],
+    "source_count": 24,
+    "sources_all_ok": false
+  },
+  "cli_validation": {
+    "skipped": true,
+    "reason": "Otto no longer performs OpenClaw subprocess validation."
+  },
+  "cron_contract": {
+    "ok": true,
+    "reason": "cron-contract-synced",
+    "jobs_path": "/home/joshu/.openclaw/cron/jobs.json",
+    "contract_path": "/mnt/c/Users/joshu/Obsidian-Otto/state/openclaw/cron_contract_v1.json",
+    "sync_performed": true,
+    "job_count": 1,
+    "observed_issues": [
+      "Memory Dreaming Promotion: cron timezone should be Asia/Bangkok",
+      "Memory Dreaming Promotion: cron expression should be 0 11 * * * instead of 0 3 * * *"
+    ],
+    "current_issues": [],
+    "fixes_applied": [
+      "Memory Dreaming Promotion: set cron timezone to Asia/Bangkok",
+      "Memory Dreaming Promotion: moved cron schedule to 0 11 * * *"
+    ]
+  },
+  "dreaming_guardrails": {
+    "ok": true,
+    "reason": "dreaming-artifacts-sanitized",
+    "vault_path": "/mnt/c/Users/joshu/Josh Obsidian",
+    "report_files_changed": [
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/light/2026-04-22.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/light/2026-04-23.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/light/2026-04-24.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/light/2026-04-25.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/light/2026-04-26.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/light/2026-04-27.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/light/2026-04-28.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/light/2026-04-29.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/light/2026-04-30.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/light/2026-05-01.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/rem/2026-04-22.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/rem/2026-04-23.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/rem/2026-04-24.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/rem/2026-04-25.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/rem/2026-04-26.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/rem/2026-04-27.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/rem/2026-04-28.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/rem/2026-04-29.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/rem/2026-04-30.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/rem/2026-05-01.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/deep/2026-04-22.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/deep/2026-04-23.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/deep/2026-04-24.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/deep/2026-04-25.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/deep/2026-04-26.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/deep/2026-04-27.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/deep/2026-04-28.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/deep/2026-04-29.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/deep/2026-04-30.md",
+      "/mnt/c/Users/joshu/Josh Obsidian/memory/dreaming/deep/2026-05-01.md"
+    ],
+    "daily_notes_changed": [],
+    "report_change_count": 30,
+    "daily_note_change_count": 0
+  }
+}

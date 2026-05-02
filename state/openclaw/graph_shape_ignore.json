@@ -1,0 +1,4895 @@
+{
+  "run_count": 205,
+  "entries": {
+    "entity:orientation:c4178070336d091f": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:allocation:cf779d37788b27b5": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:5a5c3c29b5fed967": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:cfb863ff2b078446": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:orientation:204d5a93726d5cf9": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:allocation:f33c9287701c98b3": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:10f5d6c929463535": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:365e3a31fbf9230c": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:06ae83bbd70a599b": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:orientation:04e73af7a7acebc2": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:allocation:4cf1d632e4f808f3": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:af523d3baa8eb2d3": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:9b0429e59aee6a9d": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:3e064929eceb0edf": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:orientation:5b3cb060d1948e15": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:allocation:3678ee4b4f010599": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:ea19bde09cd95cdc": {
+      "defer_until_run": 173,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T10:20:21+07:00"
+    },
+    "entity:scarcity:3276ac5d913054c8": {
+      "defer_until_run": 173,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T10:20:21+07:00"
+    },
+    "entity:scarcity:fc89bbf3adbc9e91": {
+      "defer_until_run": 173,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T10:20:21+07:00"
+    },
+    "entity:orientation:dce4d847dc121b00": {
+      "defer_until_run": 173,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T10:20:21+07:00"
+    },
+    "entity:allocation:e8ff1d708355a8a5": {
+      "defer_until_run": 173,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T10:20:21+07:00"
+    },
+    "entity:allocation:ece0ba7ba61321e8": {
+      "defer_until_run": 173,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T10:20:21+07:00"
+    },
+    "entity:allocation:35b8259489d45187": {
+      "defer_until_run": 175,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T10:32:43+07:00"
+    },
+    "entity:scarcity:2ad1b9f83210f240": {
+      "defer_until_run": 177,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T10:41:20+07:00"
+    },
+    "entity:orientation:9b778bf44b80c42f": {
+      "defer_until_run": 177,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T10:41:21+07:00"
+    },
+    "entity:allocation:4d44ad5196ebc9e9": {
+      "defer_until_run": 177,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T10:41:21+07:00"
+    },
+    "entity:allocation:d0e969c9a7a45321": {
+      "defer_until_run": 179,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T10:56:39+07:00"
+    },
+    "entity:allocation:188cd1a6b6bd66de": {
+      "defer_until_run": 182,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T11:29:58+07:00"
+    },
+    "entity:orientation:153bb9063a0782de": {
+      "defer_until_run": 182,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T11:29:58+07:00"
+    },
+    "entity:allocation:2e07758c99d4378d": {
+      "defer_until_run": 182,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T11:29:58+07:00"
+    },
+    "entity:allocation:19169b74ce5e8c3f": {
+      "defer_until_run": 190,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T10:46:09+07:00"
+    },
+    "entity:scarcity:baf96149e29d2c05": {
+      "defer_until_run": 192,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:01:33+07:00"
+    },
+    "entity:scarcity:7c98561ae6abc2a5": {
+      "defer_until_run": 192,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:01:33+07:00"
+    },
+    "entity:orientation:6c0bb9e37e49830d": {
+      "defer_until_run": 192,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:01:33+07:00"
+    },
+    "entity:allocation:2b2ce4d25a397af0": {
+      "defer_until_run": 192,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:01:33+07:00"
+    },
+    "entity:allocation:93dd2cce15a9d232": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:ef71ae29206444d4": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:055c884c11cf84e9": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:e4476036b953fd03": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:orientation:073a23a360b42ee8": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:allocation:95cbac6585ff65bb": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:82076005f23ec506": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:d2efaf228ed460de": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:orientation:a9c693a92b3ac354": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:allocation:09c192138fe8ace2": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:6ad1e83e58f38437": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:a76ef693ba44b7ae": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:orientation:dfd2a0ba3a17411d": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:allocation:52ee2e56cc96cf98": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:24bb65636aee4c93": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:1ffc53e8e601a94e": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:c6bf1f001c194826": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:orientation:f83908b667a9bdda": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:allocation:4d5dd31708e88fd9": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:55a6e9e996dbf5f3": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:orientation:27ba140401e03b62": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:allocation:225d40929351d339": {
+      "defer_until_run": 193,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-24T20:03:00+07:00"
+    },
+    "entity:scarcity:dc495620f2e0d32b": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:orientation:bc5ca6d3f4300ae2": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:allocation:24089385f30554c8": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:0caa956d0db45000": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:orientation:9b1739a5c304210e": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:allocation:c29e1689a96a4d42": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:e7b9970fcdc645c3": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:107947ff58a07432": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:orientation:14150d2982e237b9": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:allocation:406fd804c10708ec": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:cb007d60dd8e17c9": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:721b1946145caa3a": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:orientation:ee3308c091ac57e2": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:allocation:66d8b50be44a7ef5": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:ecc43c07236355bd": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:681d5a1302958e62": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:orientation:0c4c2ad25fde60d8": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:allocation:c799a16d7f6fa611": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:c5b2d76b68336fd4": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:bd6949736b531382": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:1b8e3d49bc0fca1e": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:orientation:c1c35aa724bf1344": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:allocation:d44a6ca64267a419": {
+      "defer_until_run": 137,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:74d79b995d1a441a": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:c26b510f20fa6afa": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:8b5d6336719e19d1": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:orientation:12a645edd61a68d4": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:allocation:4e958361734a88f7": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:orientation:12f27a8b2ae1ea99": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:allocation:00063e26527b493e": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "note:edc478aa7ff5956f": {
+      "defer_until_run": 136,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T02:11:40+07:00"
+    },
+    "entity:scarcity:a447f34b8158fe16": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:ad9302ce0088ee1a": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:e590a9d1fbb4ccc6": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:orientation:7c855c64c1e406aa": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:allocation:56aad2736ccecade": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:9781a4fd742886d8": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:14227f56f50321bd": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:a23b9d2f39114f67": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:orientation:04e3fc0d1906006e": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:allocation:959f34d4cc2480c7": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:266209ecefb7e281": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:d841df3d70b7b1ea": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:906fb6a7515e4367": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:orientation:59b8948af3bb0337": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:allocation:dd78e757c4471ed7": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:8bf7c278ded2002c": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:9eb2ce180169ca8a": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:a392ddcab97e7b1a": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:orientation:9918a46d8461258f": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:allocation:48596321d6590810": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:e03c722e528b29b5": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:dc2eb91ae6b845a8": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:674a2993f4ba0b4d": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:orientation:da636acf1f6346f3": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:allocation:98a1ef194fa7549f": {
+      "defer_until_run": 138,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:scarcity:00f831e838355d16": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:orientation:b35390684d7b1bb9": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:allocation:ac1b069077152b49": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:scarcity:f33e7cf7ea3d9644": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:orientation:cf8501628640e4eb": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:allocation:be032d55dd8a6fd7": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "note:79e0b6be1b0ec5bd": {
+      "defer_until_run": 137,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T02:20:51+07:00"
+    },
+    "entity:orientation:1fa6e4fecec8c11d": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:allocation:8734c05e4f1cd103": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:scarcity:9ff3d0452a50b32f": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:scarcity:118ad880216d0ef7": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:orientation:9c9bb2dc7fecdb8b": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:allocation:c6c9f410f132c544": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:scarcity:c0799b388150f628": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:scarcity:9d357a8cd1f85546": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:scarcity:c3829c2f8f33b938": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:orientation:0523281470320335": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:allocation:1c2a9094cfa2f8f7": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:scarcity:f47cf5064bc0f9a9": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:scarcity:829cec7ebf40f9f1": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:scarcity:33786506166d76cd": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:orientation:ce0006f468018928": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:allocation:b00c52c8625846ac": {
+      "defer_until_run": 139,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:scarcity:cb9c2c2609f6a75b": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:2da0b2e60b7924b3": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:395a80bde4f13242": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:orientation:bc7eacccd69d1ced": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:allocation:29facb0d6b3c0a1d": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:abd744f480393457": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:5e9d455f8f10e785": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:1dc8cceeff7e6784": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:orientation:2cc612ebcaa581bb": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:allocation:08d8d6136c13c147": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "note:9b84ea2e999aaed0": {
+      "defer_until_run": 138,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T02:23:29+07:00"
+    },
+    "entity:scarcity:b6184fa7d088afe2": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:37746a1caff7464f": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:176c703f219397d5": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:orientation:3f8460a29cc04d42": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:allocation:4f0973d0a182c019": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:7601518218762a4d": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:abd9f9b9fec7769d": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:d3a2bcdac2b3e56d": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:orientation:46414052b3e46383": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:allocation:ed0f1647a7bc70cd": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:a0f15a08c0f0def2": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:d8b2984603f46462": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:scarcity:744995894216a219": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:orientation:ced9998db36158b0": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:37:59+07:00"
+    },
+    "entity:allocation:a1434820f2e8f117": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:38:00+07:00"
+    },
+    "entity:scarcity:83d3053c37903f5d": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:38:00+07:00"
+    },
+    "entity:orientation:e41fcec536112c6b": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:38:00+07:00"
+    },
+    "entity:allocation:f55c24bfa53417b7": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:38:00+07:00"
+    },
+    "entity:orientation:99173ed9e2085258": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:38:00+07:00"
+    },
+    "entity:allocation:1ffb9b3d1dbfcf56": {
+      "defer_until_run": 140,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:38:00+07:00"
+    },
+    "note:d04bf4eda708ae4a": {
+      "defer_until_run": 139,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T02:38:00+07:00"
+    },
+    "note:760351624c88adb4": {
+      "defer_until_run": 140,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T02:40:40+07:00"
+    },
+    "entity:allocation:bd1090ff4d8a2bdf": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:orientation:0c697783135a30c0": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:allocation:cd310d2cc32565ca": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:scarcity:1c36b33204b2e0c4": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:scarcity:79d8e6c312a34d13": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:scarcity:5638d1101c046bb6": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:orientation:f58f14ae720d0ff7": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:allocation:dced38e41b9d5986": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:scarcity:41b22762702c3544": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:scarcity:6e916eedeefc56bf": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:orientation:4d2bb3594bd04adc": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:allocation:ff0e79a35f08de27": {
+      "defer_until_run": 142,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:scarcity:4d719c4e0c26280e": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:orientation:a2b10a90d213efcf": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:allocation:62f042f48c80f04d": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:scarcity:b7bcd0a827a0d0ea": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:orientation:5c5fef653d0d542f": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:allocation:43b1087831fcc91c": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "note:fc0c4ef871aa02e7": {
+      "defer_until_run": 141,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T02:54:49+07:00"
+    },
+    "entity:scarcity:db63f322d3c56e96": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:orientation:19baaf97924e581d": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:allocation:436a13adf6571061": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:scarcity:92f5cf36f31d5310": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:scarcity:8e5e172ea5a2d7b4": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:scarcity:d9bde7a27777af18": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:orientation:23c178bfa11508bd": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:allocation:48de0e28260d0323": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:scarcity:16c82852459e992b": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:scarcity:46b11d0ff3a124d6": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:scarcity:04947eab76fd7ca6": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:orientation:c762e136afd09e4f": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:allocation:face597f470afb2c": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:scarcity:5545fd40659b70c9": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:scarcity:7dd772026b430987": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:scarcity:bc9277786ae38f04": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:orientation:692223aa5491c1f2": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:allocation:0e64776bb0109877": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:28+07:00"
+    },
+    "entity:scarcity:5c3a92e0233d755e": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:29+07:00"
+    },
+    "entity:scarcity:9335d9be4ee4b828": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:29+07:00"
+    },
+    "entity:scarcity:85445b712836c552": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:29+07:00"
+    },
+    "entity:orientation:7bf4f4afe3b1a168": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:29+07:00"
+    },
+    "entity:allocation:001b0f26d6fac001": {
+      "defer_until_run": 143,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T02:57:29+07:00"
+    },
+    "entity:scarcity:db50c9035ad455dd": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:072c47e7192fdbae": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:388bae4a18132ad8": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:orientation:02ebe8ec376c627a": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:allocation:a68480400ec1992c": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:orientation:2278920b4c8479c8": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:allocation:2a6a00dfc7f0ba25": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "note:64350b59a40cc164": {
+      "defer_until_run": 142,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T02:57:29+07:00"
+    },
+    "entity:orientation:111a0038c5573e62": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:allocation:13b857921d535f19": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:55f92200aa982bf6": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:94d0c7937cac0ef1": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:0dda659acdce09a0": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:orientation:172af2bff6b88fc8": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:allocation:99f9ff938cbfd510": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:bbb15c95f4530145": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:434a2afe65de198e": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:3525fb4f051c7ace": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:orientation:edacbbc3c5070162": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:allocation:eba7d479f843508f": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:orientation:707c91c8d4aaca34": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:allocation:2c5c4955e911d33c": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:0bd353c0111eab5d": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:77012bebabe5149a": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:3e20003799f93718": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:orientation:20675b34f67c71a0": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:allocation:2b4be75a9bf66982": {
+      "defer_until_run": 144,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "note:c33198c60db5ff6b": {
+      "defer_until_run": 143,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T03:09:17+07:00"
+    },
+    "entity:scarcity:40d48c7b8bebe169": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:scarcity:b5ccfe5062ef086e": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:orientation:5a86f0247a4434b5": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:allocation:dc4b08e825c07607": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:scarcity:708ad1da032650e8": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:scarcity:82333bc2df9e2e40": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:scarcity:fa93e9bb0c5295f2": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:orientation:f80f88e336887dd1": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:allocation:640abc27675172dd": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:scarcity:437f0c44e3004c6e": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:scarcity:b1648d0662a71174": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:scarcity:ec414a6631ddf0c5": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:orientation:12e8677ccd2013cd": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:allocation:4fbe193d6ede5f32": {
+      "defer_until_run": 145,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:scarcity:7ec11256a7aee73d": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:orientation:50ed7e0500c31ee0": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:allocation:c2358ca09e102f22": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:scarcity:f11e563e4dcfc0a3": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:orientation:6e63be0a3f9c9d26": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:allocation:d66bf4e01122e62e": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "note:4e68de4a89161312": {
+      "defer_until_run": 144,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T03:17:23+07:00"
+    },
+    "entity:orientation:9e15aa08264f4f84": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:allocation:4d2ba9a294054f9f": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:scarcity:90995b63c59897b1": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:orientation:cd8ad2c4f900766b": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:allocation:f1dfdfa932d0c8c9": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:scarcity:14cdee50dd0726dc": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:orientation:159987d3d5e6de79": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:allocation:5dd256dee7b29616": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:scarcity:50bdf140b46e5dd5": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:orientation:5cf6c4d1f106a923": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:allocation:8dad47b838012dd7": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:scarcity:466fccef38fa425f": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:orientation:1cc5995c03d7669e": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:allocation:07ea6d4c42473938": {
+      "defer_until_run": 146,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:scarcity:8d2288240210cef9": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:142eb37af8dd10ae": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:79c119161387de5e": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:orientation:aae671c9f10cd6cb": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:allocation:3f3ef31f7a3eb820": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:bab2af9bd5acf675": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:303094e1e5045463": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:35eba585c2fb7862": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:orientation:e6b2b408796746e8": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:allocation:0c7f2d2063c5a17e": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "note:4e78b8525354ef47": {
+      "defer_until_run": 145,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T03:21:01+07:00"
+    },
+    "entity:allocation:ffe6d2e35049d469": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:allocation:431066a06f2bfa2d": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:85ff0e767b4d647f": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:orientation:ebff80ada719f906": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:allocation:3ccdf71172afcf39": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:600ef25100da800e": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:7111e8136339d28c": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:orientation:e9289941663f86dc": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:allocation:d0d6ef484812d251": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:afd03d35a5e77261": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:ff3964fa92b92046": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:0e74d748421145c7": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:orientation:8a10a7959d30ab23": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:allocation:44d84cc513750287": {
+      "defer_until_run": 147,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:629730bb5704bcc1": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:8cd2c000c33fd5dc": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:ea613792c718d570": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:orientation:92330b8b905d2104": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:allocation:65f4c09a2a13072a": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:cdf4ec6a123eedd0": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:9f53c9ecba053df5": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:a66cbd1d9c2d26dc": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:orientation:f90eb5f99eeb758a": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:allocation:88e5bd064b3eb78b": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "note:bc36edd07386027f": {
+      "defer_until_run": 146,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T03:40:53+07:00"
+    },
+    "entity:scarcity:1d0e16259c544d40": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:2a6611ac009e4dc2": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:e1e4dacf44cf9a4e": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:orientation:e721831cd8444a1c": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:allocation:93d1a2e51f272244": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:2d59aa3debe4c384": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:cae7a0dc1ecf1005": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:167a26683d6ee2cf": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:orientation:7f35cfc48b075f9d": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:allocation:ceed2e1990f30567": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:09c44f9e28ab86c1": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:1e79bc1c12ad663c": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:aec6c011650a2548": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:orientation:8aa3dad778b4506b": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:allocation:4345e179c7ad1b0b": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:afe870eb85b1f491": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:03e3424702944d6f": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:19115dec5c54dae2": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:orientation:077ab147a1b99aae": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:allocation:a71980aa0bbc29f2": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:f3224d84fc8b7519": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:72a6286893b6021e": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:4c6776a2d03abbd7": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:orientation:bc0b36caf10dfa11": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:allocation:ebce0be731320fd4": {
+      "defer_until_run": 148,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:71be4ead87af0567": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:orientation:61c0683f9bd59be7": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:allocation:bd204413c3178c35": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:scarcity:377d9ee96c5988ce": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:orientation:8a709720a206c839": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:allocation:5a87f2af65c3393e": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "note:5d8e77a0059c6397": {
+      "defer_until_run": 147,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T04:09:26+07:00"
+    },
+    "entity:scarcity:241df581ec98143c": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:orientation:759d25b8bde18bd7": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:allocation:95552fe5563cf909": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:scarcity:4b3eb89d3294d6c6": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:scarcity:1e6500fee35645b0": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:orientation:d76e7de11b88a88a": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:allocation:702c1f215de2d399": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:scarcity:8e5efdebe95936ec": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:scarcity:b8ae200d55130295": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:orientation:7af3065d74be3fa4": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:allocation:66dbaa3cf406f4ec": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:scarcity:bd292fe85d11810c": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:scarcity:d05bdb05e1e4a93e": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:orientation:8e5f39b07c7f84cd": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:allocation:6806b6ad741ab22b": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:scarcity:b25c57938d310cf5": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:scarcity:5744c90b082c2209": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:orientation:7c1bd163a9c6ce88": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:allocation:dc82e4ceaf7c5ba7": {
+      "defer_until_run": 149,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:orientation:c4c4795104b6dfdc": {
+      "defer_until_run": 150,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:35:25+07:00"
+    },
+    "entity:allocation:92580172433c9c04": {
+      "defer_until_run": 150,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:35:25+07:00"
+    },
+    "note:b280801208673f31": {
+      "defer_until_run": 148,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T04:14:53+07:00"
+    },
+    "entity:orientation:a828f19431814f2a": {
+      "defer_until_run": 150,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:35:25+07:00"
+    },
+    "entity:allocation:aa1f261dfb6c7edb": {
+      "defer_until_run": 150,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:35:25+07:00"
+    },
+    "entity:scarcity:e038d634518caf91": {
+      "defer_until_run": 150,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:35:25+07:00"
+    },
+    "entity:orientation:e2317af15c24768c": {
+      "defer_until_run": 150,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:35:25+07:00"
+    },
+    "entity:allocation:ef67462b940e84c9": {
+      "defer_until_run": 150,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T04:35:25+07:00"
+    },
+    "note:2abdf0566e031e8e": {
+      "defer_until_run": 149,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T04:35:25+07:00"
+    },
+    "entity:scarcity:46f5228420264a0b": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:orientation:6431ec67048a955d": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:allocation:7c4407dacc85da47": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:scarcity:512bedd69c31608f": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:scarcity:1d4ce16839853efd": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:scarcity:9e576b22d3f922bd": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:orientation:1259e7abe9c8ce73": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:allocation:0e2fbdd653a390b6": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:scarcity:49d622fd6884e377": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:scarcity:abd59c37f32479b0": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:scarcity:7989f52e72391b93": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:orientation:55676bb75e199ad9": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:allocation:589e5f2afeb6a84d": {
+      "defer_until_run": 151,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:scarcity:e593705bfef85ae3": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:b0782af8bfae9737": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:f354e41031ebda18": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:orientation:e4fd77a036c45a03": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:allocation:b5e6248ff6b1c6b3": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:85e884d47fcad06b": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:1b3d52e1f851fb51": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:9fb1ddc096981e42": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:orientation:d5b7124c64824122": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:allocation:8a58baf81895d192": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "note:95fa2844b664c339": {
+      "defer_until_run": 150,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T05:24:08+07:00"
+    },
+    "entity:scarcity:2231700e22ece76b": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:123c6bcd4d620179": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:8d5253ccf3e6a987": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:orientation:274620ef57ee0bbb": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:allocation:c018f0391fafa927": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:5617a359a7375c1e": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:4cf944623f1aac65": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:b8d1014ffc940274": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:orientation:efccb27653bc2f35": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:allocation:1e142cf085122c19": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:87fe87a14b2882f2": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:934dadb7d1643eb9": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:0383bfb671a2a457": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:orientation:2a57c0f1641f3294": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:allocation:410e5491d2db03ab": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:4d0324a6cbf9c8d7": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:5806897554ec7f30": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:1149e868ac8d1cac": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:orientation:9cb1342b16edc163": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:allocation:a0f6033c93f8d624": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:15120839e5e57315": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:052a4e7e59cb37a8": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:f736527e262e9d58": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:orientation:3869de12c2c3cc22": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:allocation:1b68d6e711c36cbb": {
+      "defer_until_run": 152,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:e038aee4fb9b0e4d": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:1e2a70b31b10c27e": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:645713130e89c8da": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:orientation:90fdd1df5a46d152": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:allocation:3ef5315e98897237": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:fd17f4cf75699eb8": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:fa3a0d1e41096b40": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:c2dc7c3f4a47819e": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:orientation:ae52827f3824d9df": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:allocation:838297ee776889bb": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "note:a741f09b0be7a9bb": {
+      "defer_until_run": 151,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T05:34:36+07:00"
+    },
+    "entity:scarcity:1c5a069f1ef8736c": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:e539d5ba04ed0d82": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:bbacf21412f61cab": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:orientation:424aaf3d6e9cb776": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:allocation:f437a19f6f6631fb": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:dddb83bcd0fd7b15": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:6b9efb83a6940f31": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:31dfe4f6f28fd6d0": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:orientation:aa76636682ca657f": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:allocation:5bd8752be120942d": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:72450ad1b5cd4239": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:a226c180c6c4b671": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:8d556ecc7d8a1b35": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:orientation:914bf72eee12814e": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:allocation:7d65cd48b833eeef": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:3713f9d918941e8f": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:0830e7089c068aba": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:8683e24f62845d88": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:orientation:76d8df64631277cc": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:allocation:66f48da7a98a4e86": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:e481303c83d7198a": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:923d44507a1e6d13": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:83c47ddcc06574c3": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:orientation:678dd64b2dc4de30": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:allocation:feb968d18e6358c0": {
+      "defer_until_run": 153,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "note:bc83730969fc3dd1": {
+      "defer_until_run": 152,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T05:55:40+07:00"
+    },
+    "entity:scarcity:865b1a8068359bca": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:scarcity:4b0a7dc144c071f1": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:scarcity:db6e3d79649d02c6": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:orientation:4660cc12db82bf56": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:allocation:6b2d832b74d76a13": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:scarcity:7819eb4bbe0a7799": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:scarcity:82a1f6009a8d2956": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:scarcity:d241f28a16945c53": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:orientation:c2767a394d45608a": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:allocation:fcef4154a4cca9b4": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:orientation:7247c8a21a2b6ab4": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:allocation:34eaa1f4fe8c6639": {
+      "defer_until_run": 154,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:allocation:570ecaf8886c99c5": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:allocation:9da6bdeca1854140": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "note:cb5e6d8075a6bfaf": {
+      "defer_until_run": 153,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T06:00:58+07:00"
+    },
+    "entity:orientation:8417108ef7b5ab5a": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:allocation:4c05f1500c231092": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:scarcity:8587b70476958e6a": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:scarcity:33cc787d5148afd3": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:orientation:a33284e353207224": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:allocation:964875e630a76bb2": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:scarcity:76d08ec3e7e1182a": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:scarcity:4157c0bd951fa623": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:orientation:28c8923144c7d753": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:allocation:d5c6bd2b4b18d71a": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:scarcity:685843520e3fbc7c": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:scarcity:558862ef2b06d00b": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:orientation:b6eb4c0a346bb073": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:allocation:c32303a3664a8d01": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:scarcity:ede10b853ad53d97": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:scarcity:1bd9a5263daed524": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:orientation:a978ebff9decb422": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:allocation:b2cc118b166ccb97": {
+      "defer_until_run": 155,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:scarcity:1a9eb98de7726ed8": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:c593ef5d8e1e02dc": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:871b989d39d87582": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:orientation:91cd1540c3ef564e": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:allocation:4ec081a58d630ec9": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:29d94dcefafb3688": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:6a568e4b7ead33aa": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:orientation:5a09a153da32b092": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:allocation:60a8f55eb18415ae": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "note:4e117c7ec008ca4d": {
+      "defer_until_run": 154,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T06:08:40+07:00"
+    },
+    "entity:scarcity:323d55d75d4a93f8": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:6b92e961dcee735c": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:orientation:7c581d7d88becf58": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:allocation:8bbbe9a6636981bb": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:0e6f542e331c64d3": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:ced06826abf98c50": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:a070ed523fb8ca91": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:orientation:bfdf3ae780a598bd": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:allocation:e578fea45bc349f1": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:f797208f5312f8ac": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:9901b6c0286816ba": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:598b074a1cbc9756": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:orientation:b229a21f1b3f5a28": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:allocation:eac6269690d87624": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:1c1bb6aae94d98e0": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:5e96863cbf924e36": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:73c37d7d2a0ff9f7": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:orientation:f10cce8795b2d2df": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:allocation:ddec9f8c9587d9d5": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:39cc853be5fb65bf": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:30000cfe62b073cd": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:b4b164e905e27da9": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:orientation:0b64b529ea669b1d": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:allocation:4965cbcc76612394": {
+      "defer_until_run": 156,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:scarcity:4293d4e5be82878c": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:6653b4e30b4b5f30": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:cffcb02b2829b5bd": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:orientation:9d30c05961981ed2": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:allocation:c5cc69c0f4d290a7": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:orientation:f4eccdb67e5179f5": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:allocation:c8e76a139bb172a7": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "note:d7db0cb3414f06ef": {
+      "defer_until_run": 155,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T06:11:20+07:00"
+    },
+    "entity:orientation:057f91e7bb3a714e": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:allocation:e66025d01e62059e": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:d3a1856ba1b5aefe": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:a76ca61ae4d7aecd": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:91f37226ffdb4c18": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:orientation:21a05be6be64a66e": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:allocation:3636eb81d63fdf4d": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:7ff91b1d260cd5a4": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:43c676dcf712aaa5": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:d877d26b05f25765": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:orientation:03fe377598ed598e": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:allocation:0e708eaf7db253f5": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:00ef8268eb1fc2a6": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:656bddbdc1c47847": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:orientation:2f79409298bd8d22": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:allocation:c4a5fd83266b1f6c": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:83ca58326723a7d9": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:974507dd744d8e29": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:043f0aea3b7dea78": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:orientation:377cf896f75aa462": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:allocation:9605c4905f3acaae": {
+      "defer_until_run": 157,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:b858566b68ec72d5": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:89aba0c490637dc0": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:1ab288d2cd36e8b4": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:orientation:caf7baf0f0080d1a": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:allocation:5f5aea60710b69f8": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:997606450de64c9d": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:feaf19113026c962": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:3eaee77cb6a10570": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:orientation:cd92a9b609b9a86e": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:allocation:99741d49c23318bf": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "note:cb69e1cb1111949b": {
+      "defer_until_run": 156,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T06:14:07+07:00"
+    },
+    "entity:scarcity:ea85a5f265128ebd": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:a5eb58ccc3ab0437": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:f7699c58c31dab4c": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:orientation:604361412d5aeafe": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:allocation:fd76e6e37be5ca65": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:98272275795d324c": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:3cbd83ebd15acd44": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:37ca2882b55352ae": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:orientation:79f23100206a11cb": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:allocation:36dba9c8fa8d68b4": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:a5f0647ebf2e3da9": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:64aeeb146b953562": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:8ab435bc7023ff84": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:orientation:48d4b131f62f089b": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:allocation:a2e6406adaae82f4": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:57d7637f138afd95": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:3a88fd56a8bbee80": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:ecdfb39d9e0f59b4": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:orientation:9d0bf63d4eecf427": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:allocation:190eaacc83a83ca5": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:2958d4b0177aa836": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:58f441f079bfc483": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:96f4a35afdedf100": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:orientation:637a0b3de4620f7e": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:allocation:6522b781d1fd3f8c": {
+      "defer_until_run": 158,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:7692bb83f228048f": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:c0a2cae5ecef9234": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:79f7bf2e119b82cf": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:orientation:2a036908c8b4da94": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:allocation:e4ba9fdfd8d2db12": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:d429cd0f3dca89af": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:8826168900a52402": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:673fa1fbcfca2bc8": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:orientation:7e8da540d93c372a": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:allocation:2ee55c21a20bba14": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "note:48e545617efb41c7": {
+      "defer_until_run": 157,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T06:35:02+07:00"
+    },
+    "entity:scarcity:4f4135eef4055b8e": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:79f5d99b9a16d9f3": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:e2a0d5e72d5ed609": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:orientation:bb6f976a1bfbb858": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:allocation:ac924da05175b01b": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:52fca963a7efdc61": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:7f3b5b148a8a068a": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:a3c7d903d953c8ab": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:orientation:080233b6110f138a": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:allocation:144cfbbe49ed4ea5": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:175ee047a4865fd3": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:fbe1500eb8fb6262": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:86c4092bdca8eca3": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:orientation:03a121ae702d464a": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:allocation:eb9832e1dd914fb3": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:5bb0f0b5a5e20c7c": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:535226f2696d0e1c": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:c4385d8367dad975": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:orientation:726b4a4e5e40907e": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:allocation:f3ef6631d5846aaf": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:c7a766dbbd4436fd": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:78c130bdf21d2c7a": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:e2a19edec9b01364": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:orientation:37cb76320ab7fe2c": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:allocation:987847cf0d0ed1d0": {
+      "defer_until_run": 159,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:scarcity:e7f34c41e1f2486c": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:27aab6ec34ca2bef": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:148473563ea41522": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:orientation:5fc297075504a15e": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:allocation:5be90c4e79d58fde": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:934de0c4f076f6e4": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:c63743defbda3cf9": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:944f75553e711f8f": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:orientation:7b79540f916960c4": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:allocation:87d388659d06264e": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "note:aadcf5f1f376e820": {
+      "defer_until_run": 158,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T06:44:00+07:00"
+    },
+    "entity:orientation:e7b1662891c06b77": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:allocation:ad6f5e202d58fef1": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:06ee5cc9449e0e2a": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:e9ffbd4430933ead": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:00271d24a3b4bc0e": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:orientation:a4d67dfabdc80ccc": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:allocation:6b178ac5815ea46f": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:ae58b691cda6da62": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:8819877580e1f993": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:101337440dfd07ef": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:orientation:3ff0d5a55ef65a11": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:allocation:3ca9603bf69872ca": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:7219cc11f55252a5": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:364fa7424ac122fd": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:b7a298e7c155278b": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:orientation:659c49c10fa499b9": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:allocation:83bb63b35b41c9e1": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:09fd13d930d9434f": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:12d67a9f37370671": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:7931319956450880": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:orientation:70900c905544529f": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:allocation:499ec0ea0a311a62": {
+      "defer_until_run": 160,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:82857ed3a6098596": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:17f9d377b20790cf": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:3ec7cdd1a95d07c7": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:orientation:9e351bd02d078751": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:allocation:319e65d117ea600c": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:60a09ed092d57ce6": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:e4a0119131496bed": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:d4aa8156905fcd5b": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:orientation:976234c39e0a3da6": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:allocation:4e9a3bcb1aa9740a": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "note:51e2790733a2a015": {
+      "defer_until_run": 159,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T07:21:04+07:00"
+    },
+    "entity:scarcity:629d53b8e4ab3b1f": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:f302ccc389a8a275": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:1a39b6d54021fe7a": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:orientation:9154ac2e6ead2646": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:allocation:9bb6b9e897c4faba": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:2b208975090f50d8": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:26a0e01d28fb49eb": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:orientation:5746ebaace60dbb2": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:allocation:bbff73f88e88f57f": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:b8dba1f4b9a9d76c": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:a5ece2fc556fca48": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:f7346703a8f35f5b": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:orientation:a4eda21c8f82666a": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:allocation:cf36da950493f35d": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:0665f6425bdc3887": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:41b846a39704ac6b": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:7ee4e8ade82516ff": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:orientation:90a048d8de9845ea": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:allocation:634a7981b662af85": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:c8933520a5d35cb0": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:5333903bb502ba76": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:908dd3af4a2c9907": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:orientation:f60f048878b95ba9": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:allocation:499f3edbf4bf44ab": {
+      "defer_until_run": 161,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:25301cfb5f196b45": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:366d3fc2824b5355": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:f234c8d7e9725439": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:orientation:581ae6bcd194c7e8": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:allocation:f2f83fb4e5f42a95": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:ad4324b705451b68": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:54c42505f0114093": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:41b2cfd3b4f5145d": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:orientation:d214dae0c39e572c": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:allocation:b7261a100f745938": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "note:bb54781532029020": {
+      "defer_until_run": 160,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T07:34:18+07:00"
+    },
+    "entity:scarcity:9094d8ecbc936a9a": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:db61d867e7d2c671": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:c1e751aa6b12a5aa": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:orientation:958dd766e17643e0": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:allocation:066d695405741930": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:0a4edb7c89d1b5a8": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:044357786388ae9e": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:a196f7babd6c2c6c": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:orientation:c86e431be3fc8432": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:allocation:832f115a0d92129d": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:26867fc9932eeb2d": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:orientation:33935d5da242389f": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:allocation:4283b66b3603913f": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:56cc4f42725d0c59": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:620543c0c292f7cd": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:orientation:26ea09e5f7da1403": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:allocation:bd24dd4fc8f8dded": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:8f90bd63e3f414a9": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:08c7b1655aea52ea": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:02aab5349f9c9aa5": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:c09cb1bf50d66385": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:af264e3f17a93a51": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:167f0ad8fa91d670": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:orientation:c3ae9494de9540fe": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:allocation:fb367d15ac95a136": {
+      "defer_until_run": 162,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:42019bc960012959": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:11614d7742055f2c": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:ac33ecb15dd0b0fb": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:orientation:018f16692c72c119": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:allocation:1c5cd0cc58330c55": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:d84bf8ba25f05f62": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:c5e2f4c7845ce47d": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:orientation:9ce16975f6e7d5e1": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:allocation:bf3ca3ee7b9bca24": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "note:b1bb5b0aca6f721b": {
+      "defer_until_run": 161,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T07:39:42+07:00"
+    },
+    "entity:scarcity:4556239223c4b785": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:7791426dc46351c8": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:61bac220deafb87e": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:orientation:71762d5d3363ecbc": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:allocation:3fb3f6b61febb238": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:cb19f8f0a59caff2": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:47f09696af83766d": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:47c4526f3de0b8b3": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:orientation:517825e885e76866": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:allocation:584d02103fb651d9": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:1a827839749862f2": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:0d700882c71cdc13": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:b02df73582d244fd": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:orientation:3188241e04e6bbf9": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:allocation:6b9c45418ecfabc1": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:29fe74363a1e3e77": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:f71f3595f67a0e20": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:f3534027bb93ba9d": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:orientation:52724036601f5ef9": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:allocation:dce4bdaac2b43470": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:da4c60bd858f536d": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:3ad4a51380869ebc": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:scarcity:60de2dcc8eaa756e": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:orientation:1b0cb341d533319a": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:54+07:00"
+    },
+    "entity:allocation:a8d5e187be5e93ea": {
+      "defer_until_run": 163,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:56:55+07:00"
+    },
+    "entity:scarcity:c2ceb5e4cbe72eb2": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:346f3ffbe0e290a1": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:c82616ce9bdca674": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:orientation:f5dbf2333b07e693": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:allocation:daaeba16528b71b7": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:5a9511ab21750758": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:orientation:0fea2b24eb10ede7": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:allocation:42e7dd4d1d3bdffe": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "note:917d9365065b2cd7": {
+      "defer_until_run": 162,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T07:56:55+07:00"
+    },
+    "entity:scarcity:184c56454cd0e444": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:orientation:326f83044ced3fdc": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:allocation:5d8e072204e734c2": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:f0ddc2293e9b700e": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:1de071edecd5cb75": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:orientation:c1ce8feba8bacbb6": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:allocation:f5c27630f26122e2": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:a498d057412caa9e": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:52cb9adc16fc75b5": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:orientation:27118046eaa068f8": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:allocation:6f66850850cd1ac1": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:1eb9d5f8e0f9aa0b": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:f7ed8c97ab5ebbbd": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:orientation:e98a8edde690600a": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:allocation:2aea45c1563f182c": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:bb53a4d7bf693e77": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:a2f54f1dc1cdaa56": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:orientation:1106c0526cdee370": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:allocation:96f53aa4f2a5e7be": {
+      "defer_until_run": 164,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:5c75a049f44d7d28": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:orientation:bc9911d77f95277f": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:allocation:c8b6a65e2e819322": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:d3a627e4d450737e": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:8b4370ff331b87ff": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:5de6efd0f6517adb": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:orientation:fda7217f3050fc5b": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:allocation:9e8be8d507f6fc0f": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "note:b54efb8fe7c8c5bd": {
+      "defer_until_run": 163,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T07:59:38+07:00"
+    },
+    "entity:scarcity:45a58849e5f4249b": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:daa84e17133ee4e6": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:644600be5f77fd49": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:orientation:6679895fd8dc4ce1": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:allocation:3bc7030f906f9c58": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:8d615c4f5684365d": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:bf61b3deb03764d3": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:38a0eb6a12a8de6d": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:orientation:8800e2168aa31bab": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:allocation:dc4d13754ac7d9a2": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:2e5803c227dcc90d": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:6fe48d9cd0809f66": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:8185805d4c3c540f": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:orientation:9a46537a60c88747": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:allocation:926c36d2822db188": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:2c666645ec09291b": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:67f6382a2b6e8324": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:f5dd34cd43b8edfa": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:orientation:e1312d71762689fc": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:allocation:c298c5a909fb2173": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:a6849994e2c64a67": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:a0c65d51be9ce106": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:b3ba5d8802c83b03": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:orientation:c77e25cd7a2299d7": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:allocation:75c9ccf8d6155cb6": {
+      "defer_until_run": 165,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:e320be76579c2d90": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:6f30baaab2704a64": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:55d32b74ef1587f2": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:orientation:ef528449f953b075": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:allocation:e36ac408076f4103": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:88dc9bd5e4b2d18f": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:0d3e79b7b1c59edb": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:10081980a61ceeae": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:orientation:6e6076aa0891455f": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:allocation:d26d534b1bca33c4": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "note:6ad895669bfcd5da": {
+      "defer_until_run": 164,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T08:17:45+07:00"
+    },
+    "entity:scarcity:4879a62204dea600": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:9abf7700c50b43a6": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:010dd98347ef3e3b": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:orientation:7bc2db59a8304392": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:allocation:22ed603425e959d5": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:1576957b0fba4148": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:e2457ff47329b983": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:f22210017c2f19b1": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:orientation:0ef1dc2c1559e62d": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:allocation:da1ba4349e9d6a9a": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:4732ddb55a5075f0": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:b3777eff262232f1": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:6f4bea5fff43a896": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:orientation:3dc69e550ac3eb6d": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:allocation:aded837971391d05": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:21a1bdde6d400dbf": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:a4db404795ef4326": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:8957b5df9e9587a2": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:orientation:9bfaad66a74d41e6": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:allocation:7efc1131be6ea717": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:15ed40d60ed65b50": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:ff6bbcd7514f1ef1": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:1116802d463550e8": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:orientation:0a61ce550b1fdc92": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:allocation:d0da0128488086a1": {
+      "defer_until_run": 166,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:scarcity:3fd5a6c2b26e3fb3": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:scarcity:5f615991f310eb1c": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:scarcity:efaae5d06b80706f": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:orientation:1e28bc072193e970": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:allocation:ee97420b708f0388": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "note:56a1f0cd9ae0ba69": {
+      "defer_until_run": 165,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T08:42:53+07:00"
+    },
+    "entity:allocation:bd2b774f7d614edf": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:orientation:b4a5dc3430dc93cf": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:allocation:a6284d76bccc10ae": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:scarcity:f01fc14639e26191": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:scarcity:b63c880c64a73ebe": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:scarcity:6a728a56b17d5289": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:orientation:acabd887fbd82098": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:allocation:ad10e288842930d7": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:orientation:5f5578b4ae473e1f": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:allocation:084e104be1a8650c": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:scarcity:1d917bfcd04e1736": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:scarcity:87f2ce4bfbb5924a": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:scarcity:09c32acf6dd83e3f": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:orientation:fb93cf1dd6c452ee": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:allocation:104aadbcea2731fc": {
+      "defer_until_run": 167,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:scarcity:33a3eeca14eaa77e": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:scarcity:1223c998d7abdab8": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:scarcity:d78045c4ee71844b": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:orientation:522186bbaaf5c934": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:allocation:505698b09241c558": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:allocation:4c6ae8dc24d68d52": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "note:2a6e32e925150fe9": {
+      "defer_until_run": 166,
+      "reason": "note budget exhausted",
+      "updated_at": "2026-04-23T08:45:35+07:00"
+    },
+    "entity:scarcity:671619af0b7fb851": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:scarcity:6bc5cf06ccf7683a": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:orientation:d437f228243907fa": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:allocation:6ce74b0635eeb47f": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:scarcity:66614383286005f5": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:scarcity:daa4d832ba96afc9": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:scarcity:23238493bab5a5d8": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:orientation:31dac5b23576741a": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:allocation:bb2484c87150588b": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:scarcity:c52fedc9303d6ba2": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:scarcity:ebc77e7264cf249b": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:orientation:20d3d832536ca190": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:allocation:65fc64e4cbfcd84a": {
+      "defer_until_run": 168,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:04:37+07:00"
+    },
+    "entity:scarcity:1b1c03c19cb2ad18": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:orientation:ca29be9295e2d506": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:allocation:3c4d63ab9a6933c0": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:scarcity:4146123e3755af55": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:scarcity:2c4159e39d8bcb1a": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:scarcity:751d548cc2551fd4": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:orientation:8ba73d00d12e945b": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:allocation:bc7d1d3040c605d9": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:scarcity:2c4a38c1c1516791": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:scarcity:ab9ebab24f62a7c0": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:scarcity:b1fd4bd0f4d4df9d": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:orientation:41b75fda41377c66": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:allocation:e353dbb1cc1d9f43": {
+      "defer_until_run": 169,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:07:17+07:00"
+    },
+    "entity:orientation:8104d931b77224db": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:allocation:49e5a96a7b762055": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:a84c4426a2a236c7": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:ebac5f96ffc0163d": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:orientation:9a9ce2f15376169e": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:allocation:3a9df1ab038c7e53": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:b21df41487ecf411": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:a7f13ae851ee33cb": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:6feac33eaca4cf0f": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:orientation:2a30e035ef0f08ca": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:allocation:7418a606a07b930c": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:10c2812ab26a712a": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:315d9c7e9b6b14cb": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:8cf9d6c00d2da026": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:orientation:258070363b1b1ea0": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:allocation:8a5c4f8bcf0ced78": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:fb75d3f5d81b9f26": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:a3a882d3798dd091": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:8a4f0880396d44ed": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:orientation:6078b482fa81d004": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:allocation:6fb6d79e263b5567": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:3621654445b2a8be": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:ea91030ba96546d0": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:scarcity:4a299ff662e0111f": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:orientation:3b3685c8c7375b40": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:allocation:3e4ff41884545311": {
+      "defer_until_run": 170,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:31:41+07:00"
+    },
+    "entity:orientation:d76d468fae3dbe75": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:allocation:a7a7adf92c09d6dd": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:00ef20a6bea9060e": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:2dc07d63e55c6877": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:972c7264f9a09947": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:orientation:e0fadcd846115748": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:allocation:a2d5866cd070789c": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:7139b9978024447b": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:6c21ea5f3db694d0": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:9deb5cdcb05ec57a": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:orientation:932e718ecebc5aab": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:allocation:e2adfedfca869657": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:758795d8628fb5a0": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:e1fdb3a5bdddba23": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:6bd60a841fcbdf79": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:orientation:73d760a94d33a171": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:allocation:07ff17d9a64306cd": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:f6bba4760fad0dfb": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:bd32452d20c9d075": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:cf99a626291fa655": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:orientation:9c112ab9b060ad83": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:allocation:6f12d251e08b40fb": {
+      "defer_until_run": 171,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:37:24+07:00"
+    },
+    "entity:scarcity:b7e0d78d979272a1": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:82820eb7aaf68081": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:2fbf281616ef426a": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:orientation:ef426e2f55b158ea": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:allocation:60e6c7f7b51e5842": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:8135153a4f8156e0": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:6ed6ebf8d28637e0": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:44df24c08acaba77": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:orientation:06e05ba596bd5599": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:allocation:d9e70a8a04b04eb7": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:28caad4f74228e4c": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:4d19ad2dbd4cbd1a": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:scarcity:f15c4b3fcb07aab4": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:orientation:9ea5be2c51350403": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    },
+    "entity:allocation:820146530a7cfbc0": {
+      "defer_until_run": 172,
+      "reason": "entity budget exhausted",
+      "updated_at": "2026-04-23T09:57:26+07:00"
+    }
+  }
+}

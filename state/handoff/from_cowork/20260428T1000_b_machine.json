@@ -1,0 +1,29 @@
+{
+  "ts": "2026-04-28T10:00:00+07:00",
+  "status": "machine",
+  "source": "otto_b_triage_v5",
+  "verdict": "machine",
+  "followup_auto": [
+    {
+      "id": "auto-allocation-family-batch",
+      "action": "Run one bounded ALLOCATION-FAMILY fetch, then apply the reviewed ALLO-only batch."
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "human-commitment-continuity-probe",
+      "decision_needed": "Answer the commitment continuity probe."
+    },
+    {
+      "id": "human-gold-low-review",
+      "decision_needed": "Decide whether to tighten scoring calibration or intake sparsity rules."
+    }
+  ],
+  "evidence": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\current.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\sync_status.json"
+  ]
+}

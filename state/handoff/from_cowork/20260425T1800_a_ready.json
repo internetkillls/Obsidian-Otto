@@ -1,0 +1,53 @@
+{
+  "role": "A",
+  "generated_at": "2026-04-25T18:00:00+07:00",
+  "status": "ready",
+  "source": "scheduled_reminder",
+  "health_gate": {
+    "result": "no_action",
+    "runtime_status": "RUNNING",
+    "mcp_mode": "container_ready",
+    "sync_ok": true,
+    "reason": "launcher runtime running, MCP previously container_ready, OpenClaw sync drift-free"
+  },
+  "gold_gate": {
+    "result": "ready",
+    "scope": "00-Meta\\scarcity",
+    "training_ready": true,
+    "gold_ready": true,
+    "gold_promoted_count": 0,
+    "reason": "Gold exists and strategy is fresh enough to guide bounded next action"
+  },
+  "followup_auto": [
+    {
+      "id": "auto-allo-fetch-apply",
+      "why_now": "Reviewed graph-demotion batch is ready and strategy explicitly calls for one bounded OpenClaw fetch for ALLOCATION-FAMILY before the next ALLO-only apply.",
+      "expected_artifact": "bounded retrieval output for ALLOCATION-FAMILY plus updated graph-demotion apply record/review journal",
+      "risk": "medium",
+      "confidence": 0.91
+    },
+    {
+      "id": "auto-scoped-gold-refresh-scarcity",
+      "why_now": "Gold is ready but stagnant with zero promotions while 00-Meta\\scarcity remains the top risky folder with duplicate-title pressure.",
+      "expected_artifact": "refreshed scoped pipeline checkpoint and updated gold summary for 00-Meta\\scarcity",
+      "risk": "low",
+      "confidence": 0.78
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "human-urgent-review-council-repeat",
+      "why_now": "MetaGov marked council_repeat as high severity and the strategy says to escalate to urgent review before the next heartbeat cycle.",
+      "expected_artifact": "human decision on scoring calibration, intake sparsity, or synthesis-lane constraints",
+      "risk": "high",
+      "confidence": 0.95
+    }
+  ],
+  "inputs": {
+    "latest_json": "C:\\Users\\joshu\\Obsidian-Otto\\state\\handoff\\latest.json",
+    "pipeline_json": "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+    "gold_summary_json": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+    "kairos_daily_strategy_md": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md",
+    "active_task": "C:\\Users\\joshu\\Obsidian-Otto\\tasks\\active\\vault-hygiene-pass-01.md"
+  }
+}

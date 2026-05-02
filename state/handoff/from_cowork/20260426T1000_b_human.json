@@ -1,0 +1,27 @@
+{
+  "source": "cowork-otto-b",
+  "role": "b",
+  "status": "handoff",
+  "updated_at": "2026-04-26T10:00:00+07:00",
+  "summary": "Ready state, but the next move needs a human yes/no on whether to pause synthesis for an urgent drift review.",
+  "artifacts": [
+    "Otto-Realm/Handoff/b_execution_brief.md"
+  ],
+  "next_actions": [
+    "Run one bounded ALLOCATION-FAMILY fetch and apply the reviewed ALLO-only batch.",
+    "Do a small hygiene pass on 00-Meta\\scarcity and capture a severity shortlist.",
+    "Decide whether to pause synthesis before the next heartbeat cycle."
+  ],
+  "next_action": "Decide whether to pause synthesis before the next heartbeat cycle.",
+  "evidence": {
+    "ready_state": "pipeline.ready=true; gold_summary.training_ready=true",
+    "strategy": "kairos_daily_strategy flags ALLO-only follow-up and a repeated meta-gov warning",
+    "bottleneck": "otto_bottleneck notes a Phase C policy mismatch, but no fresh recovery work is needed here"
+  },
+  "wellbeing": {
+    "josh_state": "stall",
+    "evidence": "Heartbeat 2026-04-20 reports no newer heartbeat; keep prompts capped and avoid pushing hard.",
+    "note": "Human review is the right gate before widening scope."
+  },
+  "language": "mixed"
+}

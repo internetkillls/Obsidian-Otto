@@ -1,0 +1,18 @@
+docker:
+  enabled: true
+  compose_file: docker-compose.yml
+  services:
+    - postgres
+    - adminer
+    - chromadb
+    - otto-indexer
+    - obsidian-mcp
+  mcp:
+    obsidian:
+      vault_path_env: OBSIDIAN_VAULT_PATH
+    cli:
+      status: deferred
+      note: real external CLI backend required
+    profiles:
+      - mcp
+    connection: stdio

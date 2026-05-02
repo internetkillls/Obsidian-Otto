@@ -1,0 +1,25 @@
+{
+  "source": "cowork-otto-a",
+  "role": "a",
+  "status": "handoff",
+  "updated_at": "2026-04-22T00:14:10+07:00",
+  "summary": "Loop 28 A — Phase C preflight RED (active scope, missing_scarcity=6; note_count=604). OO bridge is fresh (latest/pipeline/gold/kairos @ 2026-04-21 23:41 WIB) and provides constrained next_actions (Projects/Areas/.Otto-Realm\\Brain). Vault delta since c_completion (2026-04-20 14:02 WIB): YES; Josh activity on 2026-04-21 suggests burst re-entry via Neural-Network-Learning + Crack-Research. Recommend: avoid heavy prompt; triage preflight RED via policy (exempt BOOTSTRAP/DREAMS/memory, enforce scarcity on active Programs) or minimal frontmatter patching.",
+  "artifacts": [
+    "Otto-Realm/Handoff/a_signal.md",
+    "Otto-Realm/Brain/otto_bottleneck.md",
+    "Otto-Realm/Brain/self_model.md",
+    "state/scarcity_index.json"
+  ],
+  "next_actions": [
+    "B: decide policy for Phase C preflight RED (6 missing scarcity fields)",
+    "OO: execute kairos next actions (Projects/Areas/.Otto-Realm\\Brain metadata repair)",
+    "If messaging Josh: single-action, aligned to current Program contract (Neural-Network-Learning)",
+    "Keep training export gated behind reviewed Gold"
+  ],
+  "next_action": "B: decide policy for Phase C preflight RED (6 missing scarcity fields)",
+  "wellbeing": {
+    "josh_state": "burst",
+    "evidence": "Non-Otto notes updated on 2026-04-21 (Neural-Network-Learning + Crack-Research), as late as ~22:10 WIB"
+  },
+  "language": "mixed"
+}

@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "default_behavior": {
+    "auto_promote_to_gold": false,
+    "auto_write_to_vault": false,
+    "auto_reindex_qmd": false,
+    "auto_expose_to_context": false
+  },
+  "reflection_rules": {
+    "requires_outcome": true,
+    "requires_evidence": true,
+    "requires_review_before_gold": true,
+    "allow_no_meaningful_change": true
+  },
+  "blocked_reflection_outputs_before_review": [
+    "vault",
+    "qmd",
+    "openclaw_context",
+    "profile_snapshot"
+  ],
+  "meaning_questions": [
+    "what_happened",
+    "what_changed",
+    "why_it_matters",
+    "what_should_repeat",
+    "what_should_not_repeat",
+    "what_needs_review"
+  ],
+  "clinical_boundary": {
+    "diagnostic_inference_allowed": false,
+    "profile_claims_from_single_outcome_allowed": false
+  }
+}

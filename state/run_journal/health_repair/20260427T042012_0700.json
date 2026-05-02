@@ -1,0 +1,262 @@
+{
+  "ok": false,
+  "mode": "health",
+  "scheduled": true,
+  "started_at": "2026-04-27T04:19:06+07:00",
+  "finished_at": "2026-04-27T04:20:12+07:00",
+  "steps": [
+    {
+      "name": "docker",
+      "ok": true,
+      "reason": "docker-daemon-running"
+    },
+    {
+      "name": "mcp-clean",
+      "ok": true,
+      "status": "ok",
+      "containers": [],
+      "count": 0,
+      "transport": "direct",
+      "removed": [],
+      "remove_status": "nothing-to-remove"
+    },
+    {
+      "name": "docker-compose-up",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.yml",
+        "--profile",
+        "vector",
+        "--profile",
+        "worker",
+        "--profile",
+        "mcp",
+        "up",
+        "-d"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "infra-after-compose",
+      "ok": true,
+      "infra": {
+        "docker_available": true,
+        "daemon_running": true,
+        "running_services_known": true,
+        "configured_services": [
+          "postgres",
+          "adminer",
+          "chromadb",
+          "otto-indexer",
+          "obsidian-mcp"
+        ],
+        "running_services": [
+          "postgres",
+          "adminer",
+          "chromadb",
+          "otto-indexer",
+          "obsidian-mcp"
+        ],
+        "docker_probe_status": "ok",
+        "docker_probe_transport": "direct",
+        "docker_probe_error": null,
+        "postgres_reachable": true,
+        "mcp_reachable": true,
+        "next_safe_action": "status"
+      }
+    },
+    {
+      "name": "openclaw-config-sync",
+      "ok": true,
+      "result": {
+        "ts": "2026-04-27T04:19:11+07:00",
+        "reference_source": "C:\\Users\\joshu\\Obsidian-Otto\\.openclaw\\openclaw.json",
+        "live_config_path": "C:\\Users\\joshu\\.openclaw\\openclaw.json",
+        "boundary_mode": "managed-sync",
+        "sync_performed": false,
+        "config_drift_free": true,
+        "managed_hashes_match": true,
+        "anthropic_ready": true,
+        "hf_fallback_ready": true,
+        "huggingface_provider_present": true,
+        "expected_hf_model_present": true,
+        "reference_parse_error": null,
+        "live_parse_error": null,
+        "backup_path": null,
+        "changed_sections": [],
+        "otto_env_contract": {
+          "OTTO_REPO_ROOT": "C:\\Users\\joshu\\Obsidian-Otto",
+          "OTTO_VAULT_HOST": "C:\\Users\\joshu\\Josh Obsidian",
+          "OTTO_VAULT_PATH": "C:\\Users\\joshu\\Josh Obsidian",
+          "OTTO_STATE_ROOT": "C:\\Users\\joshu\\Obsidian-Otto\\state",
+          "OTTO_LAUNCHER": "otto.bat",
+          "OTTO_LOOP_MODE": "local",
+          "PYTHONUTF8": "1",
+          "PYTHONIOENCODING": "utf-8"
+        },
+        "qmd_index": {
+          "ok": true,
+          "config_source": "C:\\Users\\joshu\\.openclaw\\openclaw.json",
+          "backend": "qmd",
+          "backend_is_qmd": true,
+          "sources": [
+            {
+              "id": "otto-facts",
+              "path": "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Memory-Tiers\\01-Facts",
+              "exists": true,
+              "md_file_count": 1,
+              "ok": true,
+              "populated": true
+            },
+            {
+              "id": "otto-interpretations",
+              "path": "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Memory-Tiers\\02-Interpretations",
+              "exists": true,
+              "md_file_count": 13,
+              "ok": true,
+              "populated": true
+            },
+            {
+              "id": "otto-speculations",
+              "path": "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Memory-Tiers\\03-Speculations",
+              "exists": true,
+              "md_file_count": 1,
+              "ok": true,
+              "populated": true
+            },
+            {
+              "id": "otto-brain",
+              "path": "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Brain",
+              "exists": true,
+              "md_file_count": 6,
+              "ok": true,
+              "populated": true
+            }
+          ],
+          "source_count": 4,
+          "sources_all_ok": true
+        },
+        "cli_validation": {
+          "skipped": true,
+          "reason": "Otto no longer performs OpenClaw subprocess validation."
+        },
+        "cron_contract": {
+          "ok": true,
+          "reason": "cron-contract-synced",
+          "jobs_path": "C:\\Users\\joshu\\.openclaw\\cron\\jobs.json",
+          "contract_path": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\cron_contract_v1.json",
+          "sync_performed": false,
+          "job_count": 13,
+          "observed_issues": [],
+          "current_issues": [],
+          "fixes_applied": []
+        },
+        "dreaming_guardrails": {
+          "ok": true,
+          "reason": "dreaming-artifacts-sanitized",
+          "vault_path": "C:\\Users\\joshu\\Josh Obsidian",
+          "report_files_changed": [
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-22.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-23.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-24.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-25.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-26.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-22.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-23.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-24.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-25.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-26.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-22.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-23.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-24.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-25.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-26.md"
+          ],
+          "daily_notes_changed": [],
+          "report_change_count": 15,
+          "daily_note_change_count": 0
+        }
+      }
+    },
+    {
+      "name": "openclaw-gateway-probe",
+      "ok": false,
+      "reason": "gateway-http-unhealthy",
+      "status": "unhealthy",
+      "port": 18789,
+      "base_url": "http://127.0.0.1:18789",
+      "pids": [],
+      "port_open": false,
+      "health_status": null,
+      "health_json": null,
+      "health_error": "<urlopen error timed out>",
+      "root_status": null,
+      "root_error": "<urlopen error timed out>",
+      "cli_bypass_recommended": false,
+      "transient_restart_window": false,
+      "restart_state": "failed",
+      "restart_last_event_at": "2026-04-27T01:47:33+07:00",
+      "restart_last_event": "[27/04/2026  1:47:33,59] openclaw restart failed source=update status=-1073741502",
+      "checked_at": "2026-04-27T04:19:17+07:00",
+      "last_ok_at": "2026-04-27T01:19:22+07:00",
+      "last_failure_at": "2026-04-27T04:19:17+07:00",
+      "last_failure_reason": "gateway-http-unhealthy"
+    },
+    {
+      "name": "openclaw-gateway-restart",
+      "ok": false,
+      "reason": "gateway-restart-timeout",
+      "gateway_cmd": "C:\\Users\\joshu\\.openclaw\\gateway.cmd",
+      "port": 18789,
+      "before_pids": [],
+      "after_pids": [],
+      "port_open_before": false,
+      "port_open_after": false,
+      "stop_exit": 0,
+      "start_exit": 0,
+      "start_pid": null,
+      "stdout_log": "C:\\Users\\joshu\\.openclaw\\logs\\gateway-reload.out.log",
+      "stderr_log": "C:\\Users\\joshu\\.openclaw\\logs\\gateway-reload.err.log"
+    },
+    {
+      "name": "runtime",
+      "ok": true,
+      "reason": "runtime-already-running",
+      "pid": 8232
+    },
+    {
+      "name": "infra-final",
+      "ok": true,
+      "infra": {
+        "docker_available": true,
+        "daemon_running": true,
+        "running_services_known": true,
+        "configured_services": [
+          "postgres",
+          "adminer",
+          "chromadb",
+          "otto-indexer",
+          "obsidian-mcp"
+        ],
+        "running_services": [
+          "postgres",
+          "adminer",
+          "chromadb",
+          "otto-indexer",
+          "obsidian-mcp"
+        ],
+        "docker_probe_status": "ok",
+        "docker_probe_transport": "direct",
+        "docker_probe_error": null,
+        "postgres_reachable": true,
+        "mcp_reachable": true,
+        "next_safe_action": "status"
+      }
+    }
+  ],
+  "errors": [
+    "gateway-restart-timeout"
+  ]
+}

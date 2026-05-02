@@ -1,0 +1,44 @@
+{
+  "ts": "2026-04-25T15:00:00+07:00",
+  "source": "otto_a_signal_v4",
+  "status": "ready",
+  "health_tick": "no_action",
+  "gold_watch": "no_action",
+  "followup_auto": [
+    {
+      "id": "auto-allo-bounded-fetch",
+      "why_now": "Pipeline/KAIROS next action is explicitly one bounded ALLOCATION-FAMILY fetch followed by ALLO-only apply.",
+      "expected_artifact": "Updated graph-demotion apply batch for ALLOCATION-FAMILY.",
+      "risk": "low",
+      "confidence": 0.91
+    },
+    {
+      "id": "auto-scope-risk-evidence-scan",
+      "why_now": "Highest-risk folder (00-Meta\\scarcity, risk 45.4) still needs scoped hygiene evidence completion per active task.",
+      "expected_artifact": "Scoped hygiene evidence pack (severity + missing frontmatter + duplicates + suspicious wikilinks + 3 representative files).",
+      "risk": "low-medium",
+      "confidence": 0.85
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "human-decide-remediation-path",
+      "why_now": "After scoped evidence, decision is needed between metadata repair-only vs deeper restructuring.",
+      "expected_artifact": "Approved remediation path and constraints.",
+      "risk": "medium",
+      "confidence": 0.70
+    }
+  ],
+  "evidence": {
+    "runtime_status": "RUNNING",
+    "mcp_last_run_mode": "container_ready",
+    "sync_drift_free": true,
+    "gold_ready": true,
+    "top_folder": "00-Meta\\scarcity",
+    "top_folder_risk_score": 45.4,
+    "duplicate_titles": 15,
+    "pipeline_status": "ready",
+    "graph_mode": "ALLO-only",
+    "hotspot_family": "ALLOCATION-FAMILY"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "ts": "2026-04-28T19:00:00+07:00",
+  "role": "b",
+  "status": "machine",
+  "source": "otto_b_triage_v5",
+  "next_anchor": "00-Meta\\scarcity frontmatter repair path",
+  "stop_trigger": "If new evidence shows the top-risk folder or Gold readiness changed, stop and re-rank before editing.",
+  "followup_auto": [
+    "patch scoped frontmatter repair plan for 00-Meta\\scarcity",
+    "prep reviewed Gold summary / candidate shortlist for export gate"
+  ],
+  "followup_human": [
+    "commitment continuity probe answer",
+    "epistemic_gap review scope"
+  ]
+}

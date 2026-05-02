@@ -1,0 +1,22 @@
+{
+  "source": "cowork-otto-b",
+  "role": "b",
+  "status": "handoff",
+  "updated_at": "2026-04-17T21:34:11+07:00",
+  "summary": "Josh is idle/stall; recommend machine-only Phase C C0–C5 + C7 (no human ping) to unblock governance without asking Josh to engage.",
+  "artifacts": [
+    "Otto-Realm/Handoff/b_execution_brief.md"
+  ],
+  "next_actions": [
+    "C: Run Phase C scripts (audit_frontmatter → scan_scarcity → C2/C4/C3/C5 → audit_delta) in C:\\Users\\joshu\\Josh Obsidian",
+    "C: Append the audit Run block to HANDOFF.md; keep Bronze wired: no",
+    "If any script I/O error persists, exit escalation with full error + cwd + python version"
+  ],
+  "next_action": "C: Run Phase C scripts (audit_frontmatter → scan_scarcity → C2/C4/C3/C5 → audit_delta) in C:\\Users\\joshu\\Josh Obsidian",
+  "wellbeing": {
+    "josh_state": "idle",
+    "evidence": "Heartbeat 2026-04-17 highlights idle/stall + initiation cost; A-signal 2026-04-17T21:05 calibrates an idle window (no push)."
+  },
+  "language": "mixed"
+}
+

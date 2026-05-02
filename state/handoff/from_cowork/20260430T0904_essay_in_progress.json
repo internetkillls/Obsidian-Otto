@@ -1,0 +1,16 @@
+{
+  "status": "in_progress",
+  "updated_at": "2026-04-30T09:04:00+07:00",
+  "mode": "normal",
+  "title": "[2026-04-30] - Commitment Continuity + Control Design - Re-entry sebagai Masalah Kontrol Kognitif",
+  "collection": "Commitment Continuity + Control Design",
+  "working_draft_path": "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\daily_paper_working.md",
+  "action_taken": "created_new_draft_and_added_reentry_section",
+  "evidence_basis": [
+    "state/handoff/latest.json",
+    "Otto-Realm/Handoff/shadow_research.md",
+    "Otto-Realm/Handoff/brain_refresh.md",
+    "Otto-Realm/Handoff/morning_brief.md"
+  ],
+  "next_move": "write stop-condition section to tighten control-design mechanism"
+}

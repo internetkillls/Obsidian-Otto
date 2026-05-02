@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "mode": "end_to_end_health",
+  "required_green_states": [
+    "S4_WSL_LIVE",
+    "SOUL1_WSL_IDENTITY_HEARTBEAT_REHYDRATION_READY",
+    "SAN1_DEAD_END_SILENT_FAILURE_AMBIGUITY_GUARD_READY",
+    "HB1_PROACTIVE_HEARTBEAT_ASSURANCE_READY"
+  ],
+  "golden_paths": {
+    "telegram_paper": true,
+    "telegram_song": true,
+    "telegram_weakness": true,
+    "memento_due": true,
+    "review_to_gold_to_qmd": true,
+    "vault_writeback_roundtrip": true
+  },
+  "failure_policy": {
+    "silent_failure_allowed": false,
+    "auto_publish_allowed": false,
+    "raw_qmd_index_allowed": false,
+    "unreviewed_vault_write_allowed": false,
+    "dual_telegram_owner_allowed": false
+  },
+  "minimum_outputs": {
+    "daily_blocker_experiment": 1,
+    "song_skeleton_interval_hours": 4,
+    "paper_onboarding_interval_hours_min": 4,
+    "paper_onboarding_interval_hours_max": 6,
+    "memento_due_interval_hours": 8
+  }
+}

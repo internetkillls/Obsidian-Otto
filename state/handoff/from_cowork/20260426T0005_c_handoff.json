@@ -1,0 +1,22 @@
+{
+  "source": "graph-rollup-audit",
+  "role": "c",
+  "status": "handoff",
+  "updated_at": "2026-04-26T00:05:19+07:00",
+  "summary": "status=partial batch=10 linked=5 deferred=38",
+  "artifacts": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shape_audit.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shape_audit.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shadow_decisions.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shadow_decisions.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_shadow_review.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_allo_hotspots.md"
+  ],
+  "next_actions": [
+    "Continue bounded heartbeat batches",
+    "Review deferred entity creations",
+    "Review ALLO/TO/LACK shadow family proposals"
+  ],
+  "next_action": "Continue bounded heartbeat batches",
+  "language": "id"
+}

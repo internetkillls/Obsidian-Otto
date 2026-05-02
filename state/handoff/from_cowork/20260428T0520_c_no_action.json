@@ -1,0 +1,13 @@
+{
+  "ts": "2026-04-28T05:20:00+07:00",
+  "role": "c",
+  "status": "no_action",
+  "reason": "No FOLLOWUP_AUTO/FOLLOWUP_HUMAN items were present; runtime and sync are healthy.",
+  "goal": "Advance graph-demotion cleanup via ALLO-only follow-up on ALLOCATION-FAMILY",
+  "evidence": {
+    "runtime_status": "RUNNING",
+    "gateway_status": "healthy",
+    "qmd_index_ok": true,
+    "gold_promoted_count": 0
+  }
+}

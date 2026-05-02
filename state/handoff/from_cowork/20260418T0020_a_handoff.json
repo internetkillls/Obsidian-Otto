@@ -1,0 +1,26 @@
+{
+  "source": "cowork-otto-a",
+  "role": "a",
+  "status": "handoff",
+  "updated_at": "2026-04-18T00:20:49+07:00",
+  "summary": "Phase C green (846 active notes; missing_scarcity=0; orphan=0). Stall pattern persists; recommend tiebreak-first + close remaining orientation debt.",
+  "artifacts": [
+    "Otto-Realm/Handoff/a_signal.md",
+    "Otto-Realm/Brain/otto_bottleneck.md",
+    "state/scarcity_preflight.json",
+    "state/scarcity_index.json"
+  ],
+  "next_actions": [
+    "Declare a 1-sentence tiebreak before starting (code vs governance).",
+    "Fix the 8 notes missing `orientation` (~20 min), then stop.",
+    "Resume CrackResearch-SME Chunk 07 at `test_wc.py` only if flow returns.",
+    "Follow OO next_actions: repair metadata in Projects/Areas/Otto-Realm\\Brain."
+  ],
+  "next_action": "Declare a 1-sentence tiebreak before starting (code vs governance).",
+  "wellbeing": {
+    "josh_state": "stall",
+    "evidence": "Heartbeat 2026-04-17: governance+build both pending → session doesn’t start; idle window noted."
+  },
+  "language": "mixed"
+}
+

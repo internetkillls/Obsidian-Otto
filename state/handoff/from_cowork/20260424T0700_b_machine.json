@@ -1,0 +1,8 @@
+{
+  "ts": "2026-04-24T07:00:00+07:00",
+  "role": "B",
+  "status": "machine",
+  "source": "otto_b_triage_v5",
+  "next_anchor": "Repair metadata in Projects, then recheck Gold readiness and council_repeat status.",
+  "verdict": "machine"
+}

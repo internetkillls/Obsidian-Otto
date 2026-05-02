@@ -1,0 +1,22 @@
+{
+  "source": "otto_b_triage_v5",
+  "role": "b",
+  "status": "machine",
+  "updated_at": "2026-04-25T04:00:00+07:00",
+  "summary": "auto=3 human=2; gold_ready=true; health_ok=true",
+  "artifacts": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\b_execution_brief.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\sync_status.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\current.json"
+  ],
+  "next_actions": [
+    "Repair metadata in 00-Meta\\scarcity.",
+    "Run the bounded scoped refresh for folders above risk 10.",
+    "Apply the reviewed ALLOCATION-FAMILY graph-demotion batch.",
+    "Escalate urgent review before the next heartbeat cycle."
+  ],
+  "next_action": "Repair metadata in 00-Meta\\scarcity.",
+  "language": "en"
+}

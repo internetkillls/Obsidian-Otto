@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "memento_policy": {
+    "enabled": true,
+    "quizworthy_states": [
+      "GOLD",
+      "REVIEWED_ONBOARDING_PACK",
+      "PROMOTED_SONG_PRINCIPLE",
+      "APPROVED_SKILL_BLOCKER",
+      "REVIEWED_COUNCIL_STATEMENT"
+    ],
+    "blocked_states": [
+      "RAW",
+      "CANDIDATE",
+      "UNREVIEWED_PROFILE_HYPOTHESIS",
+      "RAW_SOCIAL"
+    ],
+    "quiz_types": [
+      "recall",
+      "application",
+      "analogy",
+      "use_in_new_artifact",
+      "spot_the_crack",
+      "finish_the_pattern"
+    ],
+    "incentive_policy": {
+      "personalized_encouragement": true,
+      "diagnostic_language": false,
+      "reward_action": "unlock_next_artifact_prompt"
+    },
+    "schedule": {
+      "engine": "sm2_like",
+      "daily_budget": 10,
+      "review_windows": [
+        "morning",
+        "evening"
+      ]
+    }
+  }
+}

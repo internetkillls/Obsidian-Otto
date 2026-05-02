@@ -1,0 +1,207 @@
+{
+  "ok": true,
+  "state": "PROMOTE_WRITTEN",
+  "state_changed": true,
+  "created_ids": [],
+  "updated_ids": [
+    "state/runtime/owner.json",
+    "state/runtime/single_owner_lock.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "quarantined": [],
+  "next_required_action": null,
+  "config_preview_path": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\ubuntu-live\\openclaw.json.preview",
+  "live_sidecar_path": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\ubuntu-live\\openclaw.live.meta.json",
+  "backup": {
+    "ok": true,
+    "backup_path": "/home/joshu/.openclaw/openclaw.json.bak.20260430T042540+0700",
+    "raw": {
+      "ok": true,
+      "command": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--",
+        "bash",
+        "-lc",
+        "export PATH=\"/usr/local/bin:/usr/bin:/bin:$HOME/.npm-global/bin:$HOME/.local/bin\"; if test -f /home/joshu/.openclaw/openclaw.json; then cp /home/joshu/.openclaw/openclaw.json /home/joshu/.openclaw/openclaw.json.bak.20260430T042540+0700; echo /home/joshu/.openclaw/openclaw.json.bak.20260430T042540+0700; fi"
+      ],
+      "exit_code": 0,
+      "stdout": "/home/joshu/.openclaw/openclaw.json.bak.20260430T042540+0700",
+      "stderr": ""
+    }
+  },
+  "config_write": {
+    "ok": true,
+    "command": [
+      "wsl.exe",
+      "-d",
+      "Ubuntu",
+      "--",
+      "bash",
+      "-lc",
+      "export PATH=\"/usr/local/bin:/usr/bin:/bin:$HOME/.npm-global/bin:$HOME/.local/bin\"; mkdir -p /home/joshu/.openclaw && cat > /home/joshu/.openclaw/openclaw.json"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "bridge_sync": {
+    "ok": true,
+    "install_path": "/home/joshu/.openclaw/plugins-local/obsidian-otto-bridge",
+    "raw": {
+      "ok": true,
+      "command": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--",
+        "bash",
+        "-lc",
+        "export PATH=\"/usr/local/bin:/usr/bin:/bin:$HOME/.npm-global/bin:$HOME/.local/bin\"; test -d /mnt/c/Users/joshu/Obsidian-Otto/packages/openclaw-otto-bridge || exit 9; rm -rf /home/joshu/.openclaw/plugins-local/obsidian-otto-bridge; mkdir -p $(dirname /home/joshu/.openclaw/plugins-local/obsidian-otto-bridge); cp -R /mnt/c/Users/joshu/Obsidian-Otto/packages/openclaw-otto-bridge /home/joshu/.openclaw/plugins-local/obsidian-otto-bridge; chmod -R go-w /home/joshu/.openclaw/plugins-local/obsidian-otto-bridge; echo /home/joshu/.openclaw/plugins-local/obsidian-otto-bridge"
+      ],
+      "exit_code": 0,
+      "stdout": "/home/joshu/.openclaw/plugins-local/obsidian-otto-bridge",
+      "stderr": ""
+    }
+  },
+  "plugin_install": {
+    "ok": true,
+    "command": [
+      "wsl.exe",
+      "-d",
+      "Ubuntu",
+      "--",
+      "bash",
+      "-lc",
+      "export PATH=\"/usr/local/bin:/usr/bin:/bin:$HOME/.npm-global/bin:$HOME/.local/bin\"; openclaw plugins install -l /home/joshu/.openclaw/plugins-local/obsidian-otto-bridge"
+    ],
+    "exit_code": 0,
+    "stdout": "Linked plugin path: ~/.openclaw/plugins-local/obsidian-otto-bridge\nRestart the gateway to load plugins.",
+    "stderr": "Config overwrite: /home/joshu/.openclaw/openclaw.json (sha256 6f4670110501141b2767610e44865be8f9fd9164bec4fd9dc9f581656efe1d93 -> a434f9ae71204bd404b84522907afe23c44c594d88eb2b471baef55c2e8720da, backup=/home/joshu/.openclaw/openclaw.json.bak, changedPaths=19)"
+  },
+  "plugin_install_retry": null,
+  "config_validate": {
+    "ok": true,
+    "command": [
+      "wsl.exe",
+      "-d",
+      "Ubuntu",
+      "--",
+      "bash",
+      "-lc",
+      "export PATH=\"/usr/local/bin:/usr/bin:/bin:$HOME/.npm-global/bin:$HOME/.local/bin\"; openclaw config validate --json"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"valid\":true,\"path\":\"/home/joshu/.openclaw/openclaw.json\"}",
+    "stderr": ""
+  },
+  "plugins_doctor": {
+    "ok": true,
+    "command": [
+      "wsl.exe",
+      "-d",
+      "Ubuntu",
+      "--",
+      "bash",
+      "-lc",
+      "export PATH=\"/usr/local/bin:/usr/bin:/bin:$HOME/.npm-global/bin:$HOME/.local/bin\"; openclaw plugins doctor"
+    ],
+    "exit_code": 0,
+    "stdout": "No plugin issues detected.",
+    "stderr": ""
+  },
+  "memory_status": {
+    "ok": true,
+    "command": [
+      "wsl.exe",
+      "-d",
+      "Ubuntu",
+      "--",
+      "bash",
+      "-lc",
+      "export PATH=\"/usr/local/bin:/usr/bin:/bin:$HOME/.npm-global/bin:$HOME/.local/bin\"; openclaw memory status --deep"
+    ],
+    "exit_code": 0,
+    "stdout": "Memory Search (main)\nProvider: qmd (requested: qmd)\nModel: qmd\nSources: memory\nIndexed: 67/34 files Â· 67 chunks\nDirty: no\nStore: ~/.openclaw/agents/main/qmd/xdg-cache/qmd/index.sqlite\nWorkspace: /mnt/c/Users/joshu/Josh Obsidian\nDreaming: 0 3 * * * Â· limit=10 Â· minScore=0.8 Â· minRecallCount=3 Â· minUniqueQueries=3 Â· recencyHalfLifeDays=14 Â· maxAgeDays=30\nEmbeddings: unavailable\nEmbeddings error: QMD semantic vectors are unavailable\nBy source:\n  memory Â· 67/34 files Â· 67 chunks\nVector: disabled\nBatch: disabled (failures 0/0)\nRecall store: 4050 entries Â· 7 promoted Â· 4048 concept-tagged Â· 2622 spaced Â· scripts=4048 latin\nRecall path: /mnt/c/Users/joshu/Josh Obsidian/memory/.dreams/short-term-recall.json\nRecall updated: 2026-04-29T20:00:01.276Z\nQMD audit: ~/.openclaw/agents/main/qmd/xdg-cache/qmd/index.sqlite Â· 651264 bytes Â· 8 collections\nDreaming artifacts: diary present Â· 11 corpus files Â· ingestion state present\nDream corpus: /mnt/c/Users/joshu/Josh Obsidian/memory/.dreams/session-corpus\nDream ingestion: /mnt/c/Users/joshu/Josh Obsidian/memory/.dreams/session-ingestion.json\nDream diary: /mnt/c/Users/joshu/Josh Obsidian/DREAMS.md",
+    "stderr": ""
+  },
+  "owner": {
+    "version": 2,
+    "runtime_state": "S4_WSL_LIVE",
+    "gateway_owner": "ubuntu_openclaw",
+    "telegram_owner": "ubuntu_openclaw",
+    "qmd_owner": "ubuntu_wsl",
+    "windows_openclaw": {
+      "role": "rollback",
+      "gateway_owner": false,
+      "config_path": "C:\\Users\\joshu\\Obsidian-Otto\\.openclaw\\openclaw.json",
+      "telegram_enabled": false
+    },
+    "ubuntu_openclaw": {
+      "role": "live",
+      "user": "joshu",
+      "home": "/home/joshu",
+      "binary": "/home/joshu/.npm-global/bin/openclaw",
+      "gateway_port": 18790,
+      "gateway_reachable": false,
+      "config_path": "/home/joshu/.openclaw/openclaw.json",
+      "telegram_enabled": true
+    },
+    "qmd": {
+      "owner": "ubuntu_wsl",
+      "command": "/usr/bin/qmd",
+      "binary": "/usr/bin/qmd",
+      "version": "2.1.0"
+    },
+    "docker": {
+      "owner": "ubuntu_wsl"
+    },
+    "vault": {
+      "host": "windows_filesystem",
+      "mounted_in_wsl": true
+    },
+    "safety": {
+      "cutover": true,
+      "telegram_single_owner_required": true,
+      "raw_social_to_qmd_allowed": false,
+      "raw_social_to_vault_allowed": false
+    },
+    "updated_at": "2026-04-30T04:27:49+07:00"
+  },
+  "single_owner_lock": {
+    "version": 2,
+    "checked_at": "2026-04-30T04:27:51+07:00",
+    "ok": true,
+    "runtime_state": "S4_WSL_LIVE",
+    "gateway_owner": "ubuntu_openclaw",
+    "telegram_owner": "ubuntu_openclaw",
+    "telegram_single_owner": true,
+    "telegram_enabled_owners": [
+      "ubuntu_openclaw"
+    ],
+    "unknown_telegram_owners": [],
+    "ubuntu_shadow_telegram_disabled": false,
+    "windows_openclaw_process": {
+      "ok": true,
+      "running": false,
+      "gateway_running": false,
+      "processes": []
+    },
+    "gateway_ports": {
+      "windows_openclaw": 18789,
+      "ubuntu_openclaw": 18790
+    },
+    "cutover": true,
+    "classification": "safe-wsl-live",
+    "failures": []
+  },
+  "start_command": "openclaw gateway run --port 18790",
+  "launcher_hint": "otto.bat wsl-gateway-start",
+  "manual_commands": [
+    "Stop Windows OpenClaw before enabling Ubuntu Telegram.",
+    "wsl -d Ubuntu -- bash -lc 'export PATH=\"$HOME/.npm-global/bin:/usr/local/bin:/usr/bin:/bin\"; openclaw gateway run --port 18790'",
+    "otto.bat native-fallback  # rollback macro if WSL live fails"
+  ]
+}

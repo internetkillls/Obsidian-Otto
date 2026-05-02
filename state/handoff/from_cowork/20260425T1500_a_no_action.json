@@ -1,0 +1,6 @@
+{
+  "ts": "2026-04-25T15:00:00+07:00",
+  "status": "superseded_by_ready",
+  "canonical": "20260425T1500_a_ready.json",
+  "note": "Health and gold checks were no_action; the signal handoff is the canonical bridge drop."
+}

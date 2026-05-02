@@ -1,0 +1,28 @@
+{
+  "lanes": [
+    {
+      "path": ".Otto-Realm/Scripts/analyze_broken_links.py",
+      "owner_status": "reviewed",
+      "status": "keep",
+      "replacement_target": null
+    },
+    {
+      "path": ".Otto-Realm/Scripts/fix_remaining_broken.py",
+      "owner_status": "reviewed",
+      "status": "manual_review",
+      "replacement_target": null
+    },
+    {
+      "path": ".Otto-Realm/Scripts/fix_remaining_broken_v2.py",
+      "owner_status": "reviewed",
+      "status": "manual_review",
+      "replacement_target": ".Otto-Realm/Scripts/fix_remaining_broken.py"
+    },
+    {
+      "path": ".Otto-Realm/Scripts/fix_remaining_broken_v3.py",
+      "owner_status": "reviewed",
+      "status": "superseded_by",
+      "replacement_target": ".Otto-Realm/Scripts/fix_remaining_broken.py"
+    }
+  ]
+}

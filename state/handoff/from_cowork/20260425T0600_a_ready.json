@@ -1,0 +1,61 @@
+{
+  "ts": "2026-04-25T06:00:00+07:00",
+  "role": "a_signal",
+  "status": "ready",
+  "source": "scheduled_reminder",
+  "inputs": {
+    "latest": "C:\\Users\\joshu\\Obsidian-Otto\\state\\handoff\\latest.json",
+    "pipeline": "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+    "gold_summary": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+    "kairos_daily_strategy": "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md",
+    "active_task": "C:\\Users\\joshu\\Obsidian-Otto\\tasks\\active\\vault-hygiene-pass-01.md"
+  },
+  "followup_auto": [
+    {
+      "id": "auto-allo-bounded-fetch-and-apply",
+      "why_now": "Latest handoff and KAIROS both converge on a reviewed, ready ALLO-only batch for ALLOCATION-FAMILY and explicitly ask for execution before the next heartbeat cycle.",
+      "expected_artifact": "Bounded fetch notes/evidence plus updated graph-demotion apply record for ALLOCATION-FAMILY.",
+      "risk": "Medium",
+      "confidence": 0.92
+    },
+    {
+      "id": "auto-scarcity-duplicate-title-scan",
+      "why_now": "Gold is ready enough to support a smallest scoped hygiene pass, and 00-Meta\\scarcity remains the top-risk folder with 15 duplicate titles.",
+      "expected_artifact": "Scoped hygiene audit note listing duplicate-title clusters and three representative files for repair triage.",
+      "risk": "Low",
+      "confidence": 0.84
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "human-council-repeat-escalation",
+      "why_now": "High-severity council_repeat has accumulated across recent cycles while gold_promoted_count remains 0, which points to a possible scoring/calibration or intake-quality issue needing judgment.",
+      "expected_artifact": "User-approved decision on whether to prioritize urgent review, retune scoring thresholds, or accept continued ALLO-only cleanup first.",
+      "risk": "Medium",
+      "confidence": 0.88
+    }
+  ],
+  "health_gate": {
+    "status": "healthy",
+    "action": "no_action",
+    "evidence": {
+      "runtime_status": "RUNNING",
+      "venv_ready": true,
+      "mcp_mode": "container_ready",
+      "mcp_run_exit": 0,
+      "sync_config_drift_free": true,
+      "sync_managed_hashes_match": true
+    }
+  },
+  "gold_gate": {
+    "status": "ready",
+    "action": "no_action",
+    "evidence": {
+      "pipeline_ts": "2026-04-25T05:04:13+07:00",
+      "strategy_ts": "2026-04-25T05:57:06+07:00",
+      "training_ready": true,
+      "gold_exists": true,
+      "top_scope": "00-Meta\\scarcity"
+    }
+  }
+}

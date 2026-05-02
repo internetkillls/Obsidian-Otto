@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(taskkill /PID 36648 /T /F)",
+      "Bash(echo \"exit: $?\")"
+    ]
+  }
+}

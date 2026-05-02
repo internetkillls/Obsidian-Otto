@@ -1,0 +1,23 @@
+{
+  "source": "cowork-otto-a",
+  "role": "a",
+  "status": "no_action",
+  "updated_at": "2026-04-20T00:13:41+07:00",
+  "summary": "Josh still stall (~77h idle); recommend skip. Phase C scan: orphan_count=0. audit_frontmatter flags 2 memory stubs as missing `scarcity`, but manual check shows `scarcity` present as YAML list (likely parser false-negative). OO artifacts remain stale (last updated 2026-04-17).",
+  "artifacts": [
+    "Otto-Realm/Handoff/a_signal.md",
+    "Otto-Realm/Brain/otto_bottleneck.md"
+  ],
+  "next_actions": [
+    "Honor skip_this_cycle; watch for vault delta before 08:00 WIB",
+    "If vault delta occurs: trigger Day 5 date-refresh card (pre-authorized)",
+    "Fix Phase C preflight false-negative for list-form `scarcity` (parser or stub format)",
+    "Refresh Obsidian-Otto artifacts when Josh re-enters (latest/pipeline/gold/kairos)"
+  ],
+  "next_action": "Honor skip_this_cycle; watch for vault delta before 08:00 WIB",
+  "wellbeing": {
+    "josh_state": "stall",
+    "evidence": "00:03 WIB Day 5 Monday; ~77h idle; Day 4 closed with 0 delta; three staged prompts unacknowledged"
+  },
+  "language": "en"
+}

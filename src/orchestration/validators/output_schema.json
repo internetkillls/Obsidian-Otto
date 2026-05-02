@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "ready_to_finalize": {"type": "boolean"},
+    "summary": {"type": "string"},
+    "issues": {"type": "array"}
+  },
+  "required": ["ready_to_finalize", "summary"]
+}

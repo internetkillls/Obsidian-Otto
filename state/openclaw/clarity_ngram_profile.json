@@ -1,0 +1,1034 @@
+{
+  "ts": "2026-04-27T15:47:09+07:00",
+  "run_count": 670,
+  "scope": "active",
+  "note_count_total": 362,
+  "note_count_batch": 362,
+  "delta": {
+    "added": 0,
+    "removed": 0,
+    "changed": 16
+  },
+  "labels": {
+    "positive": 195,
+    "negative": 3,
+    "neutral": 164
+  },
+  "top_phrase_anchors": [
+    {
+      "phrase": "otto graph links",
+      "pos_df": 191,
+      "neg_df": 3,
+      "score": 5.1762,
+      "purity": 0.9845,
+      "n": 3
+    },
+    {
+      "phrase": "otto graph",
+      "pos_df": 191,
+      "neg_df": 3,
+      "score": 5.1762,
+      "purity": 0.9845,
+      "n": 2
+    },
+    {
+      "phrase": "graph links",
+      "pos_df": 191,
+      "neg_df": 3,
+      "score": 5.1762,
+      "purity": 0.9845,
+      "n": 2
+    },
+    {
+      "phrase": "allocation allo",
+      "pos_df": 191,
+      "neg_df": 3,
+      "score": 5.1762,
+      "purity": 0.9845,
+      "n": 2
+    },
+    {
+      "phrase": "scarcity lack",
+      "pos_df": 191,
+      "neg_df": 3,
+      "score": 5.1762,
+      "purity": 0.9845,
+      "n": 2
+    },
+    {
+      "phrase": "mix 2025",
+      "pos_df": 95,
+      "neg_df": 1,
+      "score": 4.5168,
+      "purity": 0.9896,
+      "n": 2
+    },
+    {
+      "phrase": "scientific realism",
+      "pos_df": 80,
+      "neg_df": 0,
+      "score": 4.3944,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "filsafat ilmu",
+      "pos_df": 74,
+      "neg_df": 0,
+      "score": 4.3175,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "ilmu pengetahuan",
+      "pos_df": 71,
+      "neg_df": 0,
+      "score": 4.2767,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "scientific realism human",
+      "pos_df": 69,
+      "neg_df": 0,
+      "score": 4.2485,
+      "purity": 1.0,
+      "n": 3
+    },
+    {
+      "phrase": "realism human",
+      "pos_df": 69,
+      "neg_df": 0,
+      "score": 4.2485,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "tidak ada",
+      "pos_df": 68,
+      "neg_df": 0,
+      "score": 4.2341,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "dalam filsafat",
+      "pos_df": 67,
+      "neg_df": 0,
+      "score": 4.2195,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "bab iii",
+      "pos_df": 60,
+      "neg_df": 0,
+      "score": 4.1109,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "tidak dapat",
+      "pos_df": 58,
+      "neg_df": 0,
+      "score": 4.0775,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "dalam konteks",
+      "pos_df": 57,
+      "neg_df": 0,
+      "score": 4.0604,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "tidak hanya",
+      "pos_df": 55,
+      "neg_df": 0,
+      "score": 4.0254,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "secara eksplisit",
+      "pos_df": 54,
+      "neg_df": 0,
+      "score": 4.0073,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "roy bhaskar",
+      "pos_df": 53,
+      "neg_df": 0,
+      "score": 3.989,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "dalam kerangka",
+      "pos_df": 52,
+      "neg_df": 0,
+      "score": 3.9703,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "000 skripsi",
+      "pos_df": 52,
+      "neg_df": 0,
+      "score": 3.9703,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "menunjukkan bahwa",
+      "pos_df": 51,
+      "neg_df": 0,
+      "score": 3.9512,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "tidak bisa",
+      "pos_df": 51,
+      "neg_df": 0,
+      "score": 3.9512,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "critical realism",
+      "pos_df": 49,
+      "neg_df": 0,
+      "score": 3.912,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "dalam sistem",
+      "pos_df": 49,
+      "neg_df": 0,
+      "score": 3.912,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "tetapi juga",
+      "pos_df": 49,
+      "neg_df": 0,
+      "score": 3.912,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "dalam ilmu",
+      "pos_df": 49,
+      "neg_df": 0,
+      "score": 3.912,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "human emancipation",
+      "pos_df": 48,
+      "neg_df": 0,
+      "score": 3.8918,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "salah satu",
+      "pos_df": 48,
+      "neg_df": 0,
+      "score": 3.8918,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "bukan sekadar",
+      "pos_df": 48,
+      "neg_df": 0,
+      "score": 3.8918,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "philosophy science",
+      "pos_df": 48,
+      "neg_df": 0,
+      "score": 3.8918,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "realisme kritis",
+      "pos_df": 47,
+      "neg_df": 0,
+      "score": 3.8712,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "dipahami sebagai",
+      "pos_df": 46,
+      "neg_df": 0,
+      "score": 3.8501,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "kata lain",
+      "pos_df": 46,
+      "neg_df": 0,
+      "score": 3.8501,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "dalam struktur",
+      "pos_df": 46,
+      "neg_df": 0,
+      "score": 3.8501,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "kritik terhadap",
+      "pos_df": 46,
+      "neg_df": 0,
+      "score": 3.8501,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "bukan hanya",
+      "pos_df": 48,
+      "neg_df": 1,
+      "score": 3.8124,
+      "purity": 0.9796,
+      "n": 2
+    },
+    {
+      "phrase": "dapat dipahami",
+      "pos_df": 44,
+      "neg_df": 0,
+      "score": 3.8067,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "masing masing",
+      "pos_df": 43,
+      "neg_df": 0,
+      "score": 3.7842,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "realism human emancipation",
+      "pos_df": 43,
+      "neg_df": 0,
+      "score": 3.7842,
+      "purity": 1.0,
+      "n": 3
+    },
+    {
+      "phrase": "latar belakang",
+      "pos_df": 43,
+      "neg_df": 0,
+      "score": 3.7842,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "kita dapat",
+      "pos_df": 43,
+      "neg_df": 0,
+      "score": 3.7842,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "explanatory critique",
+      "pos_df": 43,
+      "neg_df": 0,
+      "score": 3.7842,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "dalam bentuk",
+      "pos_df": 42,
+      "neg_df": 0,
+      "score": 3.7612,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "struktur sosial",
+      "pos_df": 42,
+      "neg_df": 0,
+      "score": 3.7612,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "transcendental realism",
+      "pos_df": 42,
+      "neg_df": 0,
+      "score": 3.7612,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "dalam filsafat ilmu",
+      "pos_df": 42,
+      "neg_df": 0,
+      "score": 3.7612,
+      "purity": 1.0,
+      "n": 3
+    },
+    {
+      "phrase": "sebagai metode",
+      "pos_df": 41,
+      "neg_df": 0,
+      "score": 3.7377,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "menjelaskan bagaimana",
+      "pos_df": 41,
+      "neg_df": 0,
+      "score": 3.7377,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "pengetahuan ilmiah",
+      "pos_df": 41,
+      "neg_df": 0,
+      "score": 3.7377,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "ilmu sosial",
+      "pos_df": 41,
+      "neg_df": 0,
+      "score": 3.7377,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "how can",
+      "pos_df": 44,
+      "neg_df": 1,
+      "score": 3.7221,
+      "purity": 0.9778,
+      "n": 2
+    },
+    {
+      "phrase": "oleh karena",
+      "pos_df": 40,
+      "neg_df": 0,
+      "score": 3.7136,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "secara umum",
+      "pos_df": 40,
+      "neg_df": 0,
+      "score": 3.7136,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "menegaskan bahwa",
+      "pos_df": 40,
+      "neg_df": 0,
+      "score": 3.7136,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "secara langsung",
+      "pos_df": 40,
+      "neg_df": 0,
+      "score": 3.7136,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "filsafat ilmu pengetahuan",
+      "pos_df": 40,
+      "neg_df": 0,
+      "score": 3.7136,
+      "purity": 1.0,
+      "n": 3
+    },
+    {
+      "phrase": "benar benar",
+      "pos_df": 39,
+      "neg_df": 0,
+      "score": 3.6889,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "menekankan bahwa",
+      "pos_df": 39,
+      "neg_df": 0,
+      "score": 3.6889,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "menyatakan bahwa",
+      "pos_df": 39,
+      "neg_df": 0,
+      "score": 3.6889,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "alih alih",
+      "pos_df": 42,
+      "neg_df": 1,
+      "score": 3.6737,
+      "purity": 0.9767,
+      "n": 2
+    },
+    {
+      "phrase": "sebagai bentuk",
+      "pos_df": 38,
+      "neg_df": 0,
+      "score": 3.6636,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "sisi lain",
+      "pos_df": 38,
+      "neg_df": 0,
+      "score": 3.6636,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "dalam praktik",
+      "pos_df": 38,
+      "neg_df": 0,
+      "score": 3.6636,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "tidak lagi",
+      "pos_df": 38,
+      "neg_df": 0,
+      "score": 3.6636,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "berfungsi sebagai",
+      "pos_df": 38,
+      "neg_df": 0,
+      "score": 3.6636,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "human emancipatipn",
+      "pos_df": 38,
+      "neg_df": 0,
+      "score": 3.6636,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "realism human emancipatipn",
+      "pos_df": 38,
+      "neg_df": 0,
+      "score": 3.6636,
+      "purity": 1.0,
+      "n": 3
+    },
+    {
+      "phrase": "skripsi scientific",
+      "pos_df": 38,
+      "neg_df": 0,
+      "score": 3.6636,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "skripsi scientific realism",
+      "pos_df": 38,
+      "neg_df": 0,
+      "score": 3.6636,
+      "purity": 1.0,
+      "n": 3
+    },
+    {
+      "phrase": "000 skripsi scientific",
+      "pos_df": 38,
+      "neg_df": 0,
+      "score": 3.6636,
+      "purity": 1.0,
+      "n": 3
+    },
+    {
+      "phrase": "sistem filsafat",
+      "pos_df": 38,
+      "neg_df": 0,
+      "score": 3.6636,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "jika ada",
+      "pos_df": 37,
+      "neg_df": 0,
+      "score": 3.6376,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "dalam satu",
+      "pos_df": 37,
+      "neg_df": 0,
+      "score": 3.6376,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "secara sistematis",
+      "pos_df": 37,
+      "neg_df": 0,
+      "score": 3.6376,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "human emancipatipn bab",
+      "pos_df": 37,
+      "neg_df": 0,
+      "score": 3.6376,
+      "purity": 1.0,
+      "n": 3
+    },
+    {
+      "phrase": "emancipatipn bab",
+      "pos_df": 37,
+      "neg_df": 0,
+      "score": 3.6376,
+      "purity": 1.0,
+      "n": 2
+    },
+    {
+      "phrase": "can true",
+      "pos_df": 40,
+      "neg_df": 1,
+      "score": 3.623,
+      "purity": 0.9756,
+      "n": 2
+    },
+    {
+      "phrase": "why how",
+      "pos_df": 40,
+      "neg_df": 1,
+      "score": 3.623,
+      "purity": 0.9756,
+      "n": 2
+    },
+    {
+      "phrase": "dalam sains",
+      "pos_df": 36,
+      "neg_df": 0,
+      "score": 3.6109,
+      "purity": 1.0,
+      "n": 2
+    }
+  ],
+  "go_word_candidates": [
+    {
+      "word": "dalam",
+      "score": 42.3588
+    },
+    {
+      "word": "realism",
+      "score": 31.676
+    },
+    {
+      "word": "human",
+      "score": 27.1378
+    },
+    {
+      "word": "ilmu",
+      "score": 23.7187
+    },
+    {
+      "word": "tidak",
+      "score": 19.9518
+    },
+    {
+      "word": "filsafat",
+      "score": 19.6754
+    },
+    {
+      "word": "scientific",
+      "score": 19.6337
+    },
+    {
+      "word": "graph",
+      "score": 15.5286
+    },
+    {
+      "word": "secara",
+      "score": 15.0721
+    },
+    {
+      "word": "bahwa",
+      "score": 15.0426
+    },
+    {
+      "word": "skripsi",
+      "score": 14.9611
+    },
+    {
+      "word": "sebagai",
+      "score": 14.915
+    },
+    {
+      "word": "emancipatipn",
+      "score": 14.6024
+    },
+    {
+      "word": "pengetahuan",
+      "score": 11.728
+    },
+    {
+      "word": "dapat",
+      "score": 11.6684
+    },
+    {
+      "word": "bab",
+      "score": 11.3861
+    },
+    {
+      "word": "otto",
+      "score": 10.3524
+    },
+    {
+      "word": "links",
+      "score": 10.3524
+    },
+    {
+      "word": "ada",
+      "score": 7.8717
+    },
+    {
+      "word": "hanya",
+      "score": 7.8378
+    },
+    {
+      "word": "bukan",
+      "score": 7.7042
+    },
+    {
+      "word": "emancipation",
+      "score": 7.676
+    },
+    {
+      "word": "dipahami",
+      "score": 7.6568
+    },
+    {
+      "word": "000",
+      "score": 7.6339
+    },
+    {
+      "word": "struktur",
+      "score": 7.6113
+    },
+    {
+      "word": "sistem",
+      "score": 7.5756
+    },
+    {
+      "word": "masing",
+      "score": 7.5684
+    },
+    {
+      "word": "satu",
+      "score": 7.5294
+    },
+    {
+      "word": "lain",
+      "score": 7.5137
+    },
+    {
+      "word": "sosial",
+      "score": 7.4989
+    },
+    {
+      "word": "bentuk",
+      "score": 7.4248
+    },
+    {
+      "word": "benar",
+      "score": 7.3778
+    },
+    {
+      "word": "alih",
+      "score": 7.3474
+    },
+    {
+      "word": "how",
+      "score": 7.3451
+    },
+    {
+      "word": "can",
+      "score": 7.3451
+    },
+    {
+      "word": "allocation",
+      "score": 5.1762
+    },
+    {
+      "word": "allo",
+      "score": 5.1762
+    },
+    {
+      "word": "scarcity",
+      "score": 5.1762
+    },
+    {
+      "word": "lack",
+      "score": 5.1762
+    },
+    {
+      "word": "mix",
+      "score": 4.5168
+    }
+  ],
+  "noise_config_path": "C:\\Users\\joshu\\Obsidian-Otto\\config\\graph_shaper_noise_words.json",
+  "sampled_notes": [
+    {
+      "note": "10-Inbox\\book_list_v2.md",
+      "score": 1.315,
+      "label": "positive",
+      "marker_hits": 1,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Inbox\\crack-research-feasibility.md",
+      "score": 3.382,
+      "label": "positive",
+      "marker_hits": 3,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Inbox\\crack-research-framework.md",
+      "score": 1.415,
+      "label": "positive",
+      "marker_hits": 1,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Inbox\\josh-plan.md",
+      "score": 3.38,
+      "label": "positive",
+      "marker_hits": 3,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\02 Persönlicher Zettelkasten\\02 Persönlicher Zettelkasten.md",
+      "score": 0.263,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\02 Persönlicher Zettelkasten\\03 System\\03 System.md",
+      "score": 0.285,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\02 Persönlicher Zettelkasten\\Persönlicher Zettelkasten.md",
+      "score": 0.263,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\02 Persönlicher Zettelkasten\\Phi-mind-1.md",
+      "score": 0.405,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\02 Persönlicher Zettelkasten\\Phi-mind-1a.md",
+      "score": 0.335,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\02 Persönlicher Zettelkasten\\Phi-mind-1b.md",
+      "score": 0.34,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\02 Persönlicher Zettelkasten\\Phi-mind-1b1.md",
+      "score": 0.363,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\Kripke, Saul - Book - Naming and Necessity.md",
+      "score": 0.378,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\M001.C S1 Byproducts GPT 1.md",
+      "score": 3.368,
+      "label": "positive",
+      "marker_hits": 3,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\MOC Personal Profile.md",
+      "score": 1.288,
+      "label": "positive",
+      "marker_hits": 1,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\Natural Kinds.md",
+      "score": 0.36,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "10-Personal\\OrcID.md",
+      "score": 1.215,
+      "label": "positive",
+      "marker_hits": 1,
+      "anti_hits": 0
+    },
+    {
+      "note": "20-Programs\\Crack-Research\\01-Framework\\crack-research-framework.md",
+      "score": 1.415,
+      "label": "positive",
+      "marker_hits": 1,
+      "anti_hits": 0
+    },
+    {
+      "note": "20-Programs\\Crack-Research\\02-Feasibility\\crack-research-feasibility.md",
+      "score": 3.382,
+      "label": "positive",
+      "marker_hits": 3,
+      "anti_hits": 0
+    },
+    {
+      "note": "20-Programs\\Crack-Research\\03-References\\otto-retrieval-learning-path.md",
+      "score": 0.405,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "20-Programs\\Crack-Research\\04-Tracker\\ARGUMENT_AUDIT.md",
+      "score": 0.1,
+      "label": "neutral",
+      "marker_hits": 1,
+      "anti_hits": 1
+    },
+    {
+      "note": "20-Programs\\Crack-Research\\04-Tracker\\Cron\\2026-04-22_1400_cron_report_v1.md",
+      "score": 0.0,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "20-Programs\\Crack-Research\\04-Tracker\\Cron\\2026-04-23-cron-report-v1.md",
+      "score": 0.0,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "20-Programs\\Crack-Research\\04-Tracker\\Cron\\cron_report_v1_2026-04-22_1830.md",
+      "score": 1.0,
+      "label": "neutral",
+      "marker_hits": 1,
+      "anti_hits": 0
+    },
+    {
+      "note": "20-Programs\\Crack-Research\\04-Tracker\\Cron\\morning-brief-2026-04-24.md",
+      "score": 0.0,
+      "label": "neutral",
+      "marker_hits": 1,
+      "anti_hits": 1
+    },
+    {
+      "note": "20-Programs\\Crack-Research\\04-Tracker\\PROGRAM_TRACKER.md",
+      "score": 1.1,
+      "label": "neutral",
+      "marker_hits": 1,
+      "anti_hits": 0
+    },
+    {
+      "note": "20-Programs\\Crack-Research\\HANDOFF_SESSION.md",
+      "score": -0.9,
+      "label": "negative",
+      "marker_hits": 0,
+      "anti_hits": 1
+    },
+    {
+      "note": "20-Programs\\Crack-Research\\index.md",
+      "score": 0.1,
+      "label": "neutral",
+      "marker_hits": 0,
+      "anti_hits": 0
+    },
+    {
+      "note": "20-Programs\\Neural-Network-Learning\\00 - Smart Connections, Transformer, dan Embedding.md",
+      "score": 3.0,
+      "label": "positive",
+      "marker_hits": 3,
+      "anti_hits": 0
+    },
+    {
+      "note": "20-Programs\\Neural-Network-Learning\\01-Remix-Smart-Connector\\remix-smart-connector.md",
+      "score": 1.0,
+      "label": "neutral",
+      "marker_hits": 1,
+      "anti_hits": 0
+    },
+    {
+      "note": "20-Programs\\Neural-Network-Learning\\index.md",
+      "score": 1.0,
+      "label": "neutral",
+      "marker_hits": 1,
+      "anti_hits": 0
+    }
+  ]
+}

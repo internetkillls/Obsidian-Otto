@@ -1,0 +1,42 @@
+{
+  "role": "b",
+  "ts": "2026-04-26T19:00:00+07:00",
+  "status": "machine",
+  "verdict": "machine",
+  "followup_auto": [
+    {
+      "title": "ALLOCATION-FAMILY bounded apply",
+      "action": "Run one bounded ALLO-only graph-demotion follow-up for ALLOCATION-FAMILY using the reviewed batch, then update review state.",
+      "why_now": "Health is green, the reviewed batch is already marked ready, and this is the cleanest machine move that advances the graph without widening scope.",
+      "expected_artifact": "One bounded apply result plus refreshed graph-demotion review state."
+    }
+  ],
+  "followup_human": [
+    {
+      "title": "Commitment continuity probe",
+      "decision_needed": "Answer the commitment continuity probe with one smallest next step worth protecting from forgetfulness.",
+      "why_now": "Continuity is still the live weak point, and leaving it vague will just keep leaking attention."
+    },
+    {
+      "title": "Gold calibration check",
+      "decision_needed": "Decide whether Gold thresholds should be tuned now or whether low promotion volume is acceptable for this cycle.",
+      "why_now": "Gold is technically ready, but promoted count is still zero; that smells like either sparse intake or calibration drag."
+    }
+  ],
+  "stop_trigger": "Stop if the ALLOCATION-FAMILY apply would spill outside the reviewed ALLO-only boundary or requires broader synthesis.",
+  "next_anchor": "After the bounded apply lands, re-check graph-demotion review state first; only then revisit Gold calibration.",
+  "evidence": {
+    "a_signal": "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Handoff\\a_signal.md",
+    "bottleneck": "C:\\Users\\joshu\\Obsidian-Otto\\Otto-Realm\\Brain\\otto_bottleneck.md",
+    "health_files": [
+      "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\current.json",
+      "C:\\Users\\joshu\\Obsidian-Otto\\state\\launcher\\mcp_last_run.json",
+      "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\sync_status.json"
+    ],
+    "gold_files": [
+      "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+      "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+      "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md"
+    ]
+  }
+}

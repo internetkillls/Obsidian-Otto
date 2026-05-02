@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-05-02T14:17:27.0692198+07:00",
+  "query_hash": "SOUL1_GOLD1_AUTO2_gate_plan",
+  "intent": "otto_realm_ops_implementation",
+  "persona": "otto-core",
+  "model_tier": "premium",
+  "kernelization": {
+    "amnesiac_guard": true,
+    "tool_commitment": true,
+    "scope_check": true
+  },
+  "result": {
+    "auto2": "ready_dry_run",
+    "cron_enabled": false,
+    "gold1_roundtrip": "green",
+    "soul1": "green",
+    "hb2_not_started": true,
+    "ops1_strict": "green"
+  },
+  "evidence": [
+    "52 targeted pytest tests passed",
+    "qmd-vault-roundtrip ok=true search_found=true",
+    "ops-health --strict ok=true state=OPS1_END_TO_END_OPERATIONAL_HEALTH_READY",
+    "AUTO2 wrapper dry-runs ok=true"
+  ]
+}

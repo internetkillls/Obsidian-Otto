@@ -1,0 +1,17 @@
+kairos:
+  enabled: true
+  heartbeat_minutes: 15
+  daily_strategy_hour: "06:30"
+  max_recent_events: 200
+  training_refinement_days: ["Tue", "Fri"]
+  daily_prompt_targets:
+    - "data quality"
+    - "retrieval misses"
+    - "folder risk"
+    - "next batch refinement"
+    - "training readiness"
+
+dream:
+  enabled: true
+  quiet_hour: "02:30"
+  max_journal_lines: 500

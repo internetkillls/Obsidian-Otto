@@ -1,0 +1,47 @@
+{
+  "ts": "2026-04-28T18:00:00+07:00",
+  "status": "ready",
+  "source": "otto_a_signal_v5",
+  "headline": "Followup signal: ready",
+  "followups": {
+    "auto": [
+      {
+        "id": "auto-01",
+        "why_now": "Gold is ready; the smallest useful machine step is a scoped metadata repair on the highest-risk folder.",
+        "expected_artifact": "scoped frontmatter repair plan for 00-Meta\\scarcity",
+        "risk": "low",
+        "confidence": 0.86
+      },
+      {
+        "id": "auto-02",
+        "why_now": "Training readiness is green, but export stays gated until Gold review; machine can prep the review packet, not send it.",
+        "expected_artifact": "reviewed Gold summary / candidate shortlist",
+        "risk": "medium",
+        "confidence": 0.74
+      }
+    ],
+    "human": [
+      {
+        "id": "human-01",
+        "title": "commitment continuity probe",
+        "why_now": "It is the active mentor probe and still pending; this is the cleanest human decision surface.",
+        "expected_artifact": "probe answer / closure note",
+        "risk": "medium",
+        "confidence": 0.92
+      },
+      {
+        "id": "human-02",
+        "why_now": "Council repeat says epistemic_gap needs an urgent review before the next heartbeat cycle.",
+        "expected_artifact": "one bounded literature query + one contradiction + one execution decision",
+        "risk": "medium-high",
+        "confidence": 0.83
+      }
+    ]
+  },
+  "evidence": [
+    "state\\handoff\\latest.json",
+    "state\\checkpoints\\pipeline.json",
+    "artifacts\\summaries\\gold_summary.json",
+    "artifacts\\reports\\kairos_daily_strategy.md"
+  ]
+}

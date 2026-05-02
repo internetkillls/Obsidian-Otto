@@ -1,0 +1,350 @@
+{
+  "ok": false,
+  "mode": "fresh",
+  "scheduled": false,
+  "started_at": "2026-04-28T07:43:38+07:00",
+  "finished_at": "2026-04-28T08:41:29+07:00",
+  "steps": [
+    {
+      "name": "docker",
+      "ok": true,
+      "reason": "docker-daemon-running"
+    },
+    {
+      "name": "mcp-clean",
+      "ok": true,
+      "status": "ok",
+      "containers": [
+        {
+          "id": "b528de2ec4ff",
+          "name": "obsidian-otto-obsidian-mcp-run-2ea960f4476f"
+        },
+        {
+          "id": "6e3a3ae79336",
+          "name": "obsidian-otto-obsidian-mcp-run-cc5c94f982de"
+        },
+        {
+          "id": "fc9f52c01738",
+          "name": "obsidian-otto-obsidian-mcp-run-f69ae2536649"
+        },
+        {
+          "id": "1c3a336b143d",
+          "name": "obsidian-otto-obsidian-mcp-run-86991279e150"
+        },
+        {
+          "id": "2a54866c4c58",
+          "name": "obsidian-otto-obsidian-mcp-run-5c83641ebf88"
+        },
+        {
+          "id": "6ba17605e7a4",
+          "name": "obsidian-otto-obsidian-mcp-run-48ac349fdfa9"
+        },
+        {
+          "id": "31a0d6e23fd3",
+          "name": "obsidian-otto-obsidian-mcp-run-37172da5efda"
+        },
+        {
+          "id": "cd797b595950",
+          "name": "obsidian-otto-obsidian-mcp-run-e1ef0326628a"
+        },
+        {
+          "id": "23c7d2d0e86c",
+          "name": "obsidian-otto-obsidian-mcp-run-9a1a20397fcf"
+        },
+        {
+          "id": "caf57dc39c48",
+          "name": "obsidian-otto-obsidian-mcp-run-a18b0819c81c"
+        },
+        {
+          "id": "0b9af9299645",
+          "name": "obsidian-otto-obsidian-mcp-run-ae5025143f2d"
+        },
+        {
+          "id": "f3100d480e16",
+          "name": "obsidian-otto-obsidian-mcp-run-218207ae9bc2"
+        },
+        {
+          "id": "13c242c2ecb5",
+          "name": "obsidian-otto-obsidian-mcp-run-5bc3ef70e797"
+        },
+        {
+          "id": "fd582a92cbe5",
+          "name": "obsidian-otto-obsidian-mcp-run-be50f6486b58"
+        },
+        {
+          "id": "95423126f6f4",
+          "name": "obsidian-otto-obsidian-mcp-run-61c0b73fd72a"
+        },
+        {
+          "id": "aabc61a1cb0a",
+          "name": "obsidian-otto-obsidian-mcp-run-f5a03354bed4"
+        },
+        {
+          "id": "b96c44719b44",
+          "name": "obsidian-otto-obsidian-mcp-run-d06d237b880f"
+        },
+        {
+          "id": "0e140bd4b3a3",
+          "name": "obsidian-otto-obsidian-mcp-run-ca5c1a4755c2"
+        },
+        {
+          "id": "cb37d8a9bef4",
+          "name": "obsidian-otto-obsidian-mcp-run-73d377791121"
+        },
+        {
+          "id": "10f20369d06b",
+          "name": "obsidian-otto-obsidian-mcp-run-d7d1a3661837"
+        }
+      ],
+      "count": 20,
+      "removed": [
+        "obsidian-otto-obsidian-mcp-run-2ea960f4476f",
+        "obsidian-otto-obsidian-mcp-run-cc5c94f982de",
+        "obsidian-otto-obsidian-mcp-run-f69ae2536649",
+        "obsidian-otto-obsidian-mcp-run-86991279e150",
+        "obsidian-otto-obsidian-mcp-run-5c83641ebf88",
+        "obsidian-otto-obsidian-mcp-run-48ac349fdfa9",
+        "obsidian-otto-obsidian-mcp-run-37172da5efda",
+        "obsidian-otto-obsidian-mcp-run-e1ef0326628a",
+        "obsidian-otto-obsidian-mcp-run-9a1a20397fcf",
+        "obsidian-otto-obsidian-mcp-run-a18b0819c81c",
+        "obsidian-otto-obsidian-mcp-run-ae5025143f2d",
+        "obsidian-otto-obsidian-mcp-run-218207ae9bc2",
+        "obsidian-otto-obsidian-mcp-run-5bc3ef70e797",
+        "obsidian-otto-obsidian-mcp-run-be50f6486b58",
+        "obsidian-otto-obsidian-mcp-run-61c0b73fd72a",
+        "obsidian-otto-obsidian-mcp-run-f5a03354bed4",
+        "obsidian-otto-obsidian-mcp-run-d06d237b880f",
+        "obsidian-otto-obsidian-mcp-run-ca5c1a4755c2",
+        "obsidian-otto-obsidian-mcp-run-73d377791121",
+        "obsidian-otto-obsidian-mcp-run-d7d1a3661837"
+      ],
+      "remove_stdout": "b528de2ec4ff\n6e3a3ae79336\nfc9f52c01738\n1c3a336b143d\n2a54866c4c58\n6ba17605e7a4\n31a0d6e23fd3\ncd797b595950\n23c7d2d0e86c\ncaf57dc39c48\n0b9af9299645\nf3100d480e16\n13c242c2ecb5\nfd582a92cbe5\n95423126f6f4\naabc61a1cb0a\nb96c44719b44\n0e140bd4b3a3\ncb37d8a9bef4\n10f20369d06b",
+      "remove_stderr": "",
+      "transport": "direct"
+    },
+    {
+      "name": "docker-compose-up",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "docker-compose.yml",
+        "--profile",
+        "vector",
+        "--profile",
+        "worker",
+        "--profile",
+        "mcp",
+        "up",
+        "-d",
+        "--force-recreate"
+      ],
+      "exit_code": 0
+    },
+    {
+      "name": "infra-after-compose",
+      "ok": true,
+      "infra": {
+        "docker_available": true,
+        "daemon_running": true,
+        "running_services_known": true,
+        "configured_services": [
+          "postgres",
+          "adminer",
+          "chromadb",
+          "otto-indexer",
+          "obsidian-mcp"
+        ],
+        "running_services": [
+          "postgres",
+          "adminer",
+          "chromadb",
+          "otto-indexer",
+          "obsidian-mcp"
+        ],
+        "docker_probe_status": "ok",
+        "docker_probe_transport": "direct",
+        "docker_probe_error": null,
+        "postgres_reachable": true,
+        "mcp_reachable": true,
+        "next_safe_action": "status"
+      }
+    },
+    {
+      "name": "openclaw-config-sync",
+      "ok": true,
+      "result": {
+        "ts": "2026-04-28T07:43:58+07:00",
+        "reference_source": "C:\\Users\\joshu\\Obsidian-Otto\\.openclaw\\openclaw.json",
+        "live_config_path": "C:\\Users\\joshu\\.openclaw\\openclaw.json",
+        "boundary_mode": "managed-sync",
+        "sync_performed": true,
+        "config_drift_free": true,
+        "managed_hashes_match": true,
+        "anthropic_ready": true,
+        "hf_fallback_ready": true,
+        "huggingface_provider_present": true,
+        "expected_hf_model_present": true,
+        "reference_parse_error": null,
+        "live_parse_error": null,
+        "backup_path": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\backups\\openclaw_20260428_074358_0700.bak.json",
+        "changed_sections": [
+          "env",
+          "memory"
+        ],
+        "otto_env_contract": {
+          "OTTO_REPO_ROOT": "C:\\Users\\joshu\\Obsidian-Otto",
+          "OTTO_VAULT_HOST": "C:\\Users\\joshu\\Josh Obsidian",
+          "OTTO_VAULT_PATH": "C:\\Users\\joshu\\Josh Obsidian",
+          "OTTO_STATE_ROOT": "C:\\Users\\joshu\\Obsidian-Otto\\state",
+          "OTTO_LAUNCHER": "otto.bat",
+          "OTTO_LOOP_MODE": "local",
+          "PYTHONUTF8": "1",
+          "PYTHONIOENCODING": "utf-8"
+        },
+        "qmd_index": {
+          "ok": false,
+          "config_source": "C:\\Users\\joshu\\.openclaw\\openclaw.json",
+          "backend": "qmd",
+          "backend_is_qmd": true,
+          "sources": [],
+          "source_count": 0,
+          "sources_all_ok": false
+        },
+        "cli_validation": {
+          "skipped": true,
+          "reason": "Otto no longer performs OpenClaw subprocess validation."
+        },
+        "cron_contract": {
+          "ok": true,
+          "reason": "cron-contract-synced",
+          "jobs_path": "C:\\Users\\joshu\\.openclaw\\cron\\jobs.json",
+          "contract_path": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\cron_contract_v1.json",
+          "sync_performed": true,
+          "job_count": 13,
+          "observed_issues": [
+            "Memory Dreaming Promotion: cron timezone should be Asia/Bangkok",
+            "Memory Dreaming Promotion: cron expression should be 0 11 * * * instead of 0 3 * * *"
+          ],
+          "current_issues": [],
+          "fixes_applied": [
+            "Memory Dreaming Promotion: set cron timezone to Asia/Bangkok",
+            "Memory Dreaming Promotion: moved cron schedule to 0 11 * * *"
+          ]
+        },
+        "dreaming_guardrails": {
+          "ok": true,
+          "reason": "dreaming-artifacts-sanitized",
+          "vault_path": "C:\\Users\\joshu\\Josh Obsidian",
+          "report_files_changed": [
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-22.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-23.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-24.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-25.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-26.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-27.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\light\\2026-04-28.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-22.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-23.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-24.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-25.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-26.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-27.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\rem\\2026-04-28.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-22.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-23.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-24.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-25.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-26.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-27.md",
+            "C:\\Users\\joshu\\Josh Obsidian\\memory\\dreaming\\deep\\2026-04-28.md"
+          ],
+          "daily_notes_changed": [],
+          "report_change_count": 21,
+          "daily_note_change_count": 0
+        }
+      }
+    },
+    {
+      "name": "openclaw-gateway-probe",
+      "ok": false,
+      "reason": "gateway-http-unhealthy",
+      "status": "unhealthy",
+      "port": 18789,
+      "base_url": "http://127.0.0.1:18789",
+      "pids": [],
+      "port_open": false,
+      "health_status": null,
+      "health_json": null,
+      "health_error": "<urlopen error timed out>",
+      "root_status": null,
+      "root_error": "<urlopen error timed out>",
+      "cli_bypass_recommended": false,
+      "transient_restart_window": false,
+      "restart_state": "attempting",
+      "restart_last_event_at": "2026-04-27T16:01:57+07:00",
+      "restart_last_event": "[27/04/2026 16:01:57,68] openclaw restart attempt source=windows-task-handoff target=\"OpenClaw Gateway\"",
+      "checked_at": "2026-04-28T07:44:05+07:00",
+      "last_ok_at": "2026-04-28T05:18:49+07:00",
+      "last_failure_at": "2026-04-28T07:44:05+07:00",
+      "last_failure_reason": "gateway-http-unhealthy"
+    },
+    {
+      "name": "openclaw-gateway-restart",
+      "ok": false,
+      "reason": "gateway-restart-timeout",
+      "gateway_cmd": "C:\\Users\\joshu\\.openclaw\\gateway.cmd",
+      "port": 18789,
+      "before_pids": [],
+      "after_pids": [
+        47412
+      ],
+      "port_open_before": false,
+      "port_open_after": false,
+      "stop_exit": 0,
+      "start_exit": 0,
+      "start_pid": null,
+      "stdout_log": "C:\\Users\\joshu\\.openclaw\\logs\\gateway-reload.out.log",
+      "stderr_log": "C:\\Users\\joshu\\.openclaw\\logs\\gateway-reload.err.log"
+    },
+    {
+      "name": "runtime",
+      "ok": true,
+      "reason": "runtime-started",
+      "pid": 47836
+    },
+    {
+      "name": "infra-final",
+      "ok": true,
+      "infra": {
+        "docker_available": true,
+        "daemon_running": true,
+        "running_services_known": true,
+        "configured_services": [
+          "postgres",
+          "adminer",
+          "chromadb",
+          "otto-indexer",
+          "obsidian-mcp"
+        ],
+        "running_services": [
+          "postgres",
+          "adminer",
+          "chromadb",
+          "otto-indexer",
+          "obsidian-mcp"
+        ],
+        "docker_probe_status": "ok",
+        "docker_probe_transport": "direct",
+        "docker_probe_error": null,
+        "postgres_reachable": true,
+        "mcp_reachable": true,
+        "next_safe_action": "status"
+      }
+    }
+  ],
+  "errors": [
+    "gateway-restart-timeout"
+  ]
+}

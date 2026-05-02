@@ -1,0 +1,1 @@
+"""QMD sidecar adapter boundary."""

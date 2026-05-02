@@ -1,0 +1,39 @@
+{
+  "ts": "2026-04-28T12:01:00+07:00",
+  "status": "signal",
+  "followup_auto": [
+    {
+      "id": "auto-allocation-family-fetch",
+      "title": "ALLOCATION-FAMILY bounded fetch + ALLO-only apply",
+      "why_now": "graph-demotion review is ready and the next action is explicit",
+      "expected_artifact": "refreshed fetch evidence + next ALLO-only batch result",
+      "risk": "weak fetch could waste a cycle",
+      "confidence": 0.88
+    }
+  ],
+  "followup_human": [
+    {
+      "id": "human-commitment-continuity-probe",
+      "title": "Commitment continuity probe",
+      "why_now": "still pending, and the system keeps flagging recall drift",
+      "expected_artifact": "answered probe note / updated mentor state",
+      "risk": "unresolved commitment gap keeps leaking continuity",
+      "confidence": 0.94
+    },
+    {
+      "id": "human-vault-hygiene-scope",
+      "title": "Vault hygiene pass on the top-risk folder: 00-Meta\\scarcity",
+      "why_now": "it is the highest-risk folder and still has duplicate-title pressure",
+      "expected_artifact": "scoped repair decision and 3 representative files",
+      "risk": "repair scope may sprawl without a narrow stop condition",
+      "confidence": 0.79
+    }
+  ],
+  "evidence": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\run_journal\\graph_demotion_review_latest.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md",
+    "C:\\Users\\joshu\\Josh Obsidian\\.Otto-Realm\\Training\\probes\\2026-04-25-commitment-continuity-probe.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\mentor_daily.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json"
+  ]
+}

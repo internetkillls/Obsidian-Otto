@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "runtime_state": "S4_WSL_LIVE",
+  "gateway_owner": "ubuntu_openclaw",
+  "telegram_owner": "ubuntu_openclaw",
+  "qmd_owner": "ubuntu_wsl",
+  "updated_at": "2026-05-02T14:10:00+07:00",
+  "windows_openclaw": {
+    "role": "rollback",
+    "gateway_owner": false,
+    "config_path": "C:\\Users\\joshu\\Obsidian-Otto\\.openclaw\\openclaw.json",
+    "telegram_enabled": false,
+    "observed_telegram_enabled": false
+  },
+  "ubuntu_openclaw": {
+    "role": "live",
+    "user": "joshu",
+    "home": "/home/joshu",
+    "binary": "/home/joshu/.npm-global/bin/openclaw",
+    "gateway_port": 18790,
+    "gateway_reachable": false,
+    "config_path": "/home/joshu/.openclaw/openclaw.json",
+    "telegram_enabled": true,
+    "observed_telegram_enabled": true
+  },
+  "qmd": {
+    "owner": "ubuntu_wsl",
+    "command": "/usr/bin/qmd",
+    "binary": "/usr/bin/qmd",
+    "version": "2.1.0",
+    "manifest_ok": true,
+    "last_reindex_ok": true,
+    "last_reindex_at": "2026-04-30T02:55:28+07:00"
+  },
+  "docker": {
+    "owner": "ubuntu_wsl"
+  },
+  "vault": {
+    "host": "windows_filesystem",
+    "mounted_in_wsl": true
+  },
+  "safety": {
+    "cutover": true,
+    "telegram_single_owner_required": true,
+    "raw_social_to_qmd_allowed": false,
+    "raw_social_to_vault_allowed": false
+  }
+}

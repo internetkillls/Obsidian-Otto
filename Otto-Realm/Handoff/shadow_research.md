@@ -1,0 +1,6 @@
+WEAKNESS_POINT: Commitments are easy to lose across cycles.
+GENUINE_INSIGHT: The system already knows the weak spots; the bottleneck is re-entry, not diagnosis.
+ACADEMIC_DIRECTION: Bounded retrieval on commitment continuity, overload narrowing, and stop-condition design.
+WHY_NOW: Repeated pending probes plus current metadata repair load make this a high-leverage control point.
+USER_QUESTION: Which one probe should be answered first: commitment continuity, narrowing, or re-entry?
+NEXT_NOTE: Answer the highest-priority probe with one concrete next move.

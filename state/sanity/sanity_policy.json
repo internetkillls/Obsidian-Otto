@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "mode": "fail_closed",
+  "default_behavior": {
+    "auto_repair": false,
+    "auto_delete": false,
+    "auto_promote": false,
+    "auto_qmd_reindex": false,
+    "auto_vault_write": false,
+    "quarantine_ambiguous": true,
+    "require_repair_plan": true
+  },
+  "required_record_fields": [
+    "id",
+    "state",
+    "kind",
+    "created_at",
+    "privacy",
+    "evidence_refs",
+    "qmd_index_allowed",
+    "vault_writeback_allowed"
+  ],
+  "allowed_unknowns": {
+    "source_id": false,
+    "privacy": false,
+    "state": false,
+    "kind": false,
+    "owner": false
+  },
+  "staleness_days": {
+    "candidate": 14,
+    "pending_review": 30,
+    "action_selected": 2,
+    "song_skeleton_candidate": 14,
+    "paper_onboarding_candidate": 21
+  },
+  "fail_conditions": [
+    "gold_without_review",
+    "vault_write_without_reviewed_or_gold",
+    "qmd_index_raw_or_candidate",
+    "candidate_profile_in_context_pack",
+    "unreviewed_council_in_context_pack",
+    "missing_source_registry_entry",
+    "dangling_evidence_ref",
+    "duplicate_active_owner",
+    "success_without_expected_output"
+  ],
+  "warning_conditions": [
+    "stale_candidate",
+    "low_evidence_candidate",
+    "duplicate_semantic_candidate",
+    "too_many_pending_reviews",
+    "heartbeat_generated_zero_candidates_with_reason"
+  ]
+}

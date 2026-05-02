@@ -1,0 +1,28 @@
+{
+  "goal": "Maintain a stable Obsidian-Otto retrieval core",
+  "status": "ready",
+  "updated_at": "2026-04-01T00:00:00+07:00",
+  "artifacts": [
+    "artifacts/summaries/gold_summary.json"
+  ],
+  "next_actions": [
+    "repair metadata in the top risky folder"
+  ],
+  "manual_review_queue": [
+    {
+      "id": "folder-1-00-Meta__scarcity",
+      "kind": "folder-repair",
+      "priority": 990,
+      "title": "Review folder hygiene: 00-Meta\\scarcity",
+      "source": "artifacts/summaries/gold_summary.json",
+      "why_now": "risk=45.41 missing_frontmatter=0 duplicate_titles=15 note_count=889",
+      "evidence": {
+        "representative_files": []
+      },
+      "next_manual_step": "Inspect the representative files, then decide whether to normalize metadata or split the folder into smaller clusters."
+    }
+  ],
+  "manual_review_queue_path": "state/handoff/manual_review_queue.json",
+  "manual_review_queue_report_path": "artifacts/reports/manual_review_queue.md",
+  "manual_review_queue_count": 1
+}

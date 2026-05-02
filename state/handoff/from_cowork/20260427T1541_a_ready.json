@@ -1,0 +1,43 @@
+{
+  "ts": "2026-04-27T15:41:00+07:00",
+  "role": "A",
+  "status": "ready",
+  "pending_override": null,
+  "followups": {
+    "auto": [
+      {
+        "id": "auto-allo-fetch-apply",
+        "title": "Bounded ALLOCATION-FAMILY fetch + next ALLO-only apply",
+        "why_now": "pipeline is ready, the graph-demotion review is approved, and the next action is already explicit.",
+        "expected_artifact": "refreshed graph-demotion writeback or run-journal note",
+        "risk": "weak retrieval could slow the next batch",
+        "confidence": 0.92
+      },
+      {
+        "id": "auto-vault-hygiene-evidence",
+        "title": "Vault hygiene evidence bundle for the highest-risk folders",
+        "why_now": "the active task asks for severity, missing frontmatter, duplicate titles, suspicious links, and representative files.",
+        "expected_artifact": "scoped risk notes plus 3 representative files for the top-risk folder",
+        "risk": "structural fixes may still need human approval",
+        "confidence": 0.84
+      }
+    ],
+    "human": [
+      {
+        "id": "human-commitment-continuity",
+        "title": "Commitment continuity probe",
+        "why_now": "the probe is still pending and directly matches the current mentor weakness.",
+        "expected_artifact": "answered probe or training note",
+        "risk": "needs user reflection; machine cannot invent the missing memory",
+        "confidence": 0.89
+      }
+    ]
+  },
+  "evidence": [
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\handoff\\latest.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\state\\checkpoints\\pipeline.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\summaries\\gold_summary.json",
+    "C:\\Users\\joshu\\Obsidian-Otto\\artifacts\\reports\\kairos_daily_strategy.md",
+    "C:\\Users\\joshu\\Obsidian-Otto\\tasks\\active\\vault-hygiene-pass-01.md"
+  ]
+}
