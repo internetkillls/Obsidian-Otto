@@ -68,3 +68,12 @@ external/postgres/
 data/bronze/
 data/sample/
 artifacts/
+data/
+external/
+CHECKSUMS.sha256
+DREAMS.md
+MANIFEST.full.txt
+MANIFEST.promised.txt
+MEMORY.md
+Otto-Realm-Heartbeat-Template.md
+ZIP-README-FIRST.txt
