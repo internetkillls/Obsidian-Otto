@@ -54,3 +54,17 @@ scripts/vault-home-extract/
 *.7z
 *.tar
 *.gz
+
+# Local runtime and vault-side state (keep repo code+docs only)
+.openclaw/
+.claude/settings.local.json
+.claude/worktrees/
+Otto-Realm/
+Handoff/
+state/
+logs/
+memory/
+external/postgres/
+data/bronze/
+data/sample/
+artifacts/

@@ -1,8 +1,0 @@
-{
-  "ts": "2026-04-24T16:00:00+07:00",
-  "role": "B",
-  "verdict": "machine",
-  "next_anchor": "00-Meta\\scarcity metadata repair and scoped pipeline refresh",
-  "followup_auto": ["auto_fix_frontmatter_top_risky", "auto_scoped_pipeline_refresh"],
-  "followup_human": ["human_urgent_review_escalation"]
-}

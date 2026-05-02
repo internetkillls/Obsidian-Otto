@@ -1,9 +1,0 @@
-{
-  "ok": true,
-  "owner": "wsl",
-  "windows_telegram_enabled": false,
-  "wsl_telegram_enabled": true,
-  "updated_at": "2026-04-30T00:33:36+07:00",
-  "native_config": "C:\\Users\\joshu\\Obsidian-Otto\\.openclaw\\openclaw.json",
-  "wsl_shadow_config": "C:\\Users\\joshu\\Obsidian-Otto\\state\\openclaw\\ubuntu-shadow\\openclaw.json"
-}

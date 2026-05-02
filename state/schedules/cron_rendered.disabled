@@ -1,7 +1,0 @@
-# Otto creative heartbeat plan (disabled by design)
-# Do not install as OS cron without explicit enable step.
-
-# 0 */4 * * * /mnt/c/Users/joshu/Obsidian-Otto/scripts/wsl/otto-cli-wsl.sh song-skeleton --dry-run  # song_skeleton
-# 0 */5 * * * /mnt/c/Users/joshu/Obsidian-Otto/scripts/wsl/otto-cli-wsl.sh paper-onboarding --dry-run  # paper_onboarding
-# 0 */24 * * * /mnt/c/Users/joshu/Obsidian-Otto/scripts/wsl/otto-cli-wsl.sh blocker-experiment --dry-run  # blocker_experiment
-# 0 */8 * * * /mnt/c/Users/joshu/Obsidian-Otto/scripts/wsl/otto-cli-wsl.sh memento-due  # memento_due
