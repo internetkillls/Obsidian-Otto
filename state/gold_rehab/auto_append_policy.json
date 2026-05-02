@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "mode": "marked_safe_append",
+  "risk_max_auto_apply": "R1_LOW_RISK_SEMANTIC",
+  "overwrite_human_fields": false,
+  "requires_patch_ledger": true,
+  "review_required_risks": [
+    "R2_REVIEW_RECOMMENDED",
+    "R3_REVIEW_REQUIRED"
+  ]
+}
